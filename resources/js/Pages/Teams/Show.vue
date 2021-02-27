@@ -8,17 +8,17 @@
 
         <div>
             <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
-                <update-team-name-form :team="team" :permissions="permissions" />
-
+                <update-team-name-form :team="team" :permissions="permissions"/>
+                <update-service :team="team" :user-permissions="permissions"/>
                 <team-member-manager class="mt-10 sm:mt-0"
-                            :team="team"
-                            :available-roles="availableRoles"
-                            :user-permissions="permissions" />
+                                     :team="team"
+                                     :available-roles="availableRoles"
+                                     :user-permissions="permissions"/>
 
                 <template v-if="permissions.canDeleteTeam && ! team.personal_team">
-                    <jet-section-border />
+                    <jet-section-border/>
 
-                    <delete-team-form class="mt-10 sm:mt-0" :team="team" />
+                    <delete-team-form class="mt-10 sm:mt-0" :team="team"/>
                 </template>
             </div>
         </div>
@@ -31,6 +31,7 @@
     import DeleteTeamForm from './DeleteTeamForm'
     import JetSectionBorder from '@/Jetstream/SectionBorder'
     import UpdateTeamNameForm from './UpdateTeamNameForm'
+    import UpdateService from "@/Pages/Teams/UpdateService";
 
     export default {
         props: [
@@ -40,6 +41,7 @@
         ],
 
         components: {
+            UpdateService,
             AppLayout,
             DeleteTeamForm,
             JetSectionBorder,
