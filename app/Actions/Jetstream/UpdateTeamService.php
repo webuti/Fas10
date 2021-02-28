@@ -4,13 +4,11 @@ namespace App\Actions\Jetstream;
 
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Validator;
-use Laravel\Jetstream\Contracts\UpdatesTeamNames;
+use Laravel\Jetstream\Contracts\UpdatesTeamServices;
 
-class UpdateTeamService implements UpdatesTeamNames
+class UpdateTeamService implements UpdatesTeamServices
 {
     /**
-     * team yani şirkete servis ekleme veya silme
-     *
      * @param mixed $user
      * @param mixed $team
      * @param array $input
@@ -18,11 +16,12 @@ class UpdateTeamService implements UpdatesTeamNames
      */
     public function update($user, $team, array $input)
     {
+
         Gate::forUser($user)->authorize('update', $team);
 
         Validator::make($input, [
-            'name' => ['required', 'string', 'max:255'],
-        ])->validateWithBag('updateTeamName');
+            'services' => [],
+        ])->validateWithBag('updateTeamService');
 
         $team->forceFill([
             'name' => $input['name'],

@@ -16,7 +16,10 @@ class Bid extends Migration
         Schema::create('bids', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->longText('description')->nullable(); 
+            $table->integer('user_id');
+            $table->integer('team_id');
+            $table->integer('sector_id');
+            $table->longText('description')->nullable();
             $table->timestamps();
         });
     }

@@ -19,12 +19,10 @@
                         <div class="col-span-6 sm:col-span-4">
 
 
-
-
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div v-for="service in services" :key="service.id">
                                     <label class="flex items-center">
-                                        <jet-checkbox :value="service.id"  />
+                                        <jet-checkbox name="services" :value="service.id"/>
                                         <span class="ml-2 text-sm text-gray-600">{{ service.name}}</span>
                                     </label>
                                 </div>
@@ -36,6 +34,16 @@
                     </div>
                 </div>
             </template>
+            <template #actions>
+                <jet-action-message :on="form.recentlySuccessful" class="mr-3">
+                    Saved.
+                </jet-action-message>
+
+                <jet-button :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                    Save
+                </jet-button>
+            </template>
+
         </jet-form-section>
     </div>
 
@@ -86,15 +94,18 @@
         data() {
             return {
                 form: this.$inertia.form({
-
-                    sectors: this.sector_id,
+                    services: this.services,
                 })
             }
         },
         methods: {
-            updateService(data) {
-                console.log(data, "data geldi");
-            }
+
+            updateService() {
+                this.form.put(route('teams.update', this.team), {
+                    errorBag: 'updateTeamService',
+                    preserveScroll: true
+                });
+            },
         },
 
     }

@@ -15,6 +15,9 @@ use Inertia\Inertia;
 |
 */
 
+
+Route::resource('dashboard/bids', \App\Http\Controllers\BidController::class);
+
 Route::get('/', function () {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
