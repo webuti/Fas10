@@ -14,6 +14,8 @@ use App\Models\Country;
 use App\Models\District;
 use App\Models\Service;
 use App\Models\Sector;
+use App\Models\Team;
+use App\Models\TeamService;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Jetstream\Jetstream;
 use Illuminate\Http\Request;
@@ -51,6 +53,7 @@ class JetstreamServiceProvider extends ServiceProvider
                     'services' => Service::get(),
                     'sectors' => Sector::get(),
                 ]);
+
             }
         );
         Jetstream::createTeamsUsing(CreateTeam::class);

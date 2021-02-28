@@ -49,6 +49,29 @@
             </div>
 
             <div class="col-span-6 sm:col-span-4">
+                <jet-label for="sector_id" value="Sektör"/>
+
+                <select @change="districtLoad()" :disabled="!permissions.canUpdateTeam"
+                        class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full"
+                        v-model="form.sector_id">
+                    <option :value="sector.id" v-for="sector in sectors">{{sector.name}}</option>
+                </select>
+
+
+                <jet-input-error :message="form.errors.sector_id" class="mt-2"/>
+            </div>
+            <div class="col-span-6 sm:col-span-4">
+                <jet-label for="number_of_staff" value="Çalışan personel sayısı"/>
+
+                <jet-input id="number_of_staff"
+                           type="number"
+                           class="mt-1 block w-full"
+                           v-model="form.number_of_staff"
+                           :disabled="!permissions.canUpdateTeam"/>
+
+                <jet-input-error :message="form.errors.number_of_staff" class="mt-2"/>
+            </div>
+            <div class="col-span-6 sm:col-span-4">
                 <jet-label for="country_id" value="Ülke"/>
 
                 <select :disabled="!permissions.canUpdateTeam"
@@ -61,31 +84,27 @@
                 <jet-input-error :message="form.errors.country_id" class="mt-2"/>
             </div>
 
+            <template v-if="form.country_id === 1">
+                <div class="col-span-6 sm:col-span-4">
+                    <jet-label for="city" value="Şehir"/>
 
-            <div class="col-span-6 sm:col-span-4">
-                <jet-label for="city" value="Şehir"/>
-
-                <select @change="districtLoad()" :disabled="!permissions.canUpdateTeam"
-                        class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full"
-                        v-model="form.city_id">
-                    <option :value="city.id" v-for="city in cities">{{city.name}}</option>
-                </select>
-
-
-                <jet-input-error :message="form.errors.city" class="mt-2"/>
-            </div>
-
-
-            <div class="col-span-6 sm:col-span-4">
-                <jet-label for="district_id" value="İlçe"/>
-                <select @change="districtLoad()" :disabled="!permissions.canUpdateTeam"
-                        class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full"
-                        v-model="form.district_id">
-                    <option :value="district.id" v-for="district in districts">{{district.name}}</option>
-                </select>
-                <jet-input-error :message="form.errors.district_id" class="mt-2"/>
-            </div>
-
+                    <select @change="districtLoad()" :disabled="!permissions.canUpdateTeam"
+                            class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full"
+                            v-model="form.city_id">
+                        <option :value="city.id" v-for="city in cities">{{city.name}}</option>
+                    </select>
+                    <jet-input-error :message="form.errors.city" class="mt-2"/>
+                </div>
+                <div class="col-span-6 sm:col-span-4">
+                    <jet-label for="district_id" value="İlçe"/>
+                    <select @change="districtLoad()" :disabled="!permissions.canUpdateTeam"
+                            class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full"
+                            v-model="form.district_id">
+                        <option :value="district.id" v-for="district in districts">{{district.name}}</option>
+                    </select>
+                    <jet-input-error :message="form.errors.district_id" class="mt-2"/>
+                </div>
+            </template>
         </template>
 
         <template #actions v-if="permissions.canUpdateTeam">
@@ -119,25 +138,24 @@
             JetLabel,
         },
 
-        props: ['team', 'permissions', 'cities', 'countries','districts'],
+        props: ['team', 'permissions', 'cities', 'countries', 'districts', 'sectors'],
 
         data() {
             return {
                 form: this.$inertia.form({
                     name: this.team.name,
                     description: this.team.description,
+                    sector_id: this.team.sector_id,
+                    number_of_staff: this.team.number_of_staff,
                     city_id: this.team.city_id,
                     country_id: this.team.country_id,
                     district_id: this.team.district_id,
                 })
             }
         },
-        created() {
-            console.log("districts", this.districts);
-        },
         methods: {
             districtLoad() {
-                Inertia.reload({ only: ['districts'] })
+                Inertia.reload({only: ['districts']})
             },
             updateTeamName() {
                 this.form.put(route('teams.update', this.team), {

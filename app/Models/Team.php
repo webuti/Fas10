@@ -30,7 +30,7 @@ class Team extends JetstreamTeam
         'name',
         'personal_team',
         'description', 'phone',
-        'number_of_staff', 'city_id', 'district_id', 'country_id'
+        'number_of_staff', 'city_id', 'district_id', 'country_id', 'sector_id'
 
     ];
 
@@ -44,4 +44,7 @@ class Team extends JetstreamTeam
         'updated' => TeamUpdated::class,
         'deleted' => TeamDeleted::class,
     ];
+
+
+
 }

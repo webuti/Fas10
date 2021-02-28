@@ -24,6 +24,8 @@ class UpdateTeamName implements UpdatesTeamNames
             'name' => ['required', 'string', 'max:255'],
             'description' => ['required', 'string', 'max:255'],
             'country_id' => ['required', 'integer'],
+            'number_of_staff' => ['integer'],
+            'sector_id' => ['integer'],
             'city_id' => ['required', 'integer'],
         ])->validateWithBag('updateTeamName');
 
@@ -33,6 +35,8 @@ class UpdateTeamName implements UpdatesTeamNames
             'city_id' => $input['city_id'],
             'district_id' => $input['district_id'],
             'country_id' => $input['country_id'],
+            'sector_id' => $input['sector_id'],
+            'number_of_staff' => $input['number_of_staff'],
         ])->save();
     }
 }
