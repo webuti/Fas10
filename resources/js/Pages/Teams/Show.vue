@@ -8,8 +8,10 @@
 
         <div>
             <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
-                <update-team-name-form :team="team" :permissions="permissions"/>
-                <update-service :team="team" :user-permissions="permissions"/>
+                <update-team-name-form :cities="cities" :countries="countries" :districts="districts"
+                                       :team="team" :permissions="permissions"/>
+                <update-service :team="team" :sectors="sectors" :services="services"
+                                :user-permissions="permissions"/>
                 <team-member-manager class="mt-10 sm:mt-0"
                                      :team="team"
                                      :available-roles="availableRoles"
@@ -38,6 +40,11 @@
             'team',
             'availableRoles',
             'permissions',
+            'cities',
+            'countries',
+            'districts',
+            'services',
+            'sectors',
         ],
 
         components: {

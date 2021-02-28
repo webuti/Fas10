@@ -6,10 +6,10 @@ use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Validator;
 use Laravel\Jetstream\Contracts\UpdatesTeamNames;
 
-class UpdateTeamName implements UpdatesTeamNames
+class UpdateTeamService implements UpdatesTeamNames
 {
     /**
-     * Validate and update the given team's name.
+     * team yani şirkete servis ekleme veya silme
      *
      * @param mixed $user
      * @param mixed $team
@@ -22,17 +22,10 @@ class UpdateTeamName implements UpdatesTeamNames
 
         Validator::make($input, [
             'name' => ['required', 'string', 'max:255'],
-            'description' => ['required', 'string', 'max:255'],
-            'country_id' => ['required', 'integer'],
-            'city_id' => ['required', 'integer'],
         ])->validateWithBag('updateTeamName');
 
         $team->forceFill([
             'name' => $input['name'],
-            'description' => $input['description'],
-            'city_id' => $input['city_id'],
-            'district_id' => $input['district_id'],
-            'country_id' => $input['country_id'],
         ])->save();
     }
 }

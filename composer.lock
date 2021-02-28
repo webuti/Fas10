@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1546a52d759d6e085136b17508959be0",
+    "content-hash": "3570a34a984828469e2c54ed27346081",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -558,6 +558,62 @@
                 }
             ],
             "time": "2020-12-29T14:50:06+00:00"
+        },
+        {
+            "name": "epigra/trgeozones",
+            "version": "3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/epigra/tr-geozones.git",
+                "reference": "4757df35838d99913f071287d2111c51b04b8b65"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/epigra/tr-geozones/zipball/4757df35838d99913f071287d2111c51b04b8b65",
+                "reference": "4757df35838d99913f071287d2111c51b04b8b65",
+                "shasum": ""
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Epigra\\TrGeoZones\\Providers\\TrGeoZonesServiceProvider"
+                    ],
+                    "aliases": []
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Epigra\\TrGeoZones\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Uğur Aydoğdu",
+                    "email": "ugur.aydogdu@epigra.com"
+                }
+            ],
+            "description": "Türkiye İl İlçe Semt Muhit Mahalle ve Posta Kodları Laravel Paketi. Adds Turkish Geographical Zones Support to your project including Cities, Districts and Countries in Turkish",
+            "keywords": [
+                "Turkish",
+                "city",
+                "country",
+                "database",
+                "district",
+                "il",
+                "ilce",
+                "laravel",
+                "veritabani"
+            ],
+            "support": {
+                "issues": "https://github.com/epigra/tr-geozones/issues",
+                "source": "https://github.com/epigra/tr-geozones/tree/3.1"
+            },
+            "time": "2021-01-11T07:08:00+00:00"
         },
         {
             "name": "fideloper/proxy",

@@ -9,8 +9,15 @@ use App\Actions\Jetstream\DeleteUser;
 use App\Actions\Jetstream\InviteTeamMember;
 use App\Actions\Jetstream\RemoveTeamMember;
 use App\Actions\Jetstream\UpdateTeamName;
+use App\Models\City;
+use App\Models\Country;
+use App\Models\District;
+use App\Models\Service;
+use App\Models\Sector;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Jetstream\Jetstream;
+use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class JetstreamServiceProvider extends ServiceProvider
 {
@@ -33,6 +40,19 @@ class JetstreamServiceProvider extends ServiceProvider
     {
         $this->configurePermissions();
 
+
+        Jetstream::inertia()->whenRendering(
+            'Teams/Show',
+            function (Request $request, array $data) {
+
+                return array_merge($data, [
+                    'cities' => City::get(),
+                    'countries' => Country::get(),
+                    'services' => Service::get(),
+                    'sectors' => Sector::get(),
+                ]);
+            }
+        );
         Jetstream::createTeamsUsing(CreateTeam::class);
         Jetstream::updateTeamNamesUsing(UpdateTeamName::class);
         Jetstream::addTeamMembersUsing(AddTeamMember::class);
@@ -40,6 +60,8 @@ class JetstreamServiceProvider extends ServiceProvider
         Jetstream::removeTeamMembersUsing(RemoveTeamMember::class);
         Jetstream::deleteTeamsUsing(DeleteTeam::class);
         Jetstream::deleteUsersUsing(DeleteUser::class);
+
+
     }
 
     /**

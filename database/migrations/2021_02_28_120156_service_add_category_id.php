@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Sector extends Migration
+class ServiceAddCategoryId extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class Sector extends Migration
      */
     public function up()
     {
-        Schema::create('sectors', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->timestamps();
+        Schema::table('services', function (Blueprint $table) {
+
+            $table->integer('sector_id');
         });
     }
 
@@ -27,6 +26,8 @@ class Sector extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sectors');
+        Schema::table('services', function (Blueprint $table) {
+            $table->dropColumn('sector_id');
+        });
     }
 }

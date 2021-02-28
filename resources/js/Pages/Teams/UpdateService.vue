@@ -1,27 +1,42 @@
 <template>
     <div>
-            <jet-section-border/>
+        <jet-section-border/>
 
-            <!-- Add Team Member -->
-            <jet-form-section @submitted="updateService">
-                <template #title>
-                    Servisler
-                </template>
+        <!-- Add Team Member -->
+        <jet-form-section @submitted="updateService">
+            <template #title>
+                Servisler
+            </template>
 
-                <template #description>
-                    Şirketinizin sunduğu hizmetleri seçmelisiniz.
-                </template>
+            <template #description>
+                Şirketinizin sunduğu hizmetleri seçmelisiniz.
+            </template>
 
-                <template #form>
-                    <div class="col-span-6">
-                        <div class="max-w-xl text-sm text-gray-600">
-                            Doğru seçimler yapmanız şirketinizin bulunabilirliğini artıracaktır.
+            <template #form>
+                <div class="col-span-6">
+                    <div class="max-w-xl text-sm text-gray-600">
+                        Doğru seçimler yapmanız şirketinizin bulunabilirliğini artıracaktır.
 
+                        <div class="col-span-6 sm:col-span-4">
+                            <jet-label for="sector" value="Sektör"/>
+
+                            <select
+                                 id="sector"
+                                    class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full"
+                                    v-model="form.category_id">
+                                <option :value="sector.id" v-for="sector in sectors">{{sector.name}}</option>
+                            </select>
+                            <jet-input-error :message="form.errors.sector_id" class="mt-2"/>
                         </div>
+
+                        {{sectors}}
+                        {{services}}
+
                     </div>
-                </template>
-            </jet-form-section>
-        </div>
+                </div>
+            </template>
+        </jet-form-section>
+    </div>
 
 
 </template>
@@ -46,6 +61,8 @@
         props: [
             'team',
             'availableRoles',
+            'services',
+            'sectors',
             'userPermissions'
         ],
         name: "update-service",
@@ -62,6 +79,17 @@
             JetLabel,
             JetSecondaryButton,
             JetSectionBorder,
+        },
+        data() {
+            return {
+                form: this.$inertia.form({
+                    name: this.team.name,
+                    description: this.team.description,
+                    city_id: this.team.city_id,
+                    country_id: this.team.country_id,
+                    district_id: this.team.district_id,
+                })
+            }
         },
         methods: {
             updateService(data) {
