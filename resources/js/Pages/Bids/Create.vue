@@ -8,7 +8,7 @@
         <div>
             <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
 
-                <jet-form-section @submitted="updateBid">
+                <jet-form-section @submitted="createBids">
                     <template #title>
                         İlan Bilgileri
                     </template>
@@ -65,7 +65,7 @@
     import JetLabel from "@/Jetstream/Label";
 
     export default {
-        name: "Update",
+        name: "Create",
         components: {
             AppLayout,
             JetButton,
@@ -75,20 +75,19 @@
             JetLabel,
         },
         methods: {
-            updateBid() {
-                this.form.post(route('bids.update', this.bid.id), {
-                    errorBag: 'updateBid',
+            createBids() {
+                this.form.post(route('bids.store'), {
+                    errorBag: 'createBids',
                     preserveScroll: true
                 });
             }
         },
-        props: ['bid'],
         data() {
             return {
                 form: this.$inertia.form({
-                    title: this.bid.title,
-                    description: this.bid.description,
-                    sector_id: this.bid.sector_id,
+                    title: '',
+                    description: '',
+                    sector_id: '',
 
                 })
             }

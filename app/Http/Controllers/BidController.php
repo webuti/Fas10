@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Bid;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 
 class BidController extends Controller
@@ -27,7 +29,7 @@ class BidController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('Bids/Create');
     }
 
     /**
@@ -38,7 +40,22 @@ class BidController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $input = $request->all();
+
+        if (Bid::create([
+            'title' => $input['title'],
+            'description' => $input['description'],
+            'sector_id' => $input['sector_id'],
+            'user_id' => Auth::user()->id,
+            'team_id' => Auth::user()->current_team_id,
+
+        ])) {
+            $request->session()->flash('status', 'İlan başarılı olarak eklendi');
+            return Redirect::route('bids.index');
+        }
+
+
     }
 
     /**
@@ -50,9 +67,8 @@ class BidController extends Controller
     public function show(Bid $bid)
     {
 
-
         return Inertia::render('Bids/Show', [
-            'data' => 'test'
+            'bid' => $bid
         ]);
     }
 

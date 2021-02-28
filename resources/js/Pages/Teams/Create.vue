@@ -8,7 +8,9 @@
 
         <div>
             <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
-                <create-team-form />
+                {{countries}}
+                <create-team-form :cities="cities" :countries="countries" :districts="districts"
+                                  :sectors="sectors"/>
             </div>
         </div>
     </app-layout>
@@ -19,6 +21,13 @@
     import CreateTeamForm from './CreateTeamForm'
 
     export default {
+        props: [
+            'cities',
+            'countries',
+            'districts',
+            'services',
+            'sectors',
+        ],
         components: {
             AppLayout,
             CreateTeamForm,

@@ -43,6 +43,15 @@ class JetstreamServiceProvider extends ServiceProvider
         $this->configurePermissions();
 
 
+
+        Jetstream::createTeamsUsing(CreateTeam::class);
+        Jetstream::updateTeamNamesUsing(UpdateTeamName::class);
+        Jetstream::addTeamMembersUsing(AddTeamMember::class);
+        Jetstream::inviteTeamMembersUsing(InviteTeamMember::class);
+        Jetstream::removeTeamMembersUsing(RemoveTeamMember::class);
+        Jetstream::deleteTeamsUsing(DeleteTeam::class);
+        Jetstream::deleteUsersUsing(DeleteUser::class);
+
         Jetstream::inertia()->whenRendering(
             'Teams/Show',
             function (Request $request, array $data) {
@@ -56,14 +65,20 @@ class JetstreamServiceProvider extends ServiceProvider
 
             }
         );
-        Jetstream::createTeamsUsing(CreateTeam::class);
-        Jetstream::updateTeamNamesUsing(UpdateTeamName::class);
-        Jetstream::addTeamMembersUsing(AddTeamMember::class);
-        Jetstream::inviteTeamMembersUsing(InviteTeamMember::class);
-        Jetstream::removeTeamMembersUsing(RemoveTeamMember::class);
-        Jetstream::deleteTeamsUsing(DeleteTeam::class);
-        Jetstream::deleteUsersUsing(DeleteUser::class);
 
+        Jetstream::inertia()->whenRendering(
+            'Teams/Create',
+            function (Request $request, array $data) {
+
+                return array_merge($data, [
+                    'cities' => City::get(),
+                    'countries' => Country::get(),
+                    'services' => Service::get(),
+                    'sectors' => Sector::get(),
+                ]);
+
+            }
+        );
 
     }
 
