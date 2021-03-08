@@ -28,14 +28,21 @@
 
                         <div class="col-span-6 sm:col-span-4">
                             <jet-label for="description" value="İlan Açıklaması"/>
-                            <jet-input id="description" type="text" class="mt-1 block w-full" v-model="form.description"
-                                       autofocus/>
+                            <Textarea class="mt-1 block w-full" v-model="form.description"></Textarea>
+
                             <jet-input-error :message="form.errors.description" class="mt-2"/>
                         </div>
                         <div class="col-span-6 sm:col-span-4">
-                            <jet-label for="sector_id" value="İlan sector_id"/>
-                            <jet-input id="sector_id" type="text" class="mt-1 block w-full" v-model="form.sector_id"
-                                       autofocus/>
+                            <jet-label for="sector_id" value="İlan Sektör"/>
+
+
+                            <select
+                                class="border-gray-300 focus:border-indigo-300 focus:ring
+                                 focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full"
+                                v-model="form.sector_id">
+                                <option :value="sector.id" v-for="sector in sectors">{{sector.name}}</option>
+                            </select>
+
                             <jet-input-error :message="form.errors.sector_id" class="mt-2"/>
                         </div>
 
@@ -64,8 +71,10 @@
     import JetInputError from "@/Jetstream/InputError";
     import JetLabel from "@/Jetstream/Label";
 
+    import Textarea from "@/Jetstream/Textarea";
     export default {
         name: "Create",
+        props:['sectors','companySector'],
         components: {
             AppLayout,
             JetButton,
@@ -73,6 +82,7 @@
             JetInput,
             JetInputError,
             JetLabel,
+            Textarea
         },
         methods: {
             createBids() {
@@ -87,7 +97,7 @@
                 form: this.$inertia.form({
                     title: '',
                     description: '',
-                    sector_id: '',
+                    sector_id: this.companySector,
 
                 })
             }

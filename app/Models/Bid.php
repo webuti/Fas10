@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 use Laravel\Jetstream\Jetstream;
 
 class Bid extends Model
@@ -26,4 +27,19 @@ class Bid extends Model
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
+
+    public function scopeOwned($query)
+    {
+        return $query->where('user_id', Auth::user()->id);
+    }
+
+    public function scopeSector($query, $id)
+    {
+        return $query->where('sector_id', $id);
+    }
+
+    public function scopeActive($query)
+    {
+        return $query->where('status', 1);
+    }
 }

@@ -1,9 +1,17 @@
 <template>
     <app-layout>
         <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                İlanlarım
-            </h2>
+
+            <div class="flex justify-between">
+
+                <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                    İlanlarım
+                </h2>
+                <inertia-link :href="route('bids.create')" class="button px-5  rounded-lg bg-green-500 text-white">
+                    Ekle
+                </inertia-link>
+            </div>
+
         </template>
 
         <div>
@@ -38,7 +46,8 @@
                                         <td class="px-6 py-4 whitespace-nowrap">
                                             <div class="flex items-center">
                                                 <div class="flex-shrink-0 h-10 w-10">
-                                                    <img class="h-10 w-10 rounded-full object-cover" :src="$page.props.user.profile_photo_url"
+                                                    <img class="h-10 w-10 rounded-full object-cover"
+                                                         :src="$page.props.user.profile_photo_url"
                                                          :alt="$page.props.user.name">
                                                 </div>
                                                 <div class="ml-4">
@@ -86,11 +95,12 @@
 <script>
     import AppLayout from '@/Layouts/AppLayout'
 
+
     export default {
         name: "Index",
         props: ['data'],
         components: {
-            AppLayout
+            AppLayout,
         }
     }
 </script>

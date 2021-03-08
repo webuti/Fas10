@@ -1,17 +1,17 @@
 <template>
     <div>
         <div class="overflow-hidden shadow-lg rounded-lg h-90 w-60 md:w-80 cursor-pointer m-auto">
-            <a href="#" class="w-full block h-full">
+            <inertia-link :href="route('companyDetail',id)" class="w-full block h-full">
                 <img alt="blog photo"
                      src="https://images.pexels.com/photos/2408666/pexels-photo-2408666.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;w=500"
                      class="max-h-40 w-full object-cover"/>
                 <div class="bg-white dark:bg-gray-800 w-full p-4">
 
                     <p class="text-gray-800 dark:text-white text-xl font-medium mb-2">
-                        {{title}}
+                        {{name}}
                     </p>
                     <p class="text-gray-400 dark:text-gray-300 font-light text-md">
-                        The new supercar is here, 543 cv and 140 000$. This is best racing GT about 7 years on...
+                        {{description}}
                     </p>
                     <div class="flex  space-x-10 flex-row">
                         <div class="mt-2 flex  space-x-2  flex-row items-center text-sm text-gray-500">
@@ -43,7 +43,7 @@
                         <Badge v-for="cat in categories">{{cat}}</Badge>
                     </div>
                 </div>
-            </a>
+            </inertia-link>
         </div>
 
     </div>
@@ -55,7 +55,7 @@
     export default {
         name: "CompanyItem",
         components: {Badge},
-        props: ['title', 'person', 'city', 'categories']
+        props: ['name', 'person', 'city', 'categories', 'id', 'seo_url', 'description']
 
     }
 </script>

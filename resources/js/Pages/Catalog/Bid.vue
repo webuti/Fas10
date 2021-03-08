@@ -1,16 +1,11 @@
 <template>
-    <Header/>
 
 
-    <div class="container mx-auto">
-
-
-
+    <MainLayout>
         <div class="flex flex-row">
-
             <Sidebar/>
 
-            <div class="content">
+            <div class="content  w-full">
 
                 <div class="flex flex-wrap justify-between items-center bg-white border-b p-2 space-y-2 md:space-y-0">
 
@@ -67,73 +62,34 @@
                 </div>
                 <!-- End Tools -->
 
-                <div class="grid grid-cols-3 mt-5  md:grid-cols-3 sm:grid-cols-2 gap-4">
+                <div class="grid grid-cols-1 mt-5  md:grid-cols-1 sm:grid-cols-1 gap-4">
 
+                    <BidItem :item="bid" v-for="bid in bids"/>
 
-                    <CompanyItem
-                        :categories="['Kesim','Dikim','Ütü','Paket']"
-                        person="11"
-                        city="İSTANBUL"
-                        title="PEKER TEKSTİL A.Ş."
-                    />
-                    <CompanyItem
-                        :categories="['Kesim','Dikim', ]"
-                        person="5"
-                        city="İSTANBUL"
-                        title="ZİSAN PROMOSYON VE TİCARET LİMİTED ŞİRKETİ"
-                    />
-                    <CompanyItem
-                        :categories="['Kesim','Dikim','Ütü','Paket']"
-                        person="5"
-                        city="İSTANBUL"
-                        title="ZİSAN PROMOSYON VE TİCARET LİMİTED ŞİRKETİ"
-                    />
-                    <CompanyItem
-                        :categories="['Kesim', 'Paket']"
-                        person="5"
-                        city="İSTANBUL"
-                        title="ZİSAN PROMOSYON VE TİCARET LİMİTED ŞİRKETİ"
-                    />
-                    <CompanyItem
-                        :categories="[ 'Ütü','Paket']"
-                        person="5"
-                        city="İSTANBUL"
-                        title="ZİSAN PROMOSYON VE TİCARET LİMİTED ŞİRKETİ"
-                    />
-                    <CompanyItem
-                        :categories="['Kesim','Dikim','Ütü','Paket']"
-                        person="5"
-                        city="İSTANBUL"
-                        title="ZİSAN PROMOSYON VE TİCARET LİMİTED ŞİRKETİ"
-                    />
-                    <CompanyItem
-                        :categories="['Kesim','Dikim','Ütü','Paket']"
-                        person="5"
-                        city="İSTANBUL"
-                        title="ZİSAN PROMOSYON VE TİCARET LİMİTED ŞİRKETİ"
-                    />
                 </div>
 
             </div>
         </div>
-    </div>
-
+    </MainLayout>
 </template>
 
 
 <script>
-    import Header from "../Components/Header.vue";
-    import CompanyItem from "@/Components/Catalog/CompanyItem";
+    import Header from "../../Components/Header.vue";
+    import BidItem from "../../Components/Catalog/BidItem";
     import Sidebar from "@/Components/Catalog/Sidebar";
+    import MainLayout from "@/Layouts/MainLayout";
 
     export default {
         components: {
+            MainLayout,
             Sidebar,
-            CompanyItem,
+            BidItem,
             Header
         },
 
         props: {
+            bids: Array,
             canLogin: Boolean,
             canRegister: Boolean,
             laravelVersion: String,

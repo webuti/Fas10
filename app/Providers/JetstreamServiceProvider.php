@@ -43,7 +43,6 @@ class JetstreamServiceProvider extends ServiceProvider
         $this->configurePermissions();
 
 
-
         Jetstream::createTeamsUsing(CreateTeam::class);
         Jetstream::updateTeamNamesUsing(UpdateTeamName::class);
         Jetstream::addTeamMembersUsing(AddTeamMember::class);
@@ -79,7 +78,6 @@ class JetstreamServiceProvider extends ServiceProvider
 
             }
         );
-
     }
 
     /**

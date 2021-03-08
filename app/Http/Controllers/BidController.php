@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Bid;
+use App\Models\Sector;
+use App\Models\Team;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
@@ -18,7 +21,7 @@ class BidController extends Controller
     public function index()
     {
         return Inertia::render('Bids/Index', [
-            'data' => Bid::get()
+            'data' => Bid::owned()->get()
         ]);
     }
 
@@ -29,7 +32,9 @@ class BidController extends Controller
      */
     public function create()
     {
-        return Inertia::render('Bids/Create');
+        return Inertia::render('Bids/Create',
+            ['sectors' => Sector::get(),
+                'companySector' => Team::currentTeamSectorId()]);
     }
 
     /**
@@ -64,12 +69,24 @@ class BidController extends Controller
      * @param \App\Models\Bid $bid
      * @return \Illuminate\Http\Response
      */
-    public function show(Bid $bid)
+    public function show(Bid $bid, User $user)
     {
 
+        if (Auth::user()->id !== $bid->user_id) {
+
+            session()->flash('status', 'Bu ilanı düzenleme yetkiniz yok');
+            return Redirect::route('bids.index');
+
+        }
+
+
         return Inertia::render('Bids/Show', [
-            'bid' => $bid
+            'bid' => $bid,
+            'sectors' => Sector::get(),
+            'companySector' => Team::currentTeamSectorId()
         ]);
+
+
     }
 
     /**
@@ -78,8 +95,9 @@ class BidController extends Controller
      * @param \App\Models\Bid $bid
      * @return \Illuminate\Http\Response
      */
-    public function edit(Bid $bid)
+    public function edit(Bid $bid, User $user)
     {
+
         //
     }
 
@@ -90,9 +108,32 @@ class BidController extends Controller
      * @param \App\Models\Bid $bid
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Bid $bid)
+    public function update(Bid $bid, Request $request)
     {
-        //
+        $input = $request->all();
+
+
+        if (Auth::user()->id !== $bid->user_id) {
+
+            session()->flash('status', 'Bu ilanı düzenleme yetkiniz yok');
+            return Redirect::route('bids.index');
+
+        }
+
+
+        if ($bid->update([
+            'title' => $input['title'],
+            'description' => $input['description'],
+            'sector_id' => $input['sector_id'],
+            'user_id' => Auth::user()->id,
+            'team_id' => Auth::user()->current_team_id,
+
+        ])) {
+            $request->session()->flash('status', 'İlan başarılı olarak eklendi');
+            return Redirect::route('bids.index');
+        }
+
+
     }
 
     /**
