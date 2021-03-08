@@ -16,6 +16,7 @@ use App\Models\Service;
 use App\Models\Sector;
 use App\Models\Team;
 use App\Models\TeamService;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Jetstream\Jetstream;
 use Illuminate\Http\Request;
@@ -55,10 +56,12 @@ class JetstreamServiceProvider extends ServiceProvider
             'Teams/Show',
             function (Request $request, array $data) {
 
+
                 return array_merge($data, [
                     'cities' => City::get(),
                     'countries' => Country::get(),
                     'services' => Service::get(),
+                    'companyServices' => $data["team"]->where('id', Auth::user()->current_team_id)->with('services')->get()->pluck('services'),
                     'sectors' => Sector::get(),
                 ]);
 

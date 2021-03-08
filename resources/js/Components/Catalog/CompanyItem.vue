@@ -40,7 +40,7 @@
                         </div>
                     </div>
                     <div class="flex flex-wrap justify-starts items-center mt-4">
-                        <Badge v-for="cat in categories">{{cat}}</Badge>
+                        <Badge v-for="cat in categories">{{cat.service_id}}</Badge>
                     </div>
                 </div>
             </inertia-link>

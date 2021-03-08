@@ -22,11 +22,14 @@
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div v-for="service in services" :key="service.id">
                                     <label class="flex items-center">
-                                        <jet-checkbox name="services" :value="service.id"/>
+
+                                        <jet-checkbox name="services[]" v-model:checked="form.services"
+                                                      :value="service.id"/>
                                         <span class="ml-2 text-sm text-gray-600">{{ service.name}}</span>
                                     </label>
                                 </div>
                             </div>
+
 
                             <jet-input-error :message="form.errors.service_id" class="mt-2"/>
                         </div>
@@ -73,7 +76,8 @@
             'availableRoles',
             'services',
             'sector',
-            'userPermissions'
+            'userPermissions',
+            'companyServices'
         ],
         name: "update-service",
         components: {
@@ -94,14 +98,21 @@
         data() {
             return {
                 form: this.$inertia.form({
-                    services: this.services,
+                    services: [],
                 })
             }
+        },
+        created() {
+            Object.values(this.companyServices).forEach((key) => {
+
+                this.form.services.push(key.service_id);
+            });
         },
         methods: {
 
             updateService() {
-                this.form.put(route('teams.update', this.team), {
+
+                this.form.put(route('teams.service.update', {team: this.team, service: this.form.services}), {
                     errorBag: 'updateTeamService',
                     preserveScroll: true
                 });

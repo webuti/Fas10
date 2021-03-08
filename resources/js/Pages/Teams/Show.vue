@@ -12,6 +12,7 @@
                 <update-team-name-form :cities="cities" :countries="countries" :districts="districts"
                                        :team="team" :sectors="sectors" :permissions="permissions"/>
                 <update-service :team="team" :sector="team.sector_id" :services="services"
+                                :companyServices="companyServices"
                                 :user-permissions="permissions"/>
                 <team-member-manager class="mt-10 sm:mt-0"
                                      :team="team"
@@ -46,6 +47,7 @@
             'districts',
             'services',
             'sectors',
+            'companyServices'
         ],
 
         components: {

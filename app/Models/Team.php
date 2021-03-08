@@ -71,4 +71,10 @@ class Team extends JetstreamTeam
         return $query->where('sector_id', $id);
     }
 
+    public function services()
+    {
+        return $this->hasMany(TeamService::class,'team_id','id');
+    }
+
+
 }

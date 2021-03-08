@@ -68,7 +68,7 @@
                         name="PEKER TEKSTİL A.Ş."
                     />
                     <CompanyItem
-                        :categories="['Kesim','Dikim','Ütü','Paket']"
+                        :categories="company.services"
                         :name="company.name"
                         :city="company.city_id"
                         :description="company.description"

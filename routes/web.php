@@ -17,6 +17,7 @@ use Inertia\Inertia;
 
 
 Route::resource('dashboard/bids', \App\Http\Controllers\BidController::class);
+Route::resource('teams.service', \App\Http\Controllers\TeamServiceController::class);
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
@@ -32,7 +33,8 @@ Route::get('/company', function () {
 });
 Route::get('/c/{type}', function ($type) {
     if ($sector = \App\Models\Sector::where('seo_url', $type)->first()) {
-        $companies = \App\Models\Team::filtered()->sector($sector->id)->get();
+        $companies = \App\Models\Team::with('services')->filtered()->sector($sector->id)->get();
+
         return Inertia::render('Catalog/Company', [
             'companies' => $companies,
             'canLogin' => Route::has('login'),
