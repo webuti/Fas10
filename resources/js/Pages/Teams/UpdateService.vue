@@ -103,7 +103,9 @@
             }
         },
         created() {
-            Object.values(this.companyServices).forEach((key) => {
+
+
+            this.companyServices[0].map((key) => {
 
                 this.form.services.push(key.service_id);
             });

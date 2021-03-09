@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Bid;
+use App\Models\Image;
 use App\Models\Sector;
 use App\Models\Team;
 use App\Models\User;
@@ -48,6 +49,7 @@ class BidController extends Controller
 
         $input = $request->all();
 
+ 
         if (Bid::create([
             'title' => $input['title'],
             'description' => $input['description'],
@@ -56,7 +58,8 @@ class BidController extends Controller
             'team_id' => Auth::user()->current_team_id,
 
         ])) {
-            $request->session()->flash('status', 'İlan başarılı olarak eklendi');
+
+            // Image::create([''])
             return Redirect::route('bids.index');
         }
 

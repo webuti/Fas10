@@ -24,7 +24,7 @@
                                 </jet-nav-link>
 
                                 <jet-nav-link :href="route('bids.index')" :active="route().current('bids.index')">
-                                    Bids
+                                    İlanlar
                                 </jet-nav-link>
 
                                 <a href="#"

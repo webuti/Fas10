@@ -45,6 +45,11 @@
 
                             <jet-input-error :message="form.errors.sector_id" class="mt-2"/>
                         </div>
+                        <div class="col-span-6 sm:col-span-4">
+
+                            <image-upload @imageLoaded="imageLoaded"/>
+                        </div>
+
 
                     </template>
                     <template #actions>
@@ -72,10 +77,13 @@
     import JetLabel from "@/Jetstream/Label";
 
     import Textarea from "@/Jetstream/Textarea";
+    import ImageUpload from "@/Pages/Bids/ImageUpload";
+
     export default {
         name: "Create",
-        props:['sectors','companySector'],
+        props: ['sectors', 'companySector'],
         components: {
+            ImageUpload,
             AppLayout,
             JetButton,
             JetFormSection,
@@ -90,6 +98,10 @@
                     errorBag: 'createBids',
                     preserveScroll: true
                 });
+            },
+            imageLoaded(files) {
+                console.log("dosyalar buraya geldi", files);
+                this.form.files = files;
             }
         },
         data() {
@@ -98,7 +110,7 @@
                     title: '',
                     description: '',
                     sector_id: this.companySector,
-
+                    files: [],
                 })
             }
         },

@@ -15,6 +15,9 @@ class CreateBidCategoryTable extends Migration
     {
         Schema::create('bid_categories', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('seo_url')->unique();
+            $table->integer('parent_id')->unsigned();
             $table->timestamps();
         });
     }

@@ -57,11 +57,12 @@ class JetstreamServiceProvider extends ServiceProvider
             function (Request $request, array $data) {
 
 
+
                 return array_merge($data, [
                     'cities' => City::get(),
                     'countries' => Country::get(),
                     'services' => Service::get(),
-                    'companyServices' => $data["team"]->where('id', Auth::user()->current_team_id)->with('services')->get()->pluck('services'),
+                    'companyServices' => $data["team"]->where('id', Auth::user()->current_team_id)->with('services')->get()->pluck('services')->toArray(),
                     'sectors' => Sector::get(),
                 ]);
 

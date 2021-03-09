@@ -25,5 +25,10 @@
         "tailwindcss": "^2.0.1",
         "vue": "^3.0.5",
         "vue-loader": "^16.1.2"
+    },
+    "dependencies": {
+        "filepond": "^4.25.2",
+        "filepond-plugin-image-preview": "^4.6.5",
+        "vue-filepond": "^7.0.0"
     }
 }

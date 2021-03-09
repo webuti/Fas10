@@ -6,6 +6,7 @@ use App\Models\Team;
 use App\Models\TeamService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class TeamServiceController extends Controller
 {
@@ -72,19 +73,24 @@ class TeamServiceController extends Controller
     public function update(Request $request, TeamService $teamService, Team $team)
     {
 
-        /*
-         *
-        */
-
+        DB::beginTransaction();
         if (Auth::user()->current_team_id === $team->id) {
-            foreach ($request->input('services') as $serviceId) {
-                if (isset($serviceId)) {
-                    $teamService::create([
-                        'team_id' => $team->id,
-                        'service_id' => $serviceId,
-                        'sector_id' => $team::currentTeamSectorId(),
-                    ]);
+            try {
+                $teamService->where('team_id', $team->id)->delete();
+                foreach ($request->input('services') as $serviceId) {
+                    if (isset($serviceId)) {
+                        $teamService::create([
+                            'team_id' => $team->id,
+                            'service_id' => $serviceId,
+                            'sector_id' => $team::currentTeamSectorId(),
+                        ]);
+                    }
                 }
+                DB::commit();
+
+                return redirect()->back();
+            } catch (\Exception $e) {
+                DB::rollBack();
             }
         }
 

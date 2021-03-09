@@ -27,6 +27,10 @@ class Bid extends Model
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
+    public function images()
+    {
+        return $this->hasMany(Image::class, 'bid_id', 'id');
+    }
 
     public function scopeOwned($query)
     {

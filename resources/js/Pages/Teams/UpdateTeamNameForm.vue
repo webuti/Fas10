@@ -97,10 +97,12 @@
                 </div>
                 <div class="col-span-6 sm:col-span-4">
                     <jet-label for="district_id" value="İlçe"/>
-                    <select @change="districtLoad()" :disabled="!permissions.canUpdateTeam"
+                    <select :disabled="!permissions.canUpdateTeam"
                             class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full"
                             v-model="form.district_id">
-                        <option :value="district.id" v-for="district in districts">{{district.name}}</option>
+                        <option :value="district.id" v-for="district in districts">{{district.ilce}} /
+                            {{district.mahalle}}
+                        </option>
                     </select>
                     <jet-input-error :message="form.errors.district_id" class="mt-2"/>
                 </div>
@@ -128,6 +130,8 @@
     import JetLabel from '@/Jetstream/Label'
     import {Inertia} from '@inertiajs/inertia'
 
+    import axios from "axios";
+
     export default {
         components: {
             JetActionMessage,
@@ -138,10 +142,11 @@
             JetLabel,
         },
 
-        props: ['team', 'permissions', 'cities', 'countries', 'districts', 'sectors'],
+        props: ['team', 'permissions', 'cities', 'countries', 'sectors'],
 
         data() {
             return {
+                districts: [],
                 form: this.$inertia.form({
                     name: this.team.name,
                     description: this.team.description,
@@ -153,9 +158,21 @@
                 })
             }
         },
+        created() {
+            if (this.form.district_id > 0) {
+                this.districtLoad();
+
+            }
+
+        },
         methods: {
             districtLoad() {
-                Inertia.reload({only: ['districts']})
+                this.districts = [];
+                axios.get(route('location.district', this.form.city_id)).then(page => {
+          
+                    this.districts = page.data;
+                });
+
             },
             updateTeamName() {
                 this.form.put(route('teams.update', this.team), {
