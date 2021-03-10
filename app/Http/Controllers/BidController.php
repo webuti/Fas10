@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Bid;
+use App\Models\City;
+use App\Models\Country;
 use App\Models\Image;
 use App\Models\Sector;
+use App\Models\Service;
 use App\Models\Team;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -24,6 +27,21 @@ class BidController extends Controller
         return Inertia::render('Bids/Index', [
             'data' => Bid::owned()->get()
         ]);
+    }
+
+
+    public function catalog($type)
+    {
+        if ($sector = \App\Models\Sector::where('seo_url', $type)->first()) {
+            $bids = \App\Models\Bid::sector($sector->id)->get();
+            return Inertia::render('Catalog/Bid', [
+                'bids' => $bids,
+                'cities' => City::all(),
+                'countries' => Country::all(),
+                'services' => Service::all(),
+            ]);
+        }
+
     }
 
     /**
@@ -49,7 +67,7 @@ class BidController extends Controller
 
         $input = $request->all();
 
- 
+
         if (Bid::create([
             'title' => $input['title'],
             'description' => $input['description'],

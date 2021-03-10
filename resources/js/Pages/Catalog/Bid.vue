@@ -3,7 +3,7 @@
 
     <MainLayout>
         <div class="flex flex-row">
-            <Sidebar/>
+            <Sidebar :countries="countries" :cities="cities" :services="services"/>
 
             <div class="content  w-full">
 
@@ -90,6 +90,9 @@
 
         props: {
             bids: Array,
+            countries: Array,
+            services: Array,
+            cities: Array,
             canLogin: Boolean,
             canRegister: Boolean,
             laravelVersion: String,

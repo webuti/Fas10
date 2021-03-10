@@ -46,18 +46,9 @@ Route::get('/c/{type}', function ($type) {
         ]);
     }
 })->name('companyCatalog');
-Route::get('/i/{type}', function ($type) {
-    if ($sector = \App\Models\Sector::where('seo_url', $type)->first()) {
-        $bids = \App\Models\Bid::sector($sector->id)->get();
-        return Inertia::render('Catalog/Bid', [
-            'bids' => $bids,
-            'canLogin' => Route::has('login'),
-            'canRegister' => Route::has('register'),
-        ]);
-    }
-})->name('bidCatalog');
 
 
+Route::get('/i/{type}', [\App\Http\Controllers\BidController::class, 'catalog'])->name('bidCatalog');
 Route::get('/bd/{id}', function ($id) {
     return Inertia::render('Catalog/BidDetail', [
         'bid' => \App\Models\Bid::where("id", $id)->first(),
