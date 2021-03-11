@@ -1,8 +1,10 @@
 <template>
     <div>
-        <file-pond :allow-multiple="true"
-
-                   v-on:updatefiles="handleFilePondUpdateFile"
+        <file-pond :required="false" :allow-multiple="true"
+          
+                   v-bind:files="myFiles"
+                   v-on:input="handleFilePondUpdateFile"
+                   v-model="files"
                    accepted-file-types="image/jpeg, image/png" name="files"
         />
 
@@ -24,15 +26,19 @@
         name: "ImageUpload",
         data() {
             return {
-                myFiles: []
+                myFiles: [],
+                files: [],
+                uploadedFiles: []
             }
         },
         methods: {
-            handleFilePondUpdateFile(files) {
 
+            handleFilePondUpdateFile(files) {
                 let myFiles = [];
+
                 Object.values(files).forEach(fl => {
-                    myFiles.push(fl.file.name);
+
+                    myFiles.push(fl.serverId);
                 });
 
                 this.$emit('imageLoaded', myFiles);
@@ -44,6 +50,7 @@
 
             setOptions({
                 credits: false,
+                required: false,
                 server: {
                     url: route('image.upload.post'),
                     process: {

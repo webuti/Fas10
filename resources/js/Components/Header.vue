@@ -11,7 +11,7 @@
                     class="inline-flex items-center mr-8"
                 >
                     <svg
-                        class="w-8 text-deep-purple-accent-400"
+                        class="w-8 text-green-400"
                         viewBox="0 0 24 24"
                         stroke-linejoin="round"
                         stroke-width="2"
@@ -23,7 +23,6 @@
                         <rect x="3" y="1" width="7" height="12"></rect>
                         <rect x="3" y="17" width="7" height="6"></rect>
                         <rect x="14" y="1" width="7" height="6"></rect>
-                        <rect x="14" y="11" width="7" height="12"></rect>
                     </svg>
                     <span
                         class="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase"
@@ -36,7 +35,7 @@
                             :href="route('companyCatalog','tekstil')"
                             aria-label="Our product"
                             title="Our product"
-                            class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                            class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-green-400"
                         >Firmalar</inertia-link
                         >
                     </li>
@@ -45,7 +44,7 @@
                             :href="route('bidCatalog','tekstil')"
                             aria-label="Our product"
                             title="Our product"
-                            class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                            class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-green-400"
                         >İlanlar</inertia-link
                         >
                     </li>
@@ -54,7 +53,7 @@
                             href="/"
                             aria-label="Product pricing"
                             title="Product pricing"
-                            class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                            class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-green-400"
                         >Kariyer</a
                         >
                     </li>
@@ -63,7 +62,7 @@
                             href="/"
                             aria-label="About us"
                             title="About us"
-                            class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                            class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-green-400"
                         >About us</a
                         >
                     </li>
@@ -72,19 +71,19 @@
             <ul class="flex items-center hidden space-x-8 lg:flex">
 
                 <inertia-link v-if="$page.props.user" href="/dashboard"
-                              class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">
+                              class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-green-400">
                     Panelim
                 </inertia-link>
 
 
                 <template v-else>
                     <inertia-link :href="route('login')"
-                                  class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">
+                                  class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-green-400">
                         Giriş Yap
                     </inertia-link>
 
                     <inertia-link :href="route('register')"
-                                  class="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700">
+                                  class="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-green-600 hover:bg-green-700">
                         Kayıt Ol
                     </inertia-link>
                 </template>
@@ -122,7 +121,7 @@
                                     class="inline-flex items-center"
                                 >
                                     <svg
-                                        class="w-8 text-deep-purple-accent-400"
+                                        class="w-8 text-green-400"
                                         viewBox="0 0 24 24"
                                         stroke-linejoin="round"
                                         stroke-width="2"
@@ -134,7 +133,6 @@
                                         <rect x="3" y="1" width="7" height="12"></rect>
                                         <rect x="3" y="17" width="7" height="6"></rect>
                                         <rect x="14" y="1" width="7" height="6"></rect>
-                                        <rect x="14" y="11" width="7" height="12"></rect>
                                     </svg>
                                     <span
                                         class="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase"
@@ -165,7 +163,7 @@
                                         href="/"
                                         aria-label="Our product"
                                         title="Our product"
-                                        class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                                        class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-green-400"
                                     >Product</a
                                     >
                                 </li>
@@ -174,7 +172,7 @@
                                         href="/"
                                         aria-label="Our product"
                                         title="Our product"
-                                        class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                                        class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-green-400"
                                     >Features</a
                                     >
                                 </li>
@@ -183,7 +181,7 @@
                                         href="/"
                                         aria-label="Product pricing"
                                         title="Product pricing"
-                                        class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                                        class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-green-400"
                                     >Pricing</a
                                     >
                                 </li>
@@ -192,26 +190,26 @@
                                         href="/"
                                         aria-label="About us"
                                         title="About us"
-                                        class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                                        class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-green-400"
                                     >About us</a
                                     >
                                 </li>
 
 
                                 <inertia-link v-if="$page.props.user" href="/dashboard"
-                                              class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">
+                                              class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-green-400">
                                     Panelim
                                 </inertia-link>
 
 
                                 <template v-else>
                                     <inertia-link :href="route('login')"
-                                                  class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">
+                                                  class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-green-400">
                                         Giriş Yap
                                     </inertia-link>
 
                                     <inertia-link :href="route('register')"
-                                                  class="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700">
+                                                  class="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-green-600 hover:bg-green-700">
                                         Kayıt Ol
                                     </inertia-link>
                                 </template>
@@ -228,7 +226,7 @@
                                 <li>
                                     <a
                                         href="/"
-                                        class="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+                                        class="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-green-400 hover:bg-green-700 focus:shadow-outline focus:outline-none"
                                         aria-label="Sign up"
                                         title="Sign up"
                                     >

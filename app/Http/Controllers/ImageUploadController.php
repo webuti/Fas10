@@ -106,11 +106,11 @@ class ImageUploadController extends Controller
             $file = $request->file('files');
             $filename = time() . '_' . $file->getClientOriginalName();
 
-            $folder = uniqid() . "-" . now()->timestamp;
+            $folder = Auth::user()->id;
             $file->storeAs('uploads/tmp/' . $folder, $filename);
 
 
-            return $folder;
+            return $folder . '/' . $filename;
         }
         return '';
 

@@ -51,8 +51,8 @@
             <div class="col-span-6 sm:col-span-4">
                 <jet-label for="sector_id" value="Sektör"/>
 
-                <select @change="districtLoad()" :disabled="!permissions.canUpdateTeam"
-                        class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full"
+                <select   :disabled="!permissions.canUpdateTeam"
+                        class="border-gray-300 focus:border-green-300 focus:ring focus:ring-green-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full"
                         v-model="form.sector_id">
                     <option :value="sector.id" v-for="sector in sectors">{{sector.name}}</option>
                 </select>
@@ -75,7 +75,7 @@
                 <jet-label for="country_id" value="Ülke"/>
 
                 <select :disabled="!permissions.canUpdateTeam"
-                        class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full"
+                        class="border-gray-300 focus:border-green-300 focus:ring focus:ring-green-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full"
                         v-model="form.country_id">
                     <option :value="country.id" v-for="country in countries">{{country.name}}</option>
                 </select>
@@ -89,7 +89,7 @@
                     <jet-label for="city" value="Şehir"/>
 
                     <select @change="districtLoad()" :disabled="!permissions.canUpdateTeam"
-                            class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full"
+                            class="border-gray-300 focus:border-green-300 focus:ring focus:ring-green-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full"
                             v-model="form.city_id">
                         <option :value="city.id" v-for="city in cities">{{city.name}}</option>
                     </select>
@@ -98,7 +98,7 @@
                 <div class="col-span-6 sm:col-span-4">
                     <jet-label for="district_id" value="İlçe"/>
                     <select :disabled="!permissions.canUpdateTeam"
-                            class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full"
+                            class="border-gray-300 focus:border-green-300 focus:ring focus:ring-green-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full"
                             v-model="form.district_id">
                         <option :value="district.id" v-for="district in districts">{{district.ilce}} /
                             {{district.mahalle}}
@@ -169,10 +169,9 @@
             districtLoad() {
                 this.districts = [];
                 axios.get(route('location.district', this.form.city_id)).then(page => {
-          
+
                     this.districts = page.data;
                 });
-
             },
             updateTeamName() {
                 this.form.put(route('teams.update', this.team), {

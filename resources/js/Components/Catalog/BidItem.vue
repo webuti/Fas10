@@ -9,16 +9,21 @@
             class="absolute top-0 left-0 w-full h-1 duration-300 origin-right transform scale-x-0 bg-green-400 group-hover:scale-x-100"></div>
         <div
             class="absolute bottom-0 right-0 w-1 h-full duration-300 origin-top transform scale-y-0 bg-green-400 group-hover:scale-y-100"></div>
-        <div class="  flex items-center justify-between p-5 bg-white rounded-sm">
-            <div class="pr-4">
+        <div class="flex flex-row items-center justify-between p-5 bg-white rounded-sm">
+            <div class="pr-4 flex flex-col  ">
                 <h6 class="mb-2 font-semibold leading-5">
                     {{item.title}}
                 </h6>
                 <p class="text-sm text-gray-900">
                     {{item.description}}
+
                 </p>
             </div>
-            <div class="flex items-center justify-center">
+            <div class="flex flex-1 items-center justify-between flex-col space-y-1">
+                <span class="bg-green-400 text-sm rounded-lg px-2 text-white">İstanbul</span>
+                <span class="bg-green-400 text-sm  rounded-lg px-2 text-white">Küçükcekmece</span>
+            </div>
+            <div class="flex  items-center justify-center">
                 <svg
                     class="w-3 text-gray-700 transition-colors duration-300 group-hover:text-green-400"
                     fill="currentColor" viewBox="0 0 12 12">

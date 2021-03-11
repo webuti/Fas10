@@ -39,8 +39,8 @@
                             <jet-label for="sector_id" value="Sektör"/>
 
                             <select
-                                class="border-gray-300 focus:border-indigo-300 focus:ring
-                                 focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full"
+                                class="border-gray-300 focus:border-green-300 focus:ring
+                                 focus:ring-green-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full"
                                 v-model="form.sector_id">
                                 <option :value="sector.id" v-for="sector in sectors">{{sector.name}}</option>
                             </select>

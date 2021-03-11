@@ -34,20 +34,16 @@
                         </tbody>
                     </table>
                     <button
-                        class="inline-block py-4 px-8 leading-none text-white bg-indigo-600 hover:bg-indigo-700 font-semibold rounded">
-                        Buy Now!
+                        class="inline-block py-4 px-8 leading-none text-white bg-green-600 hover:bg-green-700 font-semibold rounded">
+                        Bilgi Al
                     </button>
+
                 </div>
                 <div class="lg:w-1/2 px-8">
-                    <img class="mb-4 rounded shadow" src="placeholders-2-0/pictures/paper.jpg" alt="">
-                    <div class="flex flex-wrap -mx-2">
-                        <div class="w-1/3 px-2"><img class="rounded shadow" src="placeholders-2-0/pictures/paper.jpg"
-                                                     alt=""></div>
-                        <div class="w-1/3 px-2"><img class="rounded shadow" src="placeholders-2-0/pictures/paper.jpg"
-                                                     alt=""></div>
-                        <div class="w-1/3 px-2"><img class="rounded shadow" src="placeholders-2-0/pictures/paper.jpg"
-                                                     alt=""></div>
-                    </div>
+
+                    <img class="mb-4 rounded shadow"
+                         v-for="image in bid.images" :src="'/'+(image.image)" :alt="image.image_caption"/>
+
                 </div>
             </div>
         </section>
@@ -65,10 +61,9 @@
 
         props: {
             bid: [],
+            images: [],
             canLogin: Boolean,
             canRegister: Boolean,
-            laravelVersion: String,
-            phpVersion: String,
         }
     }
 </script>

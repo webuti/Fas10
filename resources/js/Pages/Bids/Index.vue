@@ -1,9 +1,7 @@
 <template>
     <app-layout>
         <template #header>
-
             <div class="flex justify-between">
-
                 <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                     İlanlarım
                 </h2>
@@ -11,7 +9,6 @@
                     Ekle
                 </inertia-link>
             </div>
-
         </template>
 
         <div>
@@ -68,7 +65,7 @@
                                         </td>
 
                                         <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                            <inertia-link class="text-indigo-600 hover:text-indigo-900"
+                                            <inertia-link class="text-green-600 hover:text-green-900"
                                                           :href="route('bids.show',bid.id)">
                                                 Düzenle
                                             </inertia-link>

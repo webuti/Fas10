@@ -37,8 +37,8 @@
 
 
                             <select
-                                class="border-gray-300 focus:border-indigo-300 focus:ring
-                                 focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full"
+                                class="border-gray-300 focus:border-green-300 focus:ring
+                                 focus:ring-green-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full"
                                 v-model="form.sector_id">
                                 <option :value="sector.id" v-for="sector in sectors">{{sector.name}}</option>
                             </select>
@@ -46,9 +46,60 @@
                             <jet-input-error :message="form.errors.sector_id" class="mt-2"/>
                         </div>
                         <div class="col-span-6 sm:col-span-4">
+                            <jet-label for="category_id" value="Kategori"/>
+
+                            <select
+                                class="border-gray-300 focus:border-green-300 focus:ring focus:ring-green-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full"
+                                v-model="form.category_id">
+                                <option :value="cat.id" v-for="cat in categories">{{cat.name}}</option>
+                            </select>
+
+                            <jet-input-error :message="form.errors.category_id" class="mt-2"/>
+                        </div>
+
+                        <div class="col-span-6 sm:col-span-4">
 
                             <image-upload @imageLoaded="imageLoaded"/>
                         </div>
+
+                        <div class="col-span-6 sm:col-span-4">
+                            <jet-label for="country_id" value="Ülke"/>
+
+                            <select
+                                class="border-gray-300 focus:border-green-300 focus:ring focus:ring-green-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full"
+                                v-model="form.country_id">
+                                <option :value="country.id" v-for="country in countries">{{country.name}}</option>
+                            </select>
+
+
+                            <jet-input-error :message="form.errors.country_id" class="mt-2"/>
+                        </div>
+
+                        <template v-if="form.country_id === 1">
+                            <div class="col-span-6 sm:col-span-4">
+                                <jet-label for="city" value="Şehir"/>
+
+                                <select
+                                    @change="districtLoad()"
+                                    class="border-gray-300 focus:border-green-300 focus:ring focus:ring-green-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full"
+                                    v-model="form.city_id">
+                                    <option :value="city.id" v-for="city in cities">{{city.name}}</option>
+                                </select>
+
+                                <jet-input-error :message="form.errors.city_id" class="mt-2"/>
+                            </div>
+                            <div class="col-span-6 sm:col-span-4">
+                                <jet-label for="district_id" value="İlçe"/>
+                                <select
+                                    class="border-gray-300 focus:border-green-300 focus:ring focus:ring-green-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full"
+                                    v-model="form.district_id">
+                                    <option :value="district.id" v-for="district in districts">{{district.ilce}} /
+                                        {{district.mahalle}}
+                                    </option>
+                                </select>
+                                <jet-input-error :message="form.errors.district_id" class="mt-2"/>
+                            </div>
+                        </template>
 
 
                     </template>
@@ -78,10 +129,11 @@
 
     import Textarea from "@/Jetstream/Textarea";
     import ImageUpload from "@/Pages/Bids/ImageUpload";
+    import axios from "axios";
 
     export default {
         name: "Create",
-        props: ['sectors', 'companySector'],
+        props: ['sectors', 'companySector', 'categories', 'countries', 'cities'],
         components: {
             ImageUpload,
             AppLayout,
@@ -102,15 +154,31 @@
             imageLoaded(files) {
                 console.log("dosyalar buraya geldi", files);
                 this.form.files = files;
-            }
+            },
+            districtLoad() {
+                this.districts = [];
+                axios.get(route('location.district', this.form.city_id)).then(page => {
+
+                    this.districts = page.data;
+                });
+            },
         },
         data() {
             return {
+                districts: [],
                 form: this.$inertia.form({
                     title: '',
                     description: '',
+                    country_id: 1,
                     sector_id: this.companySector,
                     files: [],
+                    category_id: null,
+                    district_id: null,
+                    city_id: null,
+                    status_id: null,
+                    price: null,
+                    fields: [],
+                    currency_id: 0
                 })
             }
         },

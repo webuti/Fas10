@@ -6,7 +6,7 @@
             <div class="sm:text-center lg:text-left">
                 <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
                     <span class="block xl:inline">İşe faydalı </span>
-                    <span class="block text-indigo-600 xl:inline">teknoloji katalım dedik</span>
+                    <span class="block text-green-600 xl:inline">teknoloji katalım dedik</span>
                 </h1>
                 <p class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
                     Tekstil sektöründeki iş anlaşma süreç yönetimi uygulaması
@@ -14,13 +14,13 @@
                 <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                     <div class="rounded-md shadow">
                         <a href="#"
-                           class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10">
+                           class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-green-600 hover:bg-green-700 md:py-4 md:text-lg md:px-10">
                             Hemen kayıt ol
                         </a>
                     </div>
                     <div class="mt-3 sm:mt-0 sm:ml-3">
                         <a href="#"
-                           class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-700 bg-indigo-100 hover:bg-indigo-200 md:py-4 md:text-lg md:px-10">
+                           class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-green-700 bg-green-100 hover:bg-green-200 md:py-4 md:text-lg md:px-10">
                             Videoyu incele
                         </a>
                     </div>
@@ -33,7 +33,7 @@
         <div class="py-12 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="lg:text-center">
-                    <h2 class="text-base text-indigo-600 font-semibold tracking-wide uppercase">Transactions</h2>
+                    <h2 class="text-base text-green-600 font-semibold tracking-wide uppercase">Transactions</h2>
                     <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
                         Fas10 da farklı işler var
                     </p>
@@ -48,7 +48,7 @@
                         <div class="flex">
                             <div class="flex-shrink-0">
                                 <div
-                                    class="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                                    class="flex items-center justify-center h-12 w-12 rounded-md bg-green-500 text-white">
                                     <!-- Heroicon name: outline/globe-alt -->
                                     <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
                                          viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -71,7 +71,7 @@
                         <div class="flex">
                             <div class="flex-shrink-0">
                                 <div
-                                    class="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                                    class="flex items-center justify-center h-12 w-12 rounded-md bg-green-500 text-white">
                                     <!-- Heroicon name: outline/scale -->
                                     <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
                                          viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -94,7 +94,7 @@
                         <div class="flex">
                             <div class="flex-shrink-0">
                                 <div
-                                    class="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                                    class="flex items-center justify-center h-12 w-12 rounded-md bg-green-500 text-white">
                                     <!-- Heroicon name: outline/lightning-bolt -->
                                     <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
                                          viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -117,7 +117,7 @@
                         <div class="flex">
                             <div class="flex-shrink-0">
                                 <div
-                                    class="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                                    class="flex items-center justify-center h-12 w-12 rounded-md bg-green-500 text-white">
                                     <!-- Heroicon name: outline/annotation -->
                                     <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
                                          viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">

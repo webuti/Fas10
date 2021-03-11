@@ -37,7 +37,7 @@
                             </tbody>
                         </table>
                         <button
-                            class="inline-block py-4 px-8 leading-none text-white bg-indigo-600 hover:bg-indigo-700 font-semibold rounded">
+                            class="inline-block py-4 px-8 leading-none text-white bg-green-600 hover:bg-green-700 font-semibold rounded">
                             İletişime geç
                         </button>
                     </div>

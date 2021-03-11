@@ -49,9 +49,11 @@ Route::get('/c/{type}', function ($type) {
 
 
 Route::get('/i/{type}', [\App\Http\Controllers\BidController::class, 'catalog'])->name('bidCatalog');
+Route::get('/i/{type}/{cat}', [\App\Http\Controllers\BidController::class, 'catalog'])->name('bidCatalog.cat');
+Route::post('/ajax/i/filter', [\App\Http\Controllers\BidController::class, 'catalogFilter'])->name('bidCatalog.filter');
 Route::get('/bd/{id}', function ($id) {
     return Inertia::render('Catalog/BidDetail', [
-        'bid' => \App\Models\Bid::where("id", $id)->first(),
+        'bid' => \App\Models\Bid::where("id", $id)->with('images')->first(),
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
     ]);
