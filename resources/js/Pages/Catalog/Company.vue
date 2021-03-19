@@ -58,15 +58,7 @@
                 <!-- End Tools -->
 
                 <div class="grid grid-cols-3 mt-5  md:grid-cols-3 sm:grid-cols-2 gap-4">
-
-
-                    <CompanyItem
-                        :categories="['Kesim','Dikim','Ütü','Paket']"
-                        person="11"
-                        city="İSTANBUL"
-                        id="5"
-                        name="PEKER TEKSTİL A.Ş."
-                    />
+ 
                     <CompanyItem
                         :categories="company.services"
                         :name="company.name"

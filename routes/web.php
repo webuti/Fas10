@@ -37,7 +37,7 @@ Route::get('/company', function () {
 });
 Route::get('/c/{type}', function ($type) {
     if ($sector = \App\Models\Sector::where('seo_url', $type)->first()) {
-        $companies = \App\Models\Team::with('services')->filtered()->sector($sector->id)->get();
+        $companies = \App\Models\Team::with(['services.service'])->filtered()->sector($sector->id)->get();
 
         return Inertia::render('Catalog/Company', [
             'companies' => $companies,

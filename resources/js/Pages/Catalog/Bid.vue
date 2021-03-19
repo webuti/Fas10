@@ -5,7 +5,7 @@
         <div class="flex flex-row">
 
             <div class="flex flex-col w-64 h-screen  pr-4 bg-white   dark:bg-gray-800 dark:border-gray-600">
-                <form @submit.prevent="submit">
+                <form @submit="submit">
                     <h2 class="text-green-400 font-bold mb-2">Kategoriler</h2>
                     <ul>
                         <li class="text-md" v-for="cat in categories">
@@ -31,6 +31,7 @@
                    focus:ring focus:ring-green-200 focus:ring-opacity-50"/> {{service.name}}
                         </label>
                         <button type="submit"
+
                                 class="bg-green-400 focus:outline-none focus:ring focus:border-green-300 mt-4 text-white rounded-lg py-2 ">
                             Filtrele
                         </button>
