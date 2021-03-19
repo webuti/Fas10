@@ -21,7 +21,7 @@ class Image extends Model
 
     public function bid()
     {
-        return $this->belongsTo(Bid::class);
+        return $this->belongsTo(Bid::class,'id','bid_id');
     }
 
 }

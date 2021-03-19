@@ -10,7 +10,14 @@
         <div
             class="absolute bottom-0 right-0 w-1 h-full duration-300 origin-top transform scale-y-0 bg-green-400 group-hover:scale-y-100"></div>
         <div class="flex flex-row items-center justify-between p-5 bg-white rounded-sm">
-            <div class="pr-4 flex flex-col  ">
+
+            <div class="pr-4 flex-4 flex flex-col">
+                <div class="flex flex-row" v-if="item.images">
+
+                    <img v-for="img in item.images" :key="img.id" :src="'/'+img.image"
+                         class="object-cover w-10 h-10 rounded-full"/>
+
+                </div>
                 <h6 class="mb-2 font-semibold leading-5">
                     {{item.title}}
                 </h6>
@@ -18,11 +25,15 @@
                     {{item.description}}
 
                 </p>
+                <div class="flex flex-1 items-center  flex-row space-x-1">
+
+                    <span v-if="item.city"
+                          class="bg-green-400 text-sm  rounded-lg px-2 text-white">{{item.city.name}}</span>
+                    <span v-if="item.country" class="bg-green-400 text-sm  rounded-lg px-2 text-white">{{item.country.name}}</span>
+                </div>
+
             </div>
-            <div class="flex flex-1 items-center justify-between flex-col space-y-1">
-                <span class="bg-green-400 text-sm rounded-lg px-2 text-white">İstanbul</span>
-                <span class="bg-green-400 text-sm  rounded-lg px-2 text-white">Küçükcekmece</span>
-            </div>
+
             <div class="flex  items-center justify-center">
                 <svg
                     class="w-3 text-gray-700 transition-colors duration-300 group-hover:text-green-400"
@@ -41,7 +52,7 @@
     export default {
         name: "BidItem",
         props: {
-            item: Array,
+            item: Object,
         }
     }
 </script>

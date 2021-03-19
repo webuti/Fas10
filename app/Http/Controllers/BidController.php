@@ -36,9 +36,9 @@ class BidController extends Controller
     {
         if ($sector = \App\Models\Sector::where('seo_url', $type)->first()) {
             if ($category === 0) {
-                $bids = \App\Models\Bid::sector($sector->id)->get();
+                $bids = \App\Models\Bid::with(['city','country','images'])->sector($sector->id)->get();
             } else {
-                $bids = \App\Models\Bid::category($category)->sector($sector->id)->get();
+                $bids = \App\Models\Bid::with(['city','country','images'])->category($category)->sector($sector->id)->get();
             }
             return Inertia::render('Catalog/Bid', [
                 'bids' => $bids,

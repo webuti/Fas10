@@ -36,6 +36,16 @@ class Bid extends Model
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
+    public function city()
+    {
+        return $this->belongsTo(City::class, 'city_id', 'id');
+    }
+
+    public function country()
+    {
+        return $this->belongsTo(Country::class, 'country_id', 'id');
+    }
+
     public function images()
     {
         return $this->hasMany(Image::class, 'bid_id', 'id');
