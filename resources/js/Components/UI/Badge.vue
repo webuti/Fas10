@@ -1,6 +1,6 @@
 <template>
 
-    <div class="text-xs mr-2 py-1.5 px-4 text-gray-600 bg-blue-100 rounded-2xl">
+    <div class="text-xs mr-2 py-1.5 px-4 text-green-600 bg-green-100 rounded-2xl">
         <slot></slot>
     </div>
 
