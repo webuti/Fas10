@@ -5,7 +5,7 @@
         <div class="flex flex-row">
 
             <div class="flex flex-col w-64 h-screen  pr-4 bg-white   dark:bg-gray-800 dark:border-gray-600">
-                <form @submit="submit">
+                <form @submit="submit()" action="javascript:void(0)">
                     <h2 class="text-green-400 font-bold mb-2">Kategoriler</h2>
                     <ul>
                         <li class="text-md" v-for="cat in categories">
@@ -20,7 +20,7 @@
                         </select>
                         <template v-if="form.country_id == 1">
                             <label class="text-gray-600  my-2">Şehir</label>
-                            <select class="rounded-lg border border-gray-300 py-2" v-model="form.city">
+                            <select class="rounded-lg border border-gray-300 py-2" v-model="form.city_id">
                                 <option v-for="city in cities" :value="city.id">{{city.name}}</option>
                             </select>
                         </template>
@@ -31,7 +31,6 @@
                    focus:ring focus:ring-green-200 focus:ring-opacity-50"/> {{service.name}}
                         </label>
                         <button type="submit"
-
                                 class="bg-green-400 focus:outline-none focus:ring focus:border-green-300 mt-4 text-white rounded-lg py-2 ">
                             Filtrele
                         </button>
@@ -97,11 +96,8 @@
                 <!-- End Tools -->
 
                 <div class="grid grid-cols-1 mt-5  md:grid-cols-1 sm:grid-cols-1 gap-4">
-
                     <BidItem :item="bid" v-for="bid in bids"/>
-
                 </div>
-
             </div>
         </div>
     </MainLayout>
@@ -114,6 +110,8 @@
     import Sidebar from "@/Components/Catalog/Sidebar";
     import MainLayout from "@/Layouts/MainLayout";
 
+    import qs from "qs";
+
     export default {
         components: {
             MainLayout,
@@ -123,10 +121,13 @@
         },
         data() {
             return {
+                itemStyle: 1,
                 form: {
-                    services: [],
-                    city_id: 1,
-                    country_id: 1,
+
+                    country_id: this.formData.country_id,
+                    services: this.formData.services,
+                    city_id: this.formData.city_id,
+                    category_id: this.category,
                     categories: this.category,
                     sector: this.sector
                 },
@@ -134,26 +135,51 @@
         },
         methods: {
             submit() {
-                axios.post(route('bidCatalog.filter'), this.form).then(data => {
-                    console.log(data, "data");
-                })
+
+                /*
+                * v
+                *  this.$inertia.replace(this.route('bidCatalog.cat',  {
+                     cat: this.category, type: this.sector
+                 }))
+
+
+                 axios.get(route('bidCatalog.cat',), this.form).then(response => {
+                     this.bidResult = response.data;
+                 })*/
             },
         },
+        watch: {
+            form: {
+                handler: (function () {
+                    let RouteParams = route('bidCatalog.cat', {cat: this.category, type: this.sector});
+                    RouteParams = RouteParams + '/?' + qs.stringify({
+                        city_id: this.form.city_id,
+                        country_id: this.form.country_id,
+                        services: this.form.services
+                    });
+                    this.$inertia.get(RouteParams)
+                }),
+                deep: true,
+            },
+        },
+
         mounted() {
             console.log(this.form, "form");
         },
         created() {
-            if (!this.form.country_id) {
-                this.form.country_id = 1;
-            }
+
+            //     this.form = qs.parse(window.location.search.split('?')[1]);
+
         },
         props: {
             bids: Array,
             countries: Array,
+            category: String,
             categories: Array,
             sector: String,
             services: Array,
             cities: Array,
+            formData: Array,
             canLogin: Boolean,
             canRegister: Boolean,
             laravelVersion: String,

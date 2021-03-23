@@ -83,10 +83,7 @@ class Bid extends Model
 
             $query->where('country_id', request()->input('country_id'));
         }
-        if (request()->input('category_id') !== null) {
 
-            $query->where('category_id', request()->input('category_id'));
-        }
         return $query;
     }
 

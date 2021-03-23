@@ -2,34 +2,53 @@
 
 
     <Header/>
-    <main class="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
+
+
+    <div class="bg-gray-100  w-full">
+
+        <div class="  h-24 flex items-center  mx-auto max-w-7xl px-4 lg:px-8 sm:px-6 ">
+            <h2 class="text-4xl mb-2 text-gray-800 font-semibold font-heading">{{bid.title}}</h2>
+
+        </div>
+
+    </div>
+
+    <div class=" flex items-center  mx-auto max-w-7xl px-4 lg:px-8 sm:px-6 ">
+        <inertia-link href="/">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd"
+                      d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z"
+                      clipRule="evenodd"/>
+            </svg>
+            Geri
+        </inertia-link>
+    </div>
+    <main class="  mx-auto max-w-7xl px-4  sm:px-6   lg:px-8  ">
         <section class="py-12 px-4">
             <div class="flex flex-wrap -mx-8">
-                <div class="lg:w-1/2 px-8 mt-6 lg:mt-0 order-2 lg:order-none">
-                    <h2 class="text-4xl mb-2 font-semibold font-heading">{{bid.title}}</h2>
-                    <p class="mb-6">$9,99 (Ex. Tax)</p>
+                <div class="lg:w-1/2 px-8 lg:mt-0 order-2 lg:order-none">
+
                     <div class="flex mb-6">
                         <ul class="flex list-reset">
-                            <li><a class="block py-2 px-3 mr-2 bg-gray-100 rounded" href="#">Product Details</a></li>
-                            <li><a class="block py-2 px-3 mr-2 hover:bg-gray-100 rounded" href="#">Reviews</a></li>
-                            <li><a class="block py-2 px-3 mr-2 hover:bg-gray-100 rounded" href="#">FAQ</a></li>
+                            <li><a class="block py-2 px-3 mr-2 bg-gray-100 rounded" href="#">İlan Açıklamaları</a></li>
+                            <li><a class="block py-2 px-3 mr-2 hover:bg-gray-100 rounded" href="#">Yorumlar</a></li>
                         </ul>
                     </div>
-                    <p class="mb-8 text-gray-400 leading-relaxed">
-                        {{bid.description}}.</p>
+                    <p class="mb-8 text-gray-800 leading-relaxed">
+                        {{bid.description}}</p>
                     <table class="w-full mb-6">
                         <tbody>
                         <tr class="border-t">
-                            <td class="py-3">Sheets of paper per ream</td>
-                            <td class="text-right">500</td>
+                            <td class="py-3  text-gray-500 ">Oluşturulma Tarihi</td>
+                            <td class="text-right">{{bid.created_at}}</td>
                         </tr>
                         <tr class="border-t">
-                            <td class="py-3">Reams per box</td>
-                            <td class="text-right">5</td>
+                            <td class="py-3  text-gray-500 ">Ülke</td>
+                            <td class="text-right">{{bid.country.name}}</td>
                         </tr>
                         <tr class="border-t">
-                            <td class="py-3">Basis weight</td>
-                            <td class="text-right">80mg</td>
+                            <td class="py-3  text-gray-500 ">Şehir</td>
+                            <td class="text-right">{{bid.city.name}}</td>
                         </tr>
                         </tbody>
                     </table>

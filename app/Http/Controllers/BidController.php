@@ -32,16 +32,22 @@ class BidController extends Controller
     }
 
 
-    public function catalog($type, $category = 0)
+    public function catalog($type, $category = "0")
     {
+
         if ($sector = \App\Models\Sector::where('seo_url', $type)->first()) {
-            if ($category === 0) {
-                $bids = \App\Models\Bid::with(['city','country','images'])->sector($sector->id)->get();
-            } else {
-                $bids = \App\Models\Bid::with(['city','country','images'])->category($category)->sector($sector->id)->get();
+
+            $bids = \App\Models\Bid::with(['city', 'country', 'images'])->filtered()->sector($sector->id);
+            if ($category !== "0") {
+                $bids->category($category);
             }
             return Inertia::render('Catalog/Bid', [
-                'bids' => $bids,
+                'formData' => [
+                    'city_id' => request()->input('city_id'),
+                    'country_id' => request()->input('country_id'),
+                    'services' => request()->input('services'),
+                ],
+                'bids' => $bids->get(),
                 'cities' => City::all(),
                 'countries' => Country::all(),
                 'services' => Service::all(),
@@ -52,11 +58,33 @@ class BidController extends Controller
         }
     }
 
+    public function catalogDetail($id)
+    {
+        return Inertia::render('Catalog/BidDetail', [
+            'bid' => \App\Models\Bid::where("id", $id)->with(['city', 'country', 'images'])->first(),
+        ]);
+    }
+
     public function catalogFilter(Request $request)
     {
+        $type = $request->input('sector');
+        $category = $request->input('category_id');
+        if ($sector = \App\Models\Sector::where('seo_url', $type)->first()) {
 
-        return \App\Models\Bid::filtered()->get();
-
+            $bids = \App\Models\Bid::with(['city', 'country', 'images'])->filtered()->sector($sector->id);
+            if ($category !== "0") {
+                $bids->category($category);
+            }
+            return Inertia::render('Catalog/Bid', [
+                'bids' => $bids->get(),
+                'cities' => City::all(),
+                'countries' => Country::all(),
+                'services' => Service::all(),
+                'sector' => $type,
+                'category' => $category,
+                'categories' => BidCategory::all()
+            ]);
+        }
 
     }
 

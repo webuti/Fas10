@@ -18,10 +18,10 @@
                          class="object-cover w-10 h-10 rounded-full"/>
 
                 </div>
-                <h6 class="mb-2 font-semibold leading-5">
+                <h6 class="font-sans text-xl font-extrabold leading-none tracking-tight lg:text-4xl xl:text-3xl">
                     {{item.title}}
                 </h6>
-                <p class="text-sm text-gray-900">
+                <p class="text-sm text-gray-900 pb-2">
                     {{item.description}}
 
                 </p>

@@ -37,7 +37,7 @@ class CreateNewUser implements CreatesNewUsers
             ]), function (User $user) {
                 /*
                  * başlangıçta otomatik şirket oluşturulmadı engellendi*/
-                // $this->createTeam($user);
+                $this->createTeam($user);
             });
         });
     }
