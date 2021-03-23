@@ -63,10 +63,14 @@ class Team extends JetstreamTeam
 
             $query->where('country_id', request()->input('country_id'));
         }
-        if (request()->input('number_of_staff') !== null) {
 
-            $query->where('number_of_staff', (request()->input('number_of_staff')));
+
+        if (request()->input('services') !== null) {
+            $query->join('team_services', 'team_services.team_id', '=', 'teams.id')
+                ->whereIn('team_services.service_id', request()->input('services'));
+
         }
+
         return $query;
     }
 
@@ -87,7 +91,7 @@ class Team extends JetstreamTeam
 
     public function scopeSector($query, $id)
     {
-        return $query->where('sector_id', $id);
+        return $query->where('teams.sector_id', $id);
     }
 
     public function services()

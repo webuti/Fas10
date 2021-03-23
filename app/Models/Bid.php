@@ -25,7 +25,9 @@ class Bid extends Model
         'currency_id'
     ];
 
-
+    protected $casts = [
+        'created_at' => 'datetime:Y-m-d H:i:s',
+    ];
     public function team()
     {
         return $this->belongsTo(Jetstream::teamModel());
