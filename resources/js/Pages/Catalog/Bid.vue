@@ -9,7 +9,7 @@
                     <h2 class="text-green-400 font-bold mb-2">Kategoriler</h2>
                     <ul>
                         <li class="text-md" v-for="cat in categories">
-                            <inertia-link :href="'/i/'+sector+'/'+cat.seo_url">{{cat.name}}</inertia-link>
+                            <a href="#" @click="urlBuilder(cat.seo_url,sector)">{{cat.name}}</a>
                         </li>
                     </ul>
                     <h2 class="text-green-400 font-bold mt-2 mb-2">Filtreler</h2>
@@ -134,30 +134,21 @@
             }
         },
         methods: {
-            submit() {
 
-                /*
-                * v
-                *  this.$inertia.replace(this.route('bidCatalog.cat',  {
-                     cat: this.category, type: this.sector
-                 }))
-
-
-                 axios.get(route('bidCatalog.cat',), this.form).then(response => {
-                     this.bidResult = response.data;
-                 })*/
-            },
+            urlBuilder(cat, type) {
+                let RouteParams = route('bidCatalog.cat', {cat, type});
+                RouteParams = RouteParams + '/?' + qs.stringify({
+                    city_id: this.form.city_id,
+                    country_id: this.form.country_id,
+                    services: this.form.services
+                });
+                this.$inertia.get(RouteParams)
+            }
         },
         watch: {
             form: {
                 handler: (function () {
-                    let RouteParams = route('bidCatalog.cat', {cat: this.category, type: this.sector});
-                    RouteParams = RouteParams + '/?' + qs.stringify({
-                        city_id: this.form.city_id,
-                        country_id: this.form.country_id,
-                        services: this.form.services
-                    });
-                    this.$inertia.get(RouteParams)
+                    this.urlBuilder(this.category, this.sector);
                 }),
                 deep: true,
             },
