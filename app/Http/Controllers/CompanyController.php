@@ -69,7 +69,9 @@ class CompanyController extends Controller
 
 
         return Inertia::render('Catalog/CompanyDetail', [
-            'company' => \App\Models\Team::with(['services.service', 'city', 'country'])->where("id", $id)->first(),
+            'company' => \App\Models\Team::with(array('comments.user' => function ($query) {
+                $query->select('id', 'name');
+            }, 'services.service', 'city', 'country'))->where("id", $id)->first(),
         ]);
     }
 

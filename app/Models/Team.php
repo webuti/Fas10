@@ -80,6 +80,11 @@ class Team extends JetstreamTeam
         return $this->belongsTo(Country::class, 'country_id', 'id');
     }
 
+    public function comments()
+    {
+        return $this->hasMany(Comment::class, 'team_id', 'id');
+    }
+
     public function scopeSector($query, $id)
     {
         return $query->where('sector_id', $id);

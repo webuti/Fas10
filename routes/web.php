@@ -18,6 +18,7 @@ use Inertia\Inertia;
 
 Route::resource('dashboard/bids', \App\Http\Controllers\BidController::class);
 Route::resource('teams.service', \App\Http\Controllers\TeamServiceController::class);
+Route::resource('comments', \App\Http\Controllers\CommentController::class);
 
 Route::get('image-upload', [\App\Http\Controllers\ImageUploadController::class, 'imageUpload'])->name('image.upload');
 Route::post('image-upload', [\App\Http\Controllers\ImageUploadController::class, 'imageUploadPost'])->name('image.upload.post');
