@@ -1,7 +1,7 @@
 <template>
     <div>
         <file-pond :required="false" :allow-multiple="true"
-          
+
                    v-bind:files="myFiles"
                    v-on:input="handleFilePondUpdateFile"
                    v-model="files"
@@ -24,9 +24,10 @@
 
     export default {
         name: "ImageUpload",
+        props: ['myFiles'],
         data() {
             return {
-                myFiles: [],
+
                 files: [],
                 uploadedFiles: []
             }

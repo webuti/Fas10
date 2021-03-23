@@ -1,7 +1,9 @@
 <template>
     <MainLayout>
         <div class="flex flex-row">
-            <Sidebar/>
+            <Sidebar :cities="cities" :sector="sector" :formData="formData" :countries="countries"
+                     :services="services"/>
+
             <div class="content  w-full">
                 <div class="flex flex-wrap justify-between items-center bg-white border-b p-2 space-y-2 md:space-y-0">
 
@@ -58,11 +60,11 @@
                 <!-- End Tools -->
 
                 <div class="grid grid-cols-3 mt-5  md:grid-cols-3 sm:grid-cols-2 gap-4">
- 
+
                     <CompanyItem
                         :categories="company.services"
                         :name="company.name"
-                        :city="company.city_id"
+                        :city="company.city.name"
                         :description="company.description"
                         :person="company.number_of_staff"
                         :id="company.id"
@@ -92,11 +94,12 @@
         },
 
         props: {
-            companies: [],
-            canLogin: Boolean,
-            canRegister: Boolean,
-            laravelVersion: String,
-            phpVersion: String,
+            companies: Array,
+            countries: Array,
+            formData: Object,
+            cities: Array,
+            services: Array,
+            sector: String,
         }
     }
 </script>

@@ -125,7 +125,7 @@
                 form: {
 
                     country_id: this.formData.country_id,
-                    services: this.formData.services,
+                    services: this.formData.services || [],
                     city_id: this.formData.city_id,
                     category_id: this.category,
                     categories: this.category,

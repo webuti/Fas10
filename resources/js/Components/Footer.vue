@@ -15,7 +15,7 @@
                 <div class="flex">
                     <p class="mr-1 text-gray-800">Telefon:</p>
                     <a href="tel:850-123-5021" aria-label="Our phone" title="Our phone"
-                       class="transition-colors duration-300 text-green-400 hover:text-deep-purple-800">532-419-0087</a>
+                       class="transition-colors duration-300 text-green-400 hover:text-deep-purple-800">888-555-0087</a>
                 </div>
                 <div class="flex">
                     <p class="mr-1 text-gray-800">Eposta:</p>

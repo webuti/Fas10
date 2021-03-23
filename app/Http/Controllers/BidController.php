@@ -44,7 +44,7 @@ class BidController extends Controller
             return Inertia::render('Catalog/Bid', [
                 'formData' => [
                     'city_id' => request()->input('city_id'),
-                    'country_id' => request()->input('country_id'),
+                    'country_id' => request()->input('country_id', 1),
                     'services' => request()->input('services'),
                 ],
                 'bids' => $bids->get(),
@@ -133,7 +133,7 @@ class BidController extends Controller
 
                 $destination = "/uploads/bids/" . $bid->id . "/" . $photo;
                 $imageSet = Image::create([
-                    'image' => "storage" . $destination,
+                    'image' => "/storage" . $destination,
                     'image_caption' => $photo,
                     'bid_id' => $bid->id,
                     'gallery_id' => $bid->id,
@@ -174,8 +174,12 @@ class BidController extends Controller
         return Inertia::render('Bids/Show', [
             'bid' => $bid,
             'sectors' => Sector::get(),
-            'images' => Image::where('bid_id', $bid->id)->get(),
-            'companySector' => Team::currentTeamSectorId()
+            'images' => Image::where('bid_id', $bid->id)->get()->pluck('image'),
+            'companySector' => Team::currentTeamSectorId(),
+            'cities' => City::all(),
+            'countries' => Country::all(),
+            'categories' => BidCategory::all(),
+
         ]);
 
 
@@ -217,14 +221,20 @@ class BidController extends Controller
             'title' => $input['title'],
             'description' => $input['description'],
             'sector_id' => $input['sector_id'],
+            'district_id' => $input['district_id'],
+            'city_id' => $input['city_id'],
+            'country_id' => $input['country_id'],
+            'category_id' => $input['category_id'],
             'user_id' => Auth::user()->id,
             'team_id' => Auth::user()->current_team_id,
 
         ])) {
-            $request->session()->flash('status', 'İlan başarılı olarak eklendi');
-            return Redirect::route('bids.index');
-        }
 
+            $request->session()->flash('message', 'İlan başarılı olarak güncellendi');
+
+
+        }
+        return Redirect::route('bids.show', $bid->id);
 
     }
 

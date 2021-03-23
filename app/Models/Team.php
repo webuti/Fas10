@@ -55,15 +55,29 @@ class Team extends JetstreamTeam
     public function scopeFiltered($query)
     {
 
-        if (request()->input('city') !== null) {
+        if (request()->input('city_id') !== null) {
 
-            $query->where('city_id', request()->input('city'));
+            $query->where('city_id', request()->input('city_id'));
+        }
+        if (request()->input('country_id') !== null) {
+
+            $query->where('country_id', request()->input('country_id'));
         }
         if (request()->input('number_of_staff') !== null) {
 
             $query->where('number_of_staff', (request()->input('number_of_staff')));
         }
         return $query;
+    }
+
+    public function city()
+    {
+        return $this->belongsTo(City::class, 'city_id', 'id');
+    }
+
+    public function country()
+    {
+        return $this->belongsTo(Country::class, 'country_id', 'id');
     }
 
     public function scopeSector($query, $id)
@@ -73,7 +87,7 @@ class Team extends JetstreamTeam
 
     public function services()
     {
-        return $this->hasMany(TeamService::class,'team_id','id');
+        return $this->hasMany(TeamService::class, 'team_id', 'id');
     }
 
 

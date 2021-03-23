@@ -14,7 +14,7 @@
             <div class="pr-4 flex-4 flex flex-col">
                 <div class="flex flex-row" v-if="item.images">
 
-                    <img v-for="img in item.images" :key="img.id" :src="'/'+img.image"
+                    <img v-for="img in item.images" :key="img.id" :src="img.image"
                          class="object-cover w-10 h-10 rounded-full"/>
 
                 </div>

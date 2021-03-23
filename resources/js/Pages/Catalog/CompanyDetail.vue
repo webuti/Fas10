@@ -1,7 +1,11 @@
 <template>
     <MainLayout>
-        <main class="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
+        <BidNavigation/>
+
+        <main class="  mx-auto max-w-7xl px-4  sm:px-6   lg:px-8  ">
             <section class="py-12 px-4">
+
+
                 <div class="flex flex-wrap -mx-8">
                     <div class="lg:w-1/2 px-8 mt-6 lg:mt-0 order-2 lg:order-none">
                         <h2 class="text-4xl mb-2 font-semibold font-heading">{{company.name}}</h2>
@@ -27,15 +31,25 @@
                                 <td class="text-right">{{company.number_of_staff}}</td>
                             </tr>
                             <tr class="border-t">
-                                <td class="py-3">Şehir</td>
-                                <td class="text-right">{{company.city_id}} / {{company.district_id}}</td>
+                                <td class="py-3">Ülke</td>
+                                <td class="text-right">{{company.country.name}}</td>
                             </tr>
                             <tr class="border-t">
-                                <td class="py-3">Ülke</td>
-                                <td class="text-right">{{company.country_id}}</td>
+                                <td class="py-3">Şehir</td>
+                                <td class="text-right">{{company.city.name}} / {{company.district_id}}</td>
+                            </tr>
+
+                            <tr>
+                                <td class="py-3">Hizmetler</td>
+                                <td class="text-right">
+                                    <li v-for="services in company.services">
+                                        {{services.service.name}}
+                                    </li>
+                                </td>
                             </tr>
                             </tbody>
                         </table>
+
                         <button
                             class="inline-block py-4 px-8 leading-none text-white bg-green-600 hover:bg-green-700 font-semibold rounded">
                             İletişime geç
@@ -52,10 +66,12 @@
 <script>
     import Header from "../../Components/Header.vue";
     import MainLayout from "@/Layouts/MainLayout";
+    import BidNavigation from "@/Pages/Catalog/BidNavigation";
 
 
     export default {
         components: {
+            BidNavigation,
             Header,
             MainLayout
         },

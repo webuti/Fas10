@@ -35,30 +35,12 @@ Route::get('/company', function () {
         'canRegister' => Route::has('register'),
     ]);
 });
-Route::get('/c/{type}', function ($type) {
-    if ($sector = \App\Models\Sector::where('seo_url', $type)->first()) {
-        $companies = \App\Models\Team::with(['services.service'])->filtered()->sector($sector->id)->get();
-
-        return Inertia::render('Catalog/Company', [
-            'companies' => $companies,
-            'canLogin' => Route::has('login'),
-            'canRegister' => Route::has('register'),
-        ]);
-    }
-})->name('companyCatalog');
-
-
+Route::get('/c/{type}', [\App\Http\Controllers\CompanyController::class, 'catalog'])->name('companyCatalog');
 Route::get('/i/{type}', [\App\Http\Controllers\BidController::class, 'catalog'])->name('bidCatalog');
 Route::get('/i/{type}/{cat}', [\App\Http\Controllers\BidController::class, 'catalog'])->name('bidCatalog.cat');
 Route::get('/ajax/i/filter', [\App\Http\Controllers\BidController::class, 'catalogFilter'])->name('bidCatalog.filter');
 Route::get('/bd/{id}', [\App\Http\Controllers\BidController::class, 'catalogDetail'])->name('bidDetail');
-Route::get('/d/{id}', function ($id) {
-    return Inertia::render('Catalog/CompanyDetail', [
-        'company' => \App\Models\Team::where("id", $id)->first(),
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-    ]);
-})->name('companyDetail');
+Route::get('/d/{id}', [\App\Http\Controllers\CompanyController::class, 'show'])->name('companyDetail');
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

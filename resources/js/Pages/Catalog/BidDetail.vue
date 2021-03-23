@@ -13,16 +13,7 @@
 
     </div>
 
-    <div class=" flex items-center  mx-auto max-w-7xl px-4 lg:px-8 sm:px-6 ">
-        <inertia-link href="/">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd"
-                      d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z"
-                      clipRule="evenodd"/>
-            </svg>
-            Geri
-        </inertia-link>
-    </div>
+
     <main class="  mx-auto max-w-7xl px-4  sm:px-6   lg:px-8  ">
         <section class="py-12 px-4">
             <div class="flex flex-wrap -mx-8">
@@ -61,7 +52,7 @@
                 <div class="lg:w-1/2 px-8">
 
                     <img class="mb-4 rounded shadow"
-                         v-for="image in bid.images" :src="'/'+(image.image)" :alt="image.image_caption"/>
+                         v-for="image in bid.images" :src="(image.image)" :alt="image.image_caption"/>
 
                 </div>
             </div>
