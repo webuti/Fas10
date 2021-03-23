@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Comment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class CommentController extends Controller
 {
@@ -42,12 +43,14 @@ class CommentController extends Controller
             'team_id' => ['required'],
         ]);
 
-
-        return Comment::create([
-            'team_id' => $request->input('team_id'),
-            'user_id' => Auth::user()->id,
-            'body' => $request->input('body'),
-        ]);
+        if (Auth::check()) {
+            Comment::create([
+                'team_id' => $request->input('team_id'),
+                'user_id' => Auth::user()->id,
+                'body' => $request->input('body'),
+            ]);
+            return Redirect::route('companyDetail', $request->input('team_id'));
+        }
 
     }
 

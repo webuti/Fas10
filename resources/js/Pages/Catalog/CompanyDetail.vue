@@ -15,21 +15,21 @@
                             <div class="w-full">
                                 <ul class="flex mb-0 list-none flex-wrap pt-3 pb-4 flex-row">
                                     <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
-                                        <a class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal"
+                                        <a class=" font-bold  px-5 py-3 shadow-lg rounded block leading-normal"
                                            v-on:click="toggleTabs(1)"
                                            v-bind:class="{'text-green-600 bg-white': openTab !== 1, 'text-white bg-green-600': openTab === 1}">
                                             Şirket Hakkında
                                         </a>
                                     </li>
                                     <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
-                                        <a class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal"
+                                        <a class=" font-bold  px-5 py-3 shadow-lg rounded block leading-normal"
                                            v-on:click="toggleTabs(2)"
                                            v-bind:class="{'text-green-600 bg-white': openTab !== 2, 'text-white bg-green-600': openTab === 2}">
-                                            Yorumlar
+                                            Yorumlar ({{company.comments.length}})
                                         </a>
                                     </li>
                                     <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
-                                        <a class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal"
+                                        <a class=" font-bold  px-5 py-3 shadow-lg rounded block leading-normal"
                                            v-on:click="toggleTabs(3)"
                                            v-bind:class="{'text-green-600 bg-white': openTab !== 3, 'text-white bg-green-600': openTab === 3}">
                                             Hizmetler
@@ -41,6 +41,8 @@
                                     <div class="px-4 py-5 flex-auto">
                                         <div class="tab-content tab-space">
                                             <div v-bind:class="{'hidden': openTab !== 1, 'block': openTab === 1}">
+
+
 
 
                                                 <p class="mb-8 text-gray-400 leading-relaxed">
@@ -70,7 +72,7 @@
 
 
                                                 <div class="antialiased mx-auto max-w-screen-sm">
-                                                    <h3 class="mb-4 text-lg font-semibold text-gray-900">Comments</h3>
+                                                    <h3 class="mb-4 text-lg font-semibold text-gray-900">Yorumlar</h3>
 
                                                     <div class="space-y-4">
 
@@ -83,7 +85,7 @@
                                                             <div
                                                                 class="flex-1 border rounded-lg px-4 py-2 sm:px-6 sm:py-4 leading-relaxed">
                                                                 <strong>{{comment.user.name}}</strong> <span
-                                                                class="text-xs text-gray-400">{{comment.created_at }}</span>
+                                                                class=" text-gray-400">{{comment.created_at }}</span>
                                                                 <p class="text-sm">
                                                                     {{comment.body }}
                                                                 </p>
@@ -95,7 +97,7 @@
                                                 </div>
 
                                                 <form @submit.prevent="submitComment()"
-                                                      class="w-full max-w-xl bg-white rounded-lg px-4 pt-2">
+                                                      class="w-full max-w-xl bg-white rounded-lg  ">
                                                     <div class="flex flex-wrap -mx-3 mb-6">
                                                         <h2 class="px-4 pt-3 pb-2 text-gray-800 text-lg">
                                                             {{company.name}} hakkındaki yorumlarınız</h2>
@@ -135,10 +137,6 @@
                             </div>
                         </div>
 
-                        <button
-                            class="inline-block py-4 px-8 leading-none text-white bg-green-600 hover:bg-green-700 font-semibold rounded">
-                            İletişime geç
-                        </button>
                     </div>
 
                 </div>
@@ -170,7 +168,7 @@
             submitComment() {
                 this.form.post(route('comments.store'), {
                     errorBag: 'createComment',
-                    preserveScroll: true
+                    preserveScroll: true,
                 });
             }
         },
