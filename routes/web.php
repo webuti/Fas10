@@ -21,6 +21,7 @@ Route::resource('teams.service', \App\Http\Controllers\TeamServiceController::cl
 Route::resource('comments', \App\Http\Controllers\CommentController::class);
 Route::resource('partners', \App\Http\Controllers\PartnerController::class);
 Route::resource('projects', \App\Http\Controllers\ProjectController::class);
+Route::resource('projectNotes', \App\Http\Controllers\ProjectNoteController::class);
 
 Route::get('partners/projects/{teamId}', [\App\Http\Controllers\PartnerController::class, 'projects'])->name('partners.projects');
 Route::get('partners/projects/{teamId}/{projectId}', [\App\Http\Controllers\PartnerController::class, 'projectDetail'])->name('partners.projectDetail');

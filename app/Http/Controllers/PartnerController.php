@@ -39,7 +39,7 @@ class PartnerController extends Controller
             ['teams' => Team::paginate(),
                 'teamId' => $teamId,
                 'projects' => Project::select('title', 'id', 'team_id', 'created_at')->where('team_id', $teamId)->paginate(),
-                'projectDetail' => Project::where('id', $projectId)->first(),
+                'projectDetail' => Project::where('id', $projectId)->with('notes.user')->first(),
             ]);
     }
 

@@ -119,15 +119,66 @@
                     </div>
 
                     <p v-if="projectDetail" class="p-3 bg-white ">
-                    <ul class=" pb-2 border-b flex space-x-1">
-                        <li class=" bg-gray-500 text-white text-sm px-2   rounded-xl">İş Aşamaları</li>
-                        <li class=" bg-gray-500 text-white text-sm px-2   rounded-xl">Notlar</li>
-                        <li class=" bg-gray-500 text-white text-sm px-2   rounded-xl">Yazışmalar</li>
+                    <ul class=" pb-2 border-b flex mb-3 space-x-1">
+                        <li v-on:click="toggleTabs(1)" class=" bg-gray-500 text-white text-sm px-2  rounded-xl">İş
+                            Aşamaları
+                        </li>
+                        <li v-on:click="toggleTabs(2)" class="  bg-gray-500 text-white text-sm px-2  rounded-xl">Notlar
+                            ({{projectDetail.notes.length}})
+                        </li>
+                        <li v-on:click="toggleTabs(3)" class=" bg-gray-500 text-white text-sm px-2  rounded-xl">
+                            Yazışmalar
+                        </li>
                     </ul>
+
+                    <div v-bind:class="{'hidden': openTab !== 1, 'block': openTab === 1}">
+                        <h3 class="mb-4 text-lg font-semibold text-gray-900">Proje Hakkında</h3>
+
+                        <h1>{{projectDetail.title}}</h1>
+                        {{projectDetail.description}}
+
+                    </div>
+                    <div v-bind:class="{'hidden': openTab !== 2, 'block': openTab === 2}">
+
+
+                        <h3 class="mb-4 text-lg font-semibold text-gray-900">Notlar</h3>
+
+                        <div class="space-y-4">
+
+                            <div class="flex" v-for="note in projectDetail.notes">
+                                <div class="flex-shrink-0 mr-3">
+                                    <img class="mt-2 rounded-full w-8 h-8 sm:w-10 sm:h-10"
+                                         :src="note.user.profile_photo_url"
+                                         alt="">
+                                </div>
+                                <div
+                                    class="flex-1 border rounded-lg px-4 py-2 sm:px-6 sm:py-4 leading-relaxed">
+                                    <strong>{{note.user.name}}</strong> <span
+                                    class=" text-gray-400">{{note.created_at }}</span>
+                                    <p class="text-sm">
+                                        {{note.body }}
+                                    </p>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <create-note :projectId="projectDetail.id" :teamId="projectDetail.team_id"/>
+                    </div>
+                    <div v-bind:class="{'hidden': openTab !== 3, 'block': openTab === 3}">
+                        <h3 class="mb-4 text-lg font-semibold text-gray-900">Yazışmalar</h3>
+
+                        <p>
+                            Firmayla olan eposta trafiğinizin burada saklanmasını istiyorsanız
+                            pr{{projectDetail.id}}@fas10.net eposta adresini cc ye ekleyiniz.
+                        </p>
+
+
+                    </div>
                     <div class="divide-solid"></div>
 
-                    <h1>{{projectDetail.title}}</h1>
-                    {{projectDetail.description}}
+
                     </p>
                 </div>
             </div>
@@ -142,11 +193,13 @@
     import AppLayout from "@/Layouts/AppLayout";
     import AvailableDates from "@/Components/UI/AvailableDates";
     import CreateProjectForm from "@/Pages/Partners/CreateProjectForm";
+    import CreateNote from "@/Pages/Partners/CreateNote";
 
 
     export default {
         name: "Index",
         components: {
+            CreateNote,
             CreateProjectForm,
             AvailableDates,
             AppLayout
@@ -154,6 +207,7 @@
         data() {
             return {
                 form: [],
+                openTab: 1,
                 activeProject: 0,
                 searchPartnerShow: false,
                 createProjectShow: false,
@@ -161,6 +215,9 @@
             }
         },
         methods: {
+            toggleTabs: function (tabNumber) {
+                this.openTab = tabNumber
+            },
             getProjects(teamId) {
 
                 this.$inertia.get(route('partners.projects', teamId));
