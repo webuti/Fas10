@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Bid;
 use App\Models\Partner;
+use App\Models\Project;
 use App\Models\Team;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -19,7 +20,27 @@ class PartnerController extends Controller
      */
     public function index()
     {
-        return Inertia::render('Partners/Index');
+        return Inertia::render('Partners/Index',
+            ['teams' => Team::paginate(),
+                'projects' => Project::paginate()]);
+    }
+
+    public function projects($teamId)
+    {
+        return Inertia::render('Partners/Index',
+            ['teams' => Team::paginate(),
+                'teamId' => $teamId,
+                'projects' => Project::select('title', 'id', 'team_id', 'created_at')->where('team_id', $teamId)->paginate()]);
+    }
+
+    public function projectDetail($teamId, $projectId)
+    {
+        return Inertia::render('Partners/Index',
+            ['teams' => Team::paginate(),
+                'teamId' => $teamId,
+                'projects' => Project::select('title', 'id', 'team_id', 'created_at')->where('team_id', $teamId)->paginate(),
+                'projectDetail' => Project::where('id', $projectId)->first(),
+            ]);
     }
 
     /**
