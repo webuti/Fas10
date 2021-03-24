@@ -1,14 +1,7 @@
 <template>
     <inertia-link :href="route('bidDetail',item.id)" aria-label="View item" title="İlanı İncele"
                   class="  p-px overflow-hidden transition duration-300 full-w transform border rounded shadow-sm hover:scale-105   hover:border-green-400 hover:shadow-xl">
-        <div
-            class="absolute bottom-0 left-0 w-full h-1 duration-300 origin-left transform scale-x-0 bg-green-400 group-hover:scale-x-100"></div>
-        <div
-            class="absolute bottom-0 left-0 w-1 h-full duration-300 origin-bottom transform scale-y-0 bg-green-400 group-hover:scale-y-100"></div>
-        <div
-            class="absolute top-0 left-0 w-full h-1 duration-300 origin-right transform scale-x-0 bg-green-400 group-hover:scale-x-100"></div>
-        <div
-            class="absolute bottom-0 right-0 w-1 h-full duration-300 origin-top transform scale-y-0 bg-green-400 group-hover:scale-y-100"></div>
+
         <div class="flex flex-row items-center justify-between p-5 bg-white rounded-sm">
 
             <div class="pr-4 flex-4 flex flex-col">
@@ -44,8 +37,6 @@
             </div>
         </div>
     </inertia-link>
-
-
 </template>
 
 <script>

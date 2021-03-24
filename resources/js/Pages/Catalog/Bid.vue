@@ -2,14 +2,36 @@
 
 
     <MainLayout>
+
+        <div v-if="mobileMenuShow" @click="mobileMenuShow = false" class="bg-gray-200 z-10 h-screen w-full  opacity-25 absolute"></div>
         <div class="flex flex-row">
 
-            <div class="flex flex-col w-64 h-screen  pr-4 bg-white   dark:bg-gray-800 dark:border-gray-600">
+            <div
+                class="flex flex-col w-64  pr-4  z-20  bg-white md:block lg:block xl:block absolute xs:absolute   sm:absolute md:static lg:static "
+
+                :class="{ 'hidden': !mobileMenuShow }"
+            >
+
                 <form @submit="submit()" action="javascript:void(0)">
-                    <h2 class="text-green-400 font-bold mb-2">Kategoriler</h2>
+
+                    <div class="flex justify-between">
+                    <h2 class="text-green-400 font-bold mb-2">Kategoriler
+                    </h2>
+                    <span @click="mobileMenuShow = false" class="block md:hidden lg:hidden sm:block"><svg class="h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+  <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
+</svg></span>
+                    </div>
                     <ul>
                         <li class="text-md" v-for="cat in categories">
+
                             <a href="#" @click="urlBuilder(cat.seo_url,sector)">{{cat.name}}</a>
+
+                        <li v-for="catc in cat.children" class="ml-2">
+                            <a href="#" @click="urlBuilder(catc.seo_url,sector)">{{catc.name}}</a>
+                        <li v-for="catcz in catc.children" class="ml-2"><a href="#"
+                                                                           @click="urlBuilder(catcz.seo_url,sector)">{{catcz.name}}</a>
+                        </li>
+                        </li>
                         </li>
                     </ul>
                     <h2 class="text-green-400 font-bold mt-2 mb-2">Filtreler</h2>
@@ -39,8 +61,8 @@
             </div>
 
             <div class="content  w-full">
-
-                <div class="flex flex-wrap justify-between items-center bg-white border-b p-2 space-y-2 md:space-y-0">
+                <h2 class="text-green-400 text-xl font-bold my-2">{{categoryInfo.name}}</h2>
+                <div class="flex flex-wrap justify-between items-center  py-2 space-y-2 md:space-y-0">
 
 
                     <div
@@ -69,34 +91,45 @@
                                           d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2"/>
                                 </svg>
                             </button>
+                            <button @click="mobileMenuShow = !mobileMenuShow"
+                                    class="p-2   lg:hidden md:hidden  sm:block xs:block">
+                                <div class="flex   text-xs text-gray-500">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                         stroke="currentColor" class="h-4 w-4 text-gray-500">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                              d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"/>
+                                    </svg>
+                                    <span>Filtre</span></div>
+                            </button>
                         </div>
 
-                        <div class="relative">
-                            <input type="text" placeholder="Search by"
-                                   class="appearance-none relative block w-full px-8 py-2 border border-gray-300 placeholder-gray-500 text-gray-800 shadow-sm rounded-md focus:outline-none focus:ring-gray-500 focus:border-gray-500 focus:z-10 text-xs"/>
 
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                 stroke="currentColor" class="absolute left-3 bottom-2 h-4 w-4 text-gray-500">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
-                            </svg>
-                        </div>
-
-                        <button
-                            class="flex items-center space-x-1 text-xs text-gray-500 font-semibold border border-gray-300 shadow-sm rounded-md p-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                 stroke="currentColor" class="h-4 w-4 text-gray-500">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                      d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"/>
-                            </svg>
-                            <span>Filter</span>
-                        </button>
                     </div>
                 </div>
                 <!-- End Tools -->
 
+
                 <div class="grid grid-cols-1 mt-5  md:grid-cols-1 sm:grid-cols-1 gap-4">
-                    <BidItem :item="bid" v-for="bid in bids"/>
+                    <BidItem v-if="bids.data.length" :item="bid" v-for="bid in bids.data"/>
+
+                    <template v-else>
+
+                        <div class="w-full px-6 py-3 rounded-sm border  " role="alert">
+
+                            <div class="flex flex-col items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                     class="text-yellow-400  w-16 h-16 mx-2 stroke-current"><!---->
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                          d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+                                    <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!---->
+                                    <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!---->
+                                    <!----> <!----> <!----> <!---->
+                                </svg>
+                                <label>Bu kategoriye eklenmiş ilan bulunamadı</label></div>
+                        </div>
+
+
+                    </template>
                 </div>
             </div>
         </div>
@@ -122,6 +155,7 @@
         data() {
             return {
                 itemStyle: 1,
+                mobileMenuShow: false,
                 form: {
 
                     country_id: this.formData.country_id,
@@ -167,6 +201,7 @@
             countries: Array,
             category: String,
             categories: Array,
+            categoryInfo: Array,
             sector: String,
             services: Array,
             cities: Array,

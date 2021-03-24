@@ -2,8 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Bid;
 use App\Models\Partner;
+use App\Models\Team;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
+use Inertia\Inertia;
 
 class PartnerController extends Controller
 {
@@ -14,7 +19,7 @@ class PartnerController extends Controller
      */
     public function index()
     {
-        //
+        return Inertia::render('Partners/Index');
     }
 
     /**
@@ -30,18 +35,22 @@ class PartnerController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        //
+
+        $request->validate(['team_id' => 'required']);
+
+        Partner::create(['status' => 1, 'sender_team_id' => Auth::user()->current_team_id, 'receiver_team_id' => $request->input('team_id')]);
+        return Redirect::route('companyDetail', $request->input('team_id'));
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Partner  $partner
+     * @param \App\Models\Partner $partner
      * @return \Illuminate\Http\Response
      */
     public function show(Partner $partner)
@@ -52,7 +61,7 @@ class PartnerController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Partner  $partner
+     * @param \App\Models\Partner $partner
      * @return \Illuminate\Http\Response
      */
     public function edit(Partner $partner)
@@ -63,8 +72,8 @@ class PartnerController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Partner  $partner
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\Partner $partner
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Partner $partner)
@@ -75,7 +84,7 @@ class PartnerController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Partner  $partner
+     * @param \App\Models\Partner $partner
      * @return \Illuminate\Http\Response
      */
     public function destroy(Partner $partner)

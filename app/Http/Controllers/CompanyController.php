@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\City;
 use App\Models\Country;
+use App\Models\Partner;
 use App\Models\Service;
 use App\Models\Team;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 
 class CompanyController extends Controller
@@ -45,7 +47,7 @@ class CompanyController extends Controller
     public function catalog($type)
     {
         if ($sector = \App\Models\Sector::where('seo_url', $type)->first()) {
-            $companies = \App\Models\Team::with(['services.service', 'city'])->filtered()->sector($sector->id)->get();
+            $companies = \App\Models\Team::with(['services.service', 'city'])->filtered()->sector($sector->id)->paginate();
 
             return Inertia::render('Catalog/Company', [
                 'companies' => $companies,
@@ -68,7 +70,16 @@ class CompanyController extends Controller
     {
 
 
+        if (Auth::check()) {
+            $partnerStatus = Partner::select('status')->where('receiver_team_id', $id)->where('sender_team_id', Auth::user()->current_team_id)->firstOr(function () {
+                return ['status' => 0];
+
+            });
+        } else {
+            $partnerStatus = ['status' => 0];
+        }
         return Inertia::render('Catalog/CompanyDetail', [
+            'partnerStatus' => $partnerStatus,
             'company' => \App\Models\Team::with(array('comments.user' => function ($query) {
                 $query->select('id', 'name');
             }, 'services.service', 'city', 'country'))->where("id", $id)->first(),

@@ -9,26 +9,26 @@
 
                     <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
 
-                            <inertia-link class="flex-shrink-0 flex items-center" href="/">
+                        <inertia-link class="flex-shrink-0 flex items-center" href="/">
 
-                                <svg
-                                    class="w-8 text-white"
-                                    viewBox="0 0 24 24"
-                                    stroke-linejoin="round"
-                                    stroke-width="2"
-                                    stroke-linecap="round"
-                                    stroke-miterlimit="10"
-                                    stroke="currentColor"
-                                    fill="none"
-                                >
-                                    <rect x="3" y="1" width="7" height="12"></rect>
-                                    <rect x="3" y="17" width="7" height="6"></rect>
-                                    <rect x="14" y="1" width="7" height="6"></rect>
-                                </svg>
-                                <span
-                                    class="ml-2 text-xl font-bold tracking-wide text-white  uppercase"
-                                >FAS10</span
-                                ></inertia-link>
+                            <svg
+                                class="w-8 text-white"
+                                viewBox="0 0 24 24"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-miterlimit="10"
+                                stroke="currentColor"
+                                fill="none"
+                            >
+                                <rect x="3" y="1" width="7" height="12"></rect>
+                                <rect x="3" y="17" width="7" height="6"></rect>
+                                <rect x="14" y="1" width="7" height="6"></rect>
+                            </svg>
+                            <span
+                                class="ml-2 text-xl font-bold tracking-wide text-white  uppercase"
+                            >FAS10</span
+                            ></inertia-link>
 
 
                         <div class="hidden sm:block sm:ml-6">
@@ -43,9 +43,10 @@
                                     İlanlar
                                 </jet-nav-link>
 
-                                <a href="#"
-                                   class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Team</a>
-
+                                <jet-nav-link :href="route('partners.index')"
+                                              :active="route().current('partners.index')">
+                                    İş Ortaklarım
+                                </jet-nav-link>
                             </div>
                         </div>
                     </div>

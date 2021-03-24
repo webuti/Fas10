@@ -30,6 +30,14 @@
 
                                         <th scope="col"
                                             class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                            Şirket
+                                        </th>
+                                        <th scope="col"
+                                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                            Şehir
+                                        </th>
+                                        <th scope="col"
+                                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                             Durum
                                         </th>
 
@@ -39,7 +47,7 @@
                                     </tr>
                                     </thead>
                                     <tbody class="bg-white divide-y divide-gray-200">
-                                    <tr v-for="bid in  data">
+                                    <tr v-for="bid in data.data">
                                         <td class="px-6 py-4 whitespace-nowrap">
                                             <div class="flex items-center">
                                                 <div class="flex-shrink-0 h-10 w-10">
@@ -56,6 +64,13 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                        </td>
+                                        <td>
+                                            {{bid.team.name}}
+                                        </td>
+                                        <td>
+                                            <template v-if="bid.city">{{bid.city.name}}</template>
+
                                         </td>
 
                                         <td class="px-6 py-4 whitespace-nowrap">

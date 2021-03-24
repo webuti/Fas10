@@ -22,12 +22,12 @@ class BidController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Inertia\Response
      */
     public function index()
     {
         return Inertia::render('Bids/Index', [
-            'data' => Bid::owned()->orderBy('id', 'desc')->get()
+            'data' => Bid::with(['team', 'city'])->owned()->orderBy('id', 'desc')->paginate()
         ]);
     }
 
@@ -35,25 +35,33 @@ class BidController extends Controller
     public function catalog($type, $category = "0")
     {
 
+
         if ($sector = \App\Models\Sector::where('seo_url', $type)->first()) {
 
             $bids = \App\Models\Bid::with(['city', 'country', 'images'])->filtered()->sector($sector->id);
+
             if ($category !== "0") {
                 $bids->category($category);
+                $categoryInfo = BidCategory::where('seo_url', $category)->first();
+
+            } else {
+                $categoryInfo = ['name' => 'İlanlar'];
             }
+            $categories = BidCategory::where('parent_id', 0)->with(['children.children'])->get();
             return Inertia::render('Catalog/Bid', [
                 'formData' => [
                     'city_id' => request()->input('city_id'),
                     'country_id' => request()->input('country_id', 1),
                     'services' => request()->input('services'),
                 ],
-                'bids' => $bids->get(),
+                'bids' => $bids->paginate(),
                 'cities' => City::all(),
                 'countries' => Country::all(),
                 'services' => Service::all(),
                 'sector' => $type,
                 'category' => $category,
-                'categories' => BidCategory::all()
+                'categoryInfo' => $categoryInfo,
+                'categories' => $categories
             ]);
         }
     }
@@ -63,29 +71,6 @@ class BidController extends Controller
         return Inertia::render('Catalog/BidDetail', [
             'bid' => \App\Models\Bid::where("id", $id)->with(['city', 'country', 'images'])->first(),
         ]);
-    }
-
-    public function catalogFilter(Request $request)
-    {
-        $type = $request->input('sector');
-        $category = $request->input('category_id');
-        if ($sector = \App\Models\Sector::where('seo_url', $type)->first()) {
-
-            $bids = \App\Models\Bid::with(['city', 'country', 'images'])->filtered()->sector($sector->id);
-            if ($category !== "0") {
-                $bids->category($category);
-            }
-            return Inertia::render('Catalog/Bid', [
-                'bids' => $bids->get(),
-                'cities' => City::all(),
-                'countries' => Country::all(),
-                'services' => Service::all(),
-                'sector' => $type,
-                'category' => $category,
-                'categories' => BidCategory::all()
-            ]);
-        }
-
     }
 
     /**
@@ -99,7 +84,7 @@ class BidController extends Controller
             ['sectors' => Sector::get(),
                 'cities' => City::all(),
                 'countries' => Country::all(),
-                'categories' => BidCategory::all(),
+                'categories' => BidCategory::with(['children'])->get(),
                 'companySector' => Team::currentTeamSectorId()]);
     }
 
@@ -178,7 +163,7 @@ class BidController extends Controller
             'companySector' => Team::currentTeamSectorId(),
             'cities' => City::all(),
             'countries' => Country::all(),
-            'categories' => BidCategory::all(),
+            'categories' => BidCategory::with(['children'])->get(),
 
         ]);
 

@@ -89,6 +89,11 @@ class Team extends JetstreamTeam
         return $this->hasMany(Comment::class, 'team_id', 'id');
     }
 
+    public function partners()
+    {
+        return $this->hasMany(Partner::class, 'receiver_team_id', 'id');
+    }
+
     public function scopeSector($query, $id)
     {
         return $query->where('teams.sector_id', $id);

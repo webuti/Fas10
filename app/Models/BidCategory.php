@@ -10,4 +10,11 @@ class BidCategory extends Model
     use HasFactory;
 
     protected $fillable = ['name', 'seo_url', 'parent_id'];
+
+    public function children()
+    {
+        return $this->hasMany(self::class, 'parent_id', 'id');
+    }
+
+
 }

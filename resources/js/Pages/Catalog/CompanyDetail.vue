@@ -2,6 +2,7 @@
     <MainLayout>
         <BidNavigation/>
 
+
         <main class="   mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl   ">
             <section class="py-12 px-4">
 
@@ -9,6 +10,42 @@
                 <div class="flex flex-wrap -mx-8">
                     <div class="lg:w-1/2 px-8 mt-6 lg:mt-0 order-2 lg:order-none">
                         <h2 class="text-4xl mb-2 font-semibold font-heading">{{company.name}}</h2>
+
+
+                        <inertia-link method="post"
+                                      as="button"
+                                      type="button" v-if="partnerStatus.status == 1"
+                                      class="border border-gray-400  text-gray-600  p-2 flex rounded items-center  ">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8" viewBox="0 0 20 20" fill="currentColor">
+                                <path fillRule="evenodd"
+                                      d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
+                                      clipRule="evenodd"/>
+                            </svg>
+                            Talep Gönderildi
+                        </inertia-link>
+                        <inertia-link method="post"
+                                      as="button"
+                                      type="button" v-else-if="partnerStatus.status == 2"
+                                      class="border border-gray-400  text-gray-600  p-2 flex rounded items-center  ">
+                            <svg xmlns="http://www.w3.org/2000/svg"  class="h-8" viewBox="0 0 20 20" fill="currentColor">
+                                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                            </svg>
+                            İş Ortaklarıma eklendi
+                        </inertia-link>
+
+                        <inertia-link v-else :href="route('partners.store')" :data="{team_id : company.id}"
+                                      method="post"
+                                      as="button"
+                                      type="button"
+                                      class="border border-gray-400  text-gray-600  p-2 flex rounded items-center  ">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8" viewBox="0 0 20 20" fill="currentColor">
+                                <path fillRule="evenodd"
+                                      d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
+                                      clipRule="evenodd"/>
+                            </svg>
+                            İş Ortaklarıma ekle
+                        </inertia-link>
 
 
                         <div class="flex flex-wrap">
@@ -41,8 +78,6 @@
                                     <div class="px-4 py-5 flex-auto">
                                         <div class="tab-content tab-space">
                                             <div v-bind:class="{'hidden': openTab !== 1, 'block': openTab === 1}">
-
-
 
 
                                                 <p class="mb-8 text-gray-400 leading-relaxed">
@@ -183,10 +218,7 @@
         },
         props: {
             company: [],
-            canLogin: Boolean,
-            canRegister: Boolean,
-            laravelVersion: String,
-            phpVersion: String,
+            partnerStatus: [],
         }
     }
 </script>
