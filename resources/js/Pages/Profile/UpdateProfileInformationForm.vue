@@ -1,11 +1,11 @@
 <template>
     <jet-form-section @submitted="updateProfileInformation">
         <template #title>
-            Profile Information
+            Profil Bilgileriniz
         </template>
 
         <template #description>
-            Update your account's profile information and email address.
+            Site kullanıcıları sizinle iletişime geçebilmesi için profil bilgileriniz doğru ve eksiksiz olmalıdır.
         </template>
 
         <template #form>
@@ -31,11 +31,11 @@
                 </div>
 
                 <jet-secondary-button class="mt-2 mr-2" type="button" @click.prevent="selectNewPhoto">
-                    Select A New Photo
+                    Yeni Fotoğraf Seç
                 </jet-secondary-button>
 
                 <jet-secondary-button type="button" class="mt-2" @click.prevent="deletePhoto" v-if="user.profile_photo_path">
-                    Remove Photo
+                    Fotoğrafı sil
                 </jet-secondary-button>
 
                 <jet-input-error :message="form.errors.photo" class="mt-2" />
@@ -58,11 +58,11 @@
 
         <template #actions>
             <jet-action-message :on="form.recentlySuccessful" class="mr-3">
-                Saved.
+                Kaydedildi
             </jet-action-message>
 
             <jet-button :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                Save
+                Kaydet
             </jet-button>
         </template>
     </jet-form-section>

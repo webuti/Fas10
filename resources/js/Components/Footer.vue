@@ -5,7 +5,7 @@
                 <logo/>
                 <div class="mt-6 lg:max-w-sm">
                     <p class="text-sm text-gray-800">
-                        İşleri stabil hızlandırmak için geliştirdiğimiz bir startup
+                        Teknolojiyi fayda odaklı kullanmak üzere özenle oluşturulmuştur.
                     </p>
 
                 </div>
@@ -14,12 +14,12 @@
                 <p class="text-base font-bold tracking-wide text-gray-900">İletişim</p>
                 <div class="flex">
                     <p class="mr-1 text-gray-800">Telefon:</p>
-                    <a href="tel:850-123-5021" aria-label="Our phone" title="Our phone"
+                    <a href="tel:850-123-5021" aria-label="Telefon" title="Telefon"
                        class="transition-colors duration-300 text-green-400 hover:text-deep-purple-800">888-555-0087</a>
                 </div>
                 <div class="flex">
                     <p class="mr-1 text-gray-800">Eposta:</p>
-                    <a href="mailto:info@lorem.mail" aria-label="Our email" title="Our email"
+                    <a href="mailto:info@fas10.net" aria-label="E-Posta" title="E-Posta"
                        class="transition-colors duration-300 text-green-400 hover:text-deep-purple-800">info@fas10.net</a>
                 </div>
             </div>
@@ -54,7 +54,7 @@
         </div>
         <div class="flex flex-col-reverse justify-between pt-5 pb-10 border-t lg:flex-row">
             <p class="text-sm text-gray-600">
-                © Copyright 2021 | All rights reserved.
+                © Copyright 2021 | Varsa tüm hakları saklıdır.
             </p>
             <ul class="flex flex-col mb-3 space-y-2 lg:mb-0 sm:space-y-0 sm:space-x-5 sm:flex-row">
 

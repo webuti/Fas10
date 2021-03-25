@@ -39,11 +39,11 @@
             </template>
             <template #actions>
                 <jet-action-message :on="form.recentlySuccessful" class="mr-3">
-                    Saved.
+                    Kaydedildi
                 </jet-action-message>
 
                 <jet-button :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                    Save
+                Kaydet
                 </jet-button>
             </template>
 

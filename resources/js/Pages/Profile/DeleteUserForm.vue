@@ -1,35 +1,34 @@
 <template>
     <jet-action-section>
         <template #title>
-            Delete Account
+            Hesabı sil
         </template>
 
         <template #description>
-            Permanently delete your account.
+            Hesabınızı kalıcı olarak siler
         </template>
 
         <template #content>
             <div class="max-w-xl text-sm text-gray-600">
-                Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.
+                Hesabınız silindikten sonra tüm kaynakları ve verileri kalıcı olarak silinecektir. Hesabınızı silmeden önce, lütfen saklamak istediğiniz tüm verileri veya bilgileri indirin.
             </div>
 
             <div class="mt-5">
                 <jet-danger-button @click="confirmUserDeletion">
-                    Delete Account
+                    Hesabı sil
                 </jet-danger-button>
             </div>
 
-            <!-- Delete Account Confirmation Modal -->
+            <!-- Hesabı sil Confirmation Modal -->
             <jet-dialog-modal :show="confirmingUserDeletion" @close="closeModal">
                 <template #title>
-                    Delete Account
+                    Hesabı sil
                 </template>
 
                 <template #content>
-                    Are you sure you want to delete your account? Once your account is deleted, all of its resources and data will be permanently deleted. Please enter your password to confirm you would like to permanently delete your account.
-
+                    Hesabınızı silmek istediğinizden emin misiniz? Hesabınız silindikten sonra tüm kaynakları ve verileri kalıcı olarak silinecektir. Lütfen hesabınızı kalıcı olarak silmek istediğinizi onaylamak için şifrenizi girin.
                     <div class="mt-4">
-                        <jet-input type="password" class="mt-1 block w-3/4" placeholder="Password"
+                        <jet-input type="password" class="mt-1 block w-3/4" placeholder="Şifreniz"
                                     ref="password"
                                     v-model="form.password"
                                     @keyup.enter="deleteUser" />
@@ -40,11 +39,11 @@
 
                 <template #footer>
                     <jet-secondary-button @click="closeModal">
-                        Cancel
+                        İptal
                     </jet-secondary-button>
 
                     <jet-danger-button class="ml-2" @click="deleteUser" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                        Delete Account
+                        Hesabı sil
                     </jet-danger-button>
                 </template>
             </jet-dialog-modal>

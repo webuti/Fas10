@@ -49,9 +49,9 @@
         data() {
             return {
                 form: this.$inertia.form({
-                    title: '',
-                    description: '',
-                    team_id: '',
+                    title: null,
+                    description: null,
+                    team_id: null,
                 }),
             }
         },
@@ -61,8 +61,9 @@
                 this.form.team_id = this.teamId;
                 this.form.post(route('projects.store'), {
                     errorBag: 'createProjects',
-                    resetForm: true,
-                    preserveScroll: true
+
+                    preserveScroll: true,
+                    onSuccess: () => this.form.reset(),
                 });
             },
         },

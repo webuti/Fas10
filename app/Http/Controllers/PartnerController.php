@@ -30,7 +30,7 @@ class PartnerController extends Controller
         return Inertia::render('Partners/Index',
             ['teams' => Team::paginate(),
                 'teamId' => $teamId,
-                'projects' => Project::select('title', 'id', 'team_id', 'created_at')->where('team_id', $teamId)->paginate()]);
+                'projects' => Project::select('title', 'id', 'team_id', 'created_at')->owned()->where('team_id', $teamId)->paginate()]);
     }
 
     public function projectDetail($teamId, $projectId)
@@ -39,8 +39,8 @@ class PartnerController extends Controller
             ['teams' => Team::paginate(),
                 'teamId' => $teamId,
                 'projectId' => $projectId,
-                'projects' => Project::select('title', 'id', 'team_id', 'created_at')->where('team_id', $teamId)->paginate(),
-                'projectDetail' => Project::where('id', $projectId)->with('notes.user')->first(),
+                'projects' => Project::select('title', 'id', 'team_id', 'created_at')->owned()->where('team_id', $teamId)->paginate(),
+                'projectDetail' => Project::where('id', $projectId)->with('notes.user')->owned()->first(),
             ]);
     }
 

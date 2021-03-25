@@ -104,12 +104,19 @@
                                class="  p-2   bg-gray-200  w-full "
                                placeholder="Proje adıyla arama"/>
 
-                        <div v-for="project in projects.data" @click="getProjectDetail(project.team_id,project.id)"
+                        <div v-if="projects.data.length">
+                            <div v-for="project in projects.data" @click="getProjectDetail(project.team_id,project.id)"
 
-                             class="project   border-b border-gray-300 p-2">
-                            <h3 :class="{ 'font-bold' : projectId == project.id }">{{project.title}}</h3>
-                            <h4 class="text-sm">Proje bitiş tarihi: 30/04/2021</h4>
+                                 class="project   border-b border-gray-300 p-2">
+                                <h3 :class="{ 'font-bold' : projectId == project.id }">{{project.title}}</h3>
+                                <h4 class="text-sm">Proje bitiş tarihi: 30/04/2021</h4>
+                            </div>
                         </div>
+                        <div v-else class=" p-2">
+
+                            Proje mevcut değil
+                        </div>
+
                     </div>
                 </div>
                 <div class="flex flex-col min-h-screen bg-gray-50 border-r  w-full ">

@@ -13,7 +13,7 @@
                 {{ content }}
 
                 <div class="mt-4">
-                    <jet-input type="password" class="mt-1 block w-3/4" placeholder="Password"
+                    <jet-input type="password" class="mt-1 block w-3/4" placeholder="Şifreniz"
                                 ref="password"
                                 v-model="form.password"
                                 @keyup.enter="confirmPassword" />
@@ -24,7 +24,7 @@
 
             <template #footer>
                 <jet-secondary-button @click="closeModal">
-                    Cancel
+                    İptal
                 </jet-secondary-button>
 
                 <jet-button class="ml-2" @click="confirmPassword" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
@@ -47,13 +47,13 @@
 
         props: {
             title: {
-                default: 'Confirm Password',
+                default: 'Şifreyi Onayla',
             },
             content: {
-                default: 'For your security, please confirm your password to continue.',
+                default: 'Güvenliğiniz için lütfen devam etmek için şifrenizi onaylayın.',
             },
             button: {
-                default: 'Confirm',
+                default: 'Onayla',
             }
         },
 

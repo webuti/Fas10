@@ -29,10 +29,16 @@ Route::get('image-upload', [\App\Http\Controllers\ImageUploadController::class, 
 Route::post('image-upload', [\App\Http\Controllers\ImageUploadController::class, 'imageUploadPost'])->name('image.upload.post');
 Route::get('/location/district/{id}', [\App\Http\Controllers\LocationController::class, 'district'])->name('location.district');
 
+Route::get('/career', function () {
+    return Inertia::render('Career', ['text' => 'Çok yakında iş ilanları ve iş arayan kişileri bu platformda listeleyeceğiz.'
+    ]);
+});
+
 Route::get('/', function () {
     return Inertia::render('Welcome', [
     ]);
 });
+
 Route::get('/c/{type}', [\App\Http\Controllers\CompanyController::class, 'catalog'])->name('companyCatalog');
 Route::get('/i/{type}', [\App\Http\Controllers\BidController::class, 'catalog'])->name('bidCatalog');
 Route::get('/i/{type}/{cat}', [\App\Http\Controllers\BidController::class, 'catalog'])->name('bidCatalog.cat');

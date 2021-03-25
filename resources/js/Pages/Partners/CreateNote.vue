@@ -36,9 +36,9 @@
             return {
                 form: this.$inertia.form({
 
-                    body: '',
-                    team_id: '',
-                    project_id: '',
+                    body: null,
+                    team_id: null,
+                    project_id: null,
                 }),
             }
         },
@@ -50,7 +50,8 @@
                 this.form.post(route('projectNotes.store'), {
                     errorBag: 'createprojectNotes',
                     resetForm: true,
-                    preserveScroll: true
+                    preserveScroll: true,
+                    onSuccess: () => this.form.reset(),
                 });
             },
         },

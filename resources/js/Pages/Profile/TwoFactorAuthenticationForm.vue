@@ -1,25 +1,26 @@
 <template>
     <jet-action-section>
         <template #title>
-            Two Factor Authentication
+            İki Faktörlü Kimlik Doğrulama
         </template>
 
         <template #description>
-            Add additional security to your account using two factor authentication.
+            İki faktörlü kimlik doğrulama kullanarak hesabınıza ek güvenlik ekleyin.(zorunlu değil) ama öneririz.
         </template>
 
         <template #content>
             <h3 class="text-lg font-medium text-gray-900" v-if="twoFactorEnabled">
-                You have enabled two factor authentication.
+                İki faktörlü kimlik doğrulamayı etkinleştirdiniz.
             </h3>
 
             <h3 class="text-lg font-medium text-gray-900" v-else>
-                You have not enabled two factor authentication.
+                İki faktörlü kimlik doğrulamayı etkinleştirmediniz.
             </h3>
 
             <div class="mt-3 max-w-xl text-sm text-gray-600">
                 <p>
-                    When two factor authentication is enabled, you will be prompted for a secure, random token during authentication. You may retrieve this token from your phone's Google Authenticator application.
+                    İki faktörlü kimlik doğrulama etkinleştirildiğinde, işlem sırasında güvenli, rastgele bir belirteç girmeniz istenir.
+                    kimlik doğrulama. Bu kodu telefonunuzun Google Authenticator uygulamasından alabilirsiniz.
                 </p>
             </div>
 
@@ -27,7 +28,8 @@
                 <div v-if="qrCode">
                     <div class="mt-4 max-w-xl text-sm text-gray-600">
                         <p class="font-semibold">
-                            Two factor authentication is now enabled. Scan the following QR code using your phone's authenticator application.
+                            İki faktörlü kimlik doğrulama artık etkinleştirilmiştir. Telefonunuzun kodunu kullanarak aşağıdaki QR kodunu tarayın.
+                            kimlik doğrulayıcı uygulaması.
                         </p>
                     </div>
 
@@ -38,7 +40,8 @@
                 <div v-if="recoveryCodes.length > 0">
                     <div class="mt-4 max-w-xl text-sm text-gray-600">
                         <p class="font-semibold">
-                            Store these recovery codes in a secure password manager. They can be used to recover access to your account if your two factor authentication device is lost.
+                            Bu kurtarma kodlarını güvenli bir şifre yöneticisinde saklayın. İki faktörlü kimlik doğrulama cihazınız kaybolursa hesabınıza erişimi kurtarmak için ihtiyacınız olacak
+                            .
                         </p>
                     </div>
 
@@ -54,7 +57,7 @@
                 <div v-if="! twoFactorEnabled">
                     <jet-confirms-password @confirmed="enableTwoFactorAuthentication">
                         <jet-button type="button" :class="{ 'opacity-25': enabling }" :disabled="enabling">
-                            Enable
+                            Etkinleştir
                         </jet-button>
                     </jet-confirms-password>
                 </div>
@@ -62,22 +65,22 @@
                 <div v-else>
                     <jet-confirms-password @confirmed="regenerateRecoveryCodes">
                         <jet-secondary-button class="mr-3"
-                                        v-if="recoveryCodes.length > 0">
-                            Regenerate Recovery Codes
+                                              v-if="recoveryCodes.length > 0">
+                            Kurtarma Kodlarını Yeniden Oluşturun
                         </jet-secondary-button>
                     </jet-confirms-password>
 
                     <jet-confirms-password @confirmed="showRecoveryCodes">
                         <jet-secondary-button class="mr-3" v-if="recoveryCodes.length === 0">
-                            Show Recovery Codes
+                            Kurtarma Kodlarını Göster
                         </jet-secondary-button>
                     </jet-confirms-password>
 
                     <jet-confirms-password @confirmed="disableTwoFactorAuthentication">
                         <jet-danger-button
-                                        :class="{ 'opacity-25': disabling }"
-                                        :disabled="disabling">
-                            Disable
+                            :class="{ 'opacity-25': disabling }"
+                            :disabled="disabling">
+                            Devre dışı bırak
                         </jet-danger-button>
                     </jet-confirms-password>
                 </div>
@@ -128,23 +131,23 @@
 
             showQrCode() {
                 return axios.get('/user/two-factor-qr-code')
-                        .then(response => {
-                            this.qrCode = response.data.svg
-                        })
+                    .then(response => {
+                        this.qrCode = response.data.svg
+                    })
             },
 
             showRecoveryCodes() {
                 return axios.get('/user/two-factor-recovery-codes')
-                        .then(response => {
-                            this.recoveryCodes = response.data
-                        })
+                    .then(response => {
+                        this.recoveryCodes = response.data
+                    })
             },
 
             regenerateRecoveryCodes() {
                 axios.post('/user/two-factor-recovery-codes')
-                        .then(response => {
-                            this.showRecoveryCodes()
-                        })
+                    .then(response => {
+                        this.showRecoveryCodes()
+                    })
             },
 
             disableTwoFactorAuthentication() {
@@ -159,7 +162,7 @@
 
         computed: {
             twoFactorEnabled() {
-                return ! this.enabling && this.$page.props.user.two_factor_enabled
+                return !this.enabling && this.$page.props.user.two_factor_enabled
             }
         }
     }

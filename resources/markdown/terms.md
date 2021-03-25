@@ -1,3 +1,5 @@
-# Terms of Service
+# Kullanım Sözleşmesi
 
-Edit this file to define the terms of service for your application.
+1.1.   İşbu kullanıcı sözleşmesi ve Web Sitesi’nde yer alan diğer kurallar fas10.net tarafından sunulan hizmetlere ilişkin şart ve koşulları ve Web Sitesi’nin kullanılmasına ilişkin kuralları düzenlemektedir. Kullanıcı’nın, Web Sitesi üzerinden Hizmet Talebi veya Meslek Profili oluştururken işbu Sözleşmeyi onayladığı veya Web Sitesi’nden yararlanmaya başladığı andan itibaren işbu Sözleşmeye uymayı taahhüt ettiği kabul edilir. Koşulların sizin için uygun olmaması halinde lütfen Web Sitesi’ni ve sunulan hizmetleri kullanmayınız.
+
+1.2.   fas10.net aracılık hizmetlerinin sürekliliğini sağlama, ileride doğacak teknik zaruretler veya mevzuata uyum sağlanması amacıyla Sözleşmeyi Kullanıcılar aleyhine olmamak kaydıyla tek taraflı olarak değiştirme ya da tadil etme hakkına sahiptir. fas10.net, herhangi bir değişiklik olması halinde güncel kullanım şartlarını aynı link altında yeni tarih güncellemesi ile Web Sitesi’nde yayınlayacak, gerek görmesi halinde elektronik posta veya mobil bildirim ile kullanıcılarına bildirilecek ve onayına sunacaktır. Yenilenmiş güncel Sözleşme, Web Sitesi’nde yayınlandığı andan itibaren geçerli olacak ve Web Sitesi’nin veya hizmetlerinin kullanımı o andan itibaren yenilenmiş Sözleşme şartlarına tabi olacaktır.

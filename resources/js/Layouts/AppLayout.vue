@@ -162,16 +162,16 @@
                                     <template #content>
                                         <!-- Account Management -->
                                         <div class="block px-4 py-2 text-xs text-gray-400">
-                                            Manage Account
+                                            Hesap Yönetimi
                                         </div>
 
                                         <jet-dropdown-link :href="route('profile.show')">
-                                            Profile
+                                            Profilim
                                         </jet-dropdown-link>
 
                                         <jet-dropdown-link :href="route('api-tokens.index')"
                                                            v-if="$page.props.jetstream.hasApiFeatures">
-                                            API Tokens
+                                            API Erişimi
                                         </jet-dropdown-link>
 
                                         <div class="border-t border-gray-100"></div>
@@ -179,7 +179,7 @@
                                         <!-- Authentication -->
                                         <form @submit.prevent="logout">
                                             <jet-dropdown-link as="button">
-                                                Log Out
+                                                Çıkış Yap
                                             </jet-dropdown-link>
                                         </form>
                                     </template>
@@ -233,19 +233,19 @@
                     <div class="mt-3 space-y-1">
                         <jet-responsive-nav-link :href="route('profile.show')"
                                                  :active="route().current('profile.show')">
-                            Profile
+                            Profil
                         </jet-responsive-nav-link>
 
                         <jet-responsive-nav-link :href="route('api-tokens.index')"
                                                  :active="route().current('api-tokens.index')"
                                                  v-if="$page.props.jetstream.hasApiFeatures">
-                            API Tokens
+                            API Erişimi
                         </jet-responsive-nav-link>
 
                         <!-- Authentication -->
                         <form method="POST" @submit.prevent="logout">
                             <jet-responsive-nav-link as="button">
-                                Log Out
+                                Çıkış Yap
                             </jet-responsive-nav-link>
                         </form>
 

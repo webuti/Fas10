@@ -28,20 +28,11 @@
                     </li>
                     <li>
                         <a
-                            href="/"
+                            href="/career"
                             aria-label="Product pricing"
                             title="Product pricing"
                             class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-green-400"
                         >Kariyer</a
-                        >
-                    </li>
-                    <li>
-                        <a
-                            href="/"
-                            aria-label="About us"
-                            title="About us"
-                            class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-green-400"
-                        >About us</a
                         >
                     </li>
                 </ul>
