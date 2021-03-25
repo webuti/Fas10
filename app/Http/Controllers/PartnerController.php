@@ -38,6 +38,7 @@ class PartnerController extends Controller
         return Inertia::render('Partners/Index',
             ['teams' => Team::paginate(),
                 'teamId' => $teamId,
+                'projectId' => $projectId,
                 'projects' => Project::select('title', 'id', 'team_id', 'created_at')->where('team_id', $teamId)->paginate(),
                 'projectDetail' => Project::where('id', $projectId)->with('notes.user')->first(),
             ]);

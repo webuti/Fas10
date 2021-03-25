@@ -8,16 +8,16 @@
             </h2>
         </template>
 
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="flex  text-gray-700">
+        <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
+            <div class="flex shadow overflow-hidden border-b border-gray-200 sm:rounded-lg border-t">
 
 
-                <div class="flex flex-col min-h-screen flex-shrink-0 w-64  border-r border-l    ">
+                <div class="flex flex-col min-h-screen flex-shrink-0 w-64  border-r border-l  bg-gray-50  ">
 
 
-                    <div class="ortaklar">
+                    <div class="ortaklar ">
                         <div class="flex justify-between  p-3 items-center">
-                            <h2 class="text-gray-400">İş Ortaklarım</h2>
+                            <h2 class="text-xs font-medium text-gray-500 uppercase">İş Ortaklarım</h2>
                             <div class="  items-center flex">
                                 <svg @click="searchPartnerShow = !searchPartnerShow" xmlns="http://www.w3.org/2000/svg"
                                      class="h-5" fill="none" viewBox="0 0 24 24"
@@ -42,7 +42,8 @@
                              class="ortak  bg-white border-b hover:bg-gray-100  border-gray-300 p-2  "
                              @click="getProjects(team.id)">
                             <div class="flex items-center justify-between">
-                                <h2 class=" text-gray-700">{{team.name}}</h2>
+                                <h2 :class="{ 'font-bold' : teamId == team.id }" class=" text-gray-700">
+                                    {{team.name}}</h2>
                                 <div class="flex items-center">
                                     <div class="flex  items-center">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5" fill="none"
@@ -69,11 +70,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="flex flex-col min-h-screen  flex-shrink-0 w-64 border-r ">
+                <div class="flex flex-col min-h-screen bg-gray-50 flex-shrink-0 w-64 border-r ">
 
                     <div class="flex justify-between  p-3 items-center">
-                        <h2 class="text-gray-400">Projeler</h2>
-                        <div class="  items-center flex">
+                        <h2 class="text-xs font-medium text-gray-500 uppercase">Projeler</h2>
+                        <div class=" items-center flex">
                             <svg @click="searchProjectShow = !searchProjectShow" xmlns="http://www.w3.org/2000/svg"
                                  class="h-5" fill="none" viewBox="0 0 24 24"
                                  stroke="currentColor">
@@ -98,35 +99,37 @@
 
                     <CreateProjectForm v-if="createProjectShow" :team-id="teamId"></CreateProjectForm>
 
-                    <div class="projects" v-if="projects.data">
+                    <div class="projects  bg-white " v-if="projects.data">
                         <input type="text" v-if="searchProjectShow" v-model="form.searchProject"
                                class="  p-2   bg-gray-200  w-full "
                                placeholder="Proje adıyla arama"/>
 
                         <div v-for="project in projects.data" @click="getProjectDetail(project.team_id,project.id)"
+
                              class="project   border-b border-gray-300 p-2">
-                            <h3>{{project.title}}</h3>
-                            <h4>Proje bitiş tarihi: 30/04/2021</h4>
+                            <h3 :class="{ 'font-bold' : projectId == project.id }">{{project.title}}</h3>
+                            <h4 class="text-sm">Proje bitiş tarihi: 30/04/2021</h4>
                         </div>
                     </div>
                 </div>
-                <div class="flex flex-col min-h-screen border-r  w-full ">
+                <div class="flex flex-col min-h-screen bg-gray-50 border-r  w-full ">
 
                     <div class="flex justify-between  p-3 items-center">
-                        <h2 class="text-gray-400">Proje Aşamaları</h2>
+                        <h2 class="text-xs font-medium text-gray-500 uppercase">Proje Aşamaları</h2>
 
 
                     </div>
 
                     <p v-if="projectDetail" class="p-3 bg-white ">
                     <ul class=" pb-2 border-b flex mb-3 space-x-1">
-                        <li v-on:click="toggleTabs(1)" class=" bg-gray-500 text-white text-sm px-2  rounded-xl">İş
+                        <li v-on:click="toggleTabs(1)" class="bg-green-100 text-green-800 text-sm px-2  rounded-xl">İş
                             Aşamaları
                         </li>
-                        <li v-on:click="toggleTabs(2)" class="  bg-gray-500 text-white text-sm px-2  rounded-xl">Notlar
+                        <li v-on:click="toggleTabs(2)" class="bg-green-100 text-green-800 text-sm px-2  rounded-xl">
+                            Notlar
                             ({{projectDetail.notes.length}})
                         </li>
-                        <li v-on:click="toggleTabs(3)" class=" bg-gray-500 text-white text-sm px-2  rounded-xl">
+                        <li v-on:click="toggleTabs(3)" class="bg-green-100 text-green-800 text-sm px-2  rounded-xl">
                             Yazışmalar
                         </li>
                     </ul>
@@ -234,7 +237,7 @@
             },
 
         },
-        props: ['teams', 'projects', 'projectDetail', 'teamId']
+        props: ['teams', 'projects', 'projectDetail', 'teamId', 'projectId']
     }
 </script>
 

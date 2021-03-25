@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-white   p-3">
+    <div class=" mt-5">
 
         <form @submit.prevent="createNote">
 
