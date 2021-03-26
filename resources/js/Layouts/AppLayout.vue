@@ -4,7 +4,6 @@
         <teleport to="head">
             <title>FAS10 | Dashboard</title>
         </teleport>
-        <!-- This example requires Tailwind CSS v2.0+ -->
         <nav class="bg-gray-800">
             <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
                 <div class="relative flex items-center justify-between h-16">
@@ -56,7 +55,7 @@
                         class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                         <button
                             class="bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
-                            <span class="sr-only">View notifications</span>
+                            <span class="sr-only">Bildirimleri göster</span>
                             <!-- Heroicon name: outline/bell -->
                             <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                  stroke="currentColor" aria-hidden="true">
@@ -73,7 +72,7 @@
                                     <template #trigger>
                                         <span class="inline-flex rounded-md">
                                             <button type="button" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium
-                                            rounded-md text-white  bg-dark hover:bg-gray-50 hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50 transition ease-in-out duration-150">
+                                            rounded-md text-white  bg-dark hover:bg-gray-50 hover:text-gray-700 focus:outline-none focus:bg-gray-50 focus:text-gray-700 active:bg-gray-50 transition ease-in-out duration-150">
                                                  {{ $page.props.user.current_team.name }}
 
                                                 <svg class="ml-2 -mr-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg"
@@ -219,7 +218,7 @@
                 </div>
 
                 <!-- Responsive Settings Options -->
-                <div class="pt-4 pb-1 border-t border-gray-200">
+                <div class="pt-4 pb-1 border-t  border-gray-600">
                     <div class="flex items-center px-4">
                         <div v-if="$page.props.jetstream.managesProfilePhotos" class="flex-shrink-0 mr-3">
                             <img class="h-10 w-10 rounded-full object-cover" :src="$page.props.user.profile_photo_url"
@@ -227,8 +226,8 @@
                         </div>
 
                         <div>
-                            <div class="font-medium text-base text-gray-800">{{ $page.props.user.name }}</div>
-                            <div class="font-medium text-sm text-gray-500">{{ $page.props.user.email }}</div>
+                            <div class="font-medium text-base text-gray-200">{{ $page.props.user.name }}</div>
+                            <div class="font-medium text-sm text-gray-200">{{ $page.props.user.email }}</div>
                         </div>
                     </div>
 
@@ -253,7 +252,7 @@
 
                         <!-- Team Management -->
                         <template v-if="$page.props.jetstream.hasTeamFeatures">
-                            <div class="border-t border-gray-200"></div>
+                            <div class="border-t  border-gray-600"></div>
 
                             <div class="block px-4 py-2 text-xs text-gray-400">
                                 Şirketlerim
@@ -270,7 +269,7 @@
                                 Yeni Şirket Oluştur
                             </jet-responsive-nav-link>
 
-                            <div class="border-t border-gray-200"></div>
+                            <div class="border-t  border-gray-600"></div>
 
                             <!-- Team Switcher -->
                             <div class="block px-4 py-2 text-xs text-gray-400">

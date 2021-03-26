@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="overflow-hidden shadow-lg rounded-lg h-90 w-60 md:w-80  border hover:border-green-400 hover:shadow-xl cursor-pointer m-auto">
+        <div class="overflow-hidden shadow-lg rounded-lg  h-100 w-60 md:w-80 min-h-100 border hover:border-green-400 hover:shadow-xl cursor-pointer m-auto">
             <inertia-link :href="route('companyDetail',company.id)" class="w-full block h-full">
 
                 <div class="bg-white dark:bg-gray-800 w-full p-4">

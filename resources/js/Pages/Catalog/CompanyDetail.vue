@@ -92,11 +92,11 @@
                                                         <td class="py-3 text-gray-500">Çalışan Sayısı</td>
                                                         <td class="text-right">{{company.number_of_staff}}</td>
                                                     </tr>
-                                                    <tr class="border-t">
+                                                    <tr class="border-t" v-if="company.country">
                                                         <td class="py-3 text-gray-500">Ülke</td>
                                                         <td class="text-right">{{company.country.name}}</td>
                                                     </tr>
-                                                    <tr class="border-t">
+                                                    <tr class="border-t" v-if="company.city">
                                                         <td class="py-3 text-gray-500">Şehir</td>
                                                         <td class="text-right">{{company.city.name}} /
                                                             {{company.district_id}}
