@@ -16559,7 +16559,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "logo"
+  name: "logo",
+  data: function data() {
+    return {
+      animateActive: true
+    };
+  },
+  created: function created() {
+    var _this = this;
+
+    setTimeout(function () {
+      _this.animateActive = false;
+    }, 1000);
+  }
 });
 
 /***/ }),
@@ -16576,7 +16588,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "logo"
+  name: "logo",
+  data: function data() {
+    return {
+      animateActive: true
+    };
+  },
+  created: function created() {
+    var _this = this;
+
+    setTimeout(function () {
+      _this.animateActive = false;
+    }, 1000);
+  }
 });
 
 /***/ }),
@@ -20032,7 +20056,7 @@ var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("
 /* HOISTED */
 );
 
-var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"flex flex-col-reverse justify-between pt-5 pb-10 border-t lg:flex-row\" data-v-3c0d6e26><p class=\"text-sm text-gray-600\" data-v-3c0d6e26> © Copyright 2021 | Varsa tüm hakları saklıdır. </p><ul class=\"flex flex-col mb-3 space-y-2 lg:mb-0 sm:space-y-0 sm:space-x-5 sm:flex-row\" data-v-3c0d6e26><li data-v-3c0d6e26><a href=\"/privacy-policy\" class=\"text-sm text-gray-600 transition-colors duration-300 hover:text-green-400\" data-v-3c0d6e26>Gizlilik polikamız</a></li><li data-v-3c0d6e26><a href=\"/terms-of-service\" class=\"text-sm text-gray-600 transition-colors duration-300 hover:text-green-400\" data-v-3c0d6e26>Kullanım şartları</a></li></ul></div>", 1);
+var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"flex flex-col-reverse justify-between pt-5 pb-10 border-t lg:flex-row\" data-v-3c0d6e26><p class=\"text-sm text-gray-600\" data-v-3c0d6e26> © Copyright 2021 | Tüm hakları saklıdır. </p><ul class=\"flex flex-col mb-3 space-y-2 lg:mb-0 sm:space-y-0 sm:space-x-5 sm:flex-row\" data-v-3c0d6e26><li data-v-3c0d6e26><a href=\"/privacy-policy\" class=\"text-sm text-gray-600 transition-colors duration-300 hover:text-green-400\" data-v-3c0d6e26>Gizlilik polikamız</a></li><li data-v-3c0d6e26><a href=\"/terms-of-service\" class=\"text-sm text-gray-600 transition-colors duration-300 hover:text-green-400\" data-v-3c0d6e26>Kullanım şartları</a></li></ul></div>", 1);
 
 (0,vue__WEBPACK_IMPORTED_MODULE_0__.popScopeId)();
 
@@ -20454,52 +20478,61 @@ var _withId = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.withScopeId)("dat
 
 (0,vue__WEBPACK_IMPORTED_MODULE_0__.pushScopeId)("data-v-7181870b");
 
-var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("svg", {
-  "class": "w-8  text-green-400",
-  viewBox: "0 0 24 24",
-  "stroke-linejoin": "round",
-  "stroke-width": "2",
-  "stroke-linecap": "round",
-  "stroke-miterlimit": "10",
-  stroke: "currentColor",
-  fill: "none"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("rect", {
+var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("rect", {
   "class": "cizgi",
   x: "3",
   y: "1",
   width: "7",
   height: "12"
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("rect", {
+}, null, -1
+/* HOISTED */
+);
+
+var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("rect", {
   "class": "cizgi",
   x: "3",
   y: "17",
   width: "7",
   height: "6"
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("rect", {
+}, null, -1
+/* HOISTED */
+);
+
+var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("rect", {
   "class": "cizgi2",
   x: "3",
   y: "1",
   width: "7",
   height: "12"
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("rect", {
+}, null, -1
+/* HOISTED */
+);
+
+var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("rect", {
   "class": "cizgi2",
   x: "3",
   y: "17",
   width: "7",
   height: "6"
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("rect", {
+}, null, -1
+/* HOISTED */
+);
+
+var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("rect", {
   id: "fas10logorect3",
   x: "14",
   y: "1",
   width: "7",
   height: "6"
-})], -1
+}, null, -1
 /* HOISTED */
 );
 
-var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", {
-  "class": "ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase"
-}, "FAS10", -1
+var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+  "class": "ml-2 text-xl font-bold tracking-wide text-gray-800 leading-4 flex flex-col uppercase"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("FAS10 "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("small", {
+  "class": "rounded-full bg-green-100 text-center text-xs text-green-400"
+}, "BETA")], -1
 /* HOISTED */
 );
 
@@ -20515,7 +20548,20 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
     "class": "inline-flex fas10logo items-center mr-8"
   }, {
     "default": _withId(function () {
-      return [_hoisted_1, _hoisted_2];
+      return [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("svg", {
+        "class": ["w-8  logo-main text-green-400", {
+          'animate-active': $data.animateActive
+        }],
+        viewBox: "0 0 24 24",
+        "stroke-linejoin": "round",
+        "stroke-width": "2",
+        "stroke-linecap": "round",
+        "stroke-miterlimit": "10",
+        stroke: "currentColor",
+        fill: "none"
+      }, [_hoisted_1, _hoisted_2, _hoisted_3, _hoisted_4, _hoisted_5], 2
+      /* CLASS */
+      )), _hoisted_6];
     }),
     _: 1
     /* STABLE */
@@ -20543,52 +20589,61 @@ var _withId = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.withScopeId)("dat
 
 (0,vue__WEBPACK_IMPORTED_MODULE_0__.pushScopeId)("data-v-0aa0aa2a");
 
-var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("svg", {
-  "class": "w-8  text-green-400",
-  viewBox: "0 0 24 24",
-  "stroke-linejoin": "round",
-  "stroke-width": "2",
-  "stroke-linecap": "round",
-  "stroke-miterlimit": "10",
-  stroke: "currentColor",
-  fill: "none"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("rect", {
+var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("rect", {
   "class": "cizgi",
   x: "3",
   y: "1",
   width: "7",
   height: "12"
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("rect", {
+}, null, -1
+/* HOISTED */
+);
+
+var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("rect", {
   "class": "cizgi",
   x: "3",
   y: "17",
   width: "7",
   height: "6"
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("rect", {
+}, null, -1
+/* HOISTED */
+);
+
+var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("rect", {
   "class": "cizgi2",
   x: "3",
   y: "1",
   width: "7",
   height: "12"
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("rect", {
+}, null, -1
+/* HOISTED */
+);
+
+var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("rect", {
   "class": "cizgi2",
   x: "3",
   y: "17",
   width: "7",
   height: "6"
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("rect", {
+}, null, -1
+/* HOISTED */
+);
+
+var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("rect", {
   id: "fas10logorect3",
   x: "14",
   y: "1",
   width: "7",
   height: "6"
-})], -1
+}, null, -1
 /* HOISTED */
 );
 
-var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", {
-  "class": "ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase"
-}, "FAS10", -1
+var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+  "class": "ml-2 text-xl font-bold tracking-wide text-gray-800 leading-4 flex flex-col uppercase"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("FAS10 "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("small", {
+  "class": "rounded-full bg-green-100 text-center text-xs text-green-400"
+}, "BETA")], -1
 /* HOISTED */
 );
 
@@ -20604,7 +20659,20 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
     "class": "inline-flex fas10logo items-center mr-8"
   }, {
     "default": _withId(function () {
-      return [_hoisted_1, _hoisted_2];
+      return [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("svg", {
+        "class": ["w-8  logo-main text-green-400", {
+          'animate-active': $data.animateActive
+        }],
+        viewBox: "0 0 24 24",
+        "stroke-linejoin": "round",
+        "stroke-width": "2",
+        "stroke-linecap": "round",
+        "stroke-miterlimit": "10",
+        stroke: "currentColor",
+        fill: "none"
+      }, [_hoisted_1, _hoisted_2, _hoisted_3, _hoisted_4, _hoisted_5], 2
+      /* CLASS */
+      )), _hoisted_6];
     }),
     _: 1
     /* STABLE */
@@ -29743,7 +29811,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.cizgi[data-v-7181870b] {\n        stroke-width: 2px;\n        stroke-dashoffset: 0;\n        transition: 0.5s all ease;\n}\n.cizgi2[data-v-7181870b] {\n        stroke-width: 2px;\n        stroke-dashoffset: 0;\n        transform: translate3d(0px, 25px, 0px);\n        transition: 0.5s all ease;\n}\n.fas10logo:hover .cizgi[data-v-7181870b] {\n        transform: translate3d(0px, -25px, 0px);\n        stroke-dashoffset: 0;\n}\n.fas10logo:hover .cizgi2[data-v-7181870b] {\n        transform: translate3d(0px, 0px, 0px);\n        stroke-dashoffset: 0;\n}\n\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.cizgi[data-v-7181870b] {\n        stroke-width: 2px;\n        stroke-dashoffset: 0;\n        transition: 0.5s all ease;\n}\n.cizgi2[data-v-7181870b] {\n        stroke-width: 2px;\n        stroke-dashoffset: 0;\n        transform: translate3d(0px, 25px, 0px);\n        transition: 0.5s all ease;\n}\n.fas10logo:hover .cizgi[data-v-7181870b] {\n        transform: translate3d(0px, -25px, 0px);\n        stroke-dashoffset: 0;\n}\n.fas10logo:hover .cizgi2[data-v-7181870b] {\n        transform: translate3d(0px, 0px, 0px);\n        stroke-dashoffset: 0;\n}\n.animate-active .cizgi2[data-v-7181870b] {\n        transform: translate3d(0px, 0px, 0px);\n        stroke-dashoffset: 0;\n}\n.animate-active .cizgi[data-v-7181870b] {\n        transform: translate3d(0px, -25px, 0px);\n        stroke-dashoffset: 0;\n}\n\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -29767,7 +29835,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.cizgi[data-v-0aa0aa2a] {\n        stroke-width: 2px;\n        stroke-dashoffset: 0;\n        transition: 0.5s all ease;\n}\n.cizgi2[data-v-0aa0aa2a] {\n        stroke-width: 2px;\n        stroke-dashoffset: 0;\n        transform: translate3d(0px, 25px, 0px);\n        transition: 0.5s all ease;\n}\n.fas10logo:hover .cizgi[data-v-0aa0aa2a] {\n        transform: translate3d(0px, -25px, 0px);\n        stroke-dashoffset: 0;\n}\n.fas10logo:hover .cizgi2[data-v-0aa0aa2a] {\n        transform: translate3d(0px, 0px, 0px);\n        stroke-dashoffset: 0;\n}\n\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.cizgi[data-v-0aa0aa2a] {\n        stroke-width: 2px;\n        stroke-dashoffset: 0;\n        transition: 0.5s all ease;\n}\n.cizgi2[data-v-0aa0aa2a] {\n        stroke-width: 2px;\n        stroke-dashoffset: 0;\n        transform: translate3d(0px, 25px, 0px);\n        transition: 0.5s all ease;\n}\n.fas10logo:hover .cizgi[data-v-0aa0aa2a] {\n        transform: translate3d(0px, -25px, 0px);\n        stroke-dashoffset: 0;\n}\n.fas10logo:hover .cizgi2[data-v-0aa0aa2a] {\n        transform: translate3d(0px, 0px, 0px);\n        stroke-dashoffset: 0;\n}\n.animate-active .cizgi2[data-v-0aa0aa2a] {\n        transform: translate3d(0px, 0px, 0px);\n        stroke-dashoffset: 0;\n}\n.animate-active .cizgi[data-v-0aa0aa2a] {\n        transform: translate3d(0px, -25px, 0px);\n        stroke-dashoffset: 0;\n}\n\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

@@ -6,7 +6,9 @@
         class="inline-flex fas10logo items-center mr-8"
     >
         <svg
-            class="w-8  text-green-400"
+            class="w-8  logo-main text-green-400"
+
+            :class="{'animate-active':animateActive}"
             viewBox="0 0 24 24"
             stroke-linejoin="round"
             stroke-width="2"
@@ -22,16 +24,28 @@
             <rect id="fas10logorect3" x="14" y="1" width="7" height="6"></rect>
         </svg>
 
-        <span
-            class="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase"
-        >FAS10</span
+        <div
+            class="ml-2 text-xl font-bold tracking-wide text-gray-800 leading-4 flex flex-col uppercase"
+        >FAS10
+            <small class="rounded-full bg-green-100 text-center text-xs text-green-400">BETA</small></div
         >
     </inertia-link>
 </template>
 
 <script>
     export default {
-        name: "logo"
+        name: "logo",
+        data() {
+            return {
+                animateActive: true,
+            }
+        },
+        created() {
+
+            setTimeout(() => {
+                this.animateActive = false;
+            }, 1000);
+        }
     }
 </script>
 
@@ -64,6 +78,16 @@
         transform: translate3d(0px, 0px, 0px);
         stroke-dashoffset: 0;
 
+    }
+
+    .animate-active .cizgi2 {
+        transform: translate3d(0px, 0px, 0px);
+        stroke-dashoffset: 0;
+    }
+
+    .animate-active .cizgi {
+        transform: translate3d(0px, -25px, 0px);
+        stroke-dashoffset: 0;
     }
 
 

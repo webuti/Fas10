@@ -54,7 +54,7 @@
         </div>
         <div class="flex flex-col-reverse justify-between pt-5 pb-10 border-t lg:flex-row">
             <p class="text-sm text-gray-600">
-                © Copyright 2021 | Varsa tüm hakları saklıdır.
+                © Copyright 2021 |  Tüm hakları saklıdır.
             </p>
             <ul class="flex flex-col mb-3 space-y-2 lg:mb-0 sm:space-y-0 sm:space-x-5 sm:flex-row">
 
