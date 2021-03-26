@@ -39,6 +39,8 @@ Route::get('/', function () {
 });
 
 Route::get('/c/{type}', [\App\Http\Controllers\CompanyController::class, 'catalog'])->name('companyCatalog');
+Route::get('/c', [\App\Http\Controllers\CompanyController::class, 'catalog'])->name('companyCatalogMain');
+Route::get('/i', [\App\Http\Controllers\BidController::class, 'catalog'])->name('bidCatalogMain');
 Route::get('/i/{type}', [\App\Http\Controllers\BidController::class, 'catalog'])->name('bidCatalog');
 Route::get('/i/{type}/{cat}', [\App\Http\Controllers\BidController::class, 'catalog'])->name('bidCatalog.cat');
 Route::get('/bd/{id}', [\App\Http\Controllers\BidController::class, 'catalogDetail'])->name('bidDetail');

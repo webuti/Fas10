@@ -3,7 +3,8 @@
 
     <MainLayout title="İlanlar">
 
-        <div v-if="mobileMenuShow" @click="mobileMenuShow = false" class="bg-gray-200 z-10 h-screen w-full  opacity-25 absolute"></div>
+        <div v-if="mobileMenuShow" @click="mobileMenuShow = false"
+             class="bg-gray-200 z-10 h-screen w-full  opacity-25 absolute"></div>
         <div class="flex flex-row">
 
             <div
@@ -12,13 +13,17 @@
                 :class="{ 'hidden': !mobileMenuShow }"
             >
 
-                <form @submit="submit()" action="javascript:void(0)">
+
+                <form v-if="sector" @submit="submit()" action="javascript:void(0)">
 
                     <div class="flex justify-between">
-                    <h2 class="text-green-400 font-bold mb-2">Kategoriler
-                    </h2>
-                    <span @click="mobileMenuShow = false" class="block md:hidden lg:hidden sm:block"><svg class="h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-  <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
+                        <h2 class="text-green-400 font-bold mb-2">Kategoriler
+                        </h2>
+                        <span @click="mobileMenuShow = false" class="block md:hidden lg:hidden sm:block"><svg
+                            class="h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+  <path fillRule="evenodd"
+        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+        clipRule="evenodd"/>
 </svg></span>
                     </div>
                     <ul>
@@ -58,6 +63,19 @@
                         </button>
                     </div>
                 </form>
+
+                <div v-else>
+                    <h2 class="text-green-400 font-bold mb-2">Sektörler
+                    </h2>
+
+                    <ul>
+                        <li class="text-md" v-for="sector in sectors">
+
+
+                            <inertia-link :href="route('bidCatalogMain',sector.seo_url)">{{sector.name}}</inertia-link>
+                        </li>
+                    </ul>
+                </div>
             </div>
 
             <div class="content  w-full">
@@ -201,6 +219,7 @@
             countries: Array,
             category: String,
             categories: Array,
+            sectors: Array,
             categoryInfo: Array,
             sector: String,
             services: Array,

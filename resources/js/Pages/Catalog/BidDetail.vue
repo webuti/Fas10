@@ -35,11 +35,11 @@
                             <td class="py-3  text-gray-500 ">Oluşturulma Tarihi</td>
                             <td class="text-right">{{bid.created_at}}</td>
                         </tr>
-                        <tr class="border-t">
+                        <tr v-if="bid.country" class="border-t">
                             <td class="py-3  text-gray-500 ">Ülke</td>
                             <td class="text-right">{{bid.country.name}}</td>
                         </tr>
-                        <tr class="border-t">
+                        <tr v-if="bid.city" class="border-t">
                             <td class="py-3  text-gray-500 ">Şehir</td>
                             <td class="text-right">{{bid.city.name}}</td>
                         </tr>

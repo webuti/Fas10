@@ -8,7 +8,7 @@
                 <ul class="flex items-center hidden space-x-8 lg:flex">
                     <li>
                         <inertia-link
-                            :href="route('companyCatalog','tekstil')"
+                            :href="route('companyCatalogMain')"
                             aria-label="Our product"
                             title="Our product"
                             class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-green-400"
@@ -18,7 +18,7 @@
                     </li>
                       <li>
                         <inertia-link
-                            :href="route('bidCatalog','tekstil')"
+                            :href="route('bidCatalogMain')"
                             aria-label="Our product"
                             title="Our product"
                             class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-green-400"

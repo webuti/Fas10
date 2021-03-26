@@ -11,7 +11,9 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
-
+    <meta name="theme-color" content="#34d399">
+    <link rel="icon" color="#000000" href="/favicon.svg">
+    <link rel="apple-touch-icon"  color="#000000" href="/favicon.svg">
     <!-- Scripts -->
     @routes
     <script src="{{ mix('js/app.js') }}" defer></script>

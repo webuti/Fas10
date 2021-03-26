@@ -32,22 +32,44 @@ class BidController extends Controller
     }
 
 
-    public function catalog($type, $category = "0")
+    public function catalog($type = false, $category = "0")
     {
+        if ($category !== "0") {
+            $bids->category($category);
+            $categoryInfo = BidCategory::where('seo_url', $category)->first();
+
+        } else {
+            $categoryInfo = ['name' => 'İlanlar'];
+        }
+        $categories = BidCategory::where('parent_id', 0)->with(['children.children'])->get();
 
 
+        if (!$type) {
+            $bids = \App\Models\Bid::with(['city', 'country', 'images'])->filtered();
+
+
+            return Inertia::render('Catalog/Bid', [
+                'formData' => [
+                    'city_id' => request()->input('city_id'),
+                    'country_id' => request()->input('country_id', 1),
+                    'services' => request()->input('services'),
+                ],
+                'bids' => $bids->paginate(),
+                'cities' => City::all(),
+                'countries' => Country::all(),
+                'services' => Service::all(),
+                'sector' => false,
+                'sectors' => Sector::all(),
+                'category' => $category,
+                'categoryInfo' => $categoryInfo,
+                'categories' => $categories
+            ]);
+        }
         if ($sector = \App\Models\Sector::where('seo_url', $type)->first()) {
 
             $bids = \App\Models\Bid::with(['city', 'country', 'images'])->filtered()->sector($sector->id);
 
-            if ($category !== "0") {
-                $bids->category($category);
-                $categoryInfo = BidCategory::where('seo_url', $category)->first();
 
-            } else {
-                $categoryInfo = ['name' => 'İlanlar'];
-            }
-            $categories = BidCategory::where('parent_id', 0)->with(['children.children'])->get();
             return Inertia::render('Catalog/Bid', [
                 'formData' => [
                     'city_id' => request()->input('city_id'),
@@ -64,6 +86,7 @@ class BidController extends Controller
                 'categories' => $categories
             ]);
         }
+
     }
 
     public function catalogDetail($id)

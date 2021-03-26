@@ -1,6 +1,6 @@
 <template>
     <inertia-link :href="route('bidDetail',item.id)" aria-label="View item" title="İlanı İncele"
-                  class="  p-px overflow-hidden transition duration-300 full-w transform border rounded shadow-sm hover:scale-105   hover:border-green-400 hover:shadow-xl">
+                  class="  p-px overflow-hidden transition duration-300 full-w transform border rounded shadow-sm    hover:border-green-400 hover:shadow-xl">
 
         <div class="flex flex-row items-center justify-between p-5 bg-white rounded-sm">
 

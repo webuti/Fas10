@@ -6,6 +6,7 @@ use App\Models\City;
 use App\Models\Country;
 use App\Models\Partner;
 use App\Models\Service;
+use App\Models\Sector;
 use App\Models\Team;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -44,9 +45,27 @@ class CompanyController extends Controller
         //
     }
 
-    public function catalog($type)
+    public function catalog($type = false)
     {
-        if ($sector = \App\Models\Sector::where('seo_url', $type)->first()) {
+        if (!$type) {
+            $companies = \App\Models\Team::with(['services.service', 'city'])->filtered()->paginate();
+
+
+            return Inertia::render('Catalog/Company', [
+                'companies' => $companies,
+                'cities' => City::all(),
+                'countries' => Country::all(),
+                'services' => Service::all(),
+                'sectors' => Sector::all(),
+                'sector' => false,
+                'formData' => [
+                    'city_id' => request()->input('city_id'),
+                    'country_id' => request()->input('country_id', 1),
+                    'services' => request()->input('services'),
+                ],
+            ]);
+        }
+        if ($sector = Sector::where('seo_url', $type)->first()) {
             $companies = \App\Models\Team::with(['services.service', 'city'])->filtered()->sector($sector->id)->paginate();
 
 

@@ -10,24 +10,44 @@
                 :class="{ 'hidden': !mobileMenuShow }"
                 class="flex flex-col w-64  pr-4  z-20  bg-white md:block lg:block xl:block absolute xs:absolute   sm:absolute md:static lg:static ">
 
-                <div class="flex justify-between">
-                    <h2 class="text-green-400 font-bold mb-2">Filtreler
-                    </h2>
-                    <span @click="mobileMenuShow = false" class="block md:hidden lg:hidden sm:block"><svg class="h-8"
-                                                                                                          xmlns="http://www.w3.org/2000/svg"
-                                                                                                          viewBox="0 0 20 20"
-                                                                                                          fill="currentColor">
+                <template v-if="sector">
+                    <div class="flex justify-between">
+
+
+                        <h2 class="text-green-400 font-bold mb-2">Filtreler
+                        </h2>
+                        <span @click="mobileMenuShow = false" class="block md:hidden lg:hidden sm:block"><svg
+                            class="h-8"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 20 20"
+                            fill="currentColor">
   <path fillRule="evenodd"
         d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
         clipRule="evenodd"/>
 </svg></span>
-                </div>
+                    </div>
+
 
                 <Sidebar
 
                     :cities="cities" :sector="sector" :formData="formData"
                     :countries="countries"
-                    :services="services"/>
+                    :services="services"/>         </template>
+
+                <div v-else>
+                    <h2 class="text-green-400 font-bold mb-2">Sektörler
+                    </h2>
+
+                    <ul>
+                        <li class="text-md" v-for="sector in sectors">
+
+                            <inertia-link :href="route('companyCatalog',sector.seo_url)">{{sector.name}}
+                            </inertia-link>
+
+                        </li>
+                    </ul>
+                </div>
+
             </div>
 
             <div class="content  w-full">
@@ -107,7 +127,6 @@
         </div>
 
 
-
     </MainLayout>
 </template>
 
@@ -139,6 +158,7 @@
             cities: Array,
             services: Array,
             sector: String,
+            sectors: Array,
         }
     }
 </script>
