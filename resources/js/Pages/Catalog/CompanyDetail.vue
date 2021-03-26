@@ -1,75 +1,78 @@
 <template>
     <MainLayout :title="company.name">
-
-
         <main class="   mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl   ">
-            <section class="py-12 px-4">
+            <section class="py-12">
 
 
                 <div class="flex flex-wrap -mx-8">
-                    <div class="lg:w-1/2 px-8 mt-6 lg:mt-0 order-2 lg:order-none">
-                        <h2 class="text-4xl mb-2 font-semibold font-heading">{{company.name}}</h2>
+                    <div class="lg:w-1/2 px-8 mt-6   lg:mt-0 order-2 lg:order-none">
+                        <div class="mb-6">
+                            <h2 class="text-4xl mb-2 font-semibold font-heading">{{company.name}}</h2>
 
 
-                        <inertia-link method="post"
-                                      as="button"
-                                      type="button" v-if="partnerStatus.status == 1"
-                                      class="border border-gray-400  text-gray-600  p-2 flex rounded items-center  ">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8" viewBox="0 0 20 20" fill="currentColor">
-                                <path fillRule="evenodd"
-                                      d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
-                                      clipRule="evenodd"/>
-                            </svg>
-                            Talep Gönderildi
-                        </inertia-link>
-                        <inertia-link method="post"
-                                      as="button"
-                                      type="button" v-else-if="partnerStatus.status == 2"
-                                      class="border border-gray-400  text-gray-600  p-2 flex rounded items-center  ">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8" viewBox="0 0 20 20" fill="currentColor">
-                                <path fillRule="evenodd"
-                                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                                      clipRule="evenodd"/>
-                            </svg>
-                            İş Ortaklarıma eklendi
-                        </inertia-link>
+                            <inertia-link method="post"
+                                          as="button"
+                                          type="button" v-if="partnerStatus.status == 1"
+                                          class="border border-gray-400  text-gray-600  p-2 flex rounded items-center  ">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8" viewBox="0 0 20 20"
+                                     fill="currentColor">
+                                    <path fillRule="evenodd"
+                                          d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
+                                          clipRule="evenodd"/>
+                                </svg>
+                                Talep Gönderildi
+                            </inertia-link>
+                            <inertia-link method="post"
+                                          as="button"
+                                          type="button" v-else-if="partnerStatus.status == 2"
+                                          class="border border-gray-400  text-gray-600  p-2 flex rounded items-center  ">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8" viewBox="0 0 20 20"
+                                     fill="currentColor">
+                                    <path fillRule="evenodd"
+                                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                          clipRule="evenodd"/>
+                                </svg>
+                                İş Ortaklarıma eklendi
+                            </inertia-link>
 
-                        <inertia-link v-else :href="route('partners.store')" :data="{team_id : company.id}"
-                                      method="post"
-                                      as="button"
-                                      type="button"
-                                      class="border border-gray-400  text-gray-600  p-2 flex rounded items-center  ">
+                            <inertia-link v-else :href="route('partners.store')" :data="{team_id : company.id}"
+                                          method="post"
+                                          as="button"
+                                          type="button"
+                                          class="border border-gray-400  text-gray-600 px-2 font-bold   flex rounded-full text-sm items-center  ">
 
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8" viewBox="0 0 20 20" fill="currentColor">
-                                <path fillRule="evenodd"
-                                      d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
-                                      clipRule="evenodd"/>
-                            </svg>
-                            İş Ortaklarıma ekle
-                        </inertia-link>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8" viewBox="0 0 20 20"
+                                     fill="currentColor">
+                                    <path fillRule="evenodd"
+                                          d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
+                                          clipRule="evenodd"/>
+                                </svg>
+                                İş Ortaklarıma ekle
+                            </inertia-link>
 
+                        </div>
 
                         <div class="flex flex-wrap">
                             <div class="w-full">
                                 <ul class="flex mb-0 list-none flex-wrap pt-3 pb-4 flex-row">
-                                    <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
+                                    <li class="-mb-px last:mr-0 flex-auto text-center">
                                         <a class=" font-bold  px-5 py-3 shadow-lg rounded block leading-normal"
                                            v-on:click="toggleTabs(1)"
-                                           v-bind:class="{'text-green-600 bg-white': openTab !== 1, 'text-white bg-green-600': openTab === 1}">
+                                           v-bind:class="{'text-green-400 bg-white': openTab !== 1, 'text-white bg-green-400': openTab === 1}">
                                             Şirket Hakkında
                                         </a>
                                     </li>
-                                    <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
+                                    <li class="-mb-px last:mr-0 flex-auto text-center">
                                         <a class=" font-bold  px-5 py-3 shadow-lg rounded block leading-normal"
                                            v-on:click="toggleTabs(2)"
-                                           v-bind:class="{'text-green-600 bg-white': openTab !== 2, 'text-white bg-green-600': openTab === 2}">
+                                           v-bind:class="{'text-green-400 bg-white': openTab !== 2, 'text-white bg-green-400': openTab === 2}">
                                             Yorumlar ({{company.comments.length}})
                                         </a>
                                     </li>
-                                    <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
+                                    <li class="-mb-px last:mr-0 flex-auto text-center">
                                         <a class=" font-bold  px-5 py-3 shadow-lg rounded block leading-normal"
                                            v-on:click="toggleTabs(3)"
-                                           v-bind:class="{'text-green-600 bg-white': openTab !== 3, 'text-white bg-green-600': openTab === 3}">
+                                           v-bind:class="{'text-green-400 bg-white': openTab !== 3, 'text-white bg-green-400': openTab === 3}">
                                             Hizmetler
                                         </a>
                                     </li>
@@ -86,15 +89,15 @@
                                                 <table class="w-full mb-6">
                                                     <tbody>
                                                     <tr class="border-t">
-                                                        <td class="py-3">Çalışan Sayısı</td>
+                                                        <td class="py-3 text-gray-500">Çalışan Sayısı</td>
                                                         <td class="text-right">{{company.number_of_staff}}</td>
                                                     </tr>
                                                     <tr class="border-t">
-                                                        <td class="py-3">Ülke</td>
+                                                        <td class="py-3 text-gray-500">Ülke</td>
                                                         <td class="text-right">{{company.country.name}}</td>
                                                     </tr>
                                                     <tr class="border-t">
-                                                        <td class="py-3">Şehir</td>
+                                                        <td class="py-3 text-gray-500">Şehir</td>
                                                         <td class="text-right">{{company.city.name}} /
                                                             {{company.district_id}}
                                                         </td>
@@ -161,11 +164,11 @@
 
                                             </div>
                                             <div v-bind:class="{'hidden': openTab !== 3, 'block': openTab === 3}">
-                                                <p>
-                                                    <Badge v-for="services in company.services">
+                                                <div class="grid grid-cols-1 divide-y divide-gray-200">
+                                                    <div v-for="services in company.services">
                                                         {{services.service.name}}
-                                                    </Badge>
-                                                </p>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

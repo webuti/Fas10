@@ -65,7 +65,10 @@ class PartnerController extends Controller
 
         $request->validate(['team_id' => 'required']);
 
-        Partner::create(['status' => 1, 'sender_team_id' => Auth::user()->current_team_id, 'receiver_team_id' => $request->input('team_id')]);
+        if (Auth::check()) {
+            Partner::create(['status' => 1, 'sender_team_id' => Auth::user()->current_team_id, 'receiver_team_id' => $request->input('team_id')]);
+         
+        }
         return Redirect::route('companyDetail', $request->input('team_id'));
     }
 

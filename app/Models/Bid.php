@@ -28,6 +28,7 @@ class Bid extends Model
     protected $casts = [
         'created_at' => 'datetime:Y-m-d H:i:s',
     ];
+
     public function team()
     {
         return $this->belongsTo(Jetstream::teamModel());
@@ -46,6 +47,11 @@ class Bid extends Model
     public function country()
     {
         return $this->belongsTo(Country::class, 'country_id', 'id');
+    }
+
+    public function company()
+    {
+        return $this->belongsTo(Team::class, 'team_id', 'id');
     }
 
     public function images()

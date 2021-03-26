@@ -72,7 +72,7 @@
                         <li class="text-md" v-for="sector in sectors">
 
 
-                            <inertia-link :href="route('bidCatalogMain',sector.seo_url)">{{sector.name}}</inertia-link>
+                            <inertia-link :href="route('bidCatalog',sector.seo_url)">{{sector.name}}</inertia-link>
                         </li>
                     </ul>
                 </div>

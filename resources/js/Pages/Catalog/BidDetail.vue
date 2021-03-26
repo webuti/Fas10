@@ -17,38 +17,58 @@
 
 
     <main class="  mx-auto max-w-7xl px-4  sm:px-6   lg:px-8  ">
-        <section class="py-12 px-4">
+        <section class="py-12  ">
             <div class="flex flex-wrap -mx-8">
                 <div class="lg:w-1/2 px-8 lg:mt-0 order-2 lg:order-none">
 
-                    <div class="flex mb-6">
-                        <ul class="flex list-reset">
-                            <li><a class="block py-2 px-3 mr-2 bg-gray-100 rounded" href="#">İlan Açıklamaları</a></li>
-                            <li><a class="block py-2 px-3 mr-2 hover:bg-gray-100 rounded" href="#">Yorumlar</a></li>
-                        </ul>
+
+                    <div class="flex flex-wrap">
+                        <div class="w-full">
+                            <ul class="flex mb-0 list-none flex-wrap  pt-3 pb-4 flex-row">
+                                <li class="-mb-px   last:mr-0 flex-auto text-center">
+                                    <a class=" font-bold  px-4 py-3 shadow-lg rounded block leading-normal"
+
+                                       v-bind:class="{'text-green-400 bg-white': openTab !== 1, 'text-white bg-green-400': openTab === 1}">
+                                        İlan Hakkında
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                    <p class="mb-8 text-gray-800 leading-relaxed">
-                        {{bid.description}}</p>
-                    <table class="w-full mb-6">
-                        <tbody>
-                        <tr class="border-t">
-                            <td class="py-3  text-gray-500 ">Oluşturulma Tarihi</td>
-                            <td class="text-right">{{bid.created_at}}</td>
-                        </tr>
-                        <tr v-if="bid.country" class="border-t">
-                            <td class="py-3  text-gray-500 ">Ülke</td>
-                            <td class="text-right">{{bid.country.name}}</td>
-                        </tr>
-                        <tr v-if="bid.city" class="border-t">
-                            <td class="py-3  text-gray-500 ">Şehir</td>
-                            <td class="text-right">{{bid.city.name}}</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                    <button
-                        class="inline-block py-4 px-8 leading-none text-white bg-green-600 hover:bg-green-700 font-semibold rounded">
-                        Bilgi Al
-                    </button>
+
+                    <div
+                        class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded">
+                        <div class="px-4 py-5 flex-auto">
+                            <div class="tab-content tab-space">
+
+
+                                <p class="mb-8 text-gray-800 leading-relaxed">
+                                    {{bid.description}}</p>
+                                <table class="w-full mb-6">
+                                    <tbody>
+                                    <tr v-if="bid.company" class="border-t">
+                                        <td class="py-3  text-gray-500 ">Yayınlayan şirket</td>
+                                        <td class="text-right">{{bid.company.name}}</td>
+                                    </tr>
+                                    <tr class="border-t">
+                                        <td class="py-3  text-gray-500 ">Oluşturulma Tarihi</td>
+                                        <td class="text-right">{{bid.created_at}}</td>
+                                    </tr>
+                                    <tr v-if="bid.country" class="border-t">
+                                        <td class="py-3  text-gray-500 ">Ülke</td>
+                                        <td class="text-right">{{bid.country.name}}</td>
+                                    </tr>
+                                    <tr v-if="bid.city" class="border-t">
+                                        <td class="py-3  text-gray-500 ">Şehir</td>
+                                        <td class="text-right">{{bid.city.name}}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+
 
                 </div>
                 <div class="lg:w-1/2 px-8">
@@ -65,12 +85,19 @@
 
 <script>
     import Header from "../../Components/Header.vue";
+    import CompanyBox from "@/Pages/Catalog/CompanyBox";
 
     export default {
         components: {
+            CompanyBox,
             Header
         },
-
+        data() {
+            return {
+                openTab: 1,
+            }
+        }
+        ,
         props: {
             bid: [],
             images: [],
