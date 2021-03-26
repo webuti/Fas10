@@ -16484,6 +16484,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       moreShow: false,
+      sectorMenu: false,
       solutions: false,
       mobileMenu: false,
       isMenuOpen: false
@@ -19745,32 +19746,23 @@ var _withId = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.withScopeId)("dat
 var _hoisted_1 = {
   "class": "overflow-hidden shadow-lg rounded-lg h-90 w-60 md:w-80 cursor-pointer m-auto"
 };
-
-var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("img", {
-  alt: "blog photo",
-  src: "https://images.pexels.com/photos/2408666/pexels-photo-2408666.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-  "class": "max-h-40 w-full object-cover"
-}, null, -1
-/* HOISTED */
-);
-
-var _hoisted_3 = {
+var _hoisted_2 = {
   "class": "bg-white dark:bg-gray-800 w-full p-4"
 };
-var _hoisted_4 = {
+var _hoisted_3 = {
   "class": "text-gray-800 dark:text-white text-xl font-medium mb-2"
 };
-var _hoisted_5 = {
+var _hoisted_4 = {
   "class": "text-gray-400 dark:text-gray-300 font-light text-md"
 };
-var _hoisted_6 = {
+var _hoisted_5 = {
   "class": "flex  space-x-10 flex-row"
 };
-var _hoisted_7 = {
+var _hoisted_6 = {
   "class": "mt-2 flex  space-x-2  flex-row items-center text-sm text-gray-500"
 };
 
-var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("svg", {
+var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("svg", {
   xmlns: "http://www.w3.org/2000/svg",
   height: "20",
   width: "20",
@@ -19791,11 +19783,11 @@ var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("
 /* HOISTED */
 );
 
-var _hoisted_9 = {
+var _hoisted_8 = {
   "class": "mt-2  space-x-2 flex flex-row items-center text-sm text-gray-500"
 };
 
-var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("svg", {
+var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("svg", {
   xmlns: "http://www.w3.org/2000/svg",
   height: "20",
   width: "20",
@@ -19811,7 +19803,7 @@ var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(
 /* HOISTED */
 );
 
-var _hoisted_11 = {
+var _hoisted_10 = {
   "class": "flex flex-wrap justify-starts items-center mt-4"
 };
 
@@ -19827,27 +19819,27 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
     "class": "w-full block h-full"
   }, {
     "default": _withId(function () {
-      return [_hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", _hoisted_4, [$props.company.name ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", _hoisted_3, [$props.company.name ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
         key: 0
       }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.company.name), 1
       /* TEXT */
       )], 64
       /* STABLE_FRAGMENT */
-      )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", _hoisted_5, [$props.company.description ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+      )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", _hoisted_4, [$props.company.description ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
         key: 0
       }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.company.description), 1
       /* TEXT */
       )], 64
       /* STABLE_FRAGMENT */
-      )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_7, [_hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, [$props.company.city ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+      )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_6, [_hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, [$props.company.city ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
         key: 0
       }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.company.city.name), 1
       /* TEXT */
       )], 64
       /* STABLE_FRAGMENT */
-      )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_9, [_hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.company.number_of_staff) + " Personel", 1
+      )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_8, [_hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.company.number_of_staff) + " Personel", 1
       /* TEXT */
-      )])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_11, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.company.services, function (cat) {
+      )])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_10, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.company.services, function (cat) {
         return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_Badge, null, {
           "default": _withId(function () {
             return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(cat.service.name), 1
@@ -20097,7 +20089,7 @@ var _hoisted_4 = {
   "class": "flex items-center hidden space-x-8 lg:flex"
 };
 
-var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Firmalar ");
+var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Şirketler ");
 
 var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("İlanlar ");
 
@@ -24848,14 +24840,34 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
+
+var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+  "class": "h-screen"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+  "class": "text-center text-gray-400 flex mt-10 flex-col justify-center"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("svg", {
+  xmlns: "http://www.w3.org/2000/svg",
+  fill: "none",
+  "class": "h-20",
+  viewBox: "0 0 24 24",
+  stroke: "currentColor"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("path", {
+  "stroke-linecap": "round",
+  "stroke-linejoin": "round",
+  "stroke-width": "2",
+  d: "M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+})]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h2", {
+  "class": "text-gray-900"
+}, "Çok yakında 🎉 iş ilanları ve iş arayan kişileri bu sayfada listeleyeceğiz.")])], -1
+/* HOISTED */
+);
+
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_MainLayout = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("MainLayout");
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_MainLayout, null, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.text), 1
-      /* TEXT */
-      )];
+      return [_hoisted_1];
     }),
     _: 1
     /* STABLE */
@@ -29430,7 +29442,7 @@ var _hoisted_1 = {
   "class": "sm:text-center items-center lg:text-center  "
 };
 
-var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"wordCarousel  \"><ul class=\"flip2\"><li><h1 class=\"text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl\"><span class=\"block xl:inline   \">Fason&#39;a fayda odaklı </span> <span class=\"block text-green-400 xl:inline\">teknoloji</span></h1></li><li><h1 class=\"text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl\"><span class=\"block xl:inline   \">Fas10 fayda odaklı </span> <span class=\"block text-green-400 xl:inline\">teknoloji</span></h1></li></ul></div><p class=\"mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg  md:mt-5 md:text-xl \"> Fas10 işler için, fason çalışan şirket kataloğu, iş takip yönetimi </p>", 2);
+var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"wordCarousel  \"><ul class=\"flip2\"><li><h1 class=\"text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-4xl  lg:text-5xl\"><span class=\"block xl:inline   \">Fason&#39;a fayda odaklı </span> <span class=\"block text-green-400 xl:inline\">teknoloji</span></h1></li><li><h1 class=\"text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-4xl lg:text-5xl\"><span class=\"block xl:inline  \">Fas10 fayda odaklı </span> <span class=\"block text-green-400 xl:inline\">teknoloji</span></h1></li></ul></div><p class=\"mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg  md:mt-5 md:text-xl \"> Fas10 işler için, fason çalışan şirket kataloğu, iş takip yönetimi </p>", 2);
 
 var _hoisted_4 = {
   "class": "mt-5 sm:mt-8 flex  items-center justify-center"
@@ -29442,7 +29454,7 @@ var _hoisted_5 = {
 var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Hemen kayıt ol ");
 
 var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
-  "class": "mt-3 sm:mt-0 sm:ml-3"
+  "class": "  sm:ml-3"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("a", {
   href: "#",
   "class": "w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-green-700 bg-green-100 hover:bg-green-200 md:py-4 md:text-lg md:px-10"
@@ -29460,9 +29472,11 @@ var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("
   "class": "text-base text-green-600 font-semibold tracking-wide uppercase"
 }, "Boş yok"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", {
   "class": "mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl"
-}, " Fas10 da farklı işler var "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", {
+}, " Fas10'da iş çok "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("small", {
+  "class": "text-sm border border-gray-300 rounded-full px-2   text-gray-500"
+}, "olması için çalışıyoruz 👍🏻 "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", {
   "class": "mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto"
-}, " Makineler çalışsın, faturalar kesilsin, herkes kazansın ")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+}, " Makineler çalışsın, faturalar kesilsin ")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
   "class": "mt-10"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("dl", {
   "class": "space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10"
@@ -29883,7 +29897,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.wordCarousel {\n        overflow: hidden;\n        height: 65px;\n}\n.wordCarousel li {\n\n        font-weight: 700;\n        padding: 0 10px;\n        height: 45px;\n        margin-bottom: 45px;\n        display: block;\n}\n.flip2 {\n        -webkit-animation: flip2 6s cubic-bezier(0.23, 1, 0.32, 1.2) infinite;\n        animation: flip2 6s cubic-bezier(0.23, 1, 0.32, 1.2) infinite;\n}\n@-webkit-keyframes flip2 {\n0% {\n            margin-top: -180px;\n}\n5% {\n            margin-top: -90px;\n}\n50% {\n            margin-top: -90px;\n}\n55% {\n            margin-top: 0px;\n}\n99.99% {\n            margin-top: 0px;\n}\n100% {\n            margin-top: -270px;\n}\n}\n@keyframes flip2 {\n0% {\n            margin-top: -180px;\n}\n5% {\n            margin-top: -90px;\n}\n50% {\n            margin-top: -90px;\n}\n55% {\n            margin-top: 0px;\n}\n99.99% {\n            margin-top: 0px;\n}\n100% {\n            margin-top: -270px;\n}\n}\n@-webkit-keyframes flip3 {\n0% {\n            margin-top: -270px;\n}\n5% {\n            margin-top: -180px;\n}\n33% {\n            margin-top: -180px;\n}\n38% {\n            margin-top: -90px;\n}\n66% {\n            margin-top: -90px;\n}\n71% {\n            margin-top: 0px;\n}\n99.99% {\n            margin-top: 0px;\n}\n100% {\n            margin-top: -270px;\n}\n}\n@keyframes flip3 {\n0% {\n            margin-top: -270px;\n}\n5% {\n            margin-top: -180px;\n}\n33% {\n            margin-top: -180px;\n}\n38% {\n            margin-top: -90px;\n}\n66% {\n            margin-top: -90px;\n}\n71% {\n            margin-top: 0px;\n}\n99.99% {\n            margin-top: 0px;\n}\n100% {\n            margin-top: -270px;\n}\n}\n@-webkit-keyframes flip4 {\n0% {\n            margin-top: -360px;\n}\n5% {\n            margin-top: -270px;\n}\n25% {\n            margin-top: -270px;\n}\n30% {\n            margin-top: -180px;\n}\n50% {\n            margin-top: -180px;\n}\n55% {\n            margin-top: -90px;\n}\n75% {\n            margin-top: -90px;\n}\n80% {\n            margin-top: 0px;\n}\n99.99% {\n            margin-top: 0px;\n}\n100% {\n            margin-top: -270px;\n}\n}\n@keyframes flip4 {\n0% {\n            margin-top: -360px;\n}\n5% {\n            margin-top: -270px;\n}\n25% {\n            margin-top: -270px;\n}\n30% {\n            margin-top: -180px;\n}\n50% {\n            margin-top: -180px;\n}\n55% {\n            margin-top: -90px;\n}\n75% {\n            margin-top: -90px;\n}\n80% {\n            margin-top: 0px;\n}\n99.99% {\n            margin-top: 0px;\n}\n100% {\n            margin-top: -270px;\n}\n}\n\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.wordCarousel {\n        overflow: hidden;\n        height: 95px;\n}\n.wordCarousel li {\n\n        font-weight: 700;\n        padding: 0 10px;\n        height: 45px;\n        margin-bottom: 45px;\n        display: block;\n}\n.flip2 {\n        -webkit-animation: flip2 6s cubic-bezier(0.23, 1, 0.32, 1.2) infinite;\n        animation: flip2 6s cubic-bezier(0.23, 1, 0.32, 1.2) infinite;\n}\n@-webkit-keyframes flip2 {\n0% {\n            margin-top: -180px;\n}\n5% {\n            margin-top: -90px;\n}\n50% {\n            margin-top: -90px;\n}\n55% {\n            margin-top: 0px;\n}\n99.99% {\n            margin-top: 0px;\n}\n100% {\n            margin-top: -270px;\n}\n}\n@keyframes flip2 {\n0% {\n            margin-top: -180px;\n}\n5% {\n            margin-top: -90px;\n}\n50% {\n            margin-top: -90px;\n}\n55% {\n            margin-top: 0px;\n}\n99.99% {\n            margin-top: 0px;\n}\n100% {\n            margin-top: -270px;\n}\n}\n@-webkit-keyframes flip3 {\n0% {\n            margin-top: -270px;\n}\n5% {\n            margin-top: -180px;\n}\n33% {\n            margin-top: -180px;\n}\n38% {\n            margin-top: -90px;\n}\n66% {\n            margin-top: -90px;\n}\n71% {\n            margin-top: 0px;\n}\n99.99% {\n            margin-top: 0px;\n}\n100% {\n            margin-top: -270px;\n}\n}\n@keyframes flip3 {\n0% {\n            margin-top: -270px;\n}\n5% {\n            margin-top: -180px;\n}\n33% {\n            margin-top: -180px;\n}\n38% {\n            margin-top: -90px;\n}\n66% {\n            margin-top: -90px;\n}\n71% {\n            margin-top: 0px;\n}\n99.99% {\n            margin-top: 0px;\n}\n100% {\n            margin-top: -270px;\n}\n}\n@-webkit-keyframes flip4 {\n0% {\n            margin-top: -360px;\n}\n5% {\n            margin-top: -270px;\n}\n25% {\n            margin-top: -270px;\n}\n30% {\n            margin-top: -180px;\n}\n50% {\n            margin-top: -180px;\n}\n55% {\n            margin-top: -90px;\n}\n75% {\n            margin-top: -90px;\n}\n80% {\n            margin-top: 0px;\n}\n99.99% {\n            margin-top: 0px;\n}\n100% {\n            margin-top: -270px;\n}\n}\n@keyframes flip4 {\n0% {\n            margin-top: -360px;\n}\n5% {\n            margin-top: -270px;\n}\n25% {\n            margin-top: -270px;\n}\n30% {\n            margin-top: -180px;\n}\n50% {\n            margin-top: -180px;\n}\n55% {\n            margin-top: -90px;\n}\n75% {\n            margin-top: -90px;\n}\n80% {\n            margin-top: 0px;\n}\n99.99% {\n            margin-top: 0px;\n}\n100% {\n            margin-top: -270px;\n}\n}\n\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

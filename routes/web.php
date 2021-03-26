@@ -30,8 +30,7 @@ Route::post('image-upload', [\App\Http\Controllers\ImageUploadController::class,
 Route::get('/location/district/{id}', [\App\Http\Controllers\LocationController::class, 'district'])->name('location.district');
 
 Route::get('/career', function () {
-    return Inertia::render('Career', ['text' => 'Çok yakında iş ilanları ve iş arayan kişileri bu platformda listeleyeceğiz.'
-    ]);
+    return Inertia::render('Career');
 });
 
 Route::get('/', function () {

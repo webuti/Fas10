@@ -12,11 +12,11 @@
                             aria-label="Our product"
                             title="Our product"
                             class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-green-400"
-                        >Firmalar
+                        >Şirketler
                         </inertia-link
                         >
                     </li>
-                    <li>
+                      <li>
                         <inertia-link
                             :href="route('bidCatalog','tekstil')"
                             aria-label="Our product"
@@ -210,6 +210,7 @@
         data() {
             return {
                 moreShow: false,
+                sectorMenu: false,
                 solutions: false,
                 mobileMenu: false,
                 isMenuOpen: false,

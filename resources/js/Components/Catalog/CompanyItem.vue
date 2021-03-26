@@ -2,9 +2,7 @@
     <div>
         <div class="overflow-hidden shadow-lg rounded-lg h-90 w-60 md:w-80 cursor-pointer m-auto">
             <inertia-link :href="route('companyDetail',company.id)" class="w-full block h-full">
-                <img alt="blog photo"
-                     src="https://images.pexels.com/photos/2408666/pexels-photo-2408666.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;w=500"
-                     class="max-h-40 w-full object-cover"/>
+
                 <div class="bg-white dark:bg-gray-800 w-full p-4">
 
                     <p class="text-gray-800 dark:text-white text-xl font-medium mb-2">
