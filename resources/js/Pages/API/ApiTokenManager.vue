@@ -3,17 +3,17 @@
         <!-- Generate API Token -->
         <jet-form-section @submitted="createApiToken">
             <template #title>
-                Create API Token
+                API Erişimi Oluşturma
             </template>
 
             <template #description>
-                API tokens allow third-party services to authenticate with our application on your behalf.
+                API belirteçleri, üçüncü taraf hizmetlerin sizin adınıza uygulamamızla kimlik doğrulaması yapmasına izin verir.
             </template>
 
             <template #form>
                 <!-- Token Name -->
                 <div class="col-span-6 sm:col-span-4">
-                    <jet-label for="name" value="Name" />
+                    <jet-label for="name" value="İsim" />
                     <jet-input id="name" type="text" class="mt-1 block w-full" v-model="createApiTokenForm.name" autofocus />
                     <jet-input-error :message="createApiTokenForm.errors.name" class="mt-2" />
                 </div>
@@ -35,11 +35,11 @@
 
             <template #actions>
                 <jet-action-message :on="createApiTokenForm.recentlySuccessful" class="mr-3">
-                    Created.
+                    Oluşturuldu.
                 </jet-action-message>
 
                 <jet-button :class="{ 'opacity-25': createApiTokenForm.processing }" :disabled="createApiTokenForm.processing">
-                    Create
+                    Oluştur
                 </jet-button>
             </template>
         </jet-form-section>

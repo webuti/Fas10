@@ -57,7 +57,6 @@ class JetstreamServiceProvider extends ServiceProvider
             function (Request $request, array $data) {
 
 
-
                 return array_merge($data, [
                     'cities' => City::get(),
                     'countries' => Country::get(),
@@ -93,17 +92,23 @@ class JetstreamServiceProvider extends ServiceProvider
     {
         Jetstream::defaultApiTokenPermissions(['read']);
 
-        Jetstream::role('admin', __('Administrator'), [
+        Jetstream::role('admin', __('Yonetici'), [
             'create',
             'read',
             'update',
             'delete',
-        ])->description(__('Administrator users can perform any action.'));
+        ])->description(__('Şirket hakkındaki herşeyi yapabilir'));
 
-        Jetstream::role('editor', __('Editor'), [
+        Jetstream::role('editor', __('İlan Yöneticisi'), [
             'read',
             'create',
             'update',
-        ])->description(__('Editor users have the ability to read, create, and update.'));
+        ])->description(__('Sadece ilanları yönetebilir'));
+        Jetstream::role('operasyon', __('Operasyon Yöneticisi'), [
+            'read',
+            'create',
+            'update',
+        ])->description(__('Sadece operasyonları yönetebilir'));
+
     }
 }

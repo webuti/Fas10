@@ -128,80 +128,70 @@
                         <nav>
                             <ul class="space-y-4">
                                 <li>
-                                    <a
-                                        href="/"
+                                    <inertia-link
+                                        :href="route('companyCatalog','tekstil')"
                                         aria-label="Our product"
                                         title="Our product"
                                         class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-green-400"
-                                    >Product</a
+                                    >Firmalar
+                                    </inertia-link
+                                    >
+                                </li>
+                                <li>
+                                    <inertia-link
+                                        :href="route('bidCatalog','tekstil')"
+                                        aria-label="Our product"
+                                        title="Our product"
+                                        class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-green-400"
+                                    >İlanlar
+                                    </inertia-link
                                     >
                                 </li>
                                 <li>
                                     <a
-                                        href="/"
-                                        aria-label="Our product"
-                                        title="Our product"
-                                        class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-green-400"
-                                    >Features</a
-                                    >
-                                </li>
-                                <li>
-                                    <a
-                                        href="/"
+                                        href="/career"
                                         aria-label="Product pricing"
                                         title="Product pricing"
                                         class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-green-400"
-                                    >Pricing</a
-                                    >
-                                </li>
-                                <li>
-                                    <a
-                                        href="/"
-                                        aria-label="About us"
-                                        title="About us"
-                                        class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-green-400"
-                                    >About us</a
+                                    >Kariyer</a
                                     >
                                 </li>
 
 
                                 <inertia-link v-if="$page.props.user" href="/dashboard"
-                                              class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-green-400">
+
+                                              class="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-green-400 hover:bg-green-700 focus:shadow-outline focus:outline-none"
+                                              aria-label="Kayıt ol"
+                                              title="Kayıt ol"
+                                >
                                     Panelim
                                 </inertia-link>
 
 
                                 <template v-else>
-                                    <inertia-link :href="route('login')"
-                                                  class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-green-400">
-                                        Giriş Yap
-                                    </inertia-link>
 
-                                    <inertia-link :href="route('register')"
-                                                  class="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-green-600 hover:bg-green-700">
-                                        Kayıt Ol
-                                    </inertia-link>
+                                    <li>
+                                        <inertia-link :href="route('login')"
+
+                                                      class="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-green-700 transition duration-200 hover:text-white rounded shadow-md bg-green-200 hover:bg-green-700 focus:shadow-outline focus:outline-none"
+                                                      aria-label=" Giriş yap  "
+                                                      title=" Giriş yap  "
+                                        >
+                                            Giriş yap
+                                        </inertia-link>
+                                    </li>
+
+                                    <li>
+                                        <inertia-link :href="route('register')"
+
+                                                      class="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-green-400 hover:bg-green-700 focus:shadow-outline focus:outline-none"
+                                                      aria-label="Kayıt ol"
+                                                      title="Kayıt ol"
+                                        >
+                                            Kayıt ol
+                                        </inertia-link>
+                                    </li>
                                 </template>
-
-                                <li>
-                                    <a
-                                        href="/"
-                                        aria-label="Sign in"
-                                        title="Sign in"
-
-                                    >Sign in</a
-                                    >
-                                </li>
-                                <li>
-                                    <a
-                                        href="/"
-                                        class="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-green-400 hover:bg-green-700 focus:shadow-outline focus:outline-none"
-                                        aria-label="Sign up"
-                                        title="Sign up"
-                                    >
-                                        Sign up
-                                    </a>
-                                </li>
                             </ul>
                         </nav>
                     </div>
@@ -222,7 +212,7 @@
                 moreShow: false,
                 solutions: false,
                 mobileMenu: false,
-                isMenuOpen:false,
+                isMenuOpen: false,
             }
         },
         props: {

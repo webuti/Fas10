@@ -12,7 +12,7 @@
 
         <form @submit.prevent="submit">
             <div>
-                <jet-label for="password" value="Password" />
+                <jet-label for="password" value="Şifre" />
                 <jet-input id="password" type="password" class="mt-1 block w-full" v-model="form.password" required autocomplete="current-password" autofocus />
             </div>
 

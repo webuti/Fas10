@@ -1,17 +1,18 @@
 <template>
     <div>
         <div class="overflow-hidden shadow-lg rounded-lg h-90 w-60 md:w-80 cursor-pointer m-auto">
-            <inertia-link :href="route('companyDetail',id)" class="w-full block h-full">
+            <inertia-link :href="route('companyDetail',company.id)" class="w-full block h-full">
                 <img alt="blog photo"
                      src="https://images.pexels.com/photos/2408666/pexels-photo-2408666.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;w=500"
                      class="max-h-40 w-full object-cover"/>
                 <div class="bg-white dark:bg-gray-800 w-full p-4">
 
                     <p class="text-gray-800 dark:text-white text-xl font-medium mb-2">
-                        {{name}}
+                        <template v-if="company.name">{{company.name}}</template>
                     </p>
                     <p class="text-gray-400 dark:text-gray-300 font-light text-md">
-                        {{description}}
+
+                        <template v-if="company.description">{{company.description}}</template>
                     </p>
                     <div class="flex  space-x-10 flex-row">
                         <div class="mt-2 flex  space-x-2  flex-row items-center text-sm text-gray-500">
@@ -25,7 +26,10 @@
                                           d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
                                 </svg>
                             </div>
-                            <div>{{city}}</div>
+                            <div>
+                                <template v-if="company.city">{{company.city.name}}</template>
+
+                            </div>
                         </div>
                         <div class="mt-2  space-x-2 flex flex-row items-center text-sm text-gray-500">
                             <div>
@@ -36,11 +40,11 @@
                                           d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
                                 </svg>
                             </div>
-                            <div>{{person}} Personel</div>
+                            <div>{{company.number_of_staff}} Personel</div>
                         </div>
                     </div>
                     <div class="flex flex-wrap justify-starts items-center mt-4">
-                        <Badge v-for="cat in categories">{{cat.service.name}}</Badge>
+                        <Badge v-for="cat in company.services">{{cat.service.name}}</Badge>
                     </div>
                 </div>
             </inertia-link>
@@ -55,7 +59,7 @@
     export default {
         name: "CompanyItem",
         components: {Badge},
-        props: ['name', 'person', 'city', 'categories', 'id', 'seo_url', 'description']
+        props: ['company']
 
     }
 </script>

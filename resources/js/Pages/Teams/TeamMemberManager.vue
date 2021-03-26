@@ -1,7 +1,7 @@
 <template>
     <div>
         <div v-if="userPermissions.canAddTeamMembers">
-            <jet-section-border />
+            <jet-section-border/>
 
             <!-- Add Team Member -->
             <jet-form-section @submitted="addTeamMember">
@@ -10,42 +10,50 @@
                 </template>
 
                 <template #description>
-                    Add a new team member to your team, allowing them to collaborate with you.
+                    Şirketinize yeni bir ekip üyesi ekleyerek, sizinle işbirliği yapmalarına izin verin.
                 </template>
 
                 <template #form>
                     <div class="col-span-6">
                         <div class="max-w-xl text-sm text-gray-600">
-                            Please provide the email address of the person you would like to add to this team.
+                            Lütfen bu ekibe eklemek istediğiniz kişinin e-posta adresini sağlayın.
                         </div>
                     </div>
 
                     <!-- Member Email -->
                     <div class="col-span-6 sm:col-span-4">
-                        <jet-label for="email" value="Email" />
-                        <jet-input id="email" type="email" class="mt-1 block w-full" v-model="addTeamMemberForm.email" />
-                        <jet-input-error :message="addTeamMemberForm.errors.email" class="mt-2" />
+                        <jet-label for="email" value="Eposta"/>
+                        <jet-input id="email" type="email" class="mt-1 block w-full" v-model="addTeamMemberForm.email"/>
+                        <jet-input-error :message="addTeamMemberForm.errors.email" class="mt-2"/>
                     </div>
 
                     <!-- Role -->
                     <div class="col-span-6 lg:col-span-4" v-if="availableRoles.length > 0">
-                        <jet-label for="roles" value="Role" />
-                        <jet-input-error :message="addTeamMemberForm.errors.role" class="mt-2" />
+                        <jet-label for="roles" value="Yetki"/>
+                        <jet-input-error :message="addTeamMemberForm.errors.role" class="mt-2"/>
 
                         <div class="relative z-0 mt-1 border border-gray-200 rounded-lg cursor-pointer">
-                            <button type="button" class="relative px-4 py-3 inline-flex w-full rounded-lg focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue"
-                                            :class="{'border-t border-gray-200 rounded-t-none': i > 0, 'rounded-b-none': i != Object.keys(availableRoles).length - 1}"
-                                            @click="addTeamMemberForm.role = role.key"
-                                            v-for="(role, i) in availableRoles"
-                                            :key="role.key">
-                                <div :class="{'opacity-50': addTeamMemberForm.role && addTeamMemberForm.role != role.key}">
+                            <button type="button"
+                                    class="relative px-4 py-3 inline-flex w-full rounded-lg focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue"
+                                    :class="{'border-t border-gray-200 rounded-t-none': i > 0, 'rounded-b-none': i != Object.keys(availableRoles).length - 1}"
+                                    @click="addTeamMemberForm.role = role.key"
+                                    v-for="(role, i) in availableRoles"
+                                    :key="role.key">
+                                <div
+                                    :class="{'opacity-50': addTeamMemberForm.role && addTeamMemberForm.role != role.key}">
                                     <!-- Role Name -->
                                     <div class="flex items-center">
-                                        <div class="text-sm text-gray-600" :class="{'font-semibold': addTeamMemberForm.role == role.key}">
+                                        <div class="text-sm text-gray-600"
+                                             :class="{'font-semibold': addTeamMemberForm.role == role.key}">
                                             {{ role.name }}
                                         </div>
 
-                                        <svg v-if="addTeamMemberForm.role == role.key" class="ml-2 h-5 w-5 text-green-400" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                        <svg v-if="addTeamMemberForm.role == role.key"
+                                             class="ml-2 h-5 w-5 text-green-400" fill="none" stroke-linecap="round"
+                                             stroke-linejoin="round" stroke-width="2" stroke="currentColor"
+                                             viewBox="0 0 24 24">
+                                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                        </svg>
                                     </div>
 
                                     <!-- Role Description -->
@@ -60,41 +68,44 @@
 
                 <template #actions>
                     <jet-action-message :on="addTeamMemberForm.recentlySuccessful" class="mr-3">
-                        Added.
+                        Eklendi.
                     </jet-action-message>
 
-                    <jet-button :class="{ 'opacity-25': addTeamMemberForm.processing }" :disabled="addTeamMemberForm.processing">
-                        Add
+                    <jet-button :class="{ 'opacity-25': addTeamMemberForm.processing }"
+                                :disabled="addTeamMemberForm.processing">
+                        Ekle
                     </jet-button>
                 </template>
             </jet-form-section>
         </div>
 
         <div v-if="team.team_invitations.length > 0 && userPermissions.canAddTeamMembers">
-            <jet-section-border />
+            <jet-section-border/>
 
             <!-- Team Member Invitations -->
             <jet-action-section class="mt-10 sm:mt-0">
                 <template #title>
-                    Pending Team Invitations
+                    Bekleyen Şirket Davetiyeleri
                 </template>
 
                 <template #description>
-                    These people have been invited to your team and have been sent an invitation email. They may join the team by accepting the email invitation.
+                    Bu kişiler şirketinize davet edildi ve onlara bir davet e-postası gönderildi. E-posta davetini kabul
+                    ederek şirketinize katılabilirler.
                 </template>
 
                 <!-- Pending Team Member Invitation List -->
                 <template #content>
                     <div class="space-y-6">
-                        <div class="flex items-center justify-between" v-for="invitation in team.team_invitations" :key="invitation.id">
+                        <div class="flex items-center justify-between" v-for="invitation in team.team_invitations"
+                             :key="invitation.id">
                             <div class="text-gray-600">{{ invitation.email }}</div>
 
                             <div class="flex items-center">
                                 <!-- Cancel Team Invitation -->
                                 <button class="cursor-pointer ml-6 text-sm text-red-500 focus:outline-none"
-                                                    @click="cancelTeamInvitation(invitation)"
-                                                    v-if="userPermissions.canRemoveTeamMembers">
-                                    Cancel
+                                        @click="cancelTeamInvitation(invitation)"
+                                        v-if="userPermissions.canRemoveTeamMembers">
+                                    İptal
                                 </button>
                             </div>
                         </div>
@@ -104,16 +115,16 @@
         </div>
 
         <div v-if="team.users.length > 0">
-            <jet-section-border />
+            <jet-section-border/>
 
             <!-- Şirketlerim Members -->
             <jet-action-section class="mt-10 sm:mt-0">
                 <template #title>
-                    Team Members
+                    Şirket personelleri
                 </template>
 
                 <template #description>
-                    All of the people that are part of this team.
+                    Bu şirket parçası olan tüm insanlar.
                 </template>
 
                 <!-- Team Member List -->
@@ -139,16 +150,16 @@
 
                                 <!-- Leave Team -->
                                 <button class="cursor-pointer ml-6 text-sm text-red-500"
-                                                    @click="confirmLeavingTeam"
-                                                    v-if="$page.props.user.id === user.id">
-                                    Leave
+                                        @click="confirmLeavingTeam"
+                                        v-if="$page.props.user.id === user.id">
+                                    Ayrıl
                                 </button>
 
                                 <!-- Remove Team Member -->
                                 <button class="cursor-pointer ml-6 text-sm text-red-500"
-                                                    @click="confirmTeamMemberRemoval(user)"
-                                                    v-if="userPermissions.canRemoveTeamMembers">
-                                    Remove
+                                        @click="confirmTeamMemberRemoval(user)"
+                                        v-if="userPermissions.canRemoveTeamMembers">
+                                    Sil
                                 </button>
                             </div>
                         </div>
@@ -160,25 +171,31 @@
         <!-- Role Management Modal -->
         <jet-dialog-modal :show="currentlyManagingRole" @close="currentlyManagingRole = false">
             <template #title>
-                Manage Role
+                Rolü Yönet
             </template>
 
             <template #content>
                 <div v-if="managingRoleFor">
                     <div class="relative z-0 mt-1 border border-gray-200 rounded-lg cursor-pointer">
-                        <button type="button" class="relative px-4 py-3 inline-flex w-full rounded-lg focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue"
-                                        :class="{'border-t border-gray-200 rounded-t-none': i > 0, 'rounded-b-none': i !== Object.keys(availableRoles).length - 1}"
-                                        @click="updateRoleForm.role = role.key"
-                                        v-for="(role, i) in availableRoles"
-                                        :key="role.key">
+                        <button type="button"
+                                class="relative px-4 py-3 inline-flex w-full rounded-lg focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue"
+                                :class="{'border-t border-gray-200 rounded-t-none': i > 0, 'rounded-b-none': i !== Object.keys(availableRoles).length - 1}"
+                                @click="updateRoleForm.role = role.key"
+                                v-for="(role, i) in availableRoles"
+                                :key="role.key">
                             <div :class="{'opacity-50': updateRoleForm.role && updateRoleForm.role !== role.key}">
                                 <!-- Role Name -->
                                 <div class="flex items-center">
-                                    <div class="text-sm text-gray-600" :class="{'font-semibold': updateRoleForm.role === role.key}">
+                                    <div class="text-sm text-gray-600"
+                                         :class="{'font-semibold': updateRoleForm.role === role.key}">
                                         {{ role.name }}
                                     </div>
 
-                                    <svg v-if="updateRoleForm.role === role.key" class="ml-2 h-5 w-5 text-green-400" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    <svg v-if="updateRoleForm.role === role.key" class="ml-2 h-5 w-5 text-green-400"
+                                         fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                         stroke="currentColor" viewBox="0 0 24 24">
+                                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
                                 </div>
 
                                 <!-- Role Description -->
@@ -193,11 +210,12 @@
 
             <template #footer>
                 <jet-secondary-button @click="currentlyManagingRole = false">
-                    Cancel
+                    İptal
                 </jet-secondary-button>
 
-                <jet-button class="ml-2" @click="updateRole" :class="{ 'opacity-25': updateRoleForm.processing }" :disabled="updateRoleForm.processing">
-                    Save
+                <jet-button class="ml-2" @click="updateRole" :class="{ 'opacity-25': updateRoleForm.processing }"
+                            :disabled="updateRoleForm.processing">
+                    Kaydet
                 </jet-button>
             </template>
         </jet-dialog-modal>
@@ -205,20 +223,21 @@
         <!-- Leave Team Confirmation Modal -->
         <jet-confirmation-modal :show="confirmingLeavingTeam" @close="confirmingLeavingTeam = false">
             <template #title>
-                Leave Team
+                Şirketten ayrıl
             </template>
 
             <template #content>
-                Are you sure you would like to leave this team?
+                Bu ekipten ayrılmak istediğinizden emin misiniz?
             </template>
 
             <template #footer>
                 <jet-secondary-button @click="confirmingLeavingTeam = false">
-                    Cancel
+                    İptal
                 </jet-secondary-button>
 
-                <jet-danger-button class="ml-2" @click="leaveTeam" :class="{ 'opacity-25': leaveTeamForm.processing }" :disabled="leaveTeamForm.processing">
-                    Leave
+                <jet-danger-button class="ml-2" @click="leaveTeam" :class="{ 'opacity-25': leaveTeamForm.processing }"
+                                   :disabled="leaveTeamForm.processing">
+                    Ayrıl
                 </jet-danger-button>
             </template>
         </jet-confirmation-modal>
@@ -226,20 +245,22 @@
         <!-- Remove Team Member Confirmation Modal -->
         <jet-confirmation-modal :show="teamMemberBeingRemoved" @close="teamMemberBeingRemoved = null">
             <template #title>
-                Remove Team Member
+                Şirket Personelini  Kaldır
             </template>
 
             <template #content>
-                Are you sure you would like to remove this person from the team?
+                Bu kişiyi şirketten çıkarmak istediğinizden emin misiniz?
             </template>
 
             <template #footer>
                 <jet-secondary-button @click="teamMemberBeingRemoved = null">
-                    Cancel
+                    İptal
                 </jet-secondary-button>
 
-                <jet-danger-button class="ml-2" @click="removeTeamMember" :class="{ 'opacity-25': removeTeamMemberForm.processing }" :disabled="removeTeamMemberForm.processing">
-                    Remove
+                <jet-danger-button class="ml-2" @click="removeTeamMember"
+                                   :class="{ 'opacity-25': removeTeamMemberForm.processing }"
+                                   :disabled="removeTeamMemberForm.processing">
+                    Çıkar
                 </jet-danger-button>
             </template>
         </jet-confirmation-modal>

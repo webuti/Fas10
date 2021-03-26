@@ -5,7 +5,7 @@
         </template>
 
         <template #description>
-            The team's name and owner information.
+            Şirketin adı ve sahibi bilgileri.
         </template>
 
         <template #form>
