@@ -40,7 +40,7 @@
             <ul class="flex items-center hidden space-x-8 lg:flex">
 
                 <inertia-link v-if="$page.props.user" href="/dashboard"
-                              class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-green-400">
+                              class="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-green-400 hover:bg-green-700">
                     Panelim
                 </inertia-link>
 

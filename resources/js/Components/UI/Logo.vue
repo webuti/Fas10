@@ -6,7 +6,7 @@
         class="inline-flex fas10logo items-center mr-8"
     >
         <svg
-            class="w-8  logo-main text-green-400"
+            class="w-8  logo-main text-green-400 "
 
             :class="{'animate-active':animateActive}"
             viewBox="0 0 24 24"
@@ -37,10 +37,11 @@
         name: "logo",
         data() {
             return {
+                errorText: false,
                 animateActive: true,
             }
         },
-        created() {
+        mounted() {
 
             setTimeout(() => {
                 this.animateActive = false;

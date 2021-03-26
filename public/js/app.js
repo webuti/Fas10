@@ -16562,10 +16562,11 @@ __webpack_require__.r(__webpack_exports__);
   name: "logo",
   data: function data() {
     return {
+      errorText: false,
       animateActive: true
     };
   },
-  created: function created() {
+  mounted: function mounted() {
     var _this = this;
 
     setTimeout(function () {
@@ -16591,10 +16592,11 @@ __webpack_require__.r(__webpack_exports__);
   name: "logo",
   data: function data() {
     return {
+      errorText: false,
       animateActive: true
     };
   },
-  created: function created() {
+  mounted: function mounted() {
     var _this = this;
 
     setTimeout(function () {
@@ -20252,7 +20254,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   , ["href"])]), _hoisted_7])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("ul", _hoisted_8, [_ctx.$page.props.user ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_inertia_link, {
     key: 0,
     href: "/dashboard",
-    "class": "font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-green-400"
+    "class": "ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-green-400 hover:bg-green-700"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [_hoisted_9];
@@ -20549,7 +20551,7 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
   }, {
     "default": _withId(function () {
       return [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("svg", {
-        "class": ["w-8  logo-main text-green-400", {
+        "class": ["w-8  logo-main text-green-400 ", {
           'animate-active': $data.animateActive
         }],
         viewBox: "0 0 24 24",
@@ -20660,7 +20662,7 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
   }, {
     "default": _withId(function () {
       return [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("svg", {
-        "class": ["w-8  logo-main text-green-400", {
+        "class": ["w-8  logo-main text-green-400 ", {
           'animate-active': $data.animateActive
         }],
         viewBox: "0 0 24 24",
@@ -29406,7 +29408,7 @@ var _hoisted_1 = {
   "class": "sm:text-center items-center lg:text-center  "
 };
 
-var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"wordCarousel  \"><ul class=\"flip2\"><li><h1 class=\"text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl\"><span class=\"block xl:inline   \">Fason&#39;a fayda odaklı </span> <span class=\"block text-green-400 xl:inline\">teknoloji</span></h1></li><li><h1 class=\"text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl\"><span class=\"block xl:inline   \">Fas10&#39; fayda odaklı </span> <span class=\"block text-green-400 xl:inline\">teknoloji</span></h1></li></ul></div><p class=\"mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg  md:mt-5 md:text-xl \"> Fas10 işler için, fason çalışan şirket kataloğu, iş takip yönetimi </p>", 2);
+var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"wordCarousel  \"><ul class=\"flip2\"><li><h1 class=\"text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl\"><span class=\"block xl:inline   \">Fason&#39;a fayda odaklı </span> <span class=\"block text-green-400 xl:inline\">teknoloji</span></h1></li><li><h1 class=\"text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl\"><span class=\"block xl:inline   \">Fas10 fayda odaklı </span> <span class=\"block text-green-400 xl:inline\">teknoloji</span></h1></li></ul></div><p class=\"mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg  md:mt-5 md:text-xl \"> Fas10 işler için, fason çalışan şirket kataloğu, iş takip yönetimi </p>", 2);
 
 var _hoisted_4 = {
   "class": "mt-5 sm:mt-8 flex  items-center justify-center"
