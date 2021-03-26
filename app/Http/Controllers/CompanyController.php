@@ -49,6 +49,7 @@ class CompanyController extends Controller
         if ($sector = \App\Models\Sector::where('seo_url', $type)->first()) {
             $companies = \App\Models\Team::with(['services.service', 'city'])->filtered()->sector($sector->id)->paginate();
 
+
             return Inertia::render('Catalog/Company', [
                 'companies' => $companies,
                 'cities' => City::all(),

@@ -1,7 +1,7 @@
 <template>
 
 
-    <MainLayout>
+    <MainLayout title="İlanlar">
 
         <div v-if="mobileMenuShow" @click="mobileMenuShow = false" class="bg-gray-200 z-10 h-screen w-full  opacity-25 absolute"></div>
         <div class="flex flex-row">

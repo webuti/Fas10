@@ -3,7 +3,9 @@
 
     <Header/>
 
-
+    <teleport to="head">
+        <title>FAS10 | {{bid.title}}</title>
+    </teleport>
     <div class="bg-gray-100  w-full">
 
         <div class="  h-24 flex items-center  mx-auto max-w-7xl px-4 lg:px-8 sm:px-6 ">

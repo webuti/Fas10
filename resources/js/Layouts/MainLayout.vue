@@ -5,6 +5,10 @@
             <slot></slot>
         </div>
         <Footer/>
+        <teleport to="head">
+            <title>FAS10 | {{title}}</title>
+        </teleport>
+
     </div>
 
 </template>
@@ -16,6 +20,7 @@
     export default {
         name: "MainLayout",
         components: {Footer, Header},
+        props: ['title'],
 
 
     }

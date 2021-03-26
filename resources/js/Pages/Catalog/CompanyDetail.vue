@@ -1,6 +1,5 @@
 <template>
-    <MainLayout>
-        <BidNavigation/>
+    <MainLayout :title="company.name">
 
 
         <main class="   mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl   ">
@@ -27,8 +26,10 @@
                                       as="button"
                                       type="button" v-else-if="partnerStatus.status == 2"
                                       class="border border-gray-400  text-gray-600  p-2 flex rounded items-center  ">
-                            <svg xmlns="http://www.w3.org/2000/svg"  class="h-8" viewBox="0 0 20 20" fill="currentColor">
-                                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8" viewBox="0 0 20 20" fill="currentColor">
+                                <path fillRule="evenodd"
+                                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                      clipRule="evenodd"/>
                             </svg>
                             İş Ortaklarıma eklendi
                         </inertia-link>
@@ -177,6 +178,7 @@
                 </div>
             </section>
         </main>
+
     </MainLayout>
 </template>
 

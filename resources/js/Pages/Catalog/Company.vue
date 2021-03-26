@@ -1,5 +1,5 @@
 <template>
-    <MainLayout>
+    <MainLayout title="Şirketler">
         <div v-if="mobileMenuShow" @click="mobileMenuShow = false"
              class="bg-gray-200 z-10 h-screen w-full  opacity-25 absolute"></div>
 
@@ -105,6 +105,9 @@
 
             </div>
         </div>
+
+
+
     </MainLayout>
 </template>
 
@@ -116,6 +119,7 @@
     import MainLayout from "@/Layouts/MainLayout";
 
     export default {
+
         components: {
             MainLayout,
             Sidebar,
