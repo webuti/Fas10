@@ -21,13 +21,12 @@ Route::resource('teams.service', \App\Http\Controllers\TeamServiceController::cl
 Route::resource('comments', \App\Http\Controllers\CommentController::class);
 Route::resource('projects', \App\Http\Controllers\ProjectController::class);
 Route::resource('projectNotes', \App\Http\Controllers\ProjectNoteController::class);
-
-Route::get('partners/projects/{teamId}', [\App\Http\Controllers\PartnerController::class, 'projects'])->name('partners.projects');
-Route::get('partners/lists', [\App\Http\Controllers\PartnerController::class, 'lists'])->name('partners.lists');
-Route::post('partners/approve', [\App\Http\Controllers\PartnerController::class, 'approve'])->name('partners.approve');
-Route::get('partners/projects/{teamId}/{projectId}', [\App\Http\Controllers\PartnerController::class, 'projectDetail'])->name('partners.projectDetail');
-
 Route::resource('partners', \App\Http\Controllers\PartnerController::class);
+Route::post('partners/approve', [\App\Http\Controllers\PartnerController::class, 'approve'])->name('partners.approve');
+Route::get('tasks', [\App\Http\Controllers\PartnerController::class, 'tasks'])->name('partners.tasks');
+Route::get('tasks/partners/projects/{teamId}', [\App\Http\Controllers\PartnerController::class, 'projects'])->name('partners.projects');
+Route::get('tasks/partners/projects/{teamId}/{projectId}', [\App\Http\Controllers\PartnerController::class, 'projectDetail'])->name('partners.projectDetail');
+
 
 Route::get('image-upload', [\App\Http\Controllers\ImageUploadController::class, 'imageUpload'])->name('image.upload');
 Route::post('image-upload', [\App\Http\Controllers\ImageUploadController::class, 'imageUploadPost'])->name('image.upload.post');
@@ -52,5 +51,5 @@ Route::get('/d/{id}', [\App\Http\Controllers\CompanyController::class, 'show'])-
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return Inertia::render('Dashboard');
+    return \Illuminate\Support\Facades\Redirect::route('partners.tasks');
 })->name('dashboard');

@@ -2,7 +2,7 @@
     <div>
         <jet-banner/>
         <teleport to="head">
-            <title>FAS10 | Dashboard</title>
+            <title>FAS10 | Panelim</title>
         </teleport>
         <nav class="bg-gray-800">
             <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
@@ -36,8 +36,8 @@
                             <div class="flex space-x-4">
 
 
-                                <jet-nav-link :href="route('dashboard')" :active="route().current('dashboard')">
-                                    Dashboard
+                                <jet-nav-link :href="route('partners.tasks')" :active="route().current('partners.tasks')">
+                                    İşler
                                 </jet-nav-link>
 
                                 <jet-nav-link :href="route('bids.index')" :active="route().current('bids.index')">
@@ -212,8 +212,8 @@
             <!-- Responsive Navigation Menu -->
             <div :class="{'block': showingNavigationDropdown, 'hidden': ! showingNavigationDropdown}" class="sm:hidden">
                 <div class="pt-2 pb-3 space-y-1">
-                    <jet-responsive-nav-link :href="route('dashboard')" :active="route().current('dashboard')">
-                        Dashboard
+                    <jet-responsive-nav-link :href="route('partners.tasks')" :active="route().current('partners.tasks')">
+                        İşler
                     </jet-responsive-nav-link>
                 </div>
 

@@ -91,12 +91,19 @@ class Team extends JetstreamTeam
 
     public function partners()
     {
-        return $this->hasMany(Partner::class, 'receiver_team_id', 'id');
+        return $this->hasMany(Partner::class, 'receiver_team_id', 'id')->where('status', 2);
     }
 
     public function scopeSector($query, $id)
     {
         return $query->where('teams.sector_id', $id);
+    }
+
+    public function scopePartnerList($query)
+    {
+
+        return $query->with(['partners.senderTeam']);
+
     }
 
     public function services()

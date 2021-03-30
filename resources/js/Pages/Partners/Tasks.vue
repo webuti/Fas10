@@ -4,7 +4,7 @@
     <app-layout>
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                İş Ortaklarım
+                İşler
             </h2>
         </template>
 
@@ -40,10 +40,11 @@
                                placeholder="Şirket adıyla arama"/>
                         <div v-for="team in teams.data"
                              class="ortak  bg-white border-b hover:bg-gray-100  border-gray-300 p-2  "
-                             @click="getProjects(team.id)">
+                             @click="getProjects(team.receiver_team.id)">
+
                             <div class="flex items-center justify-between">
-                                <h2 :class="{ 'font-bold' : teamId == team.id }" class=" text-gray-700">
-                                    {{team.name}}</h2>
+                                <h2 :class="{ 'font-bold' : teamId == team.receiver_team.id }" class=" text-gray-700">
+                                    {{team.receiver_team.name}}</h2>
                                 <div class="flex items-center">
                                     <div class="flex  items-center">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5" fill="none"

@@ -20,9 +20,13 @@ class PartnerController extends Controller
      */
     public function index()
     {
-        return Inertia::render('Partners/Index',
-            ['teams' => Team::paginate(),
-                'projects' => Project::paginate()]);
+
+        return Inertia::render('Partners/ApproveList',
+            [
+                'sent' => Partner::where('sender_team_id', Auth::user()->current_team_id)->where('status', 1)->with(['team'])->paginate(),
+                'received' => Partner::where('receiver_team_id', Auth::user()->current_team_id)->where('status', 1)->with(['team'])->paginate(),
+                'approved' => Partner::where('receiver_team_id', Auth::user()->current_team_id)->where('status', 2)->with(['team'])->paginate(),
+            ]);
     }
 
     public function approve(Request $request)
@@ -47,30 +51,28 @@ class PartnerController extends Controller
 
     }
 
-    public function lists()
+    public function tasks()
     {
+        return Inertia::render('Partners/Tasks',
+            ['teams' => Partner::teamlist()->paginate(),
+                'projects' => Project::paginate()]);
 
-        return Inertia::render('Partners/Liste',
-            [
-                'sent' => Partner::where('sender_team_id', Auth::user()->current_team_id)->where('status', 1)->with(['team'])->paginate(),
-                'received' => Partner::where('receiver_team_id', Auth::user()->current_team_id)->where('status', 1)->with(['team'])->paginate(),
-                'approved' => Partner::where('receiver_team_id', Auth::user()->current_team_id)->where('status', 2)->with(['team'])->paginate(),
-            ]);
+
     }
 
 
     public function projects($teamId)
     {
-        return Inertia::render('Partners/Index',
-            ['teams' => Team::paginate(),
+        return Inertia::render('Partners/Tasks',
+            ['teams' => Partner::teamlist()->paginate(),
                 'teamId' => $teamId,
                 'projects' => Project::select('title', 'id', 'team_id', 'created_at')->owned()->where('team_id', $teamId)->paginate()]);
     }
 
     public function projectDetail($teamId, $projectId)
     {
-        return Inertia::render('Partners/Index',
-            ['teams' => Team::paginate(),
+        return Inertia::render('Partners/Tasks',
+            ['teams' => Partner::teamlist()->paginate(),
                 'teamId' => $teamId,
                 'projectId' => $projectId,
                 'projects' => Project::select('title', 'id', 'team_id', 'created_at')->owned()->where('team_id', $teamId)->paginate(),
