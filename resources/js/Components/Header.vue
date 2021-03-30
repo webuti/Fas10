@@ -40,7 +40,7 @@
             <ul class="flex items-center hidden space-x-8 lg:flex">
 
                 <inertia-link v-if="$page.props.user" href="/dashboard"
-                              class="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-green-400 hover:bg-green-700">
+                              class="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-green-600 hover:bg-green-700">
                     Panelim
                 </inertia-link>
 
@@ -52,7 +52,7 @@
                     </inertia-link>
 
                     <inertia-link :href="route('register')"
-                                  class="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-green-400 hover:bg-green-700">
+                                  class="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-green-600 hover:bg-green-700">
                         Kayıt Ol
                     </inertia-link>
                 </template>
@@ -160,7 +160,7 @@
 
                                 <inertia-link v-if="$page.props.user" href="/dashboard"
 
-                                              class="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-green-400 hover:bg-green-700 focus:shadow-outline focus:outline-none"
+                                              class="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-green-600 hover:bg-green-700 focus:shadow-outline focus:outline-none"
                                               aria-label="Kayıt ol"
                                               title="Kayıt ol"
                                 >
@@ -184,7 +184,7 @@
                                     <li>
                                         <inertia-link :href="route('register')"
 
-                                                      class="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-green-400 hover:bg-green-700 focus:shadow-outline focus:outline-none"
+                                                      class="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-green-600 hover:bg-green-700 focus:shadow-outline focus:outline-none"
                                                       aria-label="Kayıt ol"
                                                       title="Kayıt ol"
                                         >

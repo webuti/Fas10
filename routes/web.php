@@ -19,12 +19,15 @@ use Inertia\Inertia;
 Route::resource('dashboard/bids', \App\Http\Controllers\BidController::class);
 Route::resource('teams.service', \App\Http\Controllers\TeamServiceController::class);
 Route::resource('comments', \App\Http\Controllers\CommentController::class);
-Route::resource('partners', \App\Http\Controllers\PartnerController::class);
 Route::resource('projects', \App\Http\Controllers\ProjectController::class);
 Route::resource('projectNotes', \App\Http\Controllers\ProjectNoteController::class);
 
 Route::get('partners/projects/{teamId}', [\App\Http\Controllers\PartnerController::class, 'projects'])->name('partners.projects');
+Route::get('partners/lists', [\App\Http\Controllers\PartnerController::class, 'lists'])->name('partners.lists');
 Route::get('partners/projects/{teamId}/{projectId}', [\App\Http\Controllers\PartnerController::class, 'projectDetail'])->name('partners.projectDetail');
+
+Route::resource('partners', \App\Http\Controllers\PartnerController::class);
+
 Route::get('image-upload', [\App\Http\Controllers\ImageUploadController::class, 'imageUpload'])->name('image.upload');
 Route::post('image-upload', [\App\Http\Controllers\ImageUploadController::class, 'imageUploadPost'])->name('image.upload.post');
 Route::get('/location/district/{id}', [\App\Http\Controllers\LocationController::class, 'district'])->name('location.district');

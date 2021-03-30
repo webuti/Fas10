@@ -25,6 +25,18 @@ class PartnerController extends Controller
                 'projects' => Project::paginate()]);
     }
 
+    public function lists()
+    {
+
+        return Inertia::render('Partners/Liste',
+            [
+                'sent' => Partner::where('sender_team_id', Auth::user()->id)->where('status', 1)->with(['team'])->paginate(),
+                'received' => Partner::where('receiver_team_id', Auth::user()->id)->where('status', 1)->with(['team'])->paginate(),
+                'approved' => Partner::where('receiver_team_id', Auth::user()->id)->where('status', 2)->with(['team'])->paginate(),
+            ]);
+    }
+
+
     public function projects($teamId)
     {
         return Inertia::render('Partners/Index',
@@ -67,7 +79,7 @@ class PartnerController extends Controller
 
         if (Auth::check()) {
             Partner::create(['status' => 1, 'sender_team_id' => Auth::user()->current_team_id, 'receiver_team_id' => $request->input('team_id')]);
-         
+
         }
         return Redirect::route('companyDetail', $request->input('team_id'));
     }
