@@ -24,6 +24,7 @@ Route::resource('projectNotes', \App\Http\Controllers\ProjectNoteController::cla
 
 Route::get('partners/projects/{teamId}', [\App\Http\Controllers\PartnerController::class, 'projects'])->name('partners.projects');
 Route::get('partners/lists', [\App\Http\Controllers\PartnerController::class, 'lists'])->name('partners.lists');
+Route::post('partners/approve', [\App\Http\Controllers\PartnerController::class, 'approve'])->name('partners.approve');
 Route::get('partners/projects/{teamId}/{projectId}', [\App\Http\Controllers\PartnerController::class, 'projectDetail'])->name('partners.projectDetail');
 
 Route::resource('partners', \App\Http\Controllers\PartnerController::class);

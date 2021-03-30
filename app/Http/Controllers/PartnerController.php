@@ -25,14 +25,36 @@ class PartnerController extends Controller
                 'projects' => Project::paginate()]);
     }
 
+    public function approve(Request $request)
+    {
+
+
+        $updateStatus = Partner::whereIn('status', [1, 2])->where('id', $request->input('id'))->where('receiver_team_id', Auth::user()->current_team_id);
+        if ($updateStatus) {
+
+
+            $updateStatusId = $updateStatus->first();
+            if ($updateStatus->update(['status' => $request->input('status')])) {
+
+                Partner::create(['sender_team_id' => Auth::user()->current_team_id, 'status' => 2, 'receiver_team_id' => $updateStatusId->sender_team_id]);
+
+                return Redirect::route('partners.lists');
+
+
+            }
+        }
+
+
+    }
+
     public function lists()
     {
 
         return Inertia::render('Partners/Liste',
             [
-                'sent' => Partner::where('sender_team_id', Auth::user()->id)->where('status', 1)->with(['team'])->paginate(),
-                'received' => Partner::where('receiver_team_id', Auth::user()->id)->where('status', 1)->with(['team'])->paginate(),
-                'approved' => Partner::where('receiver_team_id', Auth::user()->id)->where('status', 2)->with(['team'])->paginate(),
+                'sent' => Partner::where('sender_team_id', Auth::user()->current_team_id)->where('status', 1)->with(['team'])->paginate(),
+                'received' => Partner::where('receiver_team_id', Auth::user()->current_team_id)->where('status', 1)->with(['team'])->paginate(),
+                'approved' => Partner::where('receiver_team_id', Auth::user()->current_team_id)->where('status', 2)->with(['team'])->paginate(),
             ]);
     }
 

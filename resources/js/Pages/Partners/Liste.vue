@@ -32,21 +32,21 @@
 
                 <div v-if="type == 'approved'">
                     <div v-for="item in approved.data">
-                        <partner-list-item :team="item.team"></partner-list-item>
+                        <partner-list-item :id="item.id" :team="item.team"></partner-list-item>
                     </div>
-                    
+
                 </div>
                 <div v-if="type == 'received'">
 
 
                     <div v-for="item in received.data">
-                        <partner-list-item :team="item.team"></partner-list-item>
+                        <partner-list-item :approve="true" :id="item.id" :team="item.team"></partner-list-item>
                     </div>
 
                 </div>
                 <div v-if="type == 'sent'">
                     <div v-for="item in sent.data">
-                        <partner-list-item :team="item.team"></partner-list-item>
+                        <partner-list-item :id="item.id" :team="item.team"></partner-list-item>
                     </div>
 
                 </div>
