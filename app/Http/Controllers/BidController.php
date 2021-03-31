@@ -34,19 +34,19 @@ class BidController extends Controller
 
     public function catalog($type = false, $category = "0")
     {
-        if ($category !== "0") {
-            $bids->category($category);
-            $categoryInfo = BidCategory::where('seo_url', $category)->first();
 
-        } else {
-            $categoryInfo = ['name' => 'İlanlar'];
-        }
         $categories = BidCategory::where('parent_id', 0)->with(['children.children'])->get();
 
 
         if (!$type) {
             $bids = \App\Models\Bid::with(['city', 'country', 'images'])->filtered();
+            if ($category !== "0") {
+                $bids->category($category);
+                $categoryInfo = BidCategory::where('seo_url', $category)->first();
 
+            } else {
+                $categoryInfo = ['name' => 'İlanlar'];
+            }
 
             return Inertia::render('Catalog/Bid', [
                 'formData' => [
@@ -68,7 +68,13 @@ class BidController extends Controller
         if ($sector = \App\Models\Sector::where('seo_url', $type)->first()) {
 
             $bids = \App\Models\Bid::with(['city', 'country', 'images'])->filtered()->sector($sector->id);
+            if ($category !== "0") {
+                $bids->category($category);
+                $categoryInfo = BidCategory::where('seo_url', $category)->first();
 
+            } else {
+                $categoryInfo = ['name' => 'İlanlar'];
+            }
 
             return Inertia::render('Catalog/Bid', [
                 'formData' => [
