@@ -26412,7 +26412,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         method: "post",
         as: "button",
         type: "button",
-        "class": "border border-gray-400  text-gray-600  p-2 flex rounded items-center  "
+        "class": "border border-gray-400  text-gray-600 px-2 font-bold   flex rounded-full text-sm items-center    "
       }, {
         "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
           return [_hoisted_7, _hoisted_8];
@@ -26425,7 +26425,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         method: "post",
         as: "button",
         type: "button",
-        "class": "border border-gray-400  text-gray-600  p-2 flex rounded items-center  "
+        "class": "border border-gray-400  text-gray-600 px-2 font-bold   flex rounded-full text-sm items-center   "
       }, {
         "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
           return [_hoisted_9, _hoisted_10];
