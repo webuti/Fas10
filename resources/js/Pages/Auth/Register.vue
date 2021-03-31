@@ -67,7 +67,7 @@
     import JetCheckbox from "@/Jetstream/Checkbox";
     import JetLabel from '@/Jetstream/Label'
     import JetValidationErrors from '@/Jetstream/ValidationErrors'
-    import logo from "@/Components/Ui/Logo.vue";
+    import logo from "@/Components/UI/Logo.vue";
 
     export default {
         components: {
