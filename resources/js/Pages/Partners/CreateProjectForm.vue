@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-white   p-3">
+    <div class="bg-white  border-b shadow-inner   p-3">
 
         <div v-if="teamId">
             <h3 class="font-bold">Yeni Proje</h3>
@@ -11,6 +11,14 @@
                     placeholder="Proje Açıklaması"
                     class="border-gray-300 focus:border-green-300 mb-5 focus:ring focus:ring-green-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full"
                     v-model="form.description"></textarea>
+
+
+                <label class="text-xs">Teslim Tarihi</label>
+                <input type="date" id="deadline" placeholder="Teslim Tarihi" v-model="form.deadline"
+
+                       class="border-gray-300 mb-3 focus:border-green-300 focus:ring focus:ring-green-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full"
+                >
+
 
                 <jet-action-message :on="form.recentlySuccessful" class="mr-3">
                     Başarılı olarak kaydedildi
@@ -51,6 +59,7 @@
                 form: this.$inertia.form({
                     title: null,
                     description: null,
+                    deadline: null,
                     team_id: null,
                 }),
             }

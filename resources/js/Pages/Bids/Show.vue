@@ -99,8 +99,7 @@
                                 <select
                                     class="border-gray-300 focus:border-green-300 focus:ring focus:ring-green-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full"
                                     v-model="form.district_id">
-                                    <option :value="district.id" v-for="district in districts">{{district.ilce}} /
-                                        {{district.mahalle}}
+                                    <option :value="district.id" v-for="district in districts">{{district.ilce}}
                                     </option>
                                 </select>
                                 <jet-input-error :message="form.errors.district_id" class="mt-2"/>

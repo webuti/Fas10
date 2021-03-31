@@ -20,7 +20,7 @@ class CreateProjectsTable extends Migration
             $table->foreign('team_id')->references('id')->on('teams');
             $table->foreign('user_id')->references('id')->on('users');
             $table->string('title')->nullable();
-            $table->string('description')->nullable();
+            $table->text('description')->nullable();
             $table->integer('status')->default(0);
             $table->timestamps();
         });

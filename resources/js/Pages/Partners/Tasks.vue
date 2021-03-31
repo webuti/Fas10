@@ -106,12 +106,11 @@
                                placeholder="Proje adıyla arama"/>
 
                         <div v-if="projects.data.length">
-                            <div v-for="project in projects.data" @click="getProjectDetail(project.team_id,project.id)"
 
-                                 class="project   border-b border-gray-300 p-2">
-                                <h3 :class="{ 'font-bold' : projectId == project.id }">{{project.title}}</h3>
-                                <h4 class="text-sm">Proje bitiş tarihi: 30/04/2021</h4>
-                            </div>
+                            <project-list-item v-for="project in projects.data"
+                                               @click="getProjectDetail(project.team_id,project.id)" :project="project"
+                                               :project-id="projectId"></project-list-item>
+
                         </div>
                         <div v-else class=" p-2">
 
@@ -205,11 +204,13 @@
     import AvailableDates from "@/Components/UI/AvailableDates";
     import CreateProjectForm from "@/Pages/Partners/CreateProjectForm";
     import CreateNote from "@/Pages/Partners/CreateNote";
+    import ProjectListItem from "@/Pages/Partners/ProjectListItem";
 
 
     export default {
         name: "Index",
         components: {
+            ProjectListItem,
             CreateNote,
             CreateProjectForm,
             AvailableDates,

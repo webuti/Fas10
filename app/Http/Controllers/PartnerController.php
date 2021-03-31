@@ -42,7 +42,7 @@ class PartnerController extends Controller
 
                 Partner::create(['sender_team_id' => Auth::user()->current_team_id, 'status' => 2, 'receiver_team_id' => $updateStatusId->sender_team_id]);
 
-                return Redirect::route('partners.lists');
+                return Redirect::route('partners.approve');
 
 
             }
@@ -55,7 +55,7 @@ class PartnerController extends Controller
     {
         return Inertia::render('Partners/Tasks',
             ['teams' => Partner::teamlist()->paginate(),
-                'projects' => Project::paginate()]);
+                'projects' => Project::with(['team'])->owned()->paginate()]);
 
 
     }
@@ -66,7 +66,7 @@ class PartnerController extends Controller
         return Inertia::render('Partners/Tasks',
             ['teams' => Partner::teamlist()->paginate(),
                 'teamId' => $teamId,
-                'projects' => Project::select('title', 'id', 'team_id', 'created_at')->owned()->where('team_id', $teamId)->paginate()]);
+                'projects' => Project::with(['team'])->owned()->where('team_id', $teamId)->paginate()]);
     }
 
     public function projectDetail($teamId, $projectId)
@@ -75,7 +75,7 @@ class PartnerController extends Controller
             ['teams' => Partner::teamlist()->paginate(),
                 'teamId' => $teamId,
                 'projectId' => $projectId,
-                'projects' => Project::select('title', 'id', 'team_id', 'created_at')->owned()->where('team_id', $teamId)->paginate(),
+                'projects' => Project::with(['team'])->owned()->where('team_id', $teamId)->paginate(),
                 'projectDetail' => Project::where('id', $projectId)->with('notes.user')->owned()->first(),
             ]);
     }
