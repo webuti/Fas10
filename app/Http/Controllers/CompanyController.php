@@ -102,7 +102,7 @@ class CompanyController extends Controller
             'partnerStatus' => $partnerStatus,
             'company' => \App\Models\Team::with(array('comments.user' => function ($query) {
                 $query->select('id', 'name');
-            }, 'services.service', 'city', 'country'))->where("id", $id)->first(),
+            }, 'services.service', 'city', 'country'))->where("id", $id)->firstOrFail(),
         ]);
     }
 
