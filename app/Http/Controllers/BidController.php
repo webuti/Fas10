@@ -98,7 +98,7 @@ class BidController extends Controller
     public function catalogDetail($id)
     {
         return Inertia::render('Catalog/BidDetail', [
-            'bid' => \App\Models\Bid::where("id", $id)->with(['city', 'country', 'images', 'company'])->first(),
+            'bid' => \App\Models\Bid::where("id", $id)->with(['city', 'country', 'images', 'company'])->firstOrFail(),
         ]);
     }
 
