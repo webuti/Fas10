@@ -10,21 +10,21 @@
 
             <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
 
-                <ul class="container   flex items-baseline justify-start border-b-2 border-gray-300 mb-10">
-                    <li :class="{'border-b-2 text-gray-900 border-black -mb-4' :type == 'approved'} "
+                <ul class="    flex items-baseline justify-start border-b-2 border-gray-300 mb-10">
+                    <li :class="{'border-b-2 font-bold  text-gray-900 border-black -mb-4' :type == 'approved'} "
                         @click="type = 'approved'"
-                        class="text-base font-bold  cursor-pointer tracking-wide uppercase py-4 px-6 ">Onaylı
+                        class="text-base   cursor-pointer   uppercase py-4 px-6 xs:p-3 xs:text-xs  sm:text-sm ">Onaylı
                         ({{approved.data.length}})
                     </li>
-                    <li class="text-base font-bold  cursor-pointer racking-wide uppercase py-4 px-6 "
+                    <li class="text-base  cursor-pointer   uppercase py-4 px-6 xs:p-3 xs:text-xs sm:text-sm "
                         @click="type = 'received'"
-                        :class="{'border-b-2 text-gray-900  border-black -mb-4' :type == 'received'} ">
+                        :class="{'border-b-2 font-bold  text-gray-900  border-black -mb-4' :type == 'received'} ">
                         Gelen Talepler ({{received.data.length}})
                     </li>
                     <li
-                        :class="{'border-b-2 text-gray-900  border-black -mb-4' :type == 'sent'} "
+                        :class="{'border-b-2 font-bold  text-gray-900  border-black -mb-4' :type == 'sent'} "
                         @click="type = 'sent'"
-                        class="text-base cursor-pointer font-bold tracking-wide uppercase py-4 px-6 ">
+                        class="text-base  cursor-pointer    uppercase py-4 px-6 xs:p-3 xs:text-xs sm:text-sm">
                         Talep
                         Gönderdiklerim ({{sent.data.length}})
                     </li>

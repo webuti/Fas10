@@ -9,12 +9,12 @@
         </template>
 
         <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
-            <div class="flex shadow overflow-hidden border-b border-gray-200 sm:rounded-lg border-t">
+            <div
+                class="flex flex-col xl:flex-row md:flex-row md:flex-row  shadow overflow-hidden border-b border-gray-200 sm:rounded-lg border-t">
 
 
-                <div class="flex flex-col min-h-screen flex-shrink-0 w-64  border-r border-l  bg-gray-50  ">
-
-
+                <div
+                    class="flex flex-col lg:min-h-screen md:min-h-screen flex-shrink-0   md:w-64  border-r border-l  bg-gray-50  ">
                     <div class="ortaklar ">
                         <div class="flex justify-between  p-3 items-center">
                             <h2 class="text-xs font-medium text-gray-500 uppercase">İş Ortaklarım</h2>
@@ -45,6 +45,7 @@
                             <div class="flex items-center justify-between">
                                 <h2 :class="{ 'font-bold' : teamId == team.receiver_team.id }" class=" text-gray-700">
                                     {{team.receiver_team.name}}</h2>
+ 
                                 <div class="flex items-center">
                                     <div class="flex  items-center">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5" fill="none"
@@ -71,7 +72,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="flex flex-col min-h-screen bg-gray-50 flex-shrink-0 w-64 border-r ">
+                <div class="flex flex-col   md:min-h-screen  bg-gray-50 flex-shrink-0 md:w-64 border-r ">
 
                     <div class="flex justify-between  p-3 items-center">
                         <h2 class="text-xs font-medium text-gray-500 uppercase">Projeler</h2>
@@ -119,7 +120,7 @@
 
                     </div>
                 </div>
-                <div class="flex flex-col min-h-screen bg-gray-50 border-r  w-full ">
+                <div class="flex flex-col  md:min-h-screen bg-gray-50 border-r  w-full ">
 
                     <div class="flex justify-between  p-3 items-center">
                         <h2 class="text-xs font-medium text-gray-500 uppercase">Proje Aşamaları</h2>
@@ -129,14 +130,17 @@
 
                     <p v-if="projectDetail" class="p-3 bg-white ">
                     <ul class=" pb-2 border-b flex mb-3 space-x-1">
-                        <li v-on:click="toggleTabs(1)" class="bg-green-100 text-green-800 text-sm px-2  rounded-xl">İş
+                        <li v-on:click="toggleTabs(1)"
+                            class="bg-green-100 text-green-800 text-md px-2 sm:text-xs xs:text-xs  rounded-xl">İş
                             Aşamaları
                         </li>
-                        <li v-on:click="toggleTabs(2)" class="bg-green-100 text-green-800 text-sm px-2  rounded-xl">
+                        <li v-on:click="toggleTabs(2)"
+                            class="bg-green-100 text-green-800 text-md px-2 sm:text-xs xs:text-xs rounded-xl">
                             Notlar
                             ({{projectDetail.notes.length}})
                         </li>
-                        <li v-on:click="toggleTabs(3)" class="bg-green-100 text-green-800 text-sm px-2  rounded-xl">
+                        <li v-on:click="toggleTabs(3)"
+                            class="bg-green-100 text-green-800 text-md px-2 sm:text-xs xs:text-xs rounded-xl">
                             Yazışmalar
                         </li>
                     </ul>

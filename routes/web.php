@@ -21,9 +21,11 @@ Route::resource('teams.service', \App\Http\Controllers\TeamServiceController::cl
 Route::resource('comments', \App\Http\Controllers\CommentController::class);
 Route::resource('projects', \App\Http\Controllers\ProjectController::class);
 Route::resource('projectNotes', \App\Http\Controllers\ProjectNoteController::class);
+Route::resource('availableday', \App\Http\Controllers\AvailableDayController::class);
 Route::resource('partners', \App\Http\Controllers\PartnerController::class);
 Route::post('partners/approve', [\App\Http\Controllers\PartnerController::class, 'approve'])->name('partners.approve');
 Route::get('projects', [\App\Http\Controllers\PartnerController::class, 'tasks'])->name('partners.tasks');
+Route::get('availableDays', [\App\Http\Controllers\AvailableDayController::class, 'index'])->name('partners.tasks');
 Route::get('projects/partners/{teamId}', [\App\Http\Controllers\PartnerController::class, 'projects'])->name('partners.projects');
 Route::get('projects/partners/{teamId}/{projectId}', [\App\Http\Controllers\PartnerController::class, 'projectDetail'])->name('partners.projectDetail');
 

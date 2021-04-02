@@ -150,23 +150,25 @@
                     </template>
 
 
-                    <div class="flex flex-wrap -mb-1" v-if="bids.links.length > 3">
-                        <template v-for="(link, bkey) in bids.links">
 
-                            <div v-if="link.url === null" :key="key"
-                                 class="mr-1 mb-1 px-4 py-3 text-sm leading-4 text-gray-400 border rounded"
-                                 v-html="link.label"/>
-
-                            <inertia-link v-else :key="bkey"
-                                          class="mr-1 mb-1 px-4 py-3 text-sm leading-4 border rounded hover:bg-white focus:border-indigo-500 focus:text-indigo-500"
-                                          :class="{ 'bg-white': link.active }" :href="link.url"
-                            ><span v-html="link.label"></span>
-                            </inertia-link>
-
-                        </template>
-                    </div>
 
                 </div>
+                <div class="flex flex-wrap mt-10 -mb-1" v-if="bids.links.length > 3">
+                    <template v-for="(link, bkey) in bids.links">
+
+                        <div v-if="link.url === null" :key="key"
+                             class="mr-1 mb-1 px-4 py-3 text-sm leading-4 text-gray-400 border rounded"
+                             v-html="link.label"/>
+
+                        <inertia-link v-else :key="bkey"
+                                      class="mr-1 mb-1 px-4 py-3 text-sm leading-4 border rounded hover:bg-white focus:border-indigo-500 focus:text-indigo-500"
+                                      :class="{ 'bg-white': link.active }" :href="link.url"
+                        ><span v-html="link.label"></span>
+                        </inertia-link>
+
+                    </template>
+                </div>
+
             </div>
         </div>
     </MainLayout>
