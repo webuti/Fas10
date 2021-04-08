@@ -40,15 +40,23 @@
             <ul class="flex items-center hidden space-x-8 lg:flex">
 
                 <inertia-link v-if="$page.props.user" href="/dashboard"
-                              class="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-green-600 hover:bg-green-700">
-                    Panelim
+                              class="ml-8 whitespace-nowrap inline-flex 
+                              items-center justify-center px-4 py-2 border 
+                             rounded-lg shadow-sm text-base font-medium text-white bg-green-500 hover:bg-green-700">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+</svg>
+Panelim
                 </inertia-link>
 
 
                 <template v-else>
                     <inertia-link :href="route('login')"
-                                  class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-green-400">
-                        Giriş Yap
+                                  class="font-medium flex tracking-wide text-gray-700 transition-colors duration-200 hover:text-green-400">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+</svg>
+Giriş Yap
                     </inertia-link>
 
                     <inertia-link :href="route('register')"
