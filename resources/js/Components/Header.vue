@@ -129,17 +129,17 @@
                             <ul class="space-y-4">
                                 <li>
                                     <inertia-link
-                                        :href="route('companyCatalog','tekstil')"
+                                        :href="route('companyCatalogMain')"
                                         aria-label="Our product"
                                         title="Our product"
                                         class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-green-400"
-                                    >Firmalar
+                                    >Şirketler
                                     </inertia-link
                                     >
                                 </li>
                                 <li>
                                     <inertia-link
-                                        :href="route('bidCatalog','tekstil')"
+                                        :href="route('bidCatalogMain')"
                                         aria-label="Our product"
                                         title="Our product"
                                         class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-green-400"
