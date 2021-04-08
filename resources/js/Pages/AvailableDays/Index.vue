@@ -28,7 +28,8 @@
                         onaylıyormusunuz ?
                     </div>
 
-                    <inertia-link :href="route('availableday.store')" :data="{team_id :1}"
+                    <inertia-link :href="route('availableday.store')"
+                                  :data="{team_id :teamId,startDate:dateValue.startDate,endDate:dateValue.endDate}"
                                   method="post"
                                   as="button"
                                   type="button"
@@ -48,14 +49,30 @@
 
                 <div class="days">
 
-
                     <ul class="space-y-1 mt-1">
                         <li class="bg-white border border-gray-300 shadow flex p-3  rounded-md justify-between"
-                            v-for="item in [1,2,3,4,5]">
-                            <h2 class="text-sm">09/04/2021</h2>
-                            <span
+                            v-for="item in dates.data">
+                            <div class="justify-between items-center  space-x-1 flex">       <span
                                 class="border border-green-400  bg-green-200 text-green-600 px-2 font-bold   flex rounded-full text-sm items-center  ">
                             Müsait</span>
+                                <h2 class="text-sm">{{item.date}}</h2>
+                            </div>
+                            <inertia-link :href="route('availableday.destroy', item)"
+                                          :data="item"
+                                          method="DELETE"
+                                          as="button"
+                                          type="button"
+                                          title="Sil"
+
+                                       >
+
+
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 text-red-300"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                            </inertia-link>
+
+
                         </li>
                     </ul>
                 </div>
@@ -78,7 +95,14 @@
             AppLayout,
             LitepieDatepicker
         },
-
+        methods: {
+            deleteDate(date) {
+                axios.delete(route('availableday.destroy', date)).then(e => {
+                    console.log(e);
+                });
+            }
+        },
+        props: ['teamId', 'dates'],
         data() {
 
             const options = ref({
@@ -97,8 +121,7 @@
 
 
             const formatter = ref({
-                date: 'DD/MM/YYYY',
-
+                date: 'YYYY-MM-DD',
                 month: "MM"
             })
             const dDate = (date) => {

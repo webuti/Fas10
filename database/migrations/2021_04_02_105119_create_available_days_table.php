@@ -15,8 +15,12 @@ class CreateAvailableDaysTable extends Migration
     {
         Schema::create('available_days', function (Blueprint $table) {
             $table->id();
+            $table->dateTime('date');
+            $table->unsignedBigInteger('team_id');
             $table->timestamps();
         });
+
+
     }
 
     /**

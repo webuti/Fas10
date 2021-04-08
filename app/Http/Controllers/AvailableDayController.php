@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\AvailableDay;
+use Carbon\CarbonPeriod;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 
 class AvailableDayController extends Controller
@@ -16,6 +19,8 @@ class AvailableDayController extends Controller
     public function index()
     {
         return Inertia::render('AvailableDays/Index', [
+            'teamId' => Auth::user()->current_team_id,
+            'dates' => AvailableDay::where('team_id', Auth::user()->current_team_id)->paginate()
         ]);
     }
 
@@ -37,7 +42,23 @@ class AvailableDayController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $period = CarbonPeriod::create($request->input('startDate'), $request->input('endDate'));
+        if ($period) {
+            foreach ($period as $date) {
+
+                AvailableDay::firstOrCreate([
+                    'team_id' => Auth::user()->current_team_id,
+                    'date' => $date->format('Y-m-d'),
+                ]);
+
+            }
+            return Redirect::route('availableday.index');
+        }
+
+        /*
+         *
+        */
     }
 
     /**
@@ -80,8 +101,12 @@ class AvailableDayController extends Controller
      * @param \App\Models\AvailableDay $availableDay
      * @return \Illuminate\Http\Response
      */
-    public function destroy(AvailableDay $availableDay)
+    public function destroy(Request $request, AvailableDay $availableDay)
     {
-        //
+
+
+        AvailableDay::where('team_id', Auth::user()->current_team_id)->where('id', $request->input('id'))->delete();
+        return Redirect::route('availableday.index');
+
     }
 }

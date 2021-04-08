@@ -17981,6 +17981,14 @@ __webpack_require__.r(__webpack_exports__);
     AppLayout: _Layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__.default,
     LitepieDatepicker: litepie_datepicker__WEBPACK_IMPORTED_MODULE_2__.default
   },
+  methods: {
+    deleteDate: function deleteDate(date) {
+      axios["delete"](route('availableday.destroy', date)).then(function (e) {
+        console.log(e);
+      });
+    }
+  },
+  props: ['teamId', 'dates'],
   data: function data() {
     var options = (0,vue__WEBPACK_IMPORTED_MODULE_1__.ref)({
       shortcuts: {
@@ -17998,7 +18006,7 @@ __webpack_require__.r(__webpack_exports__);
       }
     });
     var formatter = (0,vue__WEBPACK_IMPORTED_MODULE_1__.ref)({
-      date: 'DD/MM/YYYY',
+      date: 'YYYY-MM-DD',
       month: "MM"
     });
 
@@ -24242,16 +24250,32 @@ var _hoisted_8 = {
 var _hoisted_9 = {
   "class": "bg-white border border-gray-300 shadow flex p-3  rounded-md justify-between"
 };
-
-var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h2", {
-  "class": "text-sm"
-}, "09/04/2021", -1
-/* HOISTED */
-);
+var _hoisted_10 = {
+  "class": "justify-between items-center  space-x-1 flex"
+};
 
 var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", {
   "class": "border border-green-400  bg-green-200 text-green-600 px-2 font-bold   flex rounded-full text-sm items-center  "
 }, " Müsait", -1
+/* HOISTED */
+);
+
+var _hoisted_12 = {
+  "class": "text-sm"
+};
+
+var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("svg", {
+  xmlns: "http://www.w3.org/2000/svg",
+  "class": "h-8 text-red-300",
+  fill: "none",
+  viewBox: "0 0 24 24",
+  stroke: "currentColor"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("path", {
+  strokeLinecap: "round",
+  strokeLinejoin: "round",
+  strokeWidth: "{2}",
+  d: "M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+})], -1
 /* HOISTED */
 );
 
@@ -24287,7 +24311,9 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
       ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertia_link, {
         href: _ctx.route('availableday.store'),
         data: {
-          team_id: 1
+          team_id: $props.teamId,
+          startDate: $data.dateValue.startDate,
+          endDate: $data.dateValue.endDate
         },
         method: "post",
         as: "button",
@@ -24302,10 +24328,28 @@ var render = /*#__PURE__*/_withId(function (_ctx, _cache, $props, $setup, $data,
 
       }, 8
       /* PROPS */
-      , ["href"])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("ul", _hoisted_8, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)([1, 2, 3, 4, 5], function (item) {
-        return (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("li", _hoisted_9, [_hoisted_10, _hoisted_11]);
-      }), 64
-      /* STABLE_FRAGMENT */
+      , ["href", "data"])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("ul", _hoisted_8, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.dates.data, function (item) {
+        return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("li", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_10, [_hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h2", _hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(item.date), 1
+        /* TEXT */
+        )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_inertia_link, {
+          href: _ctx.route('availableday.destroy', item),
+          data: item,
+          method: "DELETE",
+          as: "button",
+          type: "button",
+          title: "Sil"
+        }, {
+          "default": _withId(function () {
+            return [_hoisted_13];
+          }),
+          _: 2
+          /* DYNAMIC */
+
+        }, 1032
+        /* PROPS, DYNAMIC_SLOTS */
+        , ["href", "data"])]);
+      }), 256
+      /* UNKEYED_FRAGMENT */
       ))])])])])];
     }),
     _: 1

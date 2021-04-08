@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class AvailableDay extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['team_id', 'date'];
+
+    protected $casts = [
+        'date' => 'date:d/m/Y',
+    ];
 }
