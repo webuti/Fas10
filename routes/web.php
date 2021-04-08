@@ -25,7 +25,6 @@ Route::resource('availableday', \App\Http\Controllers\AvailableDayController::cl
 Route::resource('partners', \App\Http\Controllers\PartnerController::class);
 Route::post('partners/approve', [\App\Http\Controllers\PartnerController::class, 'approve'])->name('partners.approve');
 Route::get('projects', [\App\Http\Controllers\PartnerController::class, 'tasks'])->name('partners.tasks');
-Route::get('availableDays', [\App\Http\Controllers\AvailableDayController::class, 'index'])->name('availableDays');
 Route::get('projects/partners/{teamId}', [\App\Http\Controllers\PartnerController::class, 'projects'])->name('partners.projects');
 Route::get('projects/partners/{teamId}/{projectId}', [\App\Http\Controllers\PartnerController::class, 'projectDetail'])->name('partners.projectDetail');
 

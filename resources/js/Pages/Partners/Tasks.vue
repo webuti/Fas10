@@ -40,35 +40,58 @@
                                placeholder="Şirket adıyla arama"/>
                         <div v-for="team in teams.data"
                              class="ortak  bg-white border-b hover:bg-gray-100  border-gray-300 p-2  "
-                             @click="getProjects(team.receiver_team.id)">
+                        >
 
                             <div class="flex items-center justify-between">
-                                <h2 :class="{ 'font-bold' : teamId == team.receiver_team.id }" class=" text-gray-700">
+                                <h2 :class="{ 'font-bold' : teamId == team.receiver_team.id }"
+                                    @click="getProjects(team.receiver_team.id)" class=" cursor-pointer text-gray-700">
                                     {{team.receiver_team.name}}</h2>
- 
+
                                 <div class="flex items-center">
-                                    <div class="flex  items-center">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5" fill="none"
-                                             viewBox="0 0 24 24"
-                                             stroke="currentColor">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                                                  d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/>
-                                        </svg>
-                                        <span class="absolute"
-                                              style="font-size:8px; margin-left:7px;margin-top:-1px;">2</span>
+
+
+                                    <!-- This example requires Tailwind CSS v2.0+ -->
+                                    <div class="relative inline-block text-left">
+                                        <div>
+                                            <button type="button" @click="optionShowSet(team.id)" aria-expanded="true"
+                                                    aria-haspopup="true">
+
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5" fill="none"
+                                                     viewBox="0 0 24 24"
+                                                     stroke="currentColor">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                                                          d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"/>
+                                                </svg>
+                                            </button>
+                                        </div>
+
+
+                                        <div v-if="optionShow == team.id"
+                                             class="origin-top-right absolute z-10 right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
+                                             role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+                                            <div class="py-1" role="none">
+                                                <intertia-link aria-label="Şirketin müsait günleri"
+                                                               title="Şirketin müsait günleri"
+                                                               :href="route('availableday.show',team.id)"
+                                                               class="block px-4 py-2 text-sm text-gray-700 cursor-pointer hover:bg-gray-100 hover:text-gray-900"
+                                                >Müsait Tarihler
+                                                </intertia-link>
+                                                <a href="#"
+                                                   class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                                                   role="menuitem">Şirket Profili</a>
+
+
+                                            </div>
+                                        </div>
                                     </div>
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5" fill="none" viewBox="0 0 24 24"
-                                         stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                                              d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"/>
-                                    </svg>
+
 
                                 </div>
 
                             </div>
 
 
-                            <AvailableDates :dates="[0,0,0,0,2,2,1,1,1,1,2,1,0,1,2]"/>
+                            <AvailableDates :teamId="team.id" :dates="[0,0,0,0,2,2,1,1,1,1,2,1,0,1,2]"/>
                         </div>
                     </div>
                 </div>
@@ -223,6 +246,7 @@
         data() {
             return {
                 form: [],
+                optionShow: null,
                 openTab: 1,
                 activeProject: 0,
                 searchPartnerShow: false,
@@ -231,6 +255,13 @@
             }
         },
         methods: {
+            optionShowSet(teamId) {
+                if (this.optionShow == teamId) {
+                    this.optionShow = null;
+                } else {
+                    this.optionShow = teamId;
+                }
+            },
             toggleTabs: function (tabNumber) {
                 this.openTab = tabNumber
             },

@@ -53,6 +53,7 @@ class PartnerController extends Controller
 
     public function tasks()
     {
+
         return Inertia::render('Partners/Tasks',
             ['teams' => Partner::teamlist()->paginate(),
                 'projects' => Project::with(['team'])->owned()->paginate()]);

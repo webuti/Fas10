@@ -12,6 +12,6 @@ class AvailableDay extends Model
     protected $fillable = ['team_id', 'date'];
 
     protected $casts = [
-        'date' => 'date:d/m/Y',
+        'date' => 'date:d/m/Y - l',
     ];
 }
