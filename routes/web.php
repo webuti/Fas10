@@ -23,8 +23,11 @@ Route::resource('projects', \App\Http\Controllers\ProjectController::class);
 Route::resource('projectNotes', \App\Http\Controllers\ProjectNoteController::class);
 Route::resource('availableday', \App\Http\Controllers\AvailableDayController::class);
 Route::resource('partners', \App\Http\Controllers\PartnerController::class);
+Route::resource('projectTasks', \App\Http\Controllers\ProjectTaskController::class);
 Route::post('partners/approve', [\App\Http\Controllers\PartnerController::class, 'approve'])->name('partners.approve');
 Route::get('projects', [\App\Http\Controllers\PartnerController::class, 'tasks'])->name('partners.tasks');
+Route::get('projectTasks', [\App\Http\Controllers\ProjectTaskController::class, 'show'])->name('projectTasks.show');
+Route::post('projectTasks/update/{id}', [\App\Http\Controllers\ProjectTaskController::class, 'update'])->name('projectTasks.update');
 Route::get('projects/partners/{teamId}', [\App\Http\Controllers\PartnerController::class, 'projects'])->name('partners.projects');
 Route::get('projects/partners/{teamId}/{projectId}', [\App\Http\Controllers\PartnerController::class, 'projectDetail'])->name('partners.projectDetail');
 

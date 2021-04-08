@@ -54,7 +54,7 @@ class PartnerController extends Controller
     public function tasks()
     {
 
-        return Inertia::render('Partners/Tasks',
+        return Inertia::render('Partners/Projects',
             ['teams' => Partner::teamlist()->paginate(),
                 'projects' => Project::with(['team'])->owned()->paginate()]);
 
@@ -64,7 +64,7 @@ class PartnerController extends Controller
 
     public function projects($teamId)
     {
-        return Inertia::render('Partners/Tasks',
+        return Inertia::render('Partners/Projects',
             ['teams' => Partner::teamlist()->paginate(),
                 'teamId' => $teamId,
                 'projects' => Project::with(['team'])->owned()->where('team_id', $teamId)->paginate()]);
@@ -72,7 +72,7 @@ class PartnerController extends Controller
 
     public function projectDetail($teamId, $projectId)
     {
-        return Inertia::render('Partners/Tasks',
+        return Inertia::render('Partners/Projects',
             ['teams' => Partner::teamlist()->paginate(),
                 'teamId' => $teamId,
                 'projectId' => $projectId,

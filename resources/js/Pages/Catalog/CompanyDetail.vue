@@ -12,7 +12,7 @@
                         <inertia-link method="post"
                                       as="button"
                                       type="button" v-if="partnerStatus.status == 1"
-                                      class="border  bg-white border-white px-2 font-bold   flex rounded-full text-sm items-center    ">
+                                      class="border  bg-white bg-opacity-60 border-white px-2 font-bold   flex rounded-full text-sm items-center    ">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-8" viewBox="0 0 20 20"
                                  fill="currentColor">
                                 <path fillRule="evenodd"
@@ -37,7 +37,7 @@
                                       method="post"
                                       as="button"
                                       type="button"
-                                      class="border text-white border-white px-2 font-bold   flex rounded-full text-sm items-center  ">
+                                      class="border  bg-gray-800 text-white bg-opacity-60  border-white px-2 font-bold   flex rounded-full text-sm items-center  ">
 
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-8" viewBox="0 0 20 20"
                                  fill="currentColor">
