@@ -70,12 +70,12 @@
                                              class="origin-top-right absolute z-10 right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
                                              role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
                                             <div class="py-1" role="none">
-                                                <intertia-link aria-label="Şirketin müsait günleri"
+                                                <inertia-link aria-label="Şirketin müsait günleri"
                                                                title="Şirketin müsait günleri"
                                                                :href="route('availableday.show',team.id)"
                                                                class="block px-4 py-2 text-sm text-gray-700 cursor-pointer hover:bg-gray-100 hover:text-gray-900"
                                                 >Müsait Tarihler
-                                                </intertia-link>
+                                                </inertia-link>
                                                 <a href="#"
                                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                                                    role="menuitem">Şirket Profili</a>

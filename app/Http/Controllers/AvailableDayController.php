@@ -73,7 +73,7 @@ class AvailableDayController extends Controller
 
         return Inertia::render('AvailableDays/Show', [
             'team' => Team::where('id', $teamId)->first(),
-            'dates' => AvailableDay::where('team_id', $teamId)->paginate()
+            'dates' => AvailableDay::where('team_id', $teamId)->whereDate('date', '>', now())->paginate()
         ]);
 
 

@@ -36,7 +36,8 @@
                             <div class="flex space-x-4">
 
 
-                                <jet-nav-link :href="route('partners.tasks')" :active="route().current('partners.tasks')">
+                                <jet-nav-link :href="route('partners.tasks')"
+                                              :active="route().current('partners.tasks')">
                                     İşler
                                 </jet-nav-link>
 
@@ -97,6 +98,11 @@
                                                 <jet-dropdown-link
                                                     :href="route('teams.show', $page.props.user.current_team)">
                                                     Şirket Ayarları
+                                                </jet-dropdown-link>
+
+                                                <jet-dropdown-link
+                                                    :href="route('availableday.show', $page.props.user.current_team.id)">
+                                                    Şirket Müsaitlik tarihleri
                                                 </jet-dropdown-link>
 
                                                 <jet-dropdown-link :href="route('teams.create')"
@@ -212,7 +218,8 @@
             <!-- Responsive Navigation Menu -->
             <div :class="{'block': showingNavigationDropdown, 'hidden': ! showingNavigationDropdown}" class="sm:hidden">
                 <div class="pt-2 pb-3 space-y-1">
-                    <jet-responsive-nav-link :href="route('partners.tasks')" :active="route().current('partners.tasks')">
+                    <jet-responsive-nav-link :href="route('partners.tasks')"
+                                             :active="route().current('partners.tasks')">
                         İşler
                     </jet-responsive-nav-link>
                 </div>
@@ -263,6 +270,13 @@
                                                      :active="route().current('teams.show')">
                                 Şirket Ayarları
                             </jet-responsive-nav-link>
+
+                            <jet-responsive-nav-link
+                                :href="route('availableday.show', $page.props.user.current_team.id)"
+                                :active="route().current('availableday.show')">
+                                Şirket Müsaitlik tarihleri
+                            </jet-responsive-nav-link>
+
 
                             <jet-responsive-nav-link :href="route('teams.create')"
                                                      :active="route().current('teams.create')">

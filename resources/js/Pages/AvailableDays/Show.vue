@@ -3,15 +3,14 @@
     <app-layout>
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                Müsaitlik olan tarihleri
+                {{team.name}}, müsait olan tarihleri
             </h2>
         </template>
 
         <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
 
-            <div>{{team.name}}</div>
 
-            <div class="days">
+            <div v-if="dates.data.length" class="days">
 
                 <ul class="space-y-1 mt-1">
                     <li class="bg-white border border-gray-300 shadow flex p-3  rounded-md justify-between"
@@ -24,7 +23,19 @@
                     </li>
                 </ul>
             </div>
-            
+            <div v-else>
+
+
+                <div class="bg-white rounded-lg p-3 border border-gray-300 items-center flex text-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-10" fill="none" viewBox="0 0 24 24"
+                         stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                              d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                    </svg>
+                    Yakın tarihlerde müsaitliği yok
+                </div>
+            </div>
+
         </div>
     </app-layout>
 
