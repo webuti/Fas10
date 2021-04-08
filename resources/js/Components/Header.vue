@@ -9,18 +9,18 @@
                     <li>
                         <inertia-link
                             :href="route('companyCatalogMain')"
-                            aria-label="Our product"
-                            title="Our product"
+                            aria-label="Şirketler"
+                            title="Şirketler"
                             class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-green-400"
                         >Şirketler
                         </inertia-link
                         >
                     </li>
-                      <li>
+                    <li>
                         <inertia-link
                             :href="route('bidCatalogMain')"
-                            aria-label="Our product"
-                            title="Our product"
+                            aria-label="İlanlar"
+                            title="İlanlar"
                             class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-green-400"
                         >İlanlar
                         </inertia-link
@@ -29,8 +29,8 @@
                     <li>
                         <a
                             href="/career"
-                            aria-label="Product pricing"
-                            title="Product pricing"
+                            aria-label="Kariyer"
+                            title="Kariyer"
                             class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-green-400"
                         >Kariyer</a
                         >
@@ -130,8 +130,8 @@
                                 <li>
                                     <inertia-link
                                         :href="route('companyCatalogMain')"
-                                        aria-label="Our product"
-                                        title="Our product"
+                                        aria-label="Şirketler"
+                                        title="Şirketler"
                                         class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-green-400"
                                     >Şirketler
                                     </inertia-link
@@ -140,8 +140,8 @@
                                 <li>
                                     <inertia-link
                                         :href="route('bidCatalogMain')"
-                                        aria-label="Our product"
-                                        title="Our product"
+                                        aria-label="İlanlar"
+                                        title="İlanlar"
                                         class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-green-400"
                                     >İlanlar
                                     </inertia-link
