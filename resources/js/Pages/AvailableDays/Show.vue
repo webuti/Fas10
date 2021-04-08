@@ -2,8 +2,16 @@
 
     <app-layout>
         <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                {{team.name}}, müsait olan tarihleri
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight flex flex-row justify-between">
+                <span> {{team.name}}, müsait olan tarihleri</span>
+
+
+                <span> <inertia-link :href="route('availableday.create')"
+                                     class="button p-2 px-3   rounded-full bg-green-500 text-sm text-white"
+                                     v-if="$page.props.user.current_team.id == team.id">Ekle
+                </inertia-link></span>
+
+
             </h2>
         </template>
 
