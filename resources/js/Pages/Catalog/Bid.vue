@@ -86,27 +86,39 @@
                     <div
                         class="flex flex-wrap justify-start md:justify-end items-center space-x-0 space-y-2 sm:space-x-2 sm:space-y-0">
                         <div class="divide-x-2 border border-gray-300 shadow-sm rounded-md">
-                            <button class="p-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                     stroke="currentColor" class="h-4 w-4 text-gray-500">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                          d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"/>
+                            
+
+                       <button @click="showTypeSet('card')" class="p-2">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                    class="h-4 w-4 text-gray-500"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
+                                    />
                                 </svg>
                             </button>
 
-                            <button class="p-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                     stroke="currentColor" class="h-4 w-4 text-gray-500">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                          d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/>
-                                </svg>
-                            </button>
-
-                            <button class="p-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                     stroke="currentColor" class="h-4 w-4 text-gray-500">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                          d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2"/>
+                            <button @click="showTypeSet('table')" class="p-2">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                    class="h-4 w-4 text-gray-500"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2"
+                                    />
                                 </svg>
                             </button>
                             <button @click="mobileMenuShow = !mobileMenuShow"
@@ -127,10 +139,14 @@
                 <!-- End Tools -->
 
 
-                <div class="grid grid-cols-1 mt-5  md:grid-cols-1 sm:grid-cols-1 gap-4">
-                    <BidItem v-if="bids.data.length" :item="bid" v-for="bid in bids.data"/>
-
-                    <template v-else>
+<div v-if="bids.data.length">
+   <div v-if="showType === 'card'"  class="grid grid-cols-1 mt-5  md:grid-cols-1 sm:grid-cols-1 gap-4">
+                    <BidItem  :item="bid" v-for="bid in bids.data"/> 
+                   
+                </div>
+                 <bid-item-table v-else :items="bids.data" />
+</div>
+  <template v-else>
 
                         <div class="w-full px-6 py-3 rounded-sm border  " role="alert">
 
@@ -150,9 +166,7 @@
                     </template>
 
 
-
-
-                </div>
+             
                 <div class="flex flex-wrap mt-10 -mb-1" v-if="bids.links.length > 3">
                     <template v-for="(link, bkey) in bids.links">
 
@@ -182,18 +196,20 @@
     import MainLayout from "@/Layouts/MainLayout";
 
     import qs from "qs";
+import BidItemTable from '../../Components/Catalog/BidItemTable.vue';
 
     export default {
         components: {
             MainLayout,
             Sidebar,
             BidItem,
-            Header
+            Header,
+                BidItemTable
         },
         data() {
-            return {
-                itemStyle: 1,
+            return { 
                 mobileMenuShow: false,
+                   showType: "table",
                 form: {
 
                     country_id: this.formData.country_id,
@@ -205,9 +221,13 @@
                 },
             }
         },
-        methods: {
 
-            urlBuilder(cat, type) {
+          methods: {
+        showTypeSet(data) {
+            this.showType = data;
+            localStorage.setItem("bidCatalog.showType", data);
+        },
+        urlBuilder(cat, type) {
                 let RouteParams = route('bidCatalog.cat', {cat, type});
                 RouteParams = RouteParams + '/?' + qs.stringify({
                     city_id: this.form.city_id,
@@ -231,8 +251,9 @@
         },
         created() {
 
-            //     this.form = qs.parse(window.location.search.split('?')[1]);
+             this.showType = localStorage.getItem("bidCatalog.showType");
 
+           
         },
         props: {
             bids: Array,
