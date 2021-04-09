@@ -57,16 +57,19 @@
 
 
                         <div class="relative inline-block text-left">
-                            <div>
+
+
+                            <jet-dropdown width="72" align="right">
+                                <template #trigger>
 
                                 <span @click="newNotification = false"
                                       class="relative inline-flex rounded-md shadow-sm">
        <button @click="showingNotificationDropdown = !showingNotificationDropdown" type="button"
-               :class="{ 'outline-none ring-2 ring-offset-2 ring-offset-gray-800 text-white ring-white' :showingNotificationDropdown }"
+
                class="bg-gray-800 p-1 rounded-full text-white  hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
                id="options-menu" aria-expanded="true" aria-haspopup="true">
 
-                                    <svg class="h-6 w-6" :class="{ '  text-white  ' :showingNotificationDropdown }"
+                                    <svg class="h-6 w-6"
                                          xmlns="http://www.w3.org/2000/svg" fill="none"
                                          viewBox="0 0 24 24"
                                          stroke="currentColor" aria-hidden="true">
@@ -79,22 +82,20 @@
         <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
       </span>
     </span>
+                                </template>
+                                <template #content>
 
-
-                            </div>
-                            <div v-if="showingNotificationDropdown"
-                                 class="origin-top-right absolute right-0 mt-2 w-72 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y divide-gray-100 focus:outline-none"
-                                 role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
-                                <div class="py-1" role="none">
                                     <h2 class="px-4 py-2">Bildirimler</h2>
                                     <div v-for="i in [2,3,4,56,7,8]"
                                          class="block px-4 py-2 text-sm text-gray-700 border border-b border-gray-50 hover:bg-gray-100 hover:text-gray-900">
                                         <h2 class="font-medium text-gray-800">title</h2>
                                         <span class="text-xs text-gray-600">içerik erişle ilş title</span>
                                     </div>
-                                </div>
 
-                            </div>
+                                </template>
+                            </jet-dropdown>
+
+
                         </div>
 
 
@@ -153,11 +154,12 @@
                                                     <form @submit.prevent="switchToTeam(team)">
                                                         <jet-dropdown-link as="button">
                                                             <div class="flex items-center">
-                                                                <svg v-if="team.id == $page.props.user.current_team_id"
-                                                                     class="mr-2 h-5 w-5 text-green-400" fill="none"
-                                                                     stroke-linecap="round" stroke-linejoin="round"
-                                                                     stroke-width="2" stroke="currentColor"
-                                                                     viewBox="0 0 24 24">
+                                                                <svg
+                                                                    v-if="team.id == $page.props.user.current_team_id"
+                                                                    class="mr-2 h-5 w-5 text-green-400" fill="none"
+                                                                    stroke-linecap="round" stroke-linejoin="round"
+                                                                    stroke-width="2" stroke="currentColor"
+                                                                    viewBox="0 0 24 24">
                                                                     <path
                                                                         d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                                                 </svg>
@@ -248,7 +250,8 @@
             </div>
 
             <!-- Responsive Navigation Menu -->
-            <div :class="{'block': showingNavigationDropdown, 'hidden': ! showingNavigationDropdown}" class="sm:hidden">
+            <div :class="{'block': showingNavigationDropdown, 'hidden': ! showingNavigationDropdown}"
+                 class="sm:hidden">
                 <div class="pt-2 pb-3 space-y-1">
                     <jet-responsive-nav-link :href="route('partners.tasks')"
                                              :active="route().current('partners.tasks')">
@@ -260,7 +263,8 @@
                 <div class="pt-4 pb-1 border-t  border-gray-600">
                     <div class="flex items-center px-4">
                         <div v-if="$page.props.jetstream.managesProfilePhotos" class="flex-shrink-0 mr-3">
-                            <img class="h-10 w-10 rounded-full object-cover" :src="$page.props.user.profile_photo_url"
+                            <img class="h-10 w-10 rounded-full object-cover"
+                                 :src="$page.props.user.profile_photo_url"
                                  :alt="$page.props.user.name"/>
                         </div>
 
@@ -327,7 +331,8 @@
                                     <jet-responsive-nav-link as="button">
                                         <div class="flex items-center">
                                             <svg v-if="team.id == $page.props.user.current_team_id"
-                                                 class="mr-2 h-5 w-5 text-green-400" fill="none" stroke-linecap="round"
+                                                 class="mr-2 h-5 w-5 text-green-400" fill="none"
+                                                 stroke-linecap="round"
                                                  stroke-linejoin="round" stroke-width="2" stroke="currentColor"
                                                  viewBox="0 0 24 24">
                                                 <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>

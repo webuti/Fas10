@@ -81,42 +81,28 @@
                                 </h2>
 
                                 <div class="flex items-center">
-                                    <!-- This example requires Tailwind CSS v2.0+ -->
-                                    <div
-                                        class="relative inline-block text-left"
-                                    >
-                                        <div>
-                                            <button
-                                                type="button"
-                                                @click="optionShowSet(team.id)"
-                                                aria-expanded="true"
-                                                aria-haspopup="true"
-                                            >
-                                                <svg
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    class="h-5"
-                                                    fill="none"
-                                                    viewBox="0 0 24 24"
-                                                    stroke="currentColor"
-                                                >
-                                                    <path
-                                                        strokeLinecap="round"
-                                                        strokeLinejoin="round"
-                                                        strokeWidth="{2}"
-                                                        d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
-                                                    />
-                                                </svg>
-                                            </button>
-                                        </div>
 
-                                        <div
-                                            v-if="optionShow == team.id"
-                                            class="origin-top-right absolute z-10 right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
-                                            role="menu"
-                                            aria-orientation="vertical"
-                                            aria-labelledby="options-menu"
-                                        >
-                                            <div class="py-1" role="none">
+
+                                    <jet-dropdown   align="right">
+                                        <template #trigger>
+
+                                            <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                class="h-5"
+                                                fill="none"
+                                                viewBox="0 0 24 24"
+                                                stroke="currentColor"
+                                            >
+                                                <path
+                                                    strokeLinecap="round"
+                                                    strokeLinejoin="round"
+                                                    strokeWidth="{2}"
+                                                    d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
+                                                />
+                                            </svg>
+                                        </template>
+                                        <template #content>
+                                            <div class="py-1">
                                                 <inertia-link
                                                     aria-label="Şirketin müsait günleri"
                                                     title="Şirketin müsait günleri"
@@ -136,8 +122,11 @@
                                                 >Şirket Profili</a
                                                 >
                                             </div>
-                                        </div>
-                                    </div>
+
+                                        </template>
+                                    </jet-dropdown>
+
+
                                 </div>
                             </div>
 
@@ -163,11 +152,13 @@
                             />
                         </div>
                         <div v-else class="p-3 text-center flex items-center flex-col text-gray-800">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 text-center" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 text-center" fill="none"
+                                 viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                                      d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"/>
                             </svg>
                             <h3 class="">İş ortağı bulunamadı</h3>
-                          <span class="text-sm">  <inertia-link :href="route('companyCatalogMain')">
+                            <span class="text-sm">  <inertia-link :href="route('companyCatalogMain')">
                                   <span class="relative inline-flex  ">
     Katalogdan
       <span class="flex absolute h-3 w-3 top-0 right-0 -mt-1 -mr-1">
@@ -417,6 +408,8 @@
     import ProjectListItem from "@/Pages/Partners/ProjectListItem";
     import Tasks from "@/Pages/Partners/Tasks";
 
+    import JetDropdown from '@/Jetstream/Dropdown'
+
     export default {
         name: "Index",
         components: {
@@ -426,6 +419,7 @@
             CreateProjectForm,
             AvailableDates,
             AppLayout,
+            JetDropdown
         },
         data() {
             return {
