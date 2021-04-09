@@ -112,6 +112,8 @@
                         <jet-action-message :on="form.recentlySuccessful" class="mr-3">
                             Başarılı olarak kaydedildi
                         </jet-action-message>
+
+
                         <jet-button :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
                             Gönder
                         </jet-button>
@@ -119,6 +121,20 @@
 
                 </jet-form-section>
 
+                <jet-form-section class="mt-10">
+
+
+
+                    <template #form>Sitede görünür olmasını istemiyorsanız ilanı yayından kaldırabilirsiniz.</template>
+                    <template #actions>
+
+                            <jet-danger-button @click="confirmUserDeletion">
+                                İlanı Yayından Kaldır
+                            </jet-danger-button>
+
+                    </template>
+
+                </jet-form-section>
             </div>
 
         </div>
@@ -130,13 +146,14 @@
 
     import AppLayout from "@/Layouts/AppLayout";
     import JetButton from "@/Jetstream/Button";
+    import JetSecondaryButton from "@/Jetstream/SecondaryButton";
     import JetFormSection from "@/Jetstream/FormSection";
     import JetInput from "@/Jetstream/Input";
     import JetInputError from "@/Jetstream/InputError";
     import JetLabel from "@/Jetstream/Label";
     import Textarea from "@/Jetstream/Textarea";
     import JetActionMessage from "@/Jetstream/ActionMessage";
-
+    import JetDangerButton from '@/Jetstream/DangerButton'
     import ImageUpload from "@/Pages/Bids/ImageUpload";
 
     export default {
@@ -146,6 +163,8 @@
             AppLayout,
             JetButton,
             JetFormSection,
+            JetSecondaryButton,
+            JetDangerButton,
             JetActionMessage,
             JetInput,
             JetInputError,
