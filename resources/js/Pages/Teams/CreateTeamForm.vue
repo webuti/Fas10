@@ -32,12 +32,25 @@
             <div class="col-span-6 sm:col-span-4">
                 <jet-label for="description" value="Şirket Açıklaması"/>
 
-                <jet-input id="description"
+                <jet-textarea id="description"
                            type="text"
                            class="mt-1 block w-full"
                            v-model="form.description"/>
 
                 <jet-input-error :message="form.errors.description" class="mt-2"/>
+            </div>
+
+            <div class="col-span-6 sm:col-span-4">
+                <jet-label for="sector_id" value="Şirket Türü"/>
+
+                <select
+                        class="border-gray-300 focus:border-green-300 focus:ring focus:ring-green-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full"
+                        v-model="form.type_id">
+                    <option :value="type.id" v-for="type in types">{{type.name}}</option>
+                </select>
+
+
+                <jet-input-error :message="form.errors.type_id" class="mt-2"/>
             </div>
 
             <div class="col-span-6 sm:col-span-4">
@@ -63,9 +76,9 @@
                 <jet-input-error :message="form.errors.number_of_staff" class="mt-2"/>
             </div>
             <div class="col-span-6 sm:col-span-4">
-                <jet-label for="number_of_staff" value="Şirket telefon numarası"/>
+                <jet-label for="phone" value="Şirket telefon numarası"/>
 
-                <jet-input id="number_of_staff"
+                <jet-input id="phone"
                            type="number"
                            class="mt-1 block w-full"
                            v-model="form.phone"/>
@@ -112,7 +125,7 @@
 
         <template #actions>
             <jet-button :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                Create
+                Oluştur
             </jet-button>
         </template>
     </jet-form-section>
@@ -124,9 +137,12 @@
     import JetInput from '@/Jetstream/Input'
     import JetInputError from '@/Jetstream/InputError'
     import JetLabel from '@/Jetstream/Label'
+    import axios from "axios";
+    import JetTextarea from "@/Jetstream/Textarea";
 
     export default {
         components: {
+            JetTextarea,
             JetButton,
             JetFormSection,
             JetInput,
@@ -139,6 +155,7 @@
             'districts',
             'services',
             'sectors',
+            'types',
         ],
         data() {
             return {
@@ -150,6 +167,7 @@
                     city_id: '',
                     country_id: 1,
                     district_id: '',
+                    type_id: '',
                     phone: '',
 
                 })
@@ -157,6 +175,13 @@
         },
 
         methods: {
+            districtLoad() {
+                this.districts = [];
+                axios.get(route('location.district', this.form.city_id)).then(page => {
+
+                    this.districts = page.data;
+                });
+            },
             createTeam() {
                 this.form.post(route('teams.store'), {
                     errorBag: 'createTeam',

@@ -39,9 +39,9 @@
             <div class="col-span-6 sm:col-span-4">
                 <jet-label for="description" value="Şirket Açıklaması"/>
 
-                <jet-input id="description"
+                <jet-textarea id="description"
                            type="text"
-                           class="mt-1 block w-full"
+                           class="mt-1 block w-full min-h-200"
                            v-model="form.description"
                            :disabled="!permissions.canUpdateTeam"/>
 
@@ -49,9 +49,23 @@
             </div>
 
             <div class="col-span-6 sm:col-span-4">
+                <jet-label for="sector_id" value="Şirket Türü"/>
+
+                <select :disabled="!permissions.canUpdateTeam"
+                        class="border-gray-300 focus:border-green-300 focus:ring focus:ring-green-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full"
+                        v-model="form.type_id">
+                    <option :value="type.id" v-for="type in types">{{type.name}}</option>
+                </select>
+
+
+                <jet-input-error :message="form.errors.type_id" class="mt-2"/>
+            </div>
+
+
+            <div class="col-span-6 sm:col-span-4">
                 <jet-label for="sector_id" value="Sektör"/>
 
-                <select   :disabled="!permissions.canUpdateTeam"
+                <select :disabled="!permissions.canUpdateTeam"
                         class="border-gray-300 focus:border-green-300 focus:ring focus:ring-green-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full"
                         v-model="form.sector_id">
                     <option :value="sector.id" v-for="sector in sectors">{{sector.name}}</option>
@@ -70,6 +84,17 @@
                            :disabled="!permissions.canUpdateTeam"/>
 
                 <jet-input-error :message="form.errors.number_of_staff" class="mt-2"/>
+            </div>
+            <div class="col-span-6 sm:col-span-4">
+                <jet-label for="phone" value="Şirket telefon numarası"/>
+
+                <jet-input id="phone"
+                           type="number"
+                           class="mt-1 block w-full"
+                           v-model="form.phone"
+                           :disabled="!permissions.canUpdateTeam"/>
+
+                <jet-input-error :message="form.errors.phone" class="mt-2"/>
             </div>
             <div class="col-span-6 sm:col-span-4">
                 <jet-label for="country_id" value="Ülke"/>
@@ -130,9 +155,11 @@
     import {Inertia} from '@inertiajs/inertia'
 
     import axios from "axios";
+    import JetTextarea from "@/Jetstream/Textarea";
 
     export default {
         components: {
+            JetTextarea,
             JetActionMessage,
             JetButton,
             JetFormSection,
@@ -141,7 +168,7 @@
             JetLabel,
         },
 
-        props: ['team', 'permissions', 'cities', 'countries', 'sectors'],
+        props: ['team', 'permissions', 'types', 'cities', 'countries', 'sectors'],
 
         data() {
             return {
@@ -151,8 +178,10 @@
                     description: this.team.description,
                     sector_id: this.team.sector_id,
                     number_of_staff: this.team.number_of_staff,
+                    phone: this.team.phone,
                     city_id: this.team.city_id,
                     country_id: this.team.country_id,
+                    type_id: this.team.type_id,
                     district_id: this.team.district_id,
                 })
             }

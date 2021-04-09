@@ -33,6 +33,7 @@ Route::get('projects/partners/{teamId}/{projectId}', [\App\Http\Controllers\Part
 
 
 Route::get('image-upload', [\App\Http\Controllers\ImageUploadController::class, 'imageUpload'])->name('image.upload');
+Route::get('team.ajax.index', [\App\Http\Controllers\TeamController::class, 'index'])->name('team.ajax.index');
 Route::post('image-upload', [\App\Http\Controllers\ImageUploadController::class, 'imageUploadPost'])->name('image.upload.post');
 Route::get('/location/district/{id}', [\App\Http\Controllers\LocationController::class, 'district'])->name('location.district');
 

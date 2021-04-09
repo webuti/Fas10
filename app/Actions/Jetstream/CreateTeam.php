@@ -23,6 +23,10 @@ class CreateTeam implements CreatesTeams
 
         Validator::make($input, [
             'name' => ['required', 'string', 'max:255'],
+            'type_id' => ['required'],
+            'sector_id' => ['required'],
+            'country_id' => ['required'],
+            'city_id' => ['required'],
         ])->validateWithBag('createTeam');
 
         AddingTeam::dispatch($user);
@@ -35,6 +39,7 @@ class CreateTeam implements CreatesTeams
             'district_id' => $input['district_id'],
             'country_id' => $input['country_id'],
             'sector_id' => $input['sector_id'],
+            'type_id' => $input['type_id'],
             'phone' => $input['phone'],
             'number_of_staff' => $input['number_of_staff'],
         ]));

@@ -16,6 +16,7 @@ use App\Models\Service;
 use App\Models\Sector;
 use App\Models\Team;
 use App\Models\TeamService;
+use App\Models\TeamType;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Jetstream\Jetstream;
@@ -61,6 +62,7 @@ class JetstreamServiceProvider extends ServiceProvider
                     'cities' => City::get(),
                     'countries' => Country::get(),
                     'services' => Service::get(),
+                    'types' => TeamType::get(),
                     'companyServices' => $data["team"]->where('id', Auth::user()->current_team_id)->with('services')->get()->pluck('services')->toArray(),
                     'sectors' => Sector::get(),
                 ]);
@@ -72,10 +74,13 @@ class JetstreamServiceProvider extends ServiceProvider
             'Teams/Create',
             function (Request $request, array $data) {
 
+                dd("asda");
+
                 return array_merge($data, [
                     'cities' => City::get(),
                     'countries' => Country::get(),
                     'services' => Service::get(),
+                    'types' => TeamType::get(),
                     'sectors' => Sector::get(),
                 ]);
 

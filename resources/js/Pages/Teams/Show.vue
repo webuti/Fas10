@@ -10,7 +10,7 @@
             <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
 
                 <update-team-name-form :cities="cities" :countries="countries" :districts="districts"
-                                       :team="team" :sectors="sectors" :permissions="permissions"/>
+                                       :team="team" :sectors="sectors" :types="types" :permissions="permissions"/>
                 <update-service :team="team" :sector="team.sector_id" :services="services"
                                 :companyServices="companyServices"
                                 :user-permissions="permissions"/>
@@ -47,6 +47,7 @@
             'districts',
             'services',
             'sectors',
+            'types',
             'companyServices'
         ],
 

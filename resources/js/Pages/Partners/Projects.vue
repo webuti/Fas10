@@ -64,6 +64,7 @@
                             placeholder="Şirket adıyla arama"
                         />
                         <div
+                            v-if="teams.data.length"
                             v-for="team in teams.data"
                             class="ortak bg-white border-b hover:bg-gray-100 border-gray-300 p-2"
                         >
@@ -126,13 +127,13 @@
                                                         )
                                                     "
                                                     class="block px-4 py-2 text-sm text-gray-700 cursor-pointer hover:bg-gray-100 hover:text-gray-900"
-                                                    >Müsait Tarihler
+                                                >Müsait Tarihler
                                                 </inertia-link>
                                                 <a
                                                     href="#"
                                                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                                                     role="menuitem"
-                                                    >Şirket Profili</a
+                                                >Şirket Profili</a
                                                 >
                                             </div>
                                         </div>
@@ -161,6 +162,24 @@
                                 ]"
                             />
                         </div>
+                        <div v-else class="p-3 text-center flex items-center flex-col text-gray-800">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 text-center" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
+                            </svg>
+                            <h3 class="">İş ortağı bulunamadı</h3>
+                          <span class="text-sm">  <inertia-link :href="route('companyCatalogMain')">
+                                  <span class="relative inline-flex  ">
+    Katalogdan
+      <span class="flex absolute h-3 w-3 top-0 right-0 -mt-1 -mr-1">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+      </span>
+    </span>
+                              </inertia-link>
+                            çalışabileceğiniz ortaklar bulabilirsiniz. yada fas10.net e davet edebilirsiniz.</span>
+                        </div>
+
+
                     </div>
                 </div>
                 <div
@@ -359,7 +378,7 @@
                             <p>
                                 Firmayla olan eposta trafiğinizin burada
                                 saklanmasını istiyorsanız pr{{
-                                    projectDetail.id
+                                projectDetail.id
                                 }}@fas10.net eposta adresini cc ye ekleyiniz.
                             </p>
                         </div>
@@ -391,60 +410,60 @@
 </template>
 
 <script>
-import AppLayout from "@/Layouts/AppLayout";
-import AvailableDates from "@/Components/UI/AvailableDates";
-import CreateProjectForm from "@/Pages/Partners/CreateProjectForm";
-import CreateNote from "@/Pages/Partners/CreateNote";
-import ProjectListItem from "@/Pages/Partners/ProjectListItem";
-import Tasks from "@/Pages/Partners/Tasks";
+    import AppLayout from "@/Layouts/AppLayout";
+    import AvailableDates from "@/Components/UI/AvailableDates";
+    import CreateProjectForm from "@/Pages/Partners/CreateProjectForm";
+    import CreateNote from "@/Pages/Partners/CreateNote";
+    import ProjectListItem from "@/Pages/Partners/ProjectListItem";
+    import Tasks from "@/Pages/Partners/Tasks";
 
-export default {
-    name: "Index",
-    components: {
-        Tasks,
-        ProjectListItem,
-        CreateNote,
-        CreateProjectForm,
-        AvailableDates,
-        AppLayout,
-    },
-    data() {
-        return {
-            form: [],
-            optionShow: null,
-            openTab: 4,
-            activeProject: 0,
-            searchPartnerShow: false,
-            createProjectShow: false,
-            searchProjectShow: false,
-        };
-    },
-    methods: {
-        optionShowSet(teamId) {
-            if (this.optionShow == teamId) {
-                this.optionShow = null;
-            } else {
-                this.optionShow = teamId;
-            }
+    export default {
+        name: "Index",
+        components: {
+            Tasks,
+            ProjectListItem,
+            CreateNote,
+            CreateProjectForm,
+            AvailableDates,
+            AppLayout,
         },
-        toggleTabs: function (tabNumber) {
-            this.openTab = tabNumber;
+        data() {
+            return {
+                form: [],
+                optionShow: null,
+                openTab: 4,
+                activeProject: 0,
+                searchPartnerShow: false,
+                createProjectShow: false,
+                searchProjectShow: false,
+            };
         },
-        getProjects(teamId) {
-            this.$inertia.get(route("partners.projects", teamId));
+        methods: {
+            optionShowSet(teamId) {
+                if (this.optionShow == teamId) {
+                    this.optionShow = null;
+                } else {
+                    this.optionShow = teamId;
+                }
+            },
+            toggleTabs: function (tabNumber) {
+                this.openTab = tabNumber;
+            },
+            getProjects(teamId) {
+                this.$inertia.get(route("partners.projects", teamId));
+            },
+            getProjectDetail(teamId, projectId) {
+                this.$inertia.get(
+                    route("partners.projectDetail", {projectId, teamId})
+                );
+                this.activeProject = projectId;
+            },
+            reloadProject() {
+                this.getProjects(this.activePartner);
+            },
         },
-        getProjectDetail(teamId, projectId) {
-            this.$inertia.get(
-                route("partners.projectDetail", { projectId, teamId })
-            );
-            this.activeProject = projectId;
-        },
-        reloadProject() {
-            this.getProjects(this.activePartner);
-        },
-    },
-    props: ["teams", "projects", "projectDetail", "teamId", "projectId"],
-};
+        props: ["teams", "projects", "projectDetail", "teamId", "projectId"],
+    };
 </script>
 
 <style scoped></style>
