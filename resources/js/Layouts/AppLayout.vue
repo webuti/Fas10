@@ -54,16 +54,48 @@
                     </div>
                     <div
                         class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                        <button
-                            class="bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
-                            <span class="sr-only">Bildirimleri göster</span>
-                            <!-- Heroicon name: outline/bell -->
-                            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                 stroke="currentColor" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                      d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/>
-                            </svg>
-                        </button>
+
+
+                        <div class="relative inline-block text-left">
+                            <div>
+
+                                <span @click="newNotification = false"
+                                      class="relative inline-flex rounded-md shadow-sm">
+       <button @click="showingNotificationDropdown = !showingNotificationDropdown" type="button"
+               :class="{ 'outline-none ring-2 ring-offset-2 ring-offset-gray-800 text-white ring-white' :showingNotificationDropdown }"
+               class="bg-gray-800 p-1 rounded-full text-white  hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+               id="options-menu" aria-expanded="true" aria-haspopup="true">
+
+                                    <svg class="h-6 w-6" :class="{ '  text-white  ' :showingNotificationDropdown }"
+                                         xmlns="http://www.w3.org/2000/svg" fill="none"
+                                         viewBox="0 0 24 24"
+                                         stroke="currentColor" aria-hidden="true">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                              d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/>
+                                    </svg>
+                                </button>
+      <span v-if="newNotification" class="flex absolute h-3 w-3 top-0 right-0 -mt-1 -mr-1">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+      </span>
+    </span>
+
+
+                            </div>
+                            <div v-if="showingNotificationDropdown"
+                                 class="origin-top-right absolute right-0 mt-2 w-72 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y divide-gray-100 focus:outline-none"
+                                 role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+                                <div class="py-1" role="none">
+                                    <h2 class="px-4 py-2">Bildirimler</h2>
+                                    <div v-for="i in [2,3,4,56,7,8]"
+                                         class="block px-4 py-2 text-sm text-gray-700 border border-b border-gray-50 hover:bg-gray-100 hover:text-gray-900">
+                                        <h2 class="font-medium text-gray-800">title</h2>
+                                        <span class="text-xs text-gray-600">içerik erişle ilş title</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
 
 
                         <div class="hidden sm:flex sm:items-center sm:ml-6">
@@ -332,7 +364,6 @@
         </div>
     </div>
 </template>
-
 <script>
     import JetApplicationMark from '@/Jetstream/ApplicationMark'
     import JetBanner from '@/Jetstream/Banner'
@@ -340,6 +371,7 @@
     import JetDropdownLink from '@/Jetstream/DropdownLink'
     import JetNavLink from '@/Jetstream/NavLink'
     import JetResponsiveNavLink from '@/Jetstream/ResponsiveNavLink'
+
 
     export default {
         components: {
@@ -351,9 +383,26 @@
             JetResponsiveNavLink,
         },
 
+        mounted() {
+
+            window.Pusher.logToConsole = true;
+
+            var pusher = new window.Pusher('6e2a4cde923cdd8b7019', {
+                cluster: 'eu'
+            });
+
+            var channel = pusher.subscribe('my-channel');
+            channel.bind('my-event', function (data) {
+                console.log(data, "data bildirim");
+                this.newNotification = true;
+            });
+
+        },
         data() {
             return {
                 showingNavigationDropdown: false,
+                showingNotificationDropdown: false,
+                newNotification: true,
             }
         },
 

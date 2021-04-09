@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\BidAdd;
 use App\Models\Project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -53,6 +54,8 @@ class ProjectController extends Controller
             'title' => $request->input('title'),
             'description' => $request->input('description'),
         ]);
+
+        event(new BidAdd($request->input('title') . ' proje eklendi'));
         return Redirect::route('partners.projectDetail', [
             'teamId' => $request->input('team_id'),
             'projectId' => $project->id,

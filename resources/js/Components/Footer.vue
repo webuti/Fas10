@@ -117,7 +117,6 @@
                 </inertia-link>
             </div>
         </section>
-
     </div>
 </template>
 
