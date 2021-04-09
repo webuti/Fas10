@@ -8,7 +8,10 @@
                 v-model="form.body"
             />
         </form>
-        <ul class="tasks mt-2 border rounded-md border-gray-300">
+        <ul
+            v-if="tasks.data"
+            class="tasks mt-2 border rounded-md border-gray-300"
+        >
             <li
                 v-for="task in tasks.data"
                 class="px-2 py-2 border-b text-gray-600 hover:bg-gray-50 text-sm flex items-center"
@@ -50,6 +53,7 @@
                 {{ task.body }}
             </li>
         </ul>
+        <div v-else>Yükleniyor</div>
     </div>
 </template>
 
