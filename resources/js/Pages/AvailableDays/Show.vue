@@ -6,7 +6,7 @@
                 <span> {{team.name}}, müsait olan tarihleri</span>
 
 
-                <span> <inertia-link :href="route('availableday.create')"
+                <span> <inertia-link :href="route('availableDay.create')"
                                      class="button p-2 px-3   rounded-full bg-green-500 text-sm text-white"
                                      v-if="$page.props.user.current_team.id == team.id">Ekle
                 </inertia-link></span>

@@ -28,7 +28,7 @@
                         onaylıyormusunuz ?
                     </div>
 
-                    <inertia-link :href="route('availableday.store')"
+                    <inertia-link :href="route('availableDay.store')"
                                   :data="{team_id :teamId,startDate:dateValue.startDate,endDate:dateValue.endDate}"
                                   method="post"
                                   as="button"
@@ -57,7 +57,7 @@
                             Müsait</span>
                                 <h2 class="text-sm">{{item.date}}</h2>
                             </div>
-                            <inertia-link :href="route('availableday.destroy', item)"
+                            <inertia-link :href="route('availableDay.destroy', item)"
                                           :data="item"
                                           method="DELETE"
                                           as="button"
@@ -97,7 +97,7 @@
         },
         methods: {
             deleteDate(date) {
-                axios.delete(route('availableday.destroy', date)).then(e => {
+                axios.delete(route('availableDay.destroy', date)).then(e => {
                     console.log(e);
                 });
             }

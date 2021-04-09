@@ -134,7 +134,7 @@
                                                 </jet-dropdown-link>
 
                                                 <jet-dropdown-link
-                                                    :href="route('availableday.show', $page.props.user.current_team.id)">
+                                                    :href="route('availableDay.show', $page.props.user.current_team.id)">
                                                     Şirket Müsaitlik tarihleri
                                                 </jet-dropdown-link>
 
@@ -308,8 +308,8 @@
                             </jet-responsive-nav-link>
 
                             <jet-responsive-nav-link
-                                :href="route('availableday.show', $page.props.user.current_team.id)"
-                                :active="route().current('availableday.show')">
+                                :href="route('availableDay.show', $page.props.user.current_team.id)"
+                                :active="route().current('availableDay.show')">
                                 Şirket Müsaitlik tarihleri
                             </jet-responsive-nav-link>
 

@@ -108,7 +108,7 @@
                                                     title="Şirketin müsait günleri"
                                                     :href="
                                                         route(
-                                                            'availableday.show',
+                                                            'availableDay.show',
                                                             team.id
                                                         )
                                                     "
