@@ -4,7 +4,7 @@
             <jet-authentication-card-logo/>
         </template>
 
-        <div class="mb-4 text-sm text-gray-600">
+        <div class="mb-4 text-sm text-gray-600  dark:text-gray-300">
             Şifrenizi unuttuysanız, sistemde kayıtlı olan eposta adresinizi aşağıdaki forma yazıp göndere tıkladığınıza
             eposta adresinize
             şifre sıfırlama linki göndereceğiz.

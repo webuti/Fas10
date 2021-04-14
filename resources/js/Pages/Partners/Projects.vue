@@ -1,22 +1,22 @@
 <template>
     <app-layout>
         <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            <h2 class="font-semibold text-xl text-gray-800 dark:text-white leading-tight">
                 İşler
             </h2>
         </template>
 
         <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
             <div
-                class="flex flex-col xl:flex-row md:flex-row md:flex-row shadow overflow-hidden border-b border-gray-200 sm:rounded-lg border-t"
+                class="flex flex-col xl:flex-row md:flex-row md:flex-row shadow overflow-hidden border-b border-gray-200 dark:border-gray-600 sm:rounded-lg border-t"
             >
                 <div
-                    class="flex flex-col lg:min-h-screen md:min-h-screen flex-shrink-0 md:w-64 border-r border-l bg-gray-50"
+                    class="flex flex-col lg:min-h-screen md:min-h-screen flex-shrink-0 md:w-64 border-r border-l border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-700"
                 >
                     <div class="ortaklar">
                         <div class="flex justify-between p-3 items-center">
                             <h2
-                                class="text-xs font-medium text-gray-500 uppercase"
+                                class="text-xs font-medium text-gray-500 dark:text-gray-50 uppercase"
                             >
                                 İş Ortaklarım
                             </h2>
@@ -60,13 +60,13 @@
                             type="text"
                             v-if="searchPartnerShow"
                             v-model="form.searchPartner"
-                            class="p-2 bg-white w-full"
+                            class="p-2 bg-white dark:bg-gray-600 w-full"
                             placeholder="Şirket adıyla arama"
                         />
                         <div
                             v-if="teams.data.length"
                             v-for="team in teams.data"
-                            class="ortak bg-white border-b hover:bg-gray-100 border-gray-300 p-2"
+                            class="ortak bg-white dark:bg-gray-600 border-b hover:bg-gray-100 dark:hover:bg-gray-700 border-gray-300 p-2 dark:border-gray-700"
                         >
                             <div class="flex items-center justify-between">
                                 <h2
@@ -75,7 +75,7 @@
                                             teamId == team.receiver_team.id,
                                     }"
                                     @click="getProjects(team.receiver_team.id)"
-                                    class="cursor-pointer text-gray-700"
+                                    class="cursor-pointer text-gray-700 dark:text-white"
                                 >
                                     {{ team.receiver_team.name }}
                                 </h2>
@@ -112,12 +112,12 @@
                                                             team.id
                                                         )
                                                     "
-                                                    class="block px-4 py-2 text-sm text-gray-700 cursor-pointer hover:bg-gray-100 hover:text-gray-900"
+                                                    class="block px-4 py-2 text-sm text-gray-700 dark:text-white cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-gray-900 dark:text-white"
                                                 >Müsait Tarihler
                                                 </inertia-link>
                                                 <a
                                                     href="#"
-                                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                                                    class="block px-4 py-2 text-sm text-gray-700 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-gray-900 dark:text-white"
                                                     role="menuitem"
                                                 >Şirket Profili</a
                                                 >
@@ -151,7 +151,7 @@
                                 ]"
                             />
                         </div>
-                        <div v-else class="p-3 text-center flex items-center flex-col text-gray-800">
+                        <div v-else class="p-3 text-center flex items-center flex-col text-gray-800 dark:text-white">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-10 text-center" fill="none"
                                  viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
@@ -163,7 +163,7 @@
     Katalogdan
       <span class="flex absolute h-3 w-3 top-0 right-0 -mt-1 -mr-1">
         <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-        <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+        <span class="relative inline-flex rounded-full h-3 w-3 bg-green-50 dark:bg-gray-700"></span>
       </span>
     </span>
                               </inertia-link>
@@ -174,10 +174,10 @@
                     </div>
                 </div>
                 <div
-                    class="flex flex-col md:min-h-screen bg-gray-50 flex-shrink-0 md:w-64 border-r"
+                    class="flex flex-col md:min-h-screen bg-gray-50 dark:bg-gray-700 flex-shrink-0 md:w-64 border-r border-gray-200 dark:border-gray-600"
                 >
                     <div class="flex justify-between p-3 items-center">
-                        <h2 class="text-xs font-medium text-gray-500 uppercase">
+                        <h2 class="text-xs font-medium text-gray-500 dark:text-gray-50 uppercase">
                             Projeler
                         </h2>
                         <div class="items-center flex">
@@ -234,7 +234,7 @@
                         :team-id="teamId"
                     ></CreateProjectForm>
 
-                    <div class="projects bg-white" v-if="projects.data">
+                    <div class="projects bg-white dark:bg-gray-600" v-if="projects.data">
                         <input
                             type="text"
                             v-if="searchProjectShow"
@@ -260,16 +260,16 @@
                     </div>
                 </div>
                 <div
-                    class="flex flex-col md:min-h-screen bg-gray-50 border-r w-full"
+                    class="flex flex-col md:min-h-screen bg-gray-50 dark:bg-gray-700 border-r border-gray-200 dark:border-gray-600 w-full"
                 >
                     <div class="flex justify-between p-3 items-center">
-                        <h2 class="text-xs font-medium text-gray-500 uppercase">
+                        <h2 class="text-xs font-medium text-gray-500 dark:text-gray-50 uppercase">
                             Proje Aşamaları
                         </h2>
                     </div>
 
-                    <div v-if="projectDetail" class="p-3 bg-white">
-                        <ul class="pb-2 border-b flex mb-3 space-x-1">
+                    <div v-if="projectDetail" class="p-3 bg-white dark:bg-gray-600">
+                        <ul class="pb-2 border-b flex mb-3 space-x-1 dark:border-gray-700">
                             <li
                                 v-on:click="toggleTabs(1)"
                                 class="bg-green-100 text-green-800 text-md px-2 sm:text-xs xs:text-xs rounded-xl"
@@ -303,7 +303,7 @@
                             }"
                         >
                             <h3
-                                class="mb-4 text-lg font-semibold text-gray-900"
+                                class="mb-4 text-lg font-semibold text-gray-900 dark:text-white"
                             >
                                 Proje Hakkında
                             </h3>
@@ -318,7 +318,7 @@
                             }"
                         >
                             <h3
-                                class="mb-4 text-lg font-semibold text-gray-900"
+                                class="mb-4 text-lg font-semibold text-gray-900 dark:text-white"
                             >
                                 Notlar
                             </h3>
@@ -361,7 +361,7 @@
                             }"
                         >
                             <h3
-                                class="mb-4 text-lg font-semibold text-gray-900"
+                                class="mb-4 text-lg font-semibold text-gray-900 dark:text-white"
                             >
                                 Yazışmalar
                             </h3>
@@ -380,7 +380,7 @@
                             }"
                         >
                             <h3
-                                class="mb-4 text-lg font-semibold text-gray-900"
+                                class="mb-4 text-lg font-semibold text-gray-900 dark:text-white"
                             >
                                 İş Aşamaları
                             </h3>

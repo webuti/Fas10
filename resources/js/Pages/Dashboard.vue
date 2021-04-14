@@ -1,7 +1,7 @@
 <template>
     <app-layout>
         <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            <h2 class="font-semibold text-xl text-gray-800 dark:text-white leading-tight">
                 Dashboard
             </h2>
         </template>
@@ -17,7 +17,7 @@
       <div class="h-full border rounded shadow">
         <div class="flex items-center justify-between py-3 px-4 border-b">
           <h3 class="text-lg font-semibold font-heading">Income</h3>
-          <span class="py-1 px-3 text-sm text-white font-semibold bg-green-500 rounded-full">Monthly</span>
+          <span class="py-1 px-3 text-sm text-white font-semibold bg-green-50 dark:bg-gray-700 rounded-full">Monthly</span>
         </div>
         <div class="flex flex-col p-4">
           <h3 class="text-3xl mb-3 font-semibold font-heading font-semibold">108,200</h3>
@@ -30,7 +30,7 @@
       <div class="h-full border rounded shadow">
         <div class="flex items-center justify-between px-4 py-3 border-b">
           <h3 class="text-lg font-semibold font-heading">Orders</h3>
-          <span class="py-1 px-3 text-sm text-white font-semibold bg-green-500 rounded-full">Monthly</span>
+          <span class="py-1 px-3 text-sm text-white font-semibold bg-green-50 dark:bg-gray-700 rounded-full">Monthly</span>
         </div>
         <div class="flex flex-col p-4">
           <h3 class="text-3xl mb-3 font-semibold font-heading font-semibold">128,430</h3>
@@ -43,7 +43,7 @@
       <div class="h-full border rounded shadow">
         <div class="flex items-center justify-between px-4 py-3 border-b">
           <h3 class="text-lg font-semibold font-heading">Visits</h3>
-          <span class="py-1 px-3 text-sm text-white font-semibold bg-green-500 rounded-full">Monthly</span>
+          <span class="py-1 px-3 text-sm text-white font-semibold bg-green-50 dark:bg-gray-700 rounded-full">Monthly</span>
         </div>
         <div class="flex flex-col p-4">
           <h3 class="text-3xl mb-3 font-semibold font-heading font-semibold">81,248</h3>

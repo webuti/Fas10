@@ -3,18 +3,18 @@
         <form @submit.prevent="createTasks">
             <input
                 type="text"
-                class="border-gray-300 focus:border-green-300 focus:ring focus:ring-green-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full"
+                class="border-gray-300 focus:border-green-300 focus:ring focus:ring-green-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full dark:bg-gray-800 dark:text-white dark:border-gray-400 dark:bg-gray-800 dark:text-white dark:border-gray-400"
                 placeholder="İş açıklama"
                 v-model="form.body"
             />
         </form>
         <ul
             v-if="tasks.data"
-            class="tasks mt-2 border rounded-md border-gray-300"
+            class="tasks mt-2 border rounded-md border-gray-300 dark:border-gray-500"
         >
             <li
                 v-for="task in tasks.data"
-                class="px-2 py-2 border-b  cursor-pointer text-gray-600 hover:bg-gray-50 text-sm flex items-center"
+                class="px-2 py-2 border-b  cursor-pointer text-gray-600 border-gray-200 dark:text-gray-300 hover:bg-gray-50 dark:bg-gray-700 text-sm  dark:border-gray-500 flex items-center"
                 @click="statusChange(task)"
             >
                 <template v-if="task.status_id === 1">

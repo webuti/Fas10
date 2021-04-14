@@ -1,7 +1,7 @@
 <template>
     <app-layout>
         <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            <h2 class="font-semibold text-xl text-gray-800 dark:text-white leading-tight">
                 Yeni İlan
             </h2>
         </template>
@@ -38,7 +38,7 @@
 
                             <select
                                 class="border-gray-300 focus:border-green-300 focus:ring
-                                 focus:ring-green-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full"
+                                 focus:ring-green-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full dark:bg-gray-800 dark:text-white dark:border-gray-400"
                                 v-model="form.sector_id">
                                 <option :value="sector.id" v-for="sector in sectors">{{sector.name}}</option>
                             </select>
@@ -49,7 +49,7 @@
                             <jet-label for="category_id" value="Kategori"/>
 
                             <select
-                                class="border-gray-300 focus:border-green-300 focus:ring focus:ring-green-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full"
+                                class="border-gray-300 focus:border-green-300 focus:ring focus:ring-green-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full dark:bg-gray-800 dark:text-white dark:border-gray-400 dark:bg-gray-800 dark:text-white dark:border-gray-400"
                                 v-model="form.category_id">
                                 <option :value="cat.id" v-for="cat in categories">{{cat.name}}</option>
                             </select>
@@ -66,7 +66,7 @@
                             <jet-label for="country_id" value="Ülke"/>
 
                             <select
-                                class="border-gray-300 focus:border-green-300 focus:ring focus:ring-green-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full"
+                                class="border-gray-300 focus:border-green-300 focus:ring focus:ring-green-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full dark:bg-gray-800 dark:text-white dark:border-gray-400 dark:bg-gray-800 dark:text-white dark:border-gray-400"
                                 v-model="form.country_id">
                                 <option :value="country.id" v-for="country in countries">{{country.name}}</option>
                             </select>
@@ -81,7 +81,7 @@
 
                                 <select
                                     @change="districtLoad()"
-                                    class="border-gray-300 focus:border-green-300 focus:ring focus:ring-green-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full"
+                                    class="border-gray-300 focus:border-green-300 focus:ring focus:ring-green-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full dark:bg-gray-800 dark:text-white dark:border-gray-400 dark:bg-gray-800 dark:text-white dark:border-gray-400"
                                     v-model="form.city_id">
                                     <option :value="city.id" v-for="city in cities">{{city.name}}</option>
                                 </select>
@@ -91,7 +91,7 @@
                             <div class="col-span-6 sm:col-span-4">
                                 <jet-label for="district_id" value="İlçe"/>
                                 <select
-                                    class="border-gray-300 focus:border-green-300 focus:ring focus:ring-green-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full"
+                                    class="border-gray-300 focus:border-green-300 focus:ring focus:ring-green-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full dark:bg-gray-800 dark:text-white dark:border-gray-400 dark:bg-gray-800 dark:text-white dark:border-gray-400"
                                     v-model="form.district_id">
                                     <option :value="district.id" v-for="district in districts">{{district.ilce}}
                                     </option>

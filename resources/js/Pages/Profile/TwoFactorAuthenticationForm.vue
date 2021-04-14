@@ -9,15 +9,15 @@
         </template>
 
         <template #content>
-            <h3 class="text-lg font-medium text-gray-900" v-if="twoFactorEnabled">
+            <h3 class="text-lg font-medium text-gray-900 dark:text-white" v-if="twoFactorEnabled">
                 İki faktörlü kimlik doğrulamayı etkinleştirdiniz.
             </h3>
 
-            <h3 class="text-lg font-medium text-gray-900" v-else>
+            <h3 class="text-lg font-medium text-gray-900 dark:text-white" v-else>
                 İki faktörlü kimlik doğrulamayı etkinleştirmediniz.
             </h3>
 
-            <div class="mt-3 max-w-xl text-sm text-gray-600">
+            <div class="mt-3 max-w-xl text-sm text-gray-600  dark:text-gray-300">
                 <p>
                     İki faktörlü kimlik doğrulama etkinleştirildiğinde, işlem sırasında güvenli, rastgele bir belirteç girmeniz istenir.
                     kimlik doğrulama. Bu kodu telefonunuzun Google Authenticator uygulamasından alabilirsiniz.
@@ -26,19 +26,19 @@
 
             <div v-if="twoFactorEnabled">
                 <div v-if="qrCode">
-                    <div class="mt-4 max-w-xl text-sm text-gray-600">
+                    <div class="mt-4 max-w-xl text-sm text-gray-600  dark:text-gray-300">
                         <p class="font-semibold">
                             İki faktörlü kimlik doğrulama artık etkinleştirilmiştir. Telefonunuzun kodunu kullanarak aşağıdaki QR kodunu tarayın.
                             kimlik doğrulayıcı uygulaması.
                         </p>
                     </div>
 
-                    <div class="mt-4 dark:p-4 dark:w-56 dark:bg-white" v-html="qrCode">
+                    <div class="mt-4 dark:p-4 dark:w-56 dark:bg-white dark:bg-gray-600" v-html="qrCode">
                     </div>
                 </div>
 
                 <div v-if="recoveryCodes.length > 0">
-                    <div class="mt-4 max-w-xl text-sm text-gray-600">
+                    <div class="mt-4 max-w-xl text-sm text-gray-600  dark:text-gray-300">
                         <p class="font-semibold">
                             Bu kurtarma kodlarını güvenli bir şifre yöneticisinde saklayın. İki faktörlü kimlik doğrulama cihazınız kaybolursa hesabınıza erişimi kurtarmak için ihtiyacınız olacak
                             .

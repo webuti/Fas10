@@ -7,7 +7,7 @@
 
             <span v-for="(status,date) in dates" class="w-2 h-2 border border-green-300    "
                   :title="date +' gün sonra '+(status === availableStatusCode ? 'dolu' : 'müsait')+' olduğunu gösteriyor'"
-                  :class="{'bg-green-200':status === 1,'bg-white':status ===availableStatusCode}"></span>
+                  :class="{'bg-green-200':status === 1,'bg-white dark:bg-gray-600':status ===availableStatusCode}"></span>
             </div>
             <div class="text-sm text-gray-400">En erken {{firstAvailable}} gün sonra müsait</div>
 

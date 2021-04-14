@@ -9,7 +9,7 @@
         <div class="flex flex-row">
             <div
                 :class="{ hidden: !mobileMenuShow }"
-                class="flex flex-col w-64 pr-4 z-20 bg-white md:block lg:block xl:block absolute xs:absolute sm:absolute md:static lg:static"
+                class="flex flex-col w-64 pr-4 z-20 md:block lg:block xl:block absolute xs:absolute sm:absolute md:static lg:static"
             >
                 <template v-if="sector">
                     <div class="flex justify-between">
@@ -44,7 +44,10 @@
                     <h2 class="text-green-400 font-bold mb-2">Sektörler</h2>
 
                     <ul>
-                        <li class="text-md" v-for="sector in sectors">
+                        <li
+                            class="text-md dark:text-gray-100"
+                            v-for="sector in sectors"
+                        >
                             <inertia-link
                                 :href="route('companyCatalog', sector.seo_url)"
                                 >{{ sector.name }}
@@ -72,7 +75,7 @@
                                     fill="none"
                                     viewBox="0 0 24 24"
                                     stroke="currentColor"
-                                    class="h-4 w-4 text-gray-500"
+                                    class="h-4 w-4 text-gray-500 dark:text-gray-50"
                                 >
                                     <path
                                         stroke-linecap="round"
@@ -89,7 +92,7 @@
                                     fill="none"
                                     viewBox="0 0 24 24"
                                     stroke="currentColor"
-                                    class="h-4 w-4 text-gray-500"
+                                    class="h-4 w-4 text-gray-500 dark:text-gray-50"
                                 >
                                     <path
                                         stroke-linecap="round"
@@ -103,13 +106,15 @@
                                 @click="mobileMenuShow = !mobileMenuShow"
                                 class="p-2 lg:hidden md:hidden sm:block xs:block"
                             >
-                                <div class="flex text-xs text-gray-500">
+                                <div
+                                    class="flex text-xs text-gray-500 dark:text-gray-50"
+                                >
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
                                         fill="none"
                                         viewBox="0 0 24 24"
                                         stroke="currentColor"
-                                        class="h-4 w-4 text-gray-500"
+                                        class="h-4 w-4 text-gray-500 dark:text-gray-50"
                                     >
                                         <path
                                             stroke-linecap="round"
@@ -140,7 +145,7 @@
                 </div>
                 <template v-else>
                     <div
-                        class="w-full px-6 py-3 rounded-sm border"
+                        class="w-full px-6 py-3 rounded-sm border dark:border-gray-500"
                         role="alert"
                     >
                         <div class="flex flex-col items-center">
@@ -158,7 +163,7 @@
                                     d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
                                 ></path>
                             </svg>
-                            <label
+                            <label class="text-gray-400 dark:text-gray-100"
                                 >Bu kategoriye eklenmiş ilan bulunamadı</label
                             >
                         </div>
@@ -179,8 +184,10 @@
                         <inertia-link
                             v-else
                             :key="bkey"
-                            class="mr-1 mb-1 px-4 py-3 text-sm leading-4 border rounded hover:bg-white focus:border-indigo-500 focus:text-indigo-500"
-                            :class="{ 'bg-white': link.active }"
+                            class="mr-1 mb-1 px-4 py-3 text-sm leading-4 border rounded hover:bg-white dark:bg-gray-600 focus:border-indigo-500 focus:text-indigo-500"
+                            :class="{
+                                'bg-white dark:bg-gray-600': link.active,
+                            }"
                             :href="link.url"
                             ><span v-html="link.label"></span>
                         </inertia-link>

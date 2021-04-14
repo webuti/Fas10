@@ -37,9 +37,9 @@
 
                         <div class="ml-2">
                             Sözleşmeleri kabul ediyorum <a target="_blank" :href="route('terms.show')"
-                                                           class="underline text-sm text-gray-600 hover:text-gray-900">Kullanım
+                                                           class="underline text-sm text-gray-600  dark:text-gray-300 hover:text-gray-900 dark:text-white">Kullanım
                             sözleşmesi</a> ve <a target="_blank" :href="route('policy.show')"
-                                                 class="underline text-sm text-gray-600 hover:text-gray-900">Gizlilik
+                                                 class="underline text-sm text-gray-600  dark:text-gray-300 hover:text-gray-900 dark:text-white">Gizlilik
                             sözleşmesi</a>
                         </div>
                     </div>
@@ -47,7 +47,7 @@
             </div>
 
             <div class="flex items-center justify-end mt-4">
-                <inertia-link :href="route('login')" class="underline text-sm text-gray-600 hover:text-gray-900">
+                <inertia-link :href="route('login')" class="underline text-sm text-gray-600  dark:text-gray-300 hover:text-gray-900 dark:text-white">
                     Üyeliğiniz varsa buraya tıklayın
                 </inertia-link>
 

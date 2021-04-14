@@ -2,12 +2,12 @@
 
     <app-layout>
         <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight flex flex-row justify-between">
+            <h2 class="font-semibold text-xl text-gray-800 dark:text-white leading-tight flex flex-row justify-between">
                 <span> {{team.name}}, müsait olan tarihleri</span>
 
 
                 <span> <inertia-link :href="route('availableDay.create')"
-                                     class="button p-2 px-3   rounded-full bg-green-500 text-sm text-white"
+                                     class="button p-2 px-3   rounded-full bg-green-50 dark:bg-gray-700 text-sm text-white"
                                      v-if="$page.props.user.current_team.id == team.id">Ekle
                 </inertia-link></span>
 
@@ -21,7 +21,7 @@
             <div v-if="dates.data.length" class="days">
 
                 <ul class="space-y-1 mt-1">
-                    <li class="bg-white border border-gray-300 shadow flex p-3  rounded-md justify-between"
+                    <li class="bg-white dark:bg-gray-600 border border-gray-300 shadow flex p-3  rounded-md justify-between"
                         v-for="item in dates.data">
                         <div class="justify-between items-center  space-x-1 flex">       <span
                             class="border border-green-400  bg-green-200 text-green-600 px-2 font-bold   flex rounded-full text-sm items-center  ">
@@ -34,7 +34,7 @@
             <div v-else>
 
 
-                <div class="bg-white rounded-lg p-3 border border-gray-300 items-center flex text-center">
+                <div class="bg-white dark:bg-gray-600 rounded-lg p-3 border border-gray-300 items-center flex text-center">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-10" fill="none" viewBox="0 0 24 24"
                          stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}

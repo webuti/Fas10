@@ -8,7 +8,7 @@
         <div class="flex flex-row">
 
             <div
-                class="flex flex-col w-64  pr-4  z-20  bg-white md:block lg:block xl:block absolute xs:absolute   sm:absolute md:static lg:static "
+                class="flex flex-col w-64  pr-4  z-20  md:block lg:block xl:block absolute xs:absolute   sm:absolute md:static lg:static "
 
                 :class="{ 'hidden': !mobileMenuShow }"
             >
@@ -27,7 +27,7 @@
 </svg></span>
                     </div>
                     <ul>
-                        <li class="text-md" v-for="cat in categories">
+                        <li class="text-md dark:text-gray-100" v-for="cat in categories">
 
                             <a href="#" @click="urlBuilder(cat.seo_url,sector)">{{cat.name}}</a>
 
@@ -41,18 +41,18 @@
                     </ul>
                     <h2 class="text-green-400 font-bold mt-2 mb-2">Filtreler</h2>
                     <div class="flex flex-col">
-                        <label class="text-gray-600  my-2">Ülke</label>
+                        <label class="text-gray-600  dark:text-gray-300  my-2">Ülke</label>
                         <select class="rounded-lg border border-gray-300 py-2" v-model="form.country_id">
                             <option v-for="country in countries" :value="country.id">{{country.name}}</option>
                         </select>
                         <template v-if="form.country_id == 1">
-                            <label class="text-gray-600  my-2">Şehir</label>
+                            <label class="text-gray-600  dark:text-gray-300  my-2">Şehir</label>
                             <select class="rounded-lg border border-gray-300 py-2" v-model="form.city_id">
                                 <option v-for="city in cities" :value="city.id">{{city.name}}</option>
                             </select>
                         </template>
-                        <label class="text-gray-600  my-2">Hizmet</label>
-                        <label v-for="service in services" class="text-gray-600">
+                        <label class="text-gray-600  dark:text-gray-300  my-2">Hizmet</label>
+                        <label v-for="service in services" class="text-gray-600  dark:text-gray-300">
                             <input type="checkbox" v-model="form.services" :value="service.id" :id="service.id"
                                    class="rounded border-gray-300  shadow-sm focus:border-green-300
                    focus:ring focus:ring-green-200 focus:ring-opacity-50"/> {{service.name}}
@@ -69,7 +69,7 @@
                     </h2>
 
                     <ul>
-                        <li class="text-md" v-for="sector in sectors">
+                        <li class="text-md dark:text-gray-100" v-for="sector in sectors">
 
 
                             <inertia-link :href="route('bidCatalog',sector.seo_url)">{{sector.name}}</inertia-link>
@@ -94,7 +94,7 @@
                                     fill="none"
                                     viewBox="0 0 24 24"
                                     stroke="currentColor"
-                                    class="h-4 w-4 text-gray-500"
+                                    class="h-4 w-4 text-gray-500 dark:text-gray-50"
                                 >
                                     <path
                                         stroke-linecap="round"
@@ -111,7 +111,7 @@
                                     fill="none"
                                     viewBox="0 0 24 24"
                                     stroke="currentColor"
-                                    class="h-4 w-4 text-gray-500"
+                                    class="h-4 w-4 text-gray-500 dark:text-gray-50"
                                 >
                                     <path
                                         stroke-linecap="round"
@@ -123,9 +123,9 @@
                             </button>
                             <button @click="mobileMenuShow = !mobileMenuShow"
                                     class="p-2   lg:hidden md:hidden  sm:block xs:block">
-                                <div class="flex   text-xs text-gray-500">
+                                <div class="flex   text-xs text-gray-500 dark:text-gray-50">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                         stroke="currentColor" class="h-4 w-4 text-gray-500">
+                                         stroke="currentColor" class="h-4 w-4 text-gray-500 dark:text-gray-50">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                               d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"/>
                                     </svg>
@@ -148,7 +148,7 @@
 </div>
   <template v-else>
 
-                        <div class="w-full px-6 py-3 rounded-sm border  " role="alert">
+                        <div class="w-full px-6 py-3 rounded-sm border dark:border-gray-500  " role="alert">
 
                             <div class="flex flex-col items-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -159,7 +159,7 @@
                                     <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!---->
                                     <!----> <!----> <!----> <!---->
                                 </svg>
-                                <label>Bu kategoriye eklenmiş ilan bulunamadı</label></div>
+                                <label class="text-gray-400 dark:text-gray-100">Bu kategoriye eklenmiş ilan bulunamadı</label></div>
                         </div>
 
 
@@ -175,8 +175,8 @@
                              v-html="link.label"/>
 
                         <inertia-link v-else :key="bkey"
-                                      class="mr-1 mb-1 px-4 py-3 text-sm leading-4 border rounded hover:bg-white focus:border-indigo-500 focus:text-indigo-500"
-                                      :class="{ 'bg-white': link.active }" :href="link.url"
+                                      class="mr-1 mb-1 px-4 py-3 text-sm leading-4 border rounded hover:bg-white dark:bg-gray-600 focus:border-indigo-500 focus:text-indigo-500"
+                                      :class="{ 'bg-white dark:bg-gray-600': link.active }" :href="link.url"
                         ><span v-html="link.label"></span>
                         </inertia-link>
 

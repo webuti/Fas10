@@ -2,7 +2,7 @@
 
     <app-layout>
         <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            <h2 class="font-semibold text-xl text-gray-800 dark:text-white leading-tight">
                 Müsaitlik olan tarihler
             </h2>
         </template>
@@ -23,7 +23,7 @@
 
 
                 <div v-if="dateValue.startDate"
-                     class="bg-green-500 rounded-md shadow  text-white border-gray-300 flex flex-col space-y-3 items-center text-center p-3 mt-10">
+                     class="bg-green-50 dark:bg-gray-700 rounded-md shadow  text-white border-gray-300 flex flex-col space-y-3 items-center text-center p-3 mt-10">
                     <div>{{dateValue.startDate}} ve {{dateValue.endDate}} arasında müsait olduğunuzu belirttiniz
                         onaylıyormusunuz ?
                     </div>
@@ -50,7 +50,7 @@
                 <div class="days">
 
                     <ul class="space-y-1 mt-1">
-                        <li class="bg-white border border-gray-300 shadow flex p-3  rounded-md justify-between"
+                        <li class="bg-white dark:bg-gray-600 border border-gray-300 shadow flex p-3  rounded-md justify-between"
                             v-for="item in dates.data">
                             <div class="justify-between items-center  space-x-1 flex">       <span
                                 class="border border-green-400  bg-green-200 text-green-600 px-2 font-bold   flex rounded-full text-sm items-center  ">

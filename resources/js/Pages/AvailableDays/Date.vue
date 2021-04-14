@@ -8,9 +8,9 @@
                 <div class="flex-1">
                     <button
                         type="button"
-                        class="block w-full bg-gray-50 text-gray-400 hover:text-gray-900 leading-6 py-3 sm:px-6 border border-gray-200 rounded-xl flex items-center justify-center space-x-2 sm:space-x-4 focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-gray-300 focus:outline-none transition ease-out duration-300"
+                        class="block w-full bg-gray-50 dark:bg-gray-700 text-gray-400 hover:text-gray-900 dark:text-white leading-6 py-3 sm:px-6 border border-gray-200 dark:border-gray-600 rounded-xl flex items-center justify-center space-x-2 sm:space-x-4 focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-gray-300 focus:outline-none transition ease-out duration-300"
                     >
-            <span class="text-gray-900">
+            <span class="text-gray-900 dark:text-white">
               {{ value || placeholder }}
             </span>
                     </button>

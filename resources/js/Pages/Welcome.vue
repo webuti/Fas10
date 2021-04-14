@@ -6,12 +6,12 @@
 
             <div class="sm:text-center items-center lg:text-center  ">
 
-                <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-3xl md:text-4xl  lg:text-5xl">
+                <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white sm:text-3xl md:text-4xl  lg:text-5xl">
                     <span class="block xl:inline   ">Fason'a fayda odaklı </span> <span
                     class="block   xl:inline bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-green-400 inline-block">teknoloji</span>
                 </h1>
 
-                <p class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg  md:mt-5 md:text-xl ">
+                <p class="mt-3 text-base text-gray-500 dark:text-gray-50 sm:mt-5 sm:text-lg  md:mt-5 md:text-xl ">
                     Fas10 işler için, fason çalışan şirket kataloğu, iş takip yönetimi
                 </p>
                 <div class="mt-5 sm:mt-8 flex space-x-2 items-center justify-center">
@@ -31,16 +31,16 @@
             </div>
 
             <!-- This example requires Tailwind CSS v2.0+ -->
-            <div class="py-12 bg-white">
+            <div class="py-12  ">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="lg:text-center">
                         <h2 class="text-base text-green-600 font-semibold tracking-wide uppercase">Boş yok</h2>
-                        <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                        <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
                             Fas10'da iş çok
                         </p>
-                        <small class="text-sm border border-gray-300 rounded-full px-2   text-gray-500">olması için
+                        <small class="text-sm border border-gray-300 rounded-full px-2   text-gray-500 dark:text-gray-50">olması için
                             çalışıyoruz 👍🏻 </small>
-                        <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+                        <p class="mt-4 max-w-2xl text-xl text-gray-500 dark:text-gray-50 lg:mx-auto">
                             Makineler çalışsın, faturalar kesilsin
                         </p>
                     </div>
@@ -50,7 +50,7 @@
                             <div class="flex">
                                 <div class="flex-shrink-0">
                                     <div
-                                        class="flex items-center justify-center h-12 w-12 rounded-md bg-green-500 text-white">
+                                        class="flex items-center justify-center h-12 w-12 rounded-md bg-green-500 dark:bg-gray-700 text-white">
                                         <!-- Heroicon name: outline/globe-alt -->
                                         <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
                                              viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -60,10 +60,10 @@
                                     </div>
                                 </div>
                                 <div class="ml-4">
-                                    <dt class="text-lg leading-6 font-medium text-gray-900">
+                                    <dt class="text-lg leading-6 font-medium text-gray-900 dark:text-white">
                                         Yeni İş Ortakları bulur
                                     </dt>
-                                    <dd class="mt-2 text-base text-gray-500">
+                                    <dd class="mt-2 text-base text-gray-500 dark:text-gray-50">
                                         Daha önce çalışmadığınız firma hakkında yorumlarını okuyabilir, katalogdan
                                         seçip kolayca iletişime geçebilirsiniz.
                                     </dd>
@@ -73,7 +73,7 @@
                             <div class="flex">
                                 <div class="flex-shrink-0">
                                     <div
-                                        class="flex items-center justify-center h-12 w-12 rounded-md bg-green-500 text-white">
+                                        class="flex items-center justify-center h-12 w-12 rounded-md bg-green-500 dark:bg-gray-700 text-white">
                                         <!-- Heroicon name: outline/scale -->
                                         <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
                                              viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -83,10 +83,10 @@
                                     </div>
                                 </div>
                                 <div class="ml-4">
-                                    <dt class="text-lg leading-6 font-medium text-gray-900">
+                                    <dt class="text-lg leading-6 font-medium text-gray-900 dark:text-white">
                                         İlk 500 Firmaya ücretsiz
                                     </dt>
-                                    <dd class="mt-2 text-base text-gray-500">
+                                    <dd class="mt-2 text-base text-gray-500 dark:text-gray-50">
                                         İlk 500 firma içinde değilseniz üzülmeyin aşırı pahalı değil sadece aylık 15 tl
                                     </dd>
                                 </div>
@@ -95,7 +95,7 @@
                             <div class="flex">
                                 <div class="flex-shrink-0">
                                     <div
-                                        class="flex items-center justify-center h-12 w-12 rounded-md bg-green-500 text-white">
+                                        class="flex items-center justify-center h-12 w-12 rounded-md bg-green-500 dark:bg-gray-700 text-white">
                                         <!-- Heroicon name: outline/lightning-bolt -->
                                         <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
                                              viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -105,10 +105,10 @@
                                     </div>
                                 </div>
                                 <div class="ml-4">
-                                    <dt class="text-lg leading-6 font-medium text-gray-900">
+                                    <dt class="text-lg leading-6 font-medium text-gray-900 dark:text-white">
                                         İş takibini kolaylaştırır.
                                     </dt>
-                                    <dd class="mt-2 text-base text-gray-500">
+                                    <dd class="mt-2 text-base text-gray-500 dark:text-gray-50">
                                         İş takip ekranı sayesinde kimde hangi işiniz var ne kadar süredir orada ne zaman
                                         teslim edeceği notlar süreçler herşey Fas10'da
                                     </dd>
@@ -118,7 +118,7 @@
                             <div class="flex">
                                 <div class="flex-shrink-0">
                                     <div
-                                        class="flex items-center justify-center h-12 w-12 rounded-md bg-green-500 text-white">
+                                        class="flex items-center justify-center h-12 w-12 rounded-md bg-green-500 dark:bg-gray-700 text-white">
                                         <!-- Heroicon name: outline/annotation -->
                                         <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
                                              viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -128,10 +128,10 @@
                                     </div>
                                 </div>
                                 <div class="ml-4">
-                                    <dt class="text-lg leading-6 font-medium text-gray-900">
+                                    <dt class="text-lg leading-6 font-medium text-gray-900 dark:text-white">
                                         Hızlı işler
                                     </dt>
-                                    <dd class="mt-2 text-base text-gray-500">
+                                    <dd class="mt-2 text-base text-gray-500 dark:text-gray-50">
                                         Bunun garantisinin veremesekte işleri biraz hızlandıracağımızı biliyoruz
                                     </dd>
                                 </div>

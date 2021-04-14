@@ -3,9 +3,9 @@
         <div class="overflow-hidden shadow-lg rounded-lg  h-100 w-60 md:w-80 min-h-100 border hover:border-green-400 hover:shadow-xl cursor-pointer m-auto">
             <inertia-link :href="route('companyDetail',company.id)" class="w-full block h-full">
 
-                <div class="bg-white dark:bg-gray-800 w-full p-4">
+                <div class="bg-white dark:bg-gray-600 dark:bg-gray-800  dark:bg-gray-600 w-full p-4">
 
-                    <p class="text-gray-800 dark:text-white text-xl font-medium mb-2">
+                    <p class="text-gray-800 dark:text-white dark:text-white text-xl font-medium mb-2">
                         <template v-if="company.name">{{company.name}}</template>
                     </p>
                     <p class="text-gray-400 dark:text-gray-300 font-light text-md">
@@ -13,7 +13,7 @@
                         <template v-if="company.description">{{company.description}}</template>
                     </p>
                     <div class="flex  space-x-10 flex-row">
-                        <div class="mt-2 flex  space-x-2  flex-row items-center text-sm text-gray-500">
+                        <div class="mt-2 flex  space-x-2  flex-row items-center text-sm text-gray-500 dark:text-gray-50">
                             <div>
                                 <svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" fill="none"
                                      viewBox="0 0 24 24"
@@ -29,7 +29,7 @@
 
                             </div>
                         </div>
-                        <div class="mt-2  space-x-2 flex flex-row items-center text-sm text-gray-500">
+                        <div class="mt-2  space-x-2 flex flex-row items-center text-sm text-gray-500 dark:text-gray-50">
                             <div>
                                 <svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" fill="none"
                                      viewBox="0 0 24 24"

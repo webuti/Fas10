@@ -4,36 +4,36 @@
             <div class="sm:col-span-2">
                 <logo/>
                 <div class="mt-6 lg:max-w-sm">
-                    <p class="text-sm text-gray-800">
+                    <p class="text-sm text-gray-800 dark:text-white">
                         Teknolojiyi fayda odaklı kullanmak üzere özenle oluşturulmuştur.
                     </p>
 
                 </div>
             </div>
             <div class="space-y-2 text-sm">
-                <p class="text-base font-bold tracking-wide text-gray-900">İletişim</p>
+                <p class="text-base font-bold tracking-wide text-gray-900 dark:text-white">İletişim</p>
                 <div class="flex">
-                    <p class="mr-1 text-gray-800">Telefon:</p>
+                    <p class="mr-1 text-gray-800 dark:text-white">Telefon:</p>
                     <a href="tel:850-123-5021" aria-label="Telefon" title="Telefon"
                        class="transition-colors duration-300 text-green-400 hover:text-deep-purple-800">888-555-0087</a>
                 </div>
                 <div class="flex">
-                    <p class="mr-1 text-gray-800">Eposta:</p>
+                    <p class="mr-1 text-gray-800 dark:text-white">Eposta:</p>
                     <a href="mailto:info@fas10.net" aria-label="E-Posta" title="E-Posta"
                        class="transition-colors duration-300 text-green-400 hover:text-deep-purple-800">info@fas10.net</a>
                 </div>
             </div>
             <div>
-                <span class="text-base font-bold tracking-wide text-gray-900">Sosyal Medya</span>
+                <span class="text-base font-bold tracking-wide text-gray-900 dark:text-white">Sosyal Medya</span>
                 <div class="flex items-center mt-1 space-x-3">
-                    <a href="/" class="text-gray-500 transition-colors duration-300 hover:text-green-400">
+                    <a href="/" class="text-gray-500 dark:text-gray-50 transition-colors duration-300 hover:text-green-400">
                         <svg viewBox="0 0 24 24" fill="currentColor" class="h-5">
                             <path
                                 d="M24,4.6c-0.9,0.4-1.8,0.7-2.8,0.8c1-0.6,1.8-1.6,2.2-2.7c-1,0.6-2,1-3.1,1.2c-0.9-1-2.2-1.6-3.6-1.6 c-2.7,0-4.9,2.2-4.9,4.9c0,0.4,0,0.8,0.1,1.1C7.7,8.1,4.1,6.1,1.7,3.1C1.2,3.9,1,4.7,1,5.6c0,1.7,0.9,3.2,2.2,4.1 C2.4,9.7,1.6,9.5,1,9.1c0,0,0,0,0,0.1c0,2.4,1.7,4.4,3.9,4.8c-0.4,0.1-0.8,0.2-1.3,0.2c-0.3,0-0.6,0-0.9-0.1c0.6,2,2.4,3.4,4.6,3.4 c-1.7,1.3-3.8,2.1-6.1,2.1c-0.4,0-0.8,0-1.2-0.1c2.2,1.4,4.8,2.2,7.5,2.2c9.1,0,14-7.5,14-14c0-0.2,0-0.4,0-0.6 C22.5,6.4,23.3,5.5,24,4.6z"
                             ></path>
                         </svg>
                     </a>
-                    <a href="/" class="text-gray-500 transition-colors duration-300 hover:text-green-400">
+                    <a href="/" class="text-gray-500 dark:text-gray-50 transition-colors duration-300 hover:text-green-400">
                         <svg viewBox="0 0 30 30" fill="currentColor" class="h-6">
                             <circle cx="15" cy="15" r="4"></circle>
                             <path
@@ -41,7 +41,7 @@
                             ></path>
                         </svg>
                     </a>
-                    <a href="/" class="text-gray-500 transition-colors duration-300 hover:text-green-400">
+                    <a href="/" class="text-gray-500 dark:text-gray-50 transition-colors duration-300 hover:text-green-400">
                         <svg viewBox="0 0 24 24" fill="currentColor" class="h-5">
                             <path
                                 d="M22,0H2C0.895,0,0,0.895,0,2v20c0,1.105,0.895,2,2,2h11v-9h-3v-4h3V8.413c0-3.1,1.893-4.788,4.659-4.788 c1.325,0,2.463,0.099,2.795,0.143v3.24l-1.918,0.001c-1.504,0-1.795,0.715-1.795,1.763V11h4.44l-1,4h-3.44v9H22c1.105,0,2-0.895,2-2 V2C24,0.895,23.105,0,22,0z"
@@ -52,27 +52,27 @@
 
             </div>
         </div>
-        <div class="flex flex-col-reverse justify-between pt-5 pb-10 border-t lg:flex-row">
-            <p class="text-sm text-gray-600">
+        <div class="flex flex-col-reverse justify-between pt-5 pb-10 border-t dark:border-gray-600 lg:flex-row">
+            <p class="text-sm text-gray-600  dark:text-gray-300">
                 © Copyright 2021 | Tüm hakları saklıdır.
             </p>
             <ul class="flex flex-col mb-3 space-y-2 lg:mb-0 sm:space-y-0 sm:space-x-5 sm:flex-row">
 
                 <li>
                     <a href="/privacy-policy"
-                       class="text-sm text-gray-600 transition-colors duration-300 hover:text-green-400">Gizlilik
+                       class="text-sm text-gray-600  dark:text-gray-300 transition-colors duration-300 hover:text-green-400">Gizlilik
                         polikamız</a>
                 </li>
                 <li>
                     <a href="/terms-of-service"
-                       class="text-sm text-gray-600 transition-colors duration-300 hover:text-green-400">Kullanım
+                       class="text-sm text-gray-600  dark:text-gray-300 transition-colors duration-300 hover:text-green-400">Kullanım
                         şartları</a>
                 </li>
             </ul>
         </div>
 
-        <!-- <section id="bottom-navigation" class="md:hidden block fixed inset-x-0 bottom-0 z-10 bg-white shadow"> // if shown only tablet/mobile-->
-        <section id="bottom-navigation" class="md:hidden  block fixed inset-x-0 bottom-0 z-10 bg-white shadow">
+        <!-- <section id="bottom-navigation" class="md:hidden block fixed inset-x-0 bottom-0 z-10 bg-white dark:bg-gray-600 shadow"> // if shown only tablet/mobile-->
+        <section id="bottom-navigation" class="md:hidden  block fixed inset-x-0 bottom-0 z-10 bg-white dark:bg-gray-600 shadow">
             <div id="tabs" class="flex justify-between">
                 <inertia-link href="/"
                               class="w-full focus:text-green-500 hover:text-green-500 justify-center inline-block text-center pt-2 pb-1">

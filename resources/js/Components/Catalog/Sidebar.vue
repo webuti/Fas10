@@ -4,18 +4,18 @@
     <form @submit.prevent="submit()">
 
         <div class="flex flex-col">
-            <label class="text-gray-600  my-2">Ülke</label>
+            <label class="text-gray-600  dark:text-gray-300  my-2">Ülke</label>
             <select class="rounded-lg border border-gray-300 py-2" v-model="form.country_id">
                 <option v-for="country in countries" :value="country.id">{{country.name}}</option>
             </select>
             <template v-if="form.country_id == 1">
-                <label class="text-gray-600  my-2">Şehir</label>
+                <label class="text-gray-600  dark:text-gray-300  my-2">Şehir</label>
                 <select class="rounded-lg border border-gray-300 py-2" v-model="form.city_id">
                     <option v-for="city in cities" :value="city.id">{{city.name}}</option>
                 </select>
             </template>
-            <label class="text-gray-600  my-2">Hizmet</label>
-            <label v-for="service in services" class="text-gray-600">
+            <label class="text-gray-600  dark:text-gray-300  my-2">Hizmet</label>
+            <label v-for="service in services" class="text-gray-600  dark:text-gray-300">
                 <input type="checkbox" v-model="form.services" :value="service.id" :id="service.id"
                        class="rounded border-gray-300  shadow-sm focus:border-green-300
                    focus:ring focus:ring-green-200 focus:ring-opacity-50"/> {{service.name}}

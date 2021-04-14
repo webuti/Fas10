@@ -25,7 +25,7 @@
         </svg>
 
         <div
-            class="ml-2 text-xl font-bold tracking-wide text-gray-800 leading-4 flex flex-col uppercase"
+            class="ml-2 text-xl font-bold tracking-wide text-gray-800 dark:text-white leading-4 flex flex-col uppercase"
         >FAS10
             <small class="rounded-full bg-green-100 text-center text-xs text-green-400">BETA</small></div
         >

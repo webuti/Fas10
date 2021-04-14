@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-white text-gray-800 px-3 py-4 flex items-center border-b justify-between">
+    <div class="bg-white dark:bg-gray-600 text-gray-800 dark:text-white px-3 py-4 flex items-center border-b justify-between">
         <h2 class="font-bold "> {{team.name}}</h2>
         <div class="buttons flex space-x-1">
 

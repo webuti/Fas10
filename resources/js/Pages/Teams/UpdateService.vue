@@ -14,7 +14,7 @@
 
             <template #form>
                 <div class="col-span-6">
-                    <div class="max-w-xl text-sm text-gray-600">
+                    <div class="max-w-xl text-sm text-gray-600  dark:text-gray-300">
 
                         <div class="col-span-6 sm:col-span-4">
 
@@ -25,7 +25,7 @@
 
                                         <jet-checkbox name="services[]" v-model:checked="form.services"
                                                       :value="service.id"/>
-                                        <span class="ml-2 text-sm text-gray-600">{{ service.name}}</span>
+                                        <span class="ml-2 text-sm text-gray-600  dark:text-gray-300">{{ service.name}}</span>
                                     </label>
                                 </div>
                             </div>

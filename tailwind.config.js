@@ -10,7 +10,7 @@ module.exports = {
         './resources/js/**/*.vue',
         path.resolve(__dirname, './node_modules/litepie-datepicker/**/*.js')
     ],
-
+    darkMode: 'class',
     theme: {
         screens: {
             'xs': '360px',

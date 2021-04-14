@@ -5,7 +5,7 @@
 
             <textarea
                 placeholder="Notunuz"
-                class="border-gray-300 focus:border-green-300 mb-5 focus:ring focus:ring-green-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full"
+                class="border-gray-300 focus:border-green-300 mb-5 focus:ring focus:ring-green-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full dark:bg-gray-800 dark:text-white dark:border-gray-400"
                 v-model="form.body"></textarea>
 
             <jet-action-message :on="form.recentlySuccessful" class="mr-3">
