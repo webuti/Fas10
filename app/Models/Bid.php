@@ -22,6 +22,7 @@ class Bid extends Model
         'status_id',
         'price',
         'fields',
+        'offer_type',
         'currency_id'
     ];
 

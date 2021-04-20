@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\BidOffer;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
+
 class BidOfferController extends Controller
 {
     /**
@@ -35,7 +38,17 @@ class BidOfferController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'price' => ['required', 'min:3'],
+            'bid_id' => ['required'],
+        ]);
+
+
+        $input = $request->all();
+        $input['team_id'] = Auth::user()->current_team_id;
+        if (BidOffer::create($input)) {
+            return Redirect::route('bidDetail', $request->input('bid_id'));
+        }
     }
 
     /**
@@ -46,7 +59,7 @@ class BidOfferController extends Controller
      */
     public function show(BidOffer $bidOffer)
     {
-        //
+
     }
 
     /**

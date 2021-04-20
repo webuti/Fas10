@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class BidOffer extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['price', 'body', 'bid_id','team_id'];
 }

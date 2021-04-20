@@ -1,13 +1,11 @@
 <template>
-    <MainLayoutFull :title="company.name">
+    <MainLayoutFull   :title="company.name">
 
 
-        <div class="company-title  py-5  pb-10 py-2"
-             style="background:url(https://images.pexels.com/photos/4451511/pexels-photo-4451511.jpeg) 0px -2024px no-repeat;">
-
+        <div class="company-title  py-5  pb-10 py-2 bg-gray-50 dark:bg-gray-900">
             <div class="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 ">
                 <div class="flex items-center flex-col sm:flex-row  justify-between">
-                    <h2 class="text-4xl text-white mb-2 font-semibold font-heading">{{company.name}}</h2>
+                    <h2 class="text-4xl text-gray-800 dark:text-white mb-2 font-semibold font-heading">{{company.name}}</h2>
                     <div class="buttons">
                         <inertia-link method="post"
                                       as="button"
@@ -130,7 +128,7 @@
                                                     <div
                                                         class="flex-1 border rounded-lg px-4 py-2 sm:px-6 sm:py-4 leading-relaxed">
                                                         <strong>{{comment.user.name}}</strong> <span
-                                                        class=" text-gray-400">{{comment.created_at }}</span>
+                                                        class=" text-gray-400 text-xs">{{comment.created_at }}</span>
                                                         <p class="text-sm">
                                                             {{comment.body }}
                                                         </p>

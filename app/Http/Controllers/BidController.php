@@ -43,7 +43,6 @@ class BidController extends Controller
             if ($category !== "0") {
                 $bids->category($category);
                 $categoryInfo = BidCategory::where('seo_url', $category)->first();
-
             } else {
                 $categoryInfo = ['name' => 'İlanlar'];
             }
@@ -71,7 +70,6 @@ class BidController extends Controller
             if ($category !== "0") {
                 $bids->category($category);
                 $categoryInfo = BidCategory::where('seo_url', $category)->first();
-
             } else {
                 $categoryInfo = ['name' => 'İlanlar'];
             }
@@ -92,7 +90,6 @@ class BidController extends Controller
                 'categories' => $categories
             ]);
         }
-
     }
 
     public function catalogDetail($id)
@@ -109,12 +106,16 @@ class BidController extends Controller
      */
     public function create()
     {
-        return Inertia::render('Bids/Create',
-            ['sectors' => Sector::get(),
+        return Inertia::render(
+            'Bids/Create',
+            [
+                'sectors' => Sector::get(),
                 'cities' => City::all(),
                 'countries' => Country::all(),
                 'categories' => BidCategory::with(['children'])->get(),
-                'companySector' => Team::currentTeamSectorId()]);
+                'companySector' => Team::currentTeamSectorId()
+            ]
+        );
     }
 
     /**
@@ -137,14 +138,10 @@ class BidController extends Controller
         $input['team_id'] = Auth::user()->current_team_id;
         $input['status_id'] = 1;
         $files = $input['files'];
-
         unset($input['files']);
         unset($input['fields']);
         if ($bid = Bid::create($input)) {
-
             foreach ($files as $photo) {
-
-
                 $destination = "/uploads/bids/" . $bid->id . "/" . $photo;
                 $imageSet = Image::create([
                     'image' => "/storage" . $destination,
@@ -164,8 +161,6 @@ class BidController extends Controller
 
             return Redirect::route('bids.index');
         }
-
-
     }
 
     /**
@@ -176,15 +171,10 @@ class BidController extends Controller
      */
     public function show(Bid $bid, User $user)
     {
-
         if (Auth::user()->id !== $bid->user_id) {
-
             session()->flash('status', 'Bu ilanı düzenleme yetkiniz yok');
             return Redirect::route('bids.index');
-
         }
-
-
         return Inertia::render('Bids/Show', [
             'bid' => $bid,
             'sectors' => Sector::get(),
@@ -195,8 +185,6 @@ class BidController extends Controller
             'categories' => BidCategory::with(['children'])->get(),
 
         ]);
-
-
     }
 
     /**
@@ -221,35 +209,16 @@ class BidController extends Controller
     public function update(Bid $bid, Request $request)
     {
         $input = $request->all();
-
-
         if (Auth::user()->id !== $bid->user_id) {
-
-
             return Redirect::route('bids.index')->with('Bu ilanı düzenleme yetkiniz yok');
-
         }
-
-
-        if ($bid->update([
-            'title' => $input['title'],
-            'description' => $input['description'],
-            'sector_id' => $input['sector_id'],
-            'district_id' => $input['district_id'],
-            'city_id' => $input['city_id'],
-            'country_id' => $input['country_id'],
-            'category_id' => $input['category_id'],
-            'user_id' => Auth::user()->id,
-            'team_id' => Auth::user()->current_team_id,
-
-        ])) {
+        $input['user_id'] = Auth::user()->id;
+        $input['team_id'] =  Auth::user()->current_team_id;
+        if ($bid->update($input)) {
 
             $request->session()->flash('message', 'İlan başarılı olarak güncellendi');
-
-
         }
         return Redirect::route('bids.show', $bid->id);
-
     }
 
     /**

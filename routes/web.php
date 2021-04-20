@@ -25,6 +25,7 @@ Route::prefix('dashboard')->group(function () {
     Route::resource('projectNotes', \App\Http\Controllers\ProjectNoteController::class)->middleware('auth');
     Route::resource('availableDay', \App\Http\Controllers\AvailableDayController::class)->middleware('auth');
     Route::resource('partners', \App\Http\Controllers\PartnerController::class)->middleware('auth');
+    Route::resource('bidOffer', \App\Http\Controllers\BidOfferController::class)->middleware('auth');
     Route::resource('projectTasks', \App\Http\Controllers\ProjectTaskController::class);
 
     Route::post('partners/approve', [\App\Http\Controllers\PartnerController::class, 'approve'])->middleware('auth')->name('partners.approve');
