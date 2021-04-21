@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Bid;
 use App\Models\BidCategory;
+use App\Models\BidOffer;
 use App\Models\City;
 use App\Models\Country;
 use App\Models\Image;
@@ -169,20 +170,19 @@ class BidController extends Controller
      * @param \App\Models\Bid $bid
      * @return \Illuminate\Http\Response
      */
-    public function show(Bid $bid, User $user)
+    public function show(Bid $bid)
     {
         if (Auth::user()->id !== $bid->user_id) {
-            session()->flash('status', 'Bu ilanı düzenleme yetkiniz yok');
+            session()->flash('status', 'Bu ilanı görme yetkiniz yok');
             return Redirect::route('bids.index');
         }
+
+
+
+
         return Inertia::render('Bids/Show', [
             'bid' => $bid,
-            'sectors' => Sector::get(),
-            'images' => Image::where('bid_id', $bid->id)->get()->pluck('image'),
-            'companySector' => Team::currentTeamSectorId(),
-            'cities' => City::all(),
-            'countries' => Country::all(),
-            'categories' => BidCategory::with(['children'])->get(),
+            'offers'=>BidOffer::where('bid_id',$bid->id)->with(['company'])->paginate()
 
         ]);
     }
@@ -193,10 +193,22 @@ class BidController extends Controller
      * @param \App\Models\Bid $bid
      * @return \Illuminate\Http\Response
      */
-    public function edit(Bid $bid, User $user)
+    public function edit(Bid $bid)
     {
+        if (Auth::user()->id !== $bid->user_id) {
+            session()->flash('status', 'Bu ilanı düzenleme yetkiniz yok');
+            return Redirect::route('bids.index');
+        }
+        return Inertia::render('Bids/Edit', [
+            'bid' => $bid,
+            'sectors' => Sector::get(),
+            'images' => Image::where('bid_id', $bid->id)->get()->pluck('image'),
+            'companySector' => Team::currentTeamSectorId(),
+            'cities' => City::all(),
+            'countries' => Country::all(),
+            'categories' => BidCategory::with(['children'])->get(),
 
-        //
+        ]);
     }
 
     /**

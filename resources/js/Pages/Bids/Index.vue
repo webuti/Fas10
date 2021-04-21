@@ -49,6 +49,9 @@
                                     <tbody class="bg-white dark:bg-gray-600 divide-y divide-gray-200 dark:divide-gray-700">
                                     <tr v-for="bid in data.data">
                                         <td class="px-6 py-4 whitespace-nowrap">
+
+                                             <inertia-link class="text-green-600 hover:text-green-900"
+                                                          :href="route('bids.show',bid.id)">
                                             <div class="flex items-center">
                                                 <div class="flex-shrink-0 h-10 w-10">
                                                     <img class="h-10 w-10 rounded-full object-cover"
@@ -64,6 +67,9 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                             </inertia-link>
+
+
                                         </td>
                                         <td class="dark:text-gray-300">
                                             {{bid.team.name}}
@@ -81,7 +87,7 @@
 
                                         <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                             <inertia-link class="text-green-600 hover:text-green-900"
-                                                          :href="route('bids.show',bid.id)">
+                                                          :href="route('bids.edit',bid.id)">
                                                 Düzenle
                                             </inertia-link>
 

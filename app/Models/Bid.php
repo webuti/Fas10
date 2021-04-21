@@ -59,7 +59,10 @@ class Bid extends Model
     {
         return $this->hasMany(Image::class, 'bid_id', 'id');
     }
-
+    public function offers()
+    {
+        return $this->hasMany(BidOffer::class, 'bid_id', 'id');
+    }
     public function scopeOwned($query)
     {
         return $query->where('user_id', Auth::user()->id);

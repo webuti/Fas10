@@ -60,6 +60,8 @@ class BidOfferController extends Controller
     public function show(BidOffer $bidOffer)
     {
 
+
+
     }
 
     /**
