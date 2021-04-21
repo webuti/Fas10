@@ -86,7 +86,7 @@
                     <div
                         class="flex flex-wrap justify-start md:justify-end items-center space-x-0 space-y-2 sm:space-x-2 sm:space-y-0">
                         <div class="divide-x-2 border border-gray-300 shadow-sm rounded-md">
-                            
+
 
                        <button @click="showTypeSet('card')" class="p-2">
                                 <svg
@@ -141,8 +141,8 @@
 
 <div v-if="bids.data.length">
    <div v-if="showType === 'card'"  class="grid grid-cols-1 mt-5  md:grid-cols-1 sm:grid-cols-1 gap-4">
-                    <BidItem  :item="bid" v-for="bid in bids.data"/> 
-                   
+                    <BidItem  :item="bid" v-for="bid in bids.data"/>
+
                 </div>
                  <bid-item-table v-else :items="bids.data" />
 </div>
@@ -155,9 +155,7 @@
                                      class="text-yellow-400  w-16 h-16 mx-2 stroke-current"><!---->
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                           d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
-                                    <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!---->
-                                    <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!----> <!---->
-                                    <!----> <!----> <!----> <!---->
+
                                 </svg>
                                 <label class="text-gray-400 dark:text-gray-100">Bu kategoriye eklenmiş ilan bulunamadı</label></div>
                         </div>
@@ -166,7 +164,7 @@
                     </template>
 
 
-             
+
                 <div class="flex flex-wrap mt-10 -mb-1" v-if="bids.links.length > 3">
                     <template v-for="(link, bkey) in bids.links">
 
@@ -207,7 +205,7 @@ import BidItemTable from '../../Components/Catalog/BidItemTable.vue';
                 BidItemTable
         },
         data() {
-            return { 
+            return {
                 mobileMenuShow: false,
                    showType: "table",
                 form: {
@@ -247,13 +245,13 @@ import BidItemTable from '../../Components/Catalog/BidItemTable.vue';
         },
 
         mounted() {
-            console.log(this.form, "form");
+
         },
         created() {
 
              this.showType = localStorage.getItem("bidCatalog.showType");
 
-           
+
         },
         props: {
             bids: Array,

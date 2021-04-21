@@ -1,6 +1,8 @@
 <template>
     <div>
-        <table class="w-full divide-y divide-gray-200 dark:divide-gray-700">
+        <table
+            class="w-full divide-y company-table divide-gray-200 dark:divide-gray-700"
+        >
             <thead class="bg-gray-50 dark:bg-gray-700">
                 <tr>
                     <th
@@ -11,59 +13,63 @@
                     </th>
                     <th
                         scope="col"
-                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-50 uppercase tracking-wider"
+                        class="px-6 py-3 text-xs font-medium text-gray-500 dark:text-gray-50 uppercase tracking-wider"
                     >
                         Şehir
                     </th>
                     <th
                         scope="col"
-                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-50 uppercase tracking-wider"
+                        class="px-6 py-3 text-xs font-medium text-gray-500 dark:text-gray-50 uppercase tracking-wider"
                     >
                         Çalışan Sayısı
                     </th>
                     <th
                         scope="col"
-                        class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-50 uppercase tracking-wider"
+                        class="px-6 py-3 text-xs font-medium text-gray-500 dark:text-gray-50 uppercase tracking-wider"
                     >
                         Hizmetler
                     </th>
-                 
                 </tr>
             </thead>
 
-            <tbody class="bg-white dark:bg-gray-600 divide-y divide-gray-200 dark:divide-gray-700">
+            <tbody
+                class="bg-white dark:bg-gray-600 divide-y divide-gray-200 dark:divide-gray-700"
+            >
                 <tr v-for="company in companies">
-                    <td class="px-6 py-3 whitespace-nowrap">
+                    <td class="px-6 py-3 text-left whitespace-nowrap">
                         <inertia-link
                             :href="route('companyDetail', company.id)"
                             class="w-full block h-full"
                         >
-                            <h4 v-if="company.name">{{
-                                company.name
-                            }}</h4>
+                            <h4 v-if="company.name">{{ company.name }}</h4>
                         </inertia-link>
-                        <div class="text-sm text-gray-400" v-if="company.description">{{
-                            company.description
-                        }}</div>
+                        <div
+                            class="text-sm text-gray-400"
+                            v-if="company.description"
+                        >
+                            {{ company.description }}
+                        </div>
                     </td>
-                    <td class="text-left">
-                        <div v-if="company.city">{{
-                            company.city.name
-                        }}</div>
+                    <td class="text-sm text-gray-600">
+                        <div v-if="company.city">{{ company.city.name }}</div>
+                        <span v-else>-</span>
                     </td>
-                    <td class="text-left">
+                    <td class="text-sm text-gray-600">
                         <template v-if="company.number_of_staff">
                             {{ company.number_of_staff }} Personel
                         </template>
+                        <span v-else>-</span>
                     </td>
-                    <td>
+                    <td class="text-sm text-gray-600">
                         <div
+                            v-if="company.services.length"
                             class="flex flex-wrap justify-starts text-sm items-center mt-4"
                         >
                             <Badge v-for="cat in company.services">{{
                                 cat.service.name
                             }}</Badge>
                         </div>
+                        <span v-else>-</span>
                     </td>
                 </tr>
             </tbody>
@@ -85,5 +91,8 @@ export default {
 .icon-small {
     height: 10px;
     width: 10px;
+}
+.company-table {
+    text-align: center;
 }
 </style>

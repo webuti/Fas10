@@ -1,7 +1,7 @@
 <template>
     <div>
         <form v-if="$page.props.user" @submit.prevent="createOffer">
-            <h3>Teklif Yap</h3>
+
             <textarea
                 placeholder="Teklif açıklaması"
                 class="border-gray-300 focus:border-green-300 mb-5 focus:ring focus:ring-green-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full dark:bg-gray-800 dark:text-white dark:border-gray-400"
