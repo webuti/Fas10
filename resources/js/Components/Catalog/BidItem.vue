@@ -1,39 +1,63 @@
 <template>
-    <inertia-link :href="route('bidDetail',item.id)" aria-label="View item" title="İlanı İncele"
-                  class="  p-px overflow-hidden transition duration-300 full-w transform border rounded shadow-sm    hover:border-blue-400 hover:shadow-xl">
+    <inertia-link :href="route('bidDetail',item.id)" aria-label="View item" title="İlanı İncele">
 
-        <div class="flex flex-row items-center justify-between p-5 bg-white dark:bg-gray-600 rounded-sm">
 
-            <div class="pr-4 flex-4 flex flex-col">
-                <div class="flex flex-row" v-if="item.images">
+        <div
+            class="bg-white duration-200  min-h-full  border-r border-b border-gray-200 transition-all ease-in-out hover:bg-gray-50    dark:bg-gray-600 dark:bg-gray-800  dark:bg-gray-600  py-5 px-2 ">
 
-                    <img v-for="img in item.images" :key="img.id" :src="img.image"
-                         class="object-cover w-10 h-10 rounded-full"/>
+
+            <div class="flex">
+                <div class="w-14" v-if="item.title">
+
+                    <img v-if="item.images.length" class="h-10 w-10 rounded-full    object-cover"
+
+                         :class="{ '-mt-5': index>0}"
+                         v-for="(img,index) in item.images"
+                         :src="img.image"/>
+
+                    <img class="h-10 w-10 rounded-full object-cover" v-else
+                         :src="'https://ui-avatars.com/api/?name='+item.title+'&color=7F9CF5&background=EBF4FF'"
+                         :alt="item.title"/>
+
 
                 </div>
-                <h6 class="font-sans text-xl font-extrabold leading-none tracking-tight lg:text-4xl xl:text-3xl">
-                    {{item.title}}
-                </h6>
-                <p class="text-sm text-gray-900 dark:text-white pb-2">
-                    {{item.description}}
+                <div class="flex-1 flex justify-between">
+                    <div class="flex flex-1 flex-col">
+                        <div
+                            class="text-gray-800 dark:text-white dark:text-white md:text-xl xs:text-md sm:text-md font-bold  ">
 
-                </p>
-                <div class="flex flex-1 items-center  flex-row space-x-1">
+                            <template v-if="item.title">
+                                {{item.title}}
+                            </template>
 
-                    <span v-if="item.city"
-                          class="bg-blue-400 text-sm  rounded-lg px-2 text-white">{{item.city.name}}</span>
-                    <span v-if="item.country" class="bg-blue-400 text-sm  rounded-lg px-2 text-white">{{item.country.name}}</span>
+                        </div>
+
+                        <div class="text-gray-700 dark:text-gray-300   text-md">
+                            <template v-if="item.description">{{item.description}}</template>
+                        </div>
+
+                    </div>
+
+                    <div class="flex flex-col  space-y-3 items-end w-30 ">
+
+
+                        <div v-if="item.city && item.country"
+                             class=" text-sm  rounded-lg   flex  items-end   ">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5"
+                                 viewBox="0 0 20 20" fill="currentColor">
+                                <path fillRule="evenodd"
+                                      d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                                      clipRule="evenodd"/>
+                            </svg>
+                            {{item.country.name}}, {{item.city.name}}
+                        </div>
+                        <div class="text-gray-500 dark:text-white dark:text-white text-xs  ">
+                            {{item.created_at}}
+                        </div>
+                    </div>
+
+
                 </div>
-
-            </div>
-
-            <div class="flex  items-center justify-center">
-                <svg
-                    class="w-3 text-gray-700 dark:text-white transition-colors duration-300 group-hover:text-blue-400"
-                    fill="currentColor" viewBox="0 0 12 12">
-                    <path
-                        d="M9.707,5.293l-5-5A1,1,0,0,0,3.293,1.707L7.586,6,3.293,10.293a1,1,0,1,0,1.414,1.414l5-5A1,1,0,0,0,9.707,5.293Z"></path>
-                </svg>
             </div>
         </div>
     </inertia-link>

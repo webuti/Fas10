@@ -4,19 +4,16 @@
 
             <div
                 class="bg-white duration-200  min-h-full  border-r border-b border-gray-200 transition-all ease-in-out hover:bg-gray-50    dark:bg-gray-600 dark:bg-gray-800  dark:bg-gray-600  py-5 px-2 ">
-
-
                 <div class="flex">
                     <div class="w-14">
                         <img class="h-10 w-10 rounded-full object-cover"
                              :src="'https://ui-avatars.com/api/?name='+company.name+'&color=7F9CF5&background=EBF4FF'"
                              :alt="company.name">
-
                     </div>
                     <div class="flex-1">
-
                         <div class="flex flex-col  ">
-                            <div class="text-gray-800 dark:text-white dark:text-white md:text-xl xs:text-md sm:text-md font-bold  ">
+                            <div
+                                class="text-gray-800 dark:text-white dark:text-white md:text-xl xs:text-md sm:text-md font-bold  ">
 
                                 <template v-if="company.name">
                                     {{company.name}}
@@ -24,8 +21,8 @@
 
                             </div>
                             <div class="text-gray-500 dark:text-white dark:text-white text-xs  ">
-                           Kayıt Tarihi {{company.created_at}}
-                        </div>
+                                Kayıt Tarihi {{company.created_at}}
+                            </div>
                         </div>
 
                         <div class="text-gray-700 dark:text-gray-300   text-md">

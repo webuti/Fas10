@@ -6,7 +6,7 @@
         class="inline-flex fas10logo items-center mr-8"
     >
         <svg
-            class="w-8  logo-main text-blue-400 "
+            class="w-6  logo-main text-blue-400 "
 
             :class="{'animate-active':animateActive}"
             viewBox="0 0 24 24"
@@ -25,9 +25,8 @@
         </svg>
 
         <div
-            class="ml-2 text-xl font-bold tracking-wide text-gray-800 dark:text-white leading-4 flex flex-col uppercase"
-        >FAS10
-            <small class="rounded-full bg-blue-100 text-center text-xs text-blue-400">BETA</small></div
+            class="ml-2 text-md font-bold tracking-wide text-gray-800 dark:text-white leading-4 flex flex-col uppercase"
+        >FAS10 </div
         >
     </inertia-link>
 </template>

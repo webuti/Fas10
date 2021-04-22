@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
@@ -29,6 +30,8 @@ class Bid extends Model
     protected $casts = [
         'created_at' => 'datetime:Y-m-d H:i:s',
     ];
+
+
 
     public function team()
     {
