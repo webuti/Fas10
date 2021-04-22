@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
+use Qmerfp\LaravelNats\LaravelNats;
 
 class BidController extends Controller
 {
@@ -27,6 +28,7 @@ class BidController extends Controller
      */
     public function index()
     {
+
         return Inertia::render('Bids/Index', [
             'data' => Bid::with(['team', 'city'])->owned()->orderBy('id', 'desc')->paginate()
         ]);
@@ -37,7 +39,6 @@ class BidController extends Controller
     {
 
         $categories = BidCategory::where('parent_id', 0)->with(['children.children'])->get();
-
 
         if (!$type) {
             $bids = \App\Models\Bid::with(['city', 'country', 'images'])->filtered();
@@ -178,11 +179,9 @@ class BidController extends Controller
         }
 
 
-
-
         return Inertia::render('Bids/Show', [
             'bid' => $bid,
-            'offers'=>BidOffer::where('bid_id',$bid->id)->with(['company'])->paginate()
+            'offers' => BidOffer::where('bid_id', $bid->id)->with(['company'])->paginate()
 
         ]);
     }
@@ -225,7 +224,7 @@ class BidController extends Controller
             return Redirect::route('bids.index')->with('Bu ilanı düzenleme yetkiniz yok');
         }
         $input['user_id'] = Auth::user()->id;
-        $input['team_id'] =  Auth::user()->current_team_id;
+        $input['team_id'] = Auth::user()->current_team_id;
         if ($bid->update($input)) {
 
             $request->session()->flash('message', 'İlan başarılı olarak güncellendi');

@@ -13,16 +13,15 @@
             >
                 <template v-if="sector">
                     <div class="flex justify-between">
-                        <h2 class="text-blue-400 font-bold mb-2">Filtreler</h2>
                         <span
                             @click="mobileMenuShow = false"
                             class="block md:hidden lg:hidden sm:block"
-                            ><svg
-                                class="h-8"
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 20 20"
-                                fill="currentColor"
-                            >
+                        ><svg
+                            class="h-8"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 20 20"
+                            fill="currentColor"
+                        >
                                 <path
                                     fillRule="evenodd"
                                     d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
@@ -50,7 +49,7 @@
                         >
                             <inertia-link
                                 :href="route('companyCatalog', sector.seo_url)"
-                                >{{ sector.name }}
+                            >{{ sector.name }}
                             </inertia-link>
                         </li>
                     </ul>
@@ -58,8 +57,8 @@
             </div>
 
             <div class="content w-full">
-                <h2 class="text-blue-400 text-xl font-bold my-2">Şirketler</h2>
-
+                <h2 class="  text-xl font-bold my-2">Şirketler</h2>
+                <h6>Bugün yeni 3 şirket eklendi</h6>
                 <div
                     class="flex flex-wrap justify-between items-center py-2 space-y-2 md:space-y-0"
                 >
@@ -131,9 +130,9 @@
                 </div>
                 <!-- End Tools -->
 
-                <div v-if="companies.data.length">
+                <div class="bg-white" v-if="companies.data.length">
                     <div
-                        class="grid grid-cols-2 mt-5 md:grid-cols-3 sm:grid-cols-2 gap-10"
+                        class="grid grid-cols-2    bg-gray-300 border-l border-t border-gray-200"
                         v-if="showType === 'card'"
                     >
                         <CompanyItem
@@ -141,7 +140,8 @@
                             v-for="company in companies.data"
                         />
                     </div>
-                    <company-item-table v-else :companies="companies.data" />
+                    <company-item-table class=" duration-200  transition-all ease-in-out" v-else
+                                        :companies="companies.data"/>
                 </div>
                 <template v-else>
                     <div
@@ -164,7 +164,7 @@
                                 ></path>
                             </svg>
                             <label class="text-gray-400 dark:text-gray-100"
-                                >Bu kategoriye eklenmiş ilan bulunamadı</label
+                            >Bu kategoriye eklenmiş ilan bulunamadı</label
                             >
                         </div>
                     </div>
@@ -189,7 +189,7 @@
                                 'bg-white dark:bg-gray-600': link.active,
                             }"
                             :href="link.url"
-                            ><span v-html="link.label"></span>
+                        ><span v-html="link.label"></span>
                         </inertia-link>
                     </template>
                 </div>
@@ -199,44 +199,44 @@
 </template>
 
 <script>
-import Header from "../../Components/Header.vue";
-import CompanyItem from "@/Components/Catalog/CompanyItem";
-import Sidebar from "@/Components/Catalog/Sidebar";
-import MainLayout from "@/Layouts/MainLayout";
-import CompanyItemTable from "../../Components/Catalog/CompanyItemTable.vue";
+    import Header from "../../Components/Header.vue";
+    import CompanyItem from "@/Components/Catalog/CompanyItem";
+    import Sidebar from "@/Components/Catalog/Sidebar";
+    import MainLayout from "@/Layouts/MainLayout";
+    import CompanyItemTable from "../../Components/Catalog/CompanyItemTable.vue";
 
-export default {
-    components: {
-        MainLayout,
-        Sidebar,
-        CompanyItem,
-        Header,
-        CompanyItemTable,
-    },
-    data() {
-        return {
-            mobileMenuShow: false,
-            showType: "table",
-        };
-    },
-    created() {
-        this.showType = localStorage.getItem("company.showType");
-    },
-    methods: {
-        showTypeSet(data) {
-            this.showType = data;
-            localStorage.setItem("company.showType", data);
+    export default {
+        components: {
+            MainLayout,
+            Sidebar,
+            CompanyItem,
+            Header,
+            CompanyItemTable,
         },
-    },
+        data() {
+            return {
+                mobileMenuShow: false,
+                showType: "table",
+            };
+        },
+        created() {
+            this.showType = localStorage.getItem("company.showType");
+        },
+        methods: {
+            showTypeSet(data) {
+                this.showType = data;
+                localStorage.setItem("company.showType", data);
+            },
+        },
 
-    props: {
-        companies: Array,
-        countries: Array,
-        formData: Object,
-        cities: Array,
-        services: Array,
-        sector: String,
-        sectors: Array,
-    },
-};
+        props: {
+            companies: Array,
+            countries: Array,
+            formData: Object,
+            cities: Array,
+            services: Array,
+            sector: String,
+            sectors: Array,
+        },
+    };
 </script>

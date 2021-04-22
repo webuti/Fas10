@@ -20,6 +20,7 @@ class Team extends JetstreamTeam
      */
     protected $casts = [
         'personal_team' => 'boolean',
+        'created_at' => 'datetime:Y-m-d H:i:s',
     ];
 
     /**

@@ -1,5 +1,5 @@
 <template>
-    <div class="dark:bg-gray-800 dark:bg-gray-600 min-h-screen">
+    <div class="dark:bg-gray-600 min-h-screen">
         <Header />
 
         <teleport to="head">
