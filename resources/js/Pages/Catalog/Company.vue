@@ -9,10 +9,14 @@
         <div class="flex flex-row">
             <div
                 :class="{ hidden: !mobileMenuShow }"
-                class="flex flex-col w-64 pr-4 z-20 md:block lg:block xl:block absolute xs:absolute sm:absolute md:static lg:static"
+                class="flex flex-col bg-white duration-200  transition-all ease-in-out w-64 pr-4 z-20 min-h-screen md:block lg:block xl:block absolute xs:absolute sm:absolute md:static lg:static"
             >
                 <template v-if="sector">
                     <div class="flex justify-between">
+
+                        <h2 class="  font-bold mb-2">Filtreler
+                        </h2>
+
                         <span
                             @click="mobileMenuShow = false"
                             class="block md:hidden lg:hidden sm:block"
@@ -31,6 +35,7 @@
                     </div>
 
                     <Sidebar
+
                         :cities="cities"
                         :sector="sector"
                         :formData="formData"
@@ -132,7 +137,7 @@
 
                 <div class="bg-white" v-if="companies.data.length">
                     <div
-                        class="grid grid-cols-2    bg-gray-300 border-l border-t border-gray-200"
+                        class="grid grid-cols-2   border-l border-t border-gray-200"
                         v-if="showType === 'card'"
                     >
                         <CompanyItem

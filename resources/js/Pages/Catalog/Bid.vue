@@ -8,7 +8,7 @@
         <div class="flex flex-row">
 
             <div
-                class="flex flex-col w-64  pr-4  z-20  md:block lg:block xl:block absolute xs:absolute   sm:absolute md:static lg:static "
+                class="flex flex-col bg-white duration-200  transition-all ease-in-out w-64 pr-4 z-20 min-h-screen md:block lg:block xl:block absolute xs:absolute sm:absolute md:static lg:static"
 
                 :class="{ 'hidden': !mobileMenuShow }"
             >

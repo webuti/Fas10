@@ -1,7 +1,7 @@
 <template>
 
 
-    <form @submit.prevent="submit()" class="border border-gray-200 rounded-lg p-5">
+    <form @submit.prevent="submit()" class="border  border-gray-200 rounded-lg p-5">
 
         <div class="flex flex-col divide-y space-y-5 divide-gray-200">
             <div class="flex flex-col  ">

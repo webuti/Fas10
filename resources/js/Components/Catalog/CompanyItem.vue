@@ -3,7 +3,7 @@
         <inertia-link :href="route('companyDetail',company.id)">
 
             <div
-                class="bg-white duration-200  min-h-full  border-r border-b border-gray-200 transition-all ease-in-out hover:bg-gray-50    dark:bg-gray-600 dark:bg-gray-800  dark:bg-gray-600 w-full py-5 px-2 ">
+                class="bg-white duration-200  min-h-full  border-r border-b border-gray-200 transition-all ease-in-out hover:bg-gray-50    dark:bg-gray-600 dark:bg-gray-800  dark:bg-gray-600  py-5 px-2 ">
 
 
                 <div class="flex">
@@ -16,7 +16,7 @@
                     <div>
 
                         <div class="flex flex-col  ">
-                            <div class="text-gray-800 dark:text-white dark:text-white text-xl font-bold  ">
+                            <div class="text-gray-800 dark:text-white dark:text-white md:text-xl xs:text-md sm:text-md font-bold  ">
 
                                 <template v-if="company.name">
                                     {{company.name}}
@@ -62,7 +62,7 @@
                                 <div>{{company.number_of_staff}} Personel</div>
                             </div>
                         </div>
-                        <div class="flex flex-wrap justify-starts font-medium items-center mt-4">
+                        <div class="flex flex-wrap justify-starts font-medium   items-center mt-4  ">
                             <Badge v-for="cat in company.services">{{cat.service.name}}</Badge>
                         </div>
 
