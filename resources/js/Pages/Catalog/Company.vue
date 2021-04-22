@@ -229,7 +229,7 @@
         data() {
             return {
                 mobileMenuShow: false,
-                showType: "table",
+                showType: "card",
             };
         },
         created() {

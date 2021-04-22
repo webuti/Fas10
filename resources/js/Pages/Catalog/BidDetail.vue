@@ -1,11 +1,10 @@
 <template>
     <div class="dark:bg-gray-600 min-h-screen">
-        <Header />
-
+        <Header/>
         <teleport to="head">
             <title>FAS10 | {{ bid.title }}</title>
         </teleport>
-        <div class="dark:bg-black w-full border-b border-gray-200">
+        <div class="mt-10">
             <div
                 class="flex items-center mx-auto max-w-7xl px-4 lg:px-8 sm:px-6"
             >
@@ -21,36 +20,56 @@
             <div
                 class="flex sm:flex-col xs:flex-col md:flex-row lg:flex-row mb-5 mt-5"
             >
-                <div class="flex p-3 mr-5 flex-1 shadow border border-gray-200">
-                    <div class="flex-1 flex flex-col">
+                <div
+                    class="grid grid-cols-4 lg:grid-cols-4 md:grid-cols-4 xs:grid-cols-2 sm:grid-cols-2 gap-4 p-3 md:mr-5 flex-1  shadow border border-gray-200">
+                    <div class="flex flex-col">
                         <span class="text-xs">Yayın Tarihi</span>
                         <span class="text-sm">{{ bid.created_at }}</span>
                     </div>
-                    <div class="flex-1 flex flex-col">
+                    <div class="flex flex-col">
                         <span class="text-xs">Bitiş Tarihi</span>
                         <span class="text-sm">4 hafta sonra</span>
                     </div>
-                    <div class="flex-1 flex flex-col">
+                    <div class="flex flex-col">
                         <span class="text-xs">Yaklaşık Bütçe</span>
                         <span class="text-sm" v-if="bid.price"
-                            >{{ bid.price }} TL</span
+                        >{{ bid.price }} TL</span
                         >
                         <span class="text-sm" v-else>Belirtilmemiş</span>
                     </div>
-                    <div class="flex-1 flex flex-col">
+                    <div class="flex flex-col">
                         <span class="text-xs">Teslim Süresi</span>
                         <span class="text-sm">5 Gün</span>
                     </div>
                 </div>
                 <div
-                    class="flex w-72 sm:w-full xs:w-full lg:w-auto md:w-auto sm:mt-5 xs:mt-5 md:mt-0 lg:mt-0 flex-col"
+                    class="flex w-128 sm:w-full xs:w-full lg:w-auto md:w-auto sm:mt-5 xs:mt-5 md:mt-0 lg:mt-0 flex-col"
                 >
-                    <span class="text-xs">Yayınlayan Şirket</span>
-                    <h2>{{ bid.company.name }}</h2>
-                    <span class="text-sm" v-if="bid.country && bid.city">
-                        {{ bid.country.name }} /
-                        {{ bid.city.name }}
+
+                    <div class="flex ">
+                        <img class="h-10 w-10 mr-2 rounded-full object-cover"
+                             :src="'https://ui-avatars.com/api/?name='+bid.company.name+'&color=7F9CF5&background=EBF4FF'"
+                             :alt="bid.company.name">
+
+                        <div class="flex flex-col">
+                            <span class="text-xs">Yayınlayan Şirket</span>
+
+                            <h2>{{ bid.company.name }}</h2>
+                            <span class="text-sm flex" v-if="bid.country && bid.city">
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5"
+                             viewBox="0 0 20 20" fill="currentColor">
+                                <path fillRule="evenodd"
+                                      d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                                      clipRule="evenodd"/>
+                            </svg>
+                            {{bid.country.name}}, {{bid.city.name}}
+
                     </span>
+                        </div>
+                    </div>
+
+
                 </div>
             </div>
 
@@ -73,7 +92,7 @@
                 </ul>
             </template>
             <h3 class="border-b border-gray-200">Teklif ver</h3>
-            <CreateOffer :id="bid.id" :type="bid.offer_type" />
+            <CreateOffer :id="bid.id" :type="bid.offer_type"/>
         </main>
 
         <jet-dialog-modal
@@ -81,7 +100,7 @@
             @close="displayingBigImage = false"
         >
             <template #content>
-                <img :src="bigImage" class="mb-4 rounded shadow" />
+                <img :src="bigImage" class="mb-4 rounded shadow"/>
             </template>
 
             <template #footer>
@@ -94,43 +113,43 @@
 </template>
 
 <script>
-import Header from "../../Components/Header.vue";
-import CompanyBox from "@/Pages/Catalog/CompanyBox";
-import CreateOffer from "./CreateOffer.vue";
-import Footer from "../../Components/Footer.vue";
-import JetDialogModal from "@/Jetstream/DialogModal";
+    import Header from "../../Components/Header.vue";
+    import CompanyBox from "@/Pages/Catalog/CompanyBox";
+    import CreateOffer from "./CreateOffer.vue";
+    import Footer from "../../Components/Footer.vue";
+    import JetDialogModal from "@/Jetstream/DialogModal";
 
-export default {
-    components: {
-        CompanyBox,
-        CreateOffer,
-        Header,
-        Footer,
-        JetDialogModal,
-    },
-    data() {
-        return {
-            openTab: 1,
-            bigImage: null,
-            displayingBigImage: false,
-        };
-    },
-    mounted() {
-        if (this.bid.images) {
-            //  this.bigImage = this.bid.images[0].image;
-        }
-    },
-    methods: {
-        showBigImage(url) {
-            this.bigImage = url;
-            this.displayingBigImage = true;
+    export default {
+        components: {
+            CompanyBox,
+            CreateOffer,
+            Header,
+            Footer,
+            JetDialogModal,
         },
-    },
-    props: {
-        bid: [],
-        images: [],
-        canLogin: Boolean,
-        canRegister: Boolean,
-    },
-};
+        data() {
+            return {
+                openTab: 1,
+                bigImage: null,
+                displayingBigImage: false,
+            };
+        },
+        mounted() {
+            if (this.bid.images) {
+                //  this.bigImage = this.bid.images[0].image;
+            }
+        },
+        methods: {
+            showBigImage(url) {
+                this.bigImage = url;
+                this.displayingBigImage = true;
+            },
+        },
+        props: {
+            bid: [],
+            images: [],
+            canLogin: Boolean,
+            canRegister: Boolean,
+        },
+    };
 </script>

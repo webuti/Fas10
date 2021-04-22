@@ -236,7 +236,7 @@
         data() {
             return {
                 mobileMenuShow: false,
-                showType: "table",
+                showType: "card",
                 form: {
 
                     country_id: this.formData.country_id,
