@@ -13,7 +13,7 @@
                              :alt="company.name">
 
                     </div>
-                    <div>
+                    <div class="flex-1">
 
                         <div class="flex flex-col  ">
                             <div class="text-gray-800 dark:text-white dark:text-white md:text-xl xs:text-md sm:text-md font-bold  ">
@@ -31,7 +31,7 @@
                         <div class="text-gray-700 dark:text-gray-300   text-md">
                             <template v-if="company.description">{{company.description}}</template>
                         </div>
-                        <div class="flex  space-x-10 flex-row">
+                        <div class="flex  space-x-5  flex-row">
                             <div
                                 class="mt-2 flex  space-x-2  flex-row items-center text-sm text-gray-500 dark:text-gray-50">
                                 <div>

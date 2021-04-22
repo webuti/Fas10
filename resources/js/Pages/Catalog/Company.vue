@@ -137,7 +137,7 @@
 
                 <div class="bg-white" v-if="companies.data.length">
                     <div
-                        class="grid grid-cols-2   border-l border-t border-gray-200"
+                        class="grid md:grid-cols-2 lg:grid-cols-2 xs:grid-cols-1 sm:grid-cols-1   border-l border-t border-gray-200"
                         v-if="showType === 'card'"
                     >
                         <CompanyItem
