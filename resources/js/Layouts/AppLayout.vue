@@ -119,10 +119,10 @@
                                             class="flex absolute h-3 w-3 top-0 right-0 -mt-1 -mr-1"
                                         >
                                             <span
-                                                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"
+                                                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"
                                             ></span>
                                             <span
-                                                class="relative inline-flex rounded-full h-3 w-3 bg-green-50 dark:bg-gray-700"
+                                                class="relative inline-flex rounded-full h-3 w-3 bg-blue-50 dark:bg-gray-700"
                                             ></span>
                                         </span>
                                     </span>
@@ -269,7 +269,7 @@
                                                                             .user
                                                                             .current_team_id
                                                                     "
-                                                                    class="mr-2 h-5 w-5 text-green-400"
+                                                                    class="mr-2 h-5 w-5 text-blue-400"
                                                                     fill="none"
                                                                     stroke-linecap="round"
                                                                     stroke-linejoin="round"
@@ -547,7 +547,7 @@
                                                     $page.props.user
                                                         .current_team_id
                                                 "
-                                                class="mr-2 h-5 w-5 text-green-400"
+                                                class="mr-2 h-5 w-5 text-blue-400"
                                                 fill="none"
                                                 stroke-linecap="round"
                                                 stroke-linejoin="round"

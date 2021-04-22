@@ -8,7 +8,7 @@
 
                 <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white sm:text-3xl md:text-4xl  lg:text-5xl">
                     <span class="block xl:inline   ">Fason'a fayda odaklı </span> <span
-                    class="block   xl:inline bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-green-400 inline-block">teknoloji</span>
+                    class="block   xl:inline bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-blue-400 inline-block">teknoloji</span>
                 </h1>
 
                 <p class="mt-3 text-base text-gray-500 dark:text-gray-50 sm:mt-5 sm:text-lg  md:mt-5 md:text-xl ">
@@ -17,13 +17,13 @@
                 <div class="mt-5 sm:mt-8 flex space-x-2 items-center justify-center">
                     <div class="rounded-md shadow">
                         <inertia-link href="/register"
-                                      class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-green-600 hover:bg-green-700 md:py-4 md:text-lg md:px-10">
+                                      class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 md:py-4 md:text-lg md:px-10">
                             Hemen kayıt ol
                         </inertia-link>
                     </div>
                     <div class=" rounded-md shadow sm:ml-3">
                         <a href="#"
-                           class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-green-700 bg-green-100 hover:bg-green-200 md:py-4 md:text-lg md:px-10">
+                           class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-blue-700 bg-blue-100 hover:bg-blue-200 md:py-4 md:text-lg md:px-10">
                             Videoyu incele
                         </a>
                     </div>
@@ -34,11 +34,13 @@
             <div class="py-12  ">
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="lg:text-center">
-                        <h2 class="text-base text-green-600 font-semibold tracking-wide uppercase">Boş yok</h2>
+                        <h2 class="text-base text-blue-600 font-semibold tracking-wide uppercase">Boş yok</h2>
                         <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
                             Fas10'da iş çok
                         </p>
-                        <small class="text-sm border border-gray-300 rounded-full px-2   text-gray-500 dark:text-gray-50">olması için
+                        <small
+                            class="text-sm border border-gray-300 rounded-full px-2   text-gray-500 dark:text-gray-50">olması
+                            için
                             çalışıyoruz 👍🏻 </small>
                         <p class="mt-4 max-w-2xl text-xl text-gray-500 dark:text-gray-50 lg:mx-auto">
                             Makineler çalışsın, faturalar kesilsin
@@ -50,7 +52,7 @@
                             <div class="flex">
                                 <div class="flex-shrink-0">
                                     <div
-                                        class="flex items-center justify-center h-12 w-12 rounded-md bg-green-500 dark:bg-gray-700 text-white">
+                                        class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-500 dark:bg-gray-700 text-white">
                                         <!-- Heroicon name: outline/globe-alt -->
                                         <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
                                              viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -73,7 +75,7 @@
                             <div class="flex">
                                 <div class="flex-shrink-0">
                                     <div
-                                        class="flex items-center justify-center h-12 w-12 rounded-md bg-green-500 dark:bg-gray-700 text-white">
+                                        class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-500 dark:bg-gray-700 text-white">
                                         <!-- Heroicon name: outline/scale -->
                                         <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
                                              viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -84,10 +86,10 @@
                                 </div>
                                 <div class="ml-4">
                                     <dt class="text-lg leading-6 font-medium text-gray-900 dark:text-white">
-                                        İlk 500 Firmaya ücretsiz
+                                        Ücretsiz ilan ver
                                     </dt>
                                     <dd class="mt-2 text-base text-gray-500 dark:text-gray-50">
-                                        İlk 500 firma içinde değilseniz üzülmeyin aşırı pahalı değil sadece aylık 15 tl
+                                        Bütün üyelik türleri limitler dahilinde ücretsiz ilan yayınlayabilir.
                                     </dd>
                                 </div>
                             </div>
@@ -95,7 +97,7 @@
                             <div class="flex">
                                 <div class="flex-shrink-0">
                                     <div
-                                        class="flex items-center justify-center h-12 w-12 rounded-md bg-green-500 dark:bg-gray-700 text-white">
+                                        class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-500 dark:bg-gray-700 text-white">
                                         <!-- Heroicon name: outline/lightning-bolt -->
                                         <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
                                              viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -118,7 +120,7 @@
                             <div class="flex">
                                 <div class="flex-shrink-0">
                                     <div
-                                        class="flex items-center justify-center h-12 w-12 rounded-md bg-green-500 dark:bg-gray-700 text-white">
+                                        class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-500 dark:bg-gray-700 text-white">
                                         <!-- Heroicon name: outline/annotation -->
                                         <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
                                              viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">

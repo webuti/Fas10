@@ -10,21 +10,21 @@
                 <li class="-mb-px last:mr-0 flex-auto text-center">
                     <a class=" font-bold  px-5 py-3 shadow-lg rounded block leading-normal"
                        v-on:click="toggleTabs(1)"
-                       v-bind:class="{'text-green-400 bg-white dark:bg-gray-600': openTab !== 1, 'text-white bg-green-400': openTab === 1}">
+                       v-bind:class="{'text-blue-400 bg-white dark:bg-gray-600': openTab !== 1, 'text-white bg-blue-400': openTab === 1}">
                         Şirket Hakkında
                     </a>
                 </li>
                 <li class="-mb-px last:mr-0 flex-auto text-center">
                     <a class=" font-bold  px-5 py-3 shadow-lg rounded block leading-normal"
                        v-on:click="toggleTabs(2)"
-                       v-bind:class="{'text-green-400 bg-white dark:bg-gray-600': openTab !== 2, 'text-white bg-green-400': openTab === 2}">
+                       v-bind:class="{'text-blue-400 bg-white dark:bg-gray-600': openTab !== 2, 'text-white bg-blue-400': openTab === 2}">
                         Yorumlar ({{company.comments.length}})
                     </a>
                 </li>
                 <li class="-mb-px last:mr-0 flex-auto text-center">
                     <a class=" font-bold  px-5 py-3 shadow-lg rounded block leading-normal"
                        v-on:click="toggleTabs(3)"
-                       v-bind:class="{'text-green-400 bg-white dark:bg-gray-600': openTab !== 3, 'text-white bg-green-400': openTab === 3}">
+                       v-bind:class="{'text-blue-400 bg-white dark:bg-gray-600': openTab !== 3, 'text-white bg-blue-400': openTab === 3}">
                         Hizmetler
                     </a>
                 </li>

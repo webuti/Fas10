@@ -13,7 +13,7 @@
             >
                 <template v-if="sector">
                     <div class="flex justify-between">
-                        <h2 class="text-green-400 font-bold mb-2">Filtreler</h2>
+                        <h2 class="text-blue-400 font-bold mb-2">Filtreler</h2>
                         <span
                             @click="mobileMenuShow = false"
                             class="block md:hidden lg:hidden sm:block"
@@ -41,7 +41,7 @@
                 </template>
 
                 <div v-else>
-                    <h2 class="text-green-400 font-bold mb-2">Sektörler</h2>
+                    <h2 class="text-blue-400 font-bold mb-2">Sektörler</h2>
 
                     <ul>
                         <li
@@ -58,7 +58,7 @@
             </div>
 
             <div class="content w-full">
-                <h2 class="text-green-400 text-xl font-bold my-2">Şirketler</h2>
+                <h2 class="text-blue-400 text-xl font-bold my-2">Şirketler</h2>
 
                 <div
                     class="flex flex-wrap justify-between items-center py-2 space-y-2 md:space-y-0"

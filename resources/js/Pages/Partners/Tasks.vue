@@ -3,7 +3,7 @@
         <form @submit.prevent="createTasks">
             <input
                 type="text"
-                class="border-gray-300 focus:border-green-300 focus:ring focus:ring-green-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full dark:bg-gray-800 dark:text-white dark:border-gray-400 dark:bg-gray-800 dark:text-white dark:border-gray-400"
+                class="border-gray-300 focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full dark:bg-gray-800 dark:text-white dark:border-gray-400 dark:bg-gray-800 dark:text-white dark:border-gray-400"
                 placeholder="İş açıklama"
                 v-model="form.body"
             />
@@ -20,7 +20,7 @@
                 <template v-if="task.status_id === 1">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        class="h-6 text-green-400 w-6"
+                        class="h-6 text-blue-400 w-6"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"

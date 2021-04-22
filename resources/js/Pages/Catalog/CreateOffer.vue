@@ -4,13 +4,13 @@
 
             <textarea
                 placeholder="Teklif açıklaması"
-                class="border-gray-300 focus:border-green-300 mb-5 focus:ring focus:ring-green-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full dark:bg-gray-800 dark:text-white dark:border-gray-400"
+                class="border-gray-300 focus:border-blue-300 mb-5 focus:ring focus:ring-blue-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full dark:bg-gray-800 dark:text-white dark:border-gray-400"
                 v-model="form.body"
             ></textarea>
             <input
                 placeholder="Fiyat"
                 type="number"
-                class="border-gray-300 focus:border-green-300 mb-5 focus:ring focus:ring-green-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full dark:bg-gray-800 dark:text-white dark:border-gray-400"
+                class="border-gray-300 focus:border-blue-300 mb-5 focus:ring focus:ring-blue-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full dark:bg-gray-800 dark:text-white dark:border-gray-400"
                 v-model="form.price"
             />
 

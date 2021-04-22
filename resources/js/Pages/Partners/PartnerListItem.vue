@@ -20,7 +20,7 @@
                           method="post"
                           as="button"
                           type="button"
-                          class="border flex border-green-400 bg-green-400 text-white font-bold text-sm rounded-full p-1 px-3">
+                          class="border flex border-blue-400 bg-blue-400 text-white font-bold text-sm rounded-full p-1 px-3">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5" viewBox="0 0 20 20"
                      fill="currentColor">
                     <path fillRule="evenodd"

@@ -5,18 +5,18 @@
             <h3 class="font-bold">Yeni Proje</h3>
             <form @submit.prevent="createProject">
                 <input type="text"
-                       class="border-gray-300 focus:border-green-300 focus:ring focus:ring-green-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full dark:bg-gray-800 dark:text-white dark:border-gray-400 dark:bg-gray-800 dark:text-white dark:border-gray-400"
+                       class="border-gray-300 focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full dark:bg-gray-800 dark:text-white dark:border-gray-400 dark:bg-gray-800 dark:text-white dark:border-gray-400"
                        placeholder="Proje adı" v-model="form.title"/>
                 <textarea
                     placeholder="Proje Açıklaması"
-                    class="border-gray-300 focus:border-green-300 mb-5 focus:ring focus:ring-green-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full dark:bg-gray-800 dark:text-white dark:border-gray-400"
+                    class="border-gray-300 focus:border-blue-300 mb-5 focus:ring focus:ring-blue-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full dark:bg-gray-800 dark:text-white dark:border-gray-400"
                     v-model="form.description"></textarea>
 
 
                 <label class="text-xs">Teslim Tarihi</label>
                 <input type="date" id="deadline" placeholder="Teslim Tarihi" v-model="form.deadline"
 
-                       class="border-gray-300 mb-3 focus:border-green-300 focus:ring focus:ring-green-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full dark:bg-gray-800 dark:text-white dark:border-gray-400"
+                       class="border-gray-300 mb-3 focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full dark:bg-gray-800 dark:text-white dark:border-gray-400"
                 >
 
 

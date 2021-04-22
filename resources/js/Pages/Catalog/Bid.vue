@@ -17,7 +17,7 @@
                 <form v-if="sector" @submit="submit()" action="javascript:void(0)">
 
                     <div class="flex justify-between">
-                        <h2 class="text-green-400 font-bold mb-2">Kategoriler
+                        <h2 class="text-blue-400 font-bold mb-2">Kategoriler
                         </h2>
                         <span @click="mobileMenuShow = false" class="block md:hidden lg:hidden sm:block"><svg
                             class="h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
@@ -39,7 +39,7 @@
                         </li>
                         </li>
                     </ul>
-                    <h2 class="text-green-400 font-bold mt-2 mb-2">Filtreler</h2>
+                    <h2 class="text-blue-400 font-bold mt-2 mb-2">Filtreler</h2>
                     <div class="flex flex-col">
                         <label class="text-gray-600  dark:text-gray-300  my-2">Ülke</label>
                         <select class="rounded-lg border border-gray-300 py-2" v-model="form.country_id">
@@ -54,18 +54,18 @@
                         <label class="text-gray-600  dark:text-gray-300  my-2">Hizmet</label>
                         <label v-for="service in services" class="text-gray-600  dark:text-gray-300">
                             <input type="checkbox" v-model="form.services" :value="service.id" :id="service.id"
-                                   class="rounded border-gray-300  shadow-sm focus:border-green-300
-                   focus:ring focus:ring-green-200 focus:ring-opacity-50"/> {{service.name}}
+                                   class="rounded border-gray-300  shadow-sm focus:border-blue-300
+                   focus:ring focus:ring-blue-200 focus:ring-opacity-50"/> {{service.name}}
                         </label>
                         <button type="submit"
-                                class="bg-green-400 focus:outline-none focus:ring focus:border-green-300 mt-4 text-white rounded-lg py-2 ">
+                                class="bg-blue-400 focus:outline-none focus:ring focus:border-blue-300 mt-4 text-white rounded-lg py-2 ">
                             Filtrele
                         </button>
                     </div>
                 </form>
 
                 <div v-else>
-                    <h2 class="text-green-400 font-bold mb-2">Sektörler
+                    <h2 class="text-blue-400 font-bold mb-2">Sektörler
                     </h2>
 
                     <ul>
@@ -79,7 +79,7 @@
             </div>
 
             <div class="content  w-full">
-                <h2 class="text-green-400 text-xl font-bold my-2">{{categoryInfo.name}}</h2>
+                <h2 class="text-blue-400 text-xl font-bold my-2">{{categoryInfo.name}}</h2>
                 <div class="flex flex-wrap justify-between items-center  py-2 space-y-2 md:space-y-0">
 
 

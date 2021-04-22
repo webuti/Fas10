@@ -34,7 +34,7 @@
                             <div class="text-xs text-gray-500 dark:text-gray-50">
                                 {{ session.ip_address }},
 
-                                <span class="text-green-500 font-semibold" v-if="session.is_current_device">Bu cihaz</span>
+                                <span class="text-blue-500 font-semibold" v-if="session.is_current_device">Bu cihaz</span>
                                 <span v-else>Last active {{ session.last_active }}</span>
                             </div>
                         </div>

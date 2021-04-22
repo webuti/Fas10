@@ -17,11 +17,11 @@
             <label class="text-gray-600  dark:text-gray-300  my-2">Hizmet</label>
             <label v-for="service in services" class="text-gray-600  dark:text-gray-300">
                 <input type="checkbox" v-model="form.services" :value="service.id" :id="service.id"
-                       class="rounded border-gray-300  shadow-sm focus:border-green-300
-                   focus:ring focus:ring-green-200 focus:ring-opacity-50"/> {{service.name}}
+                       class="rounded border-gray-300  shadow-sm focus:border-blue-300
+                   focus:ring focus:ring-blue-200 focus:ring-opacity-50"/> {{service.name}}
             </label>
             <button type="submit"
-                    class="bg-green-400 focus:outline-none focus:ring focus:border-green-300 mt-4 text-white rounded-lg py-2 ">
+                    class="bg-blue-400 focus:outline-none focus:ring focus:border-blue-300 mt-4 text-white rounded-lg py-2 ">
                 Filtrele
             </button>
         </div>

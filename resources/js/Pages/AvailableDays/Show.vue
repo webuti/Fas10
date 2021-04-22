@@ -7,7 +7,7 @@
 
 
                 <span> <inertia-link :href="route('availableDay.create')"
-                                     class="button p-2 px-3   rounded-full bg-green-50 dark:bg-gray-700 text-sm text-white"
+                                     class="button p-2 px-3   rounded-full bg-blue-50 dark:bg-gray-700 text-sm text-white"
                                      v-if="$page.props.user.current_team.id == team.id">Ekle
                 </inertia-link></span>
 
@@ -24,7 +24,7 @@
                     <li class="bg-white dark:bg-gray-600 border border-gray-300 shadow flex p-3  rounded-md justify-between"
                         v-for="item in dates.data">
                         <div class="justify-between items-center  space-x-1 flex">       <span
-                            class="border border-green-400  bg-green-200 text-green-600 px-2 font-bold   flex rounded-full text-sm items-center  ">
+                            class="border border-blue-400  bg-blue-200 text-blue-600 px-2 font-bold   flex rounded-full text-sm items-center  ">
                             Müsait</span>
                             <h2 class="text-sm">{{item.date}}</h2>
                         </div>

@@ -5,7 +5,7 @@
                 <h2 class="font-semibold text-xl text-gray-800 dark:text-white leading-tight">
                     İlanlarım
                 </h2>
-                <inertia-link :href="route('bids.create')" class="button px-5  rounded-lg bg-green-500 dark:bg-gray-700 text-white">
+                <inertia-link :href="route('bids.create')" class="button px-5  rounded-lg bg-blue-500 dark:bg-gray-700 text-white">
                     Ekle
                 </inertia-link>
             </div>
@@ -50,7 +50,7 @@
                                     <tr v-for="bid in data.data">
                                         <td class="px-6 py-4 whitespace-nowrap">
 
-                                             <inertia-link class="text-green-600 hover:text-green-900"
+                                             <inertia-link class="text-blue-600 hover:text-blue-900"
                                                           :href="route('bids.show',bid.id)">
                                             <div class="flex items-center">
                                                 <div class="flex-shrink-0 h-10 w-10">
@@ -86,7 +86,7 @@
                                         </td>
 
                                         <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                            <inertia-link class="text-green-600 hover:text-green-900"
+                                            <inertia-link class="text-blue-600 hover:text-blue-900"
                                                           :href="route('bids.edit',bid.id)">
                                                 Düzenle
                                             </inertia-link>

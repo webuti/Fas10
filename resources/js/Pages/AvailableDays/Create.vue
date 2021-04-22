@@ -23,7 +23,7 @@
 
 
                 <div v-if="dateValue.startDate"
-                     class="bg-green-50 dark:bg-gray-700 rounded-md shadow  text-white border-gray-300 flex flex-col space-y-3 items-center text-center p-3 mt-10">
+                     class="bg-blue-50 dark:bg-gray-700 rounded-md shadow  text-white border-gray-300 flex flex-col space-y-3 items-center text-center p-3 mt-10">
                     <div>{{dateValue.startDate}} ve {{dateValue.endDate}} arasında müsait olduğunuzu belirttiniz
                         onaylıyormusunuz ?
                     </div>
@@ -33,7 +33,7 @@
                                   method="post"
                                   as="button"
                                   type="button"
-                                  class="border border-green-400  bg-green-200 text-green-600 px-2 font-bold   flex rounded-full text-sm items-center  ">
+                                  class="border border-blue-400  bg-blue-200 text-blue-600 px-2 font-bold   flex rounded-full text-sm items-center  ">
 
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-8" viewBox="0 0 20 20"
                              fill="currentColor">
@@ -53,7 +53,7 @@
                         <li class="bg-white dark:bg-gray-600 border border-gray-300 shadow flex p-3  rounded-md justify-between"
                             v-for="item in dates.data">
                             <div class="justify-between items-center  space-x-1 flex">       <span
-                                class="border border-green-400  bg-green-200 text-green-600 px-2 font-bold   flex rounded-full text-sm items-center  ">
+                                class="border border-blue-400  bg-blue-200 text-blue-600 px-2 font-bold   flex rounded-full text-sm items-center  ">
                             Müsait</span>
                                 <h2 class="text-sm">{{item.date}}</h2>
                             </div>

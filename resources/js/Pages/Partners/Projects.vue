@@ -162,8 +162,8 @@
                                   <span class="relative inline-flex  ">
     Katalogdan
       <span class="flex absolute h-3 w-3 top-0 right-0 -mt-1 -mr-1">
-        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-        <span class="relative inline-flex rounded-full h-3 w-3 bg-green-50 dark:bg-gray-700"></span>
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-3 w-3 bg-blue-50 dark:bg-gray-700"></span>
       </span>
     </span>
                               </inertia-link>
@@ -272,25 +272,25 @@
                         <ul class="pb-2 border-b flex mb-3 space-x-1 dark:border-gray-700">
                             <li
                                 v-on:click="toggleTabs(1)"
-                                class="bg-green-100 text-green-800 text-md px-2 sm:text-xs xs:text-xs rounded-xl"
+                                class="bg-blue-100 text-blue-800 text-md px-2 sm:text-xs xs:text-xs rounded-xl"
                             >
                                 İş Hakkında
                             </li>
                             <li
                                 v-on:click="toggleTabs(2)"
-                                class="bg-green-100 text-green-800 text-md px-2 sm:text-xs xs:text-xs rounded-xl"
+                                class="bg-blue-100 text-blue-800 text-md px-2 sm:text-xs xs:text-xs rounded-xl"
                             >
                                 Notlar ({{ projectDetail.notes.length }})
                             </li>
                             <li
                                 v-on:click="toggleTabs(3)"
-                                class="bg-green-100 text-green-800 text-md px-2 sm:text-xs xs:text-xs rounded-xl"
+                                class="bg-blue-100 text-blue-800 text-md px-2 sm:text-xs xs:text-xs rounded-xl"
                             >
                                 Yazışmalar
                             </li>
                             <li
                                 v-on:click="toggleTabs(4)"
-                                class="bg-green-100 text-green-800 text-md px-2 sm:text-xs xs:text-xs rounded-xl"
+                                class="bg-blue-100 text-blue-800 text-md px-2 sm:text-xs xs:text-xs rounded-xl"
                             >
                                 İş Aşamaları
                             </li>

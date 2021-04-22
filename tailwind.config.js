@@ -31,7 +31,6 @@ module.exports = {
         },
         extend: {
             colors: {
-                // Change with you want it
                 'litepie-primary': colors.green, // color system for light mode
                 'litepie-secondary': colors.coolGray // color system for dark mode
             },

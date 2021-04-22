@@ -6,7 +6,7 @@
 
         <jet-validation-errors class="mb-4" />
 
-        <div v-if="status" class="mb-4 font-medium text-sm text-green-400">
+        <div v-if="status" class="mb-4 font-medium text-sm text-blue-400">
             {{ status }}
         </div>
 

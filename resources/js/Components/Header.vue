@@ -11,7 +11,7 @@
                             :href="route('companyCatalogMain')"
                             aria-label="Şirketler"
                             title="Şirketler"
-                            class="font-medium tracking-wide text-gray-700 dark:text-white transition-colors duration-200 hover:text-green-400"
+                            class="font-medium tracking-wide text-gray-700 dark:text-white transition-colors duration-200 hover:text-blue-400"
                             >Şirketler
                         </inertia-link>
                     </li>
@@ -20,7 +20,7 @@
                             :href="route('bidCatalogMain')"
                             aria-label="İlanlar"
                             title="İlanlar"
-                            class="font-medium tracking-wide text-gray-700 dark:text-white transition-colors duration-200 hover:text-green-400"
+                            class="font-medium tracking-wide text-gray-700 dark:text-white transition-colors duration-200 hover:text-blue-400"
                             >İlanlar
                         </inertia-link>
                     </li>
@@ -29,7 +29,7 @@
                             href="/career"
                             aria-label="Kariyer"
                             title="Kariyer"
-                            class="font-medium tracking-wide text-gray-700 dark:text-white transition-colors duration-200 hover:text-green-400"
+                            class="font-medium tracking-wide text-gray-700 dark:text-white transition-colors duration-200 hover:text-blue-400"
                             >Kariyer</a
                         >
                     </li>
@@ -69,7 +69,7 @@
                 <inertia-link
                     v-if="$page.props.user"
                     href="/dashboard"
-                    class="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border rounded-lg shadow-sm text-base font-medium text-white bg-green-500 dark:bg-gray-700 hover:bg-green-700"
+                    class="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border rounded-lg shadow-sm text-base font-medium text-white bg-blue-500 dark:bg-gray-700 hover:bg-blue-700"
                 >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -91,7 +91,7 @@
                 <template v-else>
                     <inertia-link
                         :href="route('login')"
-                        class="font-medium flex tracking-wide text-gray-700 dark:text-white transition-colors duration-200 hover:text-green-400"
+                        class="font-medium flex tracking-wide text-gray-700 dark:text-white transition-colors duration-200 hover:text-blue-400"
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -112,7 +112,7 @@
 
                     <inertia-link
                         :href="route('register')"
-                        class="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-green-600 hover:bg-green-700"
+                        class="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-blue-600 hover:bg-blue-700"
                     >
                         Kayıt Ol
                     </inertia-link>
@@ -192,7 +192,7 @@
                                     class="inline-flex items-center"
                                 >
                                     <svg
-                                        class="w-8 text-green-400"
+                                        class="w-8 text-blue-400"
                                         viewBox="0 0 24 24"
                                         stroke-linejoin="round"
                                         stroke-width="2"
@@ -252,7 +252,7 @@
                                         :href="route('companyCatalogMain')"
                                         aria-label="Şirketler"
                                         title="Şirketler"
-                                        class="font-medium tracking-wide text-gray-700 dark:text-white transition-colors duration-200 hover:text-green-400"
+                                        class="font-medium tracking-wide text-gray-700 dark:text-white transition-colors duration-200 hover:text-blue-400"
                                         >Şirketler
                                     </inertia-link>
                                 </li>
@@ -261,7 +261,7 @@
                                         :href="route('bidCatalogMain')"
                                         aria-label="İlanlar"
                                         title="İlanlar"
-                                        class="font-medium tracking-wide text-gray-700 dark:text-white transition-colors duration-200 hover:text-green-400"
+                                        class="font-medium tracking-wide text-gray-700 dark:text-white transition-colors duration-200 hover:text-blue-400"
                                         >İlanlar
                                     </inertia-link>
                                 </li>
@@ -270,7 +270,7 @@
                                         href="/career"
                                         aria-label="Product pricing"
                                         title="Product pricing"
-                                        class="font-medium tracking-wide text-gray-700 dark:text-white transition-colors duration-200 hover:text-green-400"
+                                        class="font-medium tracking-wide text-gray-700 dark:text-white transition-colors duration-200 hover:text-blue-400"
                                         >Kariyer</a
                                     >
                                 </li>
@@ -278,7 +278,7 @@
                                 <inertia-link
                                     v-if="$page.props.user"
                                     href="/dashboard"
-                                    class="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-green-600 hover:bg-green-700 focus:shadow-outline focus:outline-none"
+                                    class="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-blue-600 hover:bg-blue-700 focus:shadow-outline focus:outline-none"
                                     aria-label="Kayıt ol"
                                     title="Kayıt ol"
                                 >
@@ -289,7 +289,7 @@
                                     <li>
                                         <inertia-link
                                             :href="route('login')"
-                                            class="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-green-700 transition duration-200 hover:text-white rounded shadow-md bg-green-200 hover:bg-green-700 focus:shadow-outline focus:outline-none"
+                                            class="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-blue-700 transition duration-200 hover:text-white rounded shadow-md bg-blue-200 hover:bg-blue-700 focus:shadow-outline focus:outline-none"
                                             aria-label=" Giriş yap  "
                                             title=" Giriş yap  "
                                         >
@@ -300,7 +300,7 @@
                                     <li>
                                         <inertia-link
                                             :href="route('register')"
-                                            class="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-green-600 hover:bg-green-700 focus:shadow-outline focus:outline-none"
+                                            class="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-blue-600 hover:bg-blue-700 focus:shadow-outline focus:outline-none"
                                             aria-label="Kayıt ol"
                                             title="Kayıt ol"
                                         >
