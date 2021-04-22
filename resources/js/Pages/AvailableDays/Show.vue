@@ -7,13 +7,14 @@
 
 
                 <span> <inertia-link :href="route('availableDay.create')"
-                                     class="button p-2 px-3   rounded-full bg-blue-50 dark:bg-gray-700 text-sm text-white"
-                                     v-if="$page.props.user.current_team.id == team.id">Ekle
+                                     class="button p-2 px-3   rounded-lg bg-blue-500 dark:bg-gray-700 text-sm text-white"
+                                     v-if="$page.props.user.current_team.id === team.id">Ekle
                 </inertia-link></span>
 
 
             </h2>
         </template>
+
 
         <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
 
@@ -34,7 +35,8 @@
             <div v-else>
 
 
-                <div class="bg-white dark:bg-gray-600 rounded-lg p-3 border border-gray-300 items-center flex text-center">
+                <div
+                    class="bg-white dark:bg-gray-600 rounded-lg p-3 border border-gray-300 items-center flex text-center">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-10" fill="none" viewBox="0 0 24 24"
                          stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}

@@ -30,6 +30,7 @@ Route::prefix('dashboard')->group(function () {
 
     Route::post('partners/approve', [\App\Http\Controllers\PartnerController::class, 'approve'])->middleware('auth')->name('partners.approve');
     Route::get('projects', [\App\Http\Controllers\PartnerController::class, 'tasks'])->name('partners.tasks')->middleware('auth');
+    Route::get('availableday/set/{teamId}', [\App\Http\Controllers\AvailableDayController::class, 'show'])->name('availableday.set')->middleware('auth');
     Route::get('projectTasks', [\App\Http\Controllers\ProjectTaskController::class, 'show'])->name('projectTasks.show')->middleware('auth');
     Route::post('projectTasks/update/{id}', [\App\Http\Controllers\ProjectTaskController::class, 'update'])->name('projectTasks.update')->middleware('auth');
     Route::get('projects/partners/{teamId}', [\App\Http\Controllers\PartnerController::class, 'projects'])->name('partners.projects')->middleware('auth');
@@ -51,13 +52,13 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/c/{type}', [\App\Http\Controllers\CompanyController::class, 'catalog'])->name('companyCatalog');
-Route::get('/c', [\App\Http\Controllers\CompanyController::class, 'catalog'])->name('companyCatalogMain');
-Route::get('/i', [\App\Http\Controllers\BidController::class, 'catalog'])->name('bidCatalogMain');
-Route::get('/i/{type}', [\App\Http\Controllers\BidController::class, 'catalog'])->name('bidCatalog');
-Route::get('/i/{type}/{cat}', [\App\Http\Controllers\BidController::class, 'catalog'])->name('bidCatalog.cat');
-Route::get('/bd/{id}', [\App\Http\Controllers\BidController::class, 'catalogDetail'])->name('bidDetail');
-Route::get('/d/{id}', [\App\Http\Controllers\CompanyController::class, 'show'])->name('companyDetail');
+Route::get('/sirketler/{type}', [\App\Http\Controllers\CompanyController::class, 'catalog'])->name('companyCatalog');
+Route::get('/sirketler', [\App\Http\Controllers\CompanyController::class, 'catalog'])->name('companyCatalogMain');
+Route::get('/ilanlar', [\App\Http\Controllers\BidController::class, 'catalog'])->name('bidCatalogMain');
+Route::get('/ilan/{type}', [\App\Http\Controllers\BidController::class, 'catalog'])->name('bidCatalog');
+Route::get('/ilan/{type}/{cat}', [\App\Http\Controllers\BidController::class, 'catalog'])->name('bidCatalog.cat');
+Route::get('/ilan-detay/{id}', [\App\Http\Controllers\BidController::class, 'catalogDetail'])->name('bidDetail');
+Route::get('/sirket-detay/{id}', [\App\Http\Controllers\CompanyController::class, 'show'])->name('companyDetail');
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

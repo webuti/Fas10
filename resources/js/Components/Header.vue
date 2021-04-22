@@ -19,8 +19,10 @@
 
                                     <div class="sektorler p-4">
                                         <ul class="text-gray-600 text-sm   space-y-4">
-                                            <li><inertia-link href="/c/tekstil">TEKSTİL</inertia-link></li>
-                                            <li><inertia-link href="/c/cnc">CNC</inertia-link></li>
+                                            <li><inertia-link
+                                                :href="route('companyCatalog','tekstil')">TEKSTİL</inertia-link></li>
+                                            <li><inertia-link
+                                                :href="route('companyCatalog','cnc')">CNC</inertia-link></li>
                                         </ul>
                                     </div>
 
@@ -43,8 +45,9 @@
 
                                     <div class="sektorler p-4">
                                         <ul class="text-gray-600 text-sm   space-y-4">
-                                            <li><inertia-link href="/i/tekstil">TEKSTİL</inertia-link></li>
-                                            <li><inertia-link href="/i/cnc">CNC</inertia-link></li>
+                                            <li><inertia-link
+                                                :href="route('bidCatalog','tekstil')">TEKSTİL</inertia-link></li>
+                                            <li><inertia-link :href="route('bidCatalog','cnc')">CNC</inertia-link></li>
                                         </ul>
                                     </div>
 

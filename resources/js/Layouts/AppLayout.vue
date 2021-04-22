@@ -1,6 +1,6 @@
 <template>
     <div class="bg-white dark:bg-black">
-        <jet-banner />
+        <jet-banner/>
         <teleport to="head">
             <title>FAS10 | Panelim</title>
         </teleport>
@@ -30,7 +30,7 @@
                             </svg>
                             <span
                                 class="ml-2 text-xl font-bold tracking-wide text-white uppercase"
-                                >FAS10</span
+                            >FAS10</span
                             ></inertia-link
                         >
 
@@ -140,7 +140,7 @@
                                         </h2>
                                         <span
                                             class="text-xs text-gray-600 dark:text-gray-300"
-                                            >içerik erişle ilş title</span
+                                        >içerik erişle ilş title</span
                                         >
                                     </div>
                                 </template>
@@ -213,9 +213,8 @@
                                                 <jet-dropdown-link
                                                     :href="
                                                         route(
-                                                            'availableDay.show',
-                                                            $page.props.user
-                                                                .current_team.id
+                                                            'availableday.set',
+                                                            $page.props.user.current_team.id
                                                         )
                                                     "
                                                 >
@@ -227,8 +226,7 @@
                                                         route('teams.create')
                                                     "
                                                     v-if="
-                                                        $page.props.jetstream
-                                                            .canCreateTeams
+                                                        $page.props.jetstream.canCreateTeams
                                                     "
                                                 >
                                                     Yeni Şirket Oluştur
@@ -283,7 +281,7 @@
                                                                 </svg>
                                                                 <div>
                                                                     {{
-                                                                        team.name
+                                                                    team.name
                                                                     }}
                                                                 </div>
                                                             </div>
@@ -511,11 +509,11 @@
                             <jet-responsive-nav-link
                                 :href="
                                     route(
-                                        'availableDay.show',
+                                        'availableday.set',
                                         $page.props.user.current_team.id
                                     )
                                 "
-                                :active="route().current('availableDay.show')"
+                                :active="route().current('availableday.set')"
                             >
                                 Şirket Müsaitlik tarihleri
                             </jet-responsive-nav-link>
@@ -570,106 +568,106 @@
             </div>
         </nav>
 
-        <div class="min-h-screen bg-gray-100">
+        <div class="min-h-screen bg-white  ">
             <!-- Page Heading -->
 
             <header
-                class="bg-white dark:bg-gray-600 shadow"
+                class="bg-gray-50 dark:bg-gray-600 shadow"
                 v-if="$slots.header"
             >
                 <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                     <slot
-                        class="text-3xl font-bold text-gray-900 dark:text-white"
+                        class="text-3xl font-bold text-gray-900  dark:text-white"
                         name="header"
                     ></slot>
                 </div>
             </header>
 
             <!-- Page Content -->
-            <main class="bg-gray-100 dark:bg-gray-500">
+            <main class=" ">
                 <slot></slot>
             </main>
         </div>
     </div>
 </template>
 <script>
-import JetApplicationMark from "@/Jetstream/ApplicationMark";
-import JetBanner from "@/Jetstream/Banner";
-import JetDropdown from "@/Jetstream/Dropdown";
-import JetDropdownLink from "@/Jetstream/DropdownLink";
-import JetNavLink from "@/Jetstream/NavLink";
-import JetResponsiveNavLink from "@/Jetstream/ResponsiveNavLink";
+    import JetApplicationMark from "@/Jetstream/ApplicationMark";
+    import JetBanner from "@/Jetstream/Banner";
+    import JetDropdown from "@/Jetstream/Dropdown";
+    import JetDropdownLink from "@/Jetstream/DropdownLink";
+    import JetNavLink from "@/Jetstream/NavLink";
+    import JetResponsiveNavLink from "@/Jetstream/ResponsiveNavLink";
 
-export default {
-    components: {
-        JetApplicationMark,
-        JetBanner,
-        JetDropdown,
-        JetDropdownLink,
-        JetNavLink,
-        JetResponsiveNavLink,
-    },
+    export default {
+        components: {
+            JetApplicationMark,
+            JetBanner,
+            JetDropdown,
+            JetDropdownLink,
+            JetNavLink,
+            JetResponsiveNavLink,
+        },
 
-    mounted() {
-        if (
-            localStorage.theme === "dark" ||
-            (!"theme" in localStorage &&
-                window.matchMedia("(prefers-color-scheme: dark)").matches)
-        ) {
-            document.querySelector("html").classList.add("dark");
-        } else if (localStorage.theme === "dark") {
-            document.querySelector("html").classList.add("dark");
-        }
+        mounted() {
+            if (
+                localStorage.theme === "dark" ||
+                (!"theme" in localStorage &&
+                    window.matchMedia("(prefers-color-scheme: dark)").matches)
+            ) {
+                document.querySelector("html").classList.add("dark");
+            } else if (localStorage.theme === "dark") {
+                document.querySelector("html").classList.add("dark");
+            }
 
-        document
-            .getElementById("switchTheme")
-            .addEventListener("click", function () {
-                let htmlClasses = document.querySelector("html").classList;
-                if (localStorage.theme == "dark") {
-                    htmlClasses.remove("dark");
-                    localStorage.removeItem("theme");
-                } else {
-                    htmlClasses.add("dark");
-                    localStorage.theme = "dark";
-                }
+            document
+                .getElementById("switchTheme")
+                .addEventListener("click", function () {
+                    let htmlClasses = document.querySelector("html").classList;
+                    if (localStorage.theme == "dark") {
+                        htmlClasses.remove("dark");
+                        localStorage.removeItem("theme");
+                    } else {
+                        htmlClasses.add("dark");
+                        localStorage.theme = "dark";
+                    }
+                });
+
+            window.Pusher.logToConsole = true;
+
+            var pusher = new window.Pusher("6e2a4cde923cdd8b7019", {
+                cluster: "eu",
             });
 
-        window.Pusher.logToConsole = true;
-
-        var pusher = new window.Pusher("6e2a4cde923cdd8b7019", {
-            cluster: "eu",
-        });
-
-        var channel = pusher.subscribe("my-channel");
-        channel.bind("my-event", function (data) {
-            console.log(data, "data bildirim");
-            this.newNotification = true;
-        });
-    },
-    data() {
-        return {
-            showingNavigationDropdown: false,
-            showingNotificationDropdown: false,
-            newNotification: true,
-        };
-    },
-
-    methods: {
-        switchToTeam(team) {
-            this.$inertia.put(
-                route("current-team.update"),
-                {
-                    team_id: team.id,
-                },
-                {
-                    preserveState: false,
-                }
-            );
+            var channel = pusher.subscribe("my-channel");
+            channel.bind("my-event", function (data) {
+                console.log(data, "data bildirim");
+                this.newNotification = true;
+            });
+        },
+        data() {
+            return {
+                showingNavigationDropdown: false,
+                showingNotificationDropdown: false,
+                newNotification: true,
+            };
         },
 
-        logout() {
-            this.$inertia.post(route("logout"));
+        methods: {
+            switchToTeam(team) {
+                this.$inertia.put(
+                    route("current-team.update"),
+                    {
+                        team_id: team.id,
+                    },
+                    {
+                        preserveState: false,
+                    }
+                );
+            },
+
+            logout() {
+                this.$inertia.post(route("logout"));
+            },
         },
-    },
-};
+    };
 </script>

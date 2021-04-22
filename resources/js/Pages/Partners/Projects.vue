@@ -1,17 +1,17 @@
 <template>
-    <app-layout>
+    <app-layout >
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 dark:text-white leading-tight">
                 İşler
             </h2>
         </template>
 
-        <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
+        <div class="max-w-7xl  mx-auto py-10 sm:px-6 lg:px-8">
             <div
-                class="flex flex-col xl:flex-row md:flex-row md:flex-row shadow overflow-hidden border-b border-gray-200 dark:border-gray-600 sm:rounded-lg border-t"
+                class="flex flex-col xl:flex-row md:flex-row md:flex-row  bg-white border-b border-t border-gray-200  "
             >
                 <div
-                    class="flex flex-col lg:min-h-screen md:min-h-screen flex-shrink-0 md:w-64 border-r border-l border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-700"
+                    class="flex flex-col  lg:min-h-screen md:min-h-screen flex-shrink-0 md:w-64 border-r border-l border-gray-200 dark:border-gray-600  dark:bg-gray-700"
                 >
                     <div class="ortaklar">
                         <div class="flex justify-between p-3 items-center">
@@ -83,7 +83,7 @@
                                 <div class="flex items-center">
 
 
-                                    <jet-dropdown   align="right">
+                                    <jet-dropdown align="right">
                                         <template #trigger>
 
                                             <svg
@@ -174,7 +174,7 @@
                     </div>
                 </div>
                 <div
-                    class="flex flex-col md:min-h-screen bg-gray-50 dark:bg-gray-700 flex-shrink-0 md:w-64 border-r border-gray-200 dark:border-gray-600"
+                    class="flex flex-col md:min-h-screen  dark:bg-gray-700 flex-shrink-0 md:w-64 border-r border-gray-200 dark:border-gray-600"
                 >
                     <div class="flex justify-between p-3 items-center">
                         <h2 class="text-xs font-medium text-gray-500 dark:text-gray-50 uppercase">
@@ -260,7 +260,7 @@
                     </div>
                 </div>
                 <div
-                    class="flex flex-col md:min-h-screen bg-gray-50 dark:bg-gray-700 border-r border-gray-200 dark:border-gray-600 w-full"
+                    class="flex flex-col md:min-h-screen  dark:bg-gray-700 border-r border-gray-200 dark:border-gray-600 w-full"
                 >
                     <div class="flex justify-between p-3 items-center">
                         <h2 class="text-xs font-medium text-gray-500 dark:text-gray-50 uppercase">
