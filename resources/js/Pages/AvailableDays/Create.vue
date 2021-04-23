@@ -23,7 +23,7 @@
 
 
                 <div v-if="dateValue.startDate"
-                     class="bg-blue-50 dark:bg-gray-700 rounded-md shadow  text-white border-gray-300 flex flex-col space-y-3 items-center text-center p-3 mt-10">
+                     class="bg-blue-500 dark:bg-gray-700 rounded-md shadow  text-white border-gray-300 flex flex-col space-y-3 items-center text-center p-3 mt-10">
                     <div>{{dateValue.startDate}} ve {{dateValue.endDate}} arasında müsait olduğunuzu belirttiniz
                         onaylıyormusunuz ?
                     </div>

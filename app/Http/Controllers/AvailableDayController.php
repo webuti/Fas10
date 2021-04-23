@@ -54,7 +54,7 @@ class AvailableDayController extends Controller
                 ]);
 
             }
-            return Redirect::route('availableday.create');
+            return Redirect::route('availableDay.create');
         }
 
         /*
@@ -113,7 +113,7 @@ class AvailableDayController extends Controller
 
 
         AvailableDay::where('team_id', Auth::user()->current_team_id)->where('id', $request->input('id'))->delete();
-        return Redirect::route('availableday.create');
+        return Redirect::route('availableDay.create');
 
     }
 }
