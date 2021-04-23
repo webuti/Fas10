@@ -5,7 +5,7 @@
                 <h2 class="font-semibold text-xl text-gray-800 dark:text-white leading-tight">
                     İlanlarım
                 </h2>
-                <inertia-link :href="route('bids.create')" class="button px-5  rounded-lg bg-blue-500 dark:bg-gray-700 text-white">
+                <inertia-link :href="route('bids.create')" class="button p-2 px-3   rounded-lg bg-blue-500 dark:bg-gray-700 text-sm text-white">
                     Ekle
                 </inertia-link>
             </div>
