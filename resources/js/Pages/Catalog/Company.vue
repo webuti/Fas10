@@ -197,7 +197,7 @@
 
                         <inertia-link
                             v-else
-                            :key="bkey"
+                            :key="link.url"
                             class="mr-1 mb-1 px-4 py-3 text-sm leading-4 border rounded hover:bg-white dark:bg-gray-600 focus:border-indigo-500 focus:text-indigo-500"
                             :class="{
                                 'bg-white dark:bg-gray-600': link.active,
