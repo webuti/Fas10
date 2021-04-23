@@ -78,12 +78,12 @@
                     </div>
                 </div>
 
-                <h3 class="border-b mb-5 border-gray-200">Açıklama</h3>
+                <h3 class="border-b mb-5 py-3 border-gray-200">Açıklama</h3>
                 <p class="mb-8 text-gray-800 dark:text-white leading-relaxed">
                     {{ bid.description }}
                 </p>
                 <template v-if="bid.images.length">
-                    <h3 class="border-b mb-5 border-gray-200">Fotoğraflar</h3>
+                    <h3 class="border-b py-3 mb-5 border-gray-200">Fotoğraflar</h3>
 
                     <ul class="flex space-x-1">
                         <li class="w-24" v-for="image in bid.images">
@@ -96,7 +96,7 @@
                         </li>
                     </ul>
                 </template>
-                <h3 class="border-b border-gray-200">Teklif ver</h3>
+                <h3 class="border-b py-3 border-gray-200">Teklif ver</h3>
                 <CreateOffer :id="bid.id" :type="bid.offer_type"/>
             </main>
 
