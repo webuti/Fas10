@@ -33,7 +33,7 @@
 </svg></span>
                                 </div>
                                 <ul>
-                                    <li class="text-md dark:text-gray-100" v-for="cat in categories">
+                                    <li class="text-sm dark:text-gray-100" v-for="cat in categories">
 
                                         <a href="#" @click="urlBuilder(cat.seo_url,sector)">{{cat.name}}</a>
 
@@ -79,7 +79,7 @@
 
 
                             <button type="submit"
-                                    class="bg-blue-400 focus:outline-none focus:ring focus:border-blue-300 mt-4 text-white rounded-lg py-2 ">
+                                    class="bg-blue-600 focus:outline-none focus:ring focus:border-blue-300 mt-4 text-white rounded-lg py-2 ">
                                 Filtrele
                             </button>
                         </div>
@@ -106,14 +106,14 @@
                 <div class="flex flex-1 mb-5">
                     <div class="flex-1 ">
                         <h2 class="  text-xl font-bold  ">{{categoryInfo.name}}</h2>
-                        <h6>Bugün yeni 3 ilan eklendi</h6>
+                        <h6 class="text-sm">Bugün yeni 3 ilan eklendi</h6>
                     </div>
                     <div class="flex flex-wrap justify-between items-center   space-y-2 md:space-y-0">
 
 
                         <div
                             class="flex flex-wrap justify-start md:justify-end items-center space-x-0 space-y-2 sm:space-x-2 sm:space-y-0">
-                            <div class="divide-x-2 border border-gray-300 shadow-sm rounded-md">
+                            <div class="divide-x-2 border flex border-gray-300 shadow-sm rounded-md">
 
 
                                 <button @click="showTypeSet('card')" class="p-2">
@@ -169,7 +169,8 @@
 
 
                 <div v-if="bids.data.length">
-                    <div v-if="showType === 'card'"        class="grid md:grid-cols-2 lg:grid-cols-2 xs:grid-cols-1 sm:grid-cols-1   border-l border-t border-gray-200">
+                    <div v-if="showType === 'card'"
+                         class="grid md:grid-cols-2 lg:grid-cols-2 xs:grid-cols-1 sm:grid-cols-1   border-l border-t border-gray-200">
                         <BidItem :item="bid" v-for="bid in bids.data"/>
 
                     </div>
@@ -283,20 +284,18 @@
 
         },
         props: {
-            bids: Array,
+            bids: Object,
             countries: Array,
             category: String,
             categories: Array,
             sectors: Array,
-            categoryInfo: Array,
+            categoryInfo: Object,
             sector: String,
             services: Array,
             cities: Array,
-            formData: Array,
+            formData: Object,
             canLogin: Boolean,
             canRegister: Boolean,
-            laravelVersion: String,
-            phpVersion: String,
         }
     }
 </script>

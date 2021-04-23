@@ -6,7 +6,7 @@
         class="inline-flex fas10logo items-center mr-8"
     >
         <svg
-            class="w-6  logo-main text-blue-400 "
+            class="w-6  logo-main text-blue-500 "
 
             :class="{'animate-active':animateActive}"
             viewBox="0 0 24 24"

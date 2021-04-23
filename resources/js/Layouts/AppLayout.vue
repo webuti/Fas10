@@ -8,7 +8,7 @@
             <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
                 <div class="relative flex items-center justify-between h-16">
                     <div
-                        class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start"
+                        class="flex-1 flex items-center "
                     >
                         <inertia-link
                             class="flex-shrink-0 flex items-center"
@@ -29,7 +29,7 @@
                                 <rect x="14" y="1" width="7" height="6"></rect>
                             </svg>
                             <span
-                                class="ml-2 text-xl font-bold tracking-wide text-white uppercase"
+                                class="ml-2 text-lg font-bold tracking-wide text-white uppercase"
                             >FAS10</span
                             ></inertia-link
                         >
@@ -60,23 +60,8 @@
                         </div>
                     </div>
 
-                    <button
-                        id="switchTheme"
-                        class="h-10 w-10 flex justify-center items-center focus:outline-none text-yellow-500"
-                    >
-                        <svg
-                            class="w-6 h-6"
-                            fill="currentColor"
-                            viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg"
-                        >
-                            <path
-                                fill-rule="evenodd"
-                                d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
-                                clip-rule="evenodd"
-                            ></path>
-                        </svg>
-                    </button>
+
+
 
                     <div
                         class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0"
@@ -572,7 +557,7 @@
             <!-- Page Heading -->
 
             <header
-                class="bg-gray-50 dark:bg-gray-600 shadow"
+                class="border-b border-gray-200  "
                 v-if="$slots.header"
             >
                 <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
@@ -609,38 +594,17 @@
         },
 
         mounted() {
-            if (
-                localStorage.theme === "dark" ||
-                (!"theme" in localStorage &&
-                    window.matchMedia("(prefers-color-scheme: dark)").matches)
-            ) {
-                document.querySelector("html").classList.add("dark");
-            } else if (localStorage.theme === "dark") {
-                document.querySelector("html").classList.add("dark");
-            }
 
-            document
-                .getElementById("switchTheme")
-                .addEventListener("click", function () {
-                    let htmlClasses = document.querySelector("html").classList;
-                    if (localStorage.theme == "dark") {
-                        htmlClasses.remove("dark");
-                        localStorage.removeItem("theme");
-                    } else {
-                        htmlClasses.add("dark");
-                        localStorage.theme = "dark";
-                    }
-                });
 
             window.Pusher.logToConsole = true;
 
-            var pusher = new window.Pusher("6e2a4cde923cdd8b7019", {
+            let pusher = new window.Pusher("6e2a4cde923cdd8b7019", {
                 cluster: "eu",
             });
 
-            var channel = pusher.subscribe("my-channel");
+            let channel = pusher.subscribe("my-channel");
             channel.bind("my-event", function (data) {
-                console.log(data, "data bildirim");
+
                 this.newNotification = true;
             });
         },

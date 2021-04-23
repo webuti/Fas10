@@ -71,7 +71,7 @@
               <div class="flex flex-1 mb-5">
                   <div class="flex-1 ">
                       <h2 class="  text-xl font-bold  ">Şirketler</h2>
-                      <h6>Bugün yeni 3 şirket eklendi</h6>
+                      <h6 class="text-sm">Bugün yeni 3 şirket eklendi</h6>
                   </div>
 
                   <div
@@ -79,7 +79,7 @@
                   >
 
                       <div
-                          class="divide-x-2 border border-gray-300 shadow-sm rounded-md"
+                          class="divide-x-2 flex border border-gray-300 shadow-sm rounded-md"
                       >
                           <button @click="showTypeSet('card')" class="p-2">
                               <svg
@@ -150,6 +150,7 @@
                     >
                         <CompanyItem
                             :company="company"
+                            :key="company.id"
                             v-for="company in companies.data"
                         />
                     </div>
@@ -189,7 +190,7 @@
                     <template v-for="(link, bkey) in companies.links">
                         <div
                             v-if="link.url === null"
-                            :key="key"
+                            :key="bkey"
                             class="mr-1 mb-1 px-4 py-3 text-sm leading-4 text-gray-400 border rounded"
                             v-html="link.label"
                         />
@@ -243,7 +244,7 @@
         },
 
         props: {
-            companies: Array,
+            companies: Object,
             countries: Array,
             formData: Object,
             cities: Array,

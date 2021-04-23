@@ -31,7 +31,7 @@
             </div>
 
             <button type="submit"
-                    class="bg-blue-400 focus:outline-none focus:ring focus:border-blue-300 mt-4 text-white rounded-lg py-2 ">
+                    class="bg-blue-600 focus:outline-none focus:ring focus:border-blue-300 mt-4 text-white rounded-lg py-2 ">
                 Filtrele
             </button>
         </div>

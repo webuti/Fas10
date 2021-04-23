@@ -7,7 +7,7 @@
 
 
                 <span> <inertia-link :href="route('availableDay.create')"
-                                     class="button p-2 px-3   rounded-lg bg-blue-500 dark:bg-gray-700 text-sm text-white"
+                                     class="button p-2 px-3   rounded-lg bg-blue-600 dark:bg-gray-700 text-sm text-white"
                                      v-if="$page.props.user.current_team.id === team.id">Ekle
                 </inertia-link></span>
 
