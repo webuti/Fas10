@@ -42,7 +42,7 @@ class PartnerController extends Controller
 
                 Partner::create(['sender_team_id' => Auth::user()->current_team_id, 'status' => 2, 'receiver_team_id' => $updateStatusId->sender_team_id]);
 
-                return Redirect::route('partners.approve');
+                return Redirect::route('partners.index');
 
 
             }
