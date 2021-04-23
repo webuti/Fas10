@@ -126,7 +126,13 @@
                             />
                         </div>
 
-                        <div class="col-span-6 sm:col-span-4"></div>
+
+                        <div class="col-span-6 sm:col-span-4">
+
+
+                            <show-uploaded-image :images="images"/>
+
+                        </div>
 
                         <div class="col-span-6 sm:col-span-4">
                             <jet-label for="country_id" value="Ülke" />
@@ -236,10 +242,12 @@ import Textarea from "@/Jetstream/Textarea";
 import JetActionMessage from "@/Jetstream/ActionMessage";
 import JetDangerButton from "@/Jetstream/DangerButton";
 import ImageUpload from "@/Pages/Bids/ImageUpload";
+import ShowUploadedImage from "@/Components/UI/ShowUploadedImage";
 
 export default {
     name: "Update",
     components: {
+        ShowUploadedImage,
         Textarea,
         AppLayout,
         JetButton,

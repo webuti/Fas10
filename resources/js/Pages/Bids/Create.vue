@@ -10,7 +10,7 @@
         <div>
             <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
                 <jet-form-section @submitted="createBids">
-                    <template #title> İlan Bilgileri </template>
+                    <template #title> İlan Bilgileri</template>
 
                     <template #description>
                         İlanınızın onaylanabilmesi için lütfen geçerli bilgiler
@@ -19,7 +19,7 @@
 
                     <template #form>
                         <div class="col-span-6 sm:col-span-4">
-                            <jet-label for="title" value="İlan Başlığı" />
+                            <jet-label for="title" value="İlan Başlığı"/>
                             <jet-input
                                 id="title"
                                 type="text"
@@ -49,7 +49,7 @@
                             />
                         </div>
                         <div class="col-span-6 sm:col-span-4">
-                            <jet-label for="sector_id" value="İlan Sektör" />
+                            <jet-label for="sector_id" value="İlan Sektör"/>
                             <select
                                 class="border-gray-300 focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full dark:bg-gray-800 dark:text-white dark:border-gray-400"
                                 v-model="form.sector_id"
@@ -69,7 +69,7 @@
                         </div>
 
                         <div class="col-span-6 sm:col-span-4">
-                            <jet-label for="category_id" value="Kategori" />
+                            <jet-label for="category_id" value="Kategori"/>
 
                             <select
                                 class="border-gray-300 focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full dark:bg-gray-800 dark:text-white dark:border-gray-400 dark:bg-gray-800 dark:text-white dark:border-gray-400"
@@ -89,7 +89,7 @@
                             />
                         </div>
                         <div class="col-span-6 sm:col-span-4">
-                            <jet-label for="sector_id" value="Teklif" />
+                            <jet-label for="sector_id" value="Teklif"/>
 
                             <select
                                 class="border-gray-300 focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full dark:bg-gray-800 dark:text-white dark:border-gray-400 dark:bg-gray-800 dark:text-white dark:border-gray-400"
@@ -107,7 +107,7 @@
                             v-if="form.offer_type === 1"
                             class="col-span-6 sm:col-span-4"
                         >
-                            <jet-label for="price" value="Fiyat" />
+                            <jet-label for="price" value="Fiyat"/>
                             <jet-input
                                 id="price"
                                 type="text"
@@ -122,11 +122,12 @@
                         </div>
 
                         <div class="col-span-6 sm:col-span-4">
-                            <image-upload @imageLoaded="imageLoaded" />
+                            <image-upload @imageLoaded="imageLoaded"
+                                          message="Şirketinizden hakkında fotoğrafları buraya tıklayarak yükleyebilirsiniz."/>
                         </div>
 
                         <div class="col-span-6 sm:col-span-4">
-                            <jet-label for="country_id" value="Ülke" />
+                            <jet-label for="country_id" value="Ülke"/>
 
                             <select
                                 class="border-gray-300 focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full dark:bg-gray-800 dark:text-white dark:border-gray-400 dark:bg-gray-800 dark:text-white dark:border-gray-400"
@@ -148,7 +149,7 @@
 
                         <template v-if="form.country_id === 1">
                             <div class="col-span-6 sm:col-span-4">
-                                <jet-label for="city" value="Şehir" />
+                                <jet-label for="city" value="Şehir"/>
 
                                 <select
                                     @change="districtLoad()"
@@ -169,7 +170,7 @@
                                 />
                             </div>
                             <div class="col-span-6 sm:col-span-4">
-                                <jet-label for="district_id" value="İlçe" />
+                                <jet-label for="district_id" value="İlçe"/>
                                 <select
                                     class="border-gray-300 focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 rounded-md shadow-sm mt-1 block w-full dark:bg-gray-800 dark:text-white dark:border-gray-400 dark:bg-gray-800 dark:text-white dark:border-gray-400"
                                     v-model="form.district_id"
@@ -203,75 +204,75 @@
 </template>
 
 <script>
-import AppLayout from "@/Layouts/AppLayout";
-import JetButton from "@/Jetstream/Button";
-import JetFormSection from "@/Jetstream/FormSection";
-import JetInput from "@/Jetstream/Input";
-import JetInputError from "@/Jetstream/InputError";
-import JetLabel from "@/Jetstream/Label";
+    import AppLayout from "@/Layouts/AppLayout";
+    import JetButton from "@/Jetstream/Button";
+    import JetFormSection from "@/Jetstream/FormSection";
+    import JetInput from "@/Jetstream/Input";
+    import JetInputError from "@/Jetstream/InputError";
+    import JetLabel from "@/Jetstream/Label";
 
-import Textarea from "@/Jetstream/Textarea";
-import ImageUpload from "@/Pages/Bids/ImageUpload";
-import axios from "axios";
-import JetCheckbox from "@/Jetstream/Checkbox";
-export default {
-    name: "Create",
-    props: ["sectors", "companySector", "categories", "countries", "cities"],
-    components: {
-        ImageUpload,
-        AppLayout,
-        JetButton,
-        JetFormSection,
-        JetInput,
-        JetInputError,
-        JetCheckbox,
-        JetLabel,
-        Textarea,
-    },
-    methods: {
-        createBids() {
-            this.form.post(route("bids.store"), {
-                errorBag: "createBids",
-                preserveScroll: true,
-            });
+    import Textarea from "@/Jetstream/Textarea";
+    import ImageUpload from "@/Pages/Bids/ImageUpload";
+    import axios from "axios";
+    import JetCheckbox from "@/Jetstream/Checkbox";
+
+    export default {
+        name: "Create",
+        props: ["sectors", "companySector", "categories", "countries", "cities"],
+        components: {
+            ImageUpload,
+            AppLayout,
+            JetButton,
+            JetFormSection,
+            JetInput,
+            JetInputError,
+            JetCheckbox,
+            JetLabel,
+            Textarea,
         },
-        imageLoaded(files) {
-            console.log("dosyalar buraya geldi", files);
-            this.form.files = files;
-        },
-        districtLoad() {
-            this.districts = [];
-            axios
-                .get(route("location.district", this.form.city_id))
-                .then((page) => {
-                    this.districts = page.data;
+        methods: {
+            createBids() {
+                this.form.post(route("bids.store"), {
+                    errorBag: "createBids",
+                    preserveScroll: true,
                 });
+            },
+            imageLoaded(files) {
+                this.form.files = files;
+            },
+            districtLoad() {
+                this.districts = [];
+                axios
+                    .get(route("location.district", this.form.city_id))
+                    .then((page) => {
+                        this.districts = page.data;
+                    });
+            },
         },
-    },
-    data() {
-        return {
-            offerTypes: [
-                { id: 1, name: "Sadece ilan olarak yayınla" },
-                { id: 2, name: "Sadece iş ortaklarım teklif verebilsin" },
-                { id: 3, name: "Herkes teklif verebilsin" },
-            ],
-            districts: [],
-            form: this.$inertia.form({
-                title: "",
-                description: "",
-                country_id: 1,
-                sector_id: this.companySector,
-                files: [],
-                category_id: null,
-                district_id: null,
-                city_id: null,
-                offer_type: null,
-                status_id: null,
-                price: null,
-                fields: [],
-                currency_id: 0,
-            }),
-        };
-    },
-};
+        data() {
+            return {
+                offerTypes: [
+                    {id: 1, name: "Sadece ilan olarak yayınla"},
+                    {id: 2, name: "Sadece iş ortaklarım teklif verebilsin"},
+                    {id: 3, name: "Herkes teklif verebilsin"},
+                ],
+                districts: [],
+                form: this.$inertia.form({
+                    title: "",
+                    description: "",
+                    country_id: 1,
+                    sector_id: this.companySector,
+                    files: [],
+                    category_id: null,
+                    district_id: null,
+                    city_id: null,
+                    offer_type: null,
+                    status_id: null,
+                    price: null,
+                    fields: [],
+                    currency_id: 0,
+                }),
+            };
+        },
+    };
 </script>

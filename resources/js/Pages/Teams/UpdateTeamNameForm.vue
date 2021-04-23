@@ -40,10 +40,10 @@
                 <jet-label for="description" value="Şirket Açıklaması"/>
 
                 <jet-textarea id="description"
-                           type="text"
-                           class="mt-1 block w-full min-h-200"
-                           v-model="form.description"
-                           :disabled="!permissions.canUpdateTeam"/>
+                              type="text"
+                              class="mt-1 block w-full min-h-200"
+                              v-model="form.description"
+                              :disabled="!permissions.canUpdateTeam"/>
 
                 <jet-input-error :message="form.errors.description" class="mt-2"/>
             </div>
@@ -59,6 +59,14 @@
 
 
                 <jet-input-error :message="form.errors.type_id" class="mt-2"/>
+            </div>
+
+            <div class="col-span-6 sm:col-span-4">
+
+
+                <image-upload @imageLoaded="imageLoaded"/>
+                <show-uploaded-image :images="images"/>
+
             </div>
 
 
@@ -156,9 +164,13 @@
 
     import axios from "axios";
     import JetTextarea from "@/Jetstream/Textarea";
+    import ImageUpload from "@/Pages/Bids/ImageUpload";
+    import ShowUploadedImage from "@/Components/UI/ShowUploadedImage";
 
     export default {
         components: {
+            ShowUploadedImage,
+            ImageUpload,
             JetTextarea,
             JetActionMessage,
             JetButton,
@@ -168,7 +180,7 @@
             JetLabel,
         },
 
-        props: ['team', 'permissions', 'types', 'cities', 'countries', 'sectors'],
+        props: ['team', 'permissions', 'types', 'cities', 'countries', 'sectors', 'images'],
 
         data() {
             return {
@@ -183,6 +195,7 @@
                     country_id: this.team.country_id,
                     type_id: this.team.type_id,
                     district_id: this.team.district_id,
+                    files: [],
                 })
             }
         },
@@ -194,6 +207,9 @@
 
         },
         methods: {
+            imageLoaded(files) {
+                this.form.files = files;
+            },
             districtLoad() {
                 this.districts = [];
                 axios.get(route('location.district', this.form.city_id)).then(page => {

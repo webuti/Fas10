@@ -81,9 +81,11 @@ class ImageUploadController extends Controller
      * @param \App\Models\Image $image
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Image $image)
+    public function destroy(Image $image,Request $request)
     {
-        //
+
+        Image::where('id',$request->input('id'))->where('team_id',Auth::user()->current_team_id)->delete();
+
     }
 
     public function imageUpload()
@@ -99,7 +101,7 @@ class ImageUploadController extends Controller
     {
 
         $request->validate([
-            'files' => 'required|mimes:jpg,jpeg,png|max:2048'
+            'files' => 'required|image|mimes:jpg,jpeg,png|max:4096'
         ]);
 
         if ($request->hasFile('files')) {
@@ -108,6 +110,7 @@ class ImageUploadController extends Controller
 
             $folder = Auth::user()->id;
             $file->storeAs('uploads/tmp/' . $folder, $filename);
+
 
 
             return $folder . '/' . $filename;

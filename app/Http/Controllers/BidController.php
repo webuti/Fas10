@@ -201,7 +201,7 @@ class BidController extends Controller
         return Inertia::render('Bids/Edit', [
             'bid' => $bid,
             'sectors' => Sector::get(),
-            'images' => Image::where('bid_id', $bid->id)->get()->pluck('image'),
+            'images' => Image::where('bid_id', $bid->id)->where('team_id', Auth::user()->current_team_id)->get(),
             'companySector' => Team::currentTeamSectorId(),
             'cities' => City::all(),
             'countries' => Country::all(),
@@ -229,7 +229,7 @@ class BidController extends Controller
 
             $request->session()->flash('message', 'İlan başarılı olarak güncellendi');
         }
-        return Redirect::route('bids.show', $bid->id);
+        return Redirect::route('bids.edit', $bid->id);
     }
 
     /**

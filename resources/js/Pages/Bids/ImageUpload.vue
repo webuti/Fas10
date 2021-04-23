@@ -5,6 +5,7 @@
                    v-bind:files="myFiles"
                    v-on:input="handleFilePondUpdateFile"
                    v-model="files"
+                   :label-idle="message"
                    accepted-file-types="image/jpeg, image/png" name="files"
         />
 
@@ -24,10 +25,9 @@
 
     export default {
         name: "ImageUpload",
-        props: ['myFiles'],
+        props: ['myFiles', 'message'],
         data() {
             return {
-
                 files: [],
                 uploadedFiles: []
             }

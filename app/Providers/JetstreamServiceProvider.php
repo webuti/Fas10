@@ -12,6 +12,7 @@ use App\Actions\Jetstream\UpdateTeamName;
 use App\Models\City;
 use App\Models\Country;
 use App\Models\District;
+use App\Models\Image;
 use App\Models\Service;
 use App\Models\Sector;
 use App\Models\Team;
@@ -63,6 +64,7 @@ class JetstreamServiceProvider extends ServiceProvider
                     'countries' => Country::get(),
                     'services' => Service::get(),
                     'types' => TeamType::get(),
+                    'images' => Image::where('type_id',2)->where('team_id', Auth::user()->current_team_id)->get(),
                     'companyServices' => $data["team"]->where('id', Auth::user()->current_team_id)->with('services')->get()->pluck('services')->toArray(),
                     'sectors' => Sector::get(),
                 ]);

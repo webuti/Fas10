@@ -100,6 +100,11 @@ class Team extends JetstreamTeam
         return $query->where('teams.sector_id', $id);
     }
 
+    public function images()
+    {
+        return $this->hasMany(Image::class, 'team_id', 'id');
+    }
+
     public function scopePartnerList($query)
     {
 
