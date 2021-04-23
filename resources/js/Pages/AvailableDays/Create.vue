@@ -53,7 +53,7 @@
                         <li class="bg-white dark:bg-gray-600 border border-gray-300 shadow flex p-3  rounded-md justify-between"
                             v-for="item in dates.data">
                             <div class="justify-between items-center  space-x-1 flex">       <span
-                                class="border border-blue-400  bg-blue-200 text-blue-600 px-2 font-bold   flex rounded-full text-sm items-center  ">
+                                class="  bg-green-100 text-green-600 px-2 font-bold   flex rounded-full text-sm items-center  ">
                             Müsait</span>
                                 <h2 class="text-sm">{{item.date}}</h2>
                             </div>
