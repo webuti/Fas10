@@ -31,7 +31,7 @@
     },
     "dependencies": {
         "dayjs": "^1.10.4",
-        "filepond": "^4.25.2",
+        "filepond": "^4.32.8",
         "filepond-plugin-image-preview": "^4.6.5",
         "litepie-datepicker": "^1.0.14",
         "qs": "^6.10.3",
