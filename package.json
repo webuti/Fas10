@@ -34,7 +34,7 @@
         "filepond": "^4.25.2",
         "filepond-plugin-image-preview": "^4.6.5",
         "litepie-datepicker": "^1.0.14",
-        "qs": "^6.14.2",
+        "qs": "^6.17.0",
         "vue-filepond": "^7.0.4"
     }
 }
